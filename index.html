@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="Muhalab Salah - مصمم جرافيك ومطور ويب محترف. متخصص في تصميم العلامات التجارية وتطوير المواقع للشركات الكبرى.">
     <meta name="keywords" content="Muhalab Salah, مهلب صلاح, مصمم جرافيك, مطور ويب, تصميم شعارات, هوية بصرية, تطوير مواقع, وظائف, شركات كبرى, تصميم UI/UX, تطوير تطبيقات, هوية تجارية, تسويق رقمي">
     <meta property="og:title" content="Muhalab Salah | مصمم جرافيك ومطور ويب للشركات الكبرى">
@@ -20,6 +20,14 @@
       gtag('js', new Date());
       gtag('config', 'G-4DCQ93RDL9');
     </script>
+    
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "t5mcxxmzje");
+</script>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -80,21 +88,23 @@
             --dark-bg: #0f172a;
             --dark-card: #1e293b;
             --dark-border: #334155;
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2rem;
-            --spacing-xl: 3rem;
-            --spacing-xxl: 4rem;
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-xxl: 3rem;
             --border-radius: 8px;
             --border-radius-lg: 12px;
             --border-radius-xl: 16px;
-            --max-width: 1400px;
+            --max-width: 100%;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --navbar-height: 56px;
+            --bottom-nav-height: 56px;
         }
         [data-theme="dark"] {
             --primary: #f1f5f9;
@@ -104,26 +114,42 @@
             --light-card: #1e293b;
             --light-border: #334155;
         }
+        
+        /* Base reset and mobile-first styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        
         body {
             font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--light-bg);
             color: var(--primary);
-            line-height: 1.6;
+            line-height: 1.5;
             overflow-x: hidden;
             transition: var(--transition);
+            padding-bottom: var(--bottom-nav-height);
+            width: 100%;
+            max-width: 100vw;
         }
+        
         body[dir="ltr"] {
             font-family: 'Inter', 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
         }
+        
         .container {
-            max-width: var(--max-width);
+            width: 100%;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 0 var(--spacing-lg);
+            padding: 0 var(--spacing-md);
+            overflow: hidden;
         }
         
         /* Loading Spinner */
@@ -145,9 +171,9 @@
             visibility: hidden;
         }
         .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(37, 99, 235, 0.2);
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(37, 99, 235, 0.2);
             border-radius: 50%;
             border-top-color: var(--brand-blue);
             animation: spin 1s ease-in-out infinite;
@@ -168,83 +194,48 @@
             transition: width 0.3s ease;
         }
         
-        /* Navigation */
-        nav {
+        /* Top Navigation */
+        .top-nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
+            height: var(--navbar-height);
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: var(--spacing-md) 0;
+            padding: 0 var(--spacing-md);
             border-bottom: 1px solid var(--light-border);
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
         }
-        [data-theme="dark"] nav {
+        [data-theme="dark"] .top-nav {
             background: rgba(15, 23, 42, 0.95);
             border-bottom-color: var(--dark-border);
         }
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 var(--spacing-lg);
-        }
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 800;
             background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-purple) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            flex-shrink: 0;
-        }
-        .nav-links {
-            display: flex;
-            gap: var(--spacing-lg);
-            list-style: none;
-            align-items: center;
-            flex: 1;
-            justify-content: center;
-        }
-        .nav-links a {
-            font-weight: 500;
-            color: var(--primary);
-            position: relative;
-            transition: var(--transition);
             white-space: nowrap;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--brand-blue);
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--brand-blue);
-            transition: width 0.3s ease;
-        }
-        .nav-links a:hover::after, .nav-links a.active::after {
-            width: 100%;
         }
         .nav-actions {
             display: flex;
             gap: var(--spacing-sm);
             align-items: center;
-            flex-shrink: 0;
         }
-        .theme-toggle, .lang-toggle, .mobile-menu-toggle {
+        .theme-toggle, .lang-toggle {
             background: none;
             border: 1px solid var(--light-border);
             border-radius: var(--border-radius);
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -253,21 +244,69 @@
             transition: var(--transition);
             flex-shrink: 0;
         }
-        .theme-toggle:hover, .lang-toggle:hover, .mobile-menu-toggle:hover {
+        .theme-toggle:hover, .lang-toggle:hover {
             background: var(--light-card);
             border-color: var(--brand-blue);
             color: var(--brand-blue);
         }
-        .mobile-menu-toggle {
-            display: none;
+        
+        /* Bottom Navigation - Mobile App Style */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: var(--bottom-nav-height);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-top: 1px solid var(--light-border);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            transition: var(--transition);
+            width: 100%;
+        }
+        [data-theme="dark"] .bottom-nav {
+            background: rgba(15, 23, 42, 0.98);
+            border-top-color: var(--dark-border);
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 0.65rem;
+            transition: var(--transition);
+            cursor: pointer;
+            padding: var(--spacing-xs);
+            border-radius: var(--border-radius);
+            text-align: center;
+            width: 20%;
+            height: 100%;
+            flex: 1;
+        }
+        .nav-item.active {
+            color: var(--brand-blue);
+        }
+        .nav-item i {
+            font-size: 1rem;
+            margin-bottom: 0.1rem;
+        }
+        .nav-item:hover {
+            background: rgba(37, 99, 235, 0.1);
+        }
+        .nav-item.active:hover {
+            background: rgba(37, 99, 235, 0.2);
         }
         
         /* Mobile Menu */
         .mobile-menu {
             position: fixed;
             top: 0;
-            right: -300px;
-            width: 300px;
+            right: -280px;
+            width: 280px;
             height: 100vh;
             background: var(--light-card);
             box-shadow: var(--shadow-xl);
@@ -278,7 +317,7 @@
         }
         body[dir="ltr"] .mobile-menu {
             right: auto;
-            left: -300px;
+            left: -280px;
         }
         body[dir="ltr"] .mobile-menu.active {
             left: 0;
@@ -312,6 +351,7 @@
             font-weight: 500;
             border-radius: var(--border-radius);
             transition: var(--transition);
+            text-decoration: none;
         }
         .mobile-menu-links a:hover, .mobile-menu-links a.active {
             background: rgba(37, 99, 235, 0.1);
@@ -334,67 +374,61 @@
             visibility: visible;
         }
         
-        /* Hero Section */
+        /* Hero Section - Mobile App Style */
         .hero {
-            margin-top: 80px;
-            padding: var(--spacing-xxl) 0;
+            margin-top: var(--navbar-height);
+            padding: var(--spacing-lg) 0;
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             position: relative;
             overflow: hidden;
+            width: 100%;
         }
         [data-theme="dark"] .hero {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
         }
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-xl);
-            align-items: center;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 var(--spacing-lg);
+        .hero-content {
+            text-align: center;
+            padding: var(--spacing-md);
+            width: 100%;
         }
         .hero-content h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: 1.5rem;
             line-height: 1.2;
             margin-bottom: var(--spacing-md);
             color: var(--primary);
-            text-align: right;
-        }
-        body[dir="ltr"] .hero-content h1 {
-            text-align: left;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 0.9rem;
             color: var(--secondary);
             margin-bottom: var(--spacing-lg);
-            text-align: right;
-        }
-        body[dir="ltr"] .hero-subtitle {
-            text-align: left;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
         }
         .hero-badges {
             display: flex;
             flex-wrap: wrap;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-xl);
-            justify-content: flex-start;
-        }
-        body[dir="ltr"] .hero-badges {
-            justify-content: flex-start;
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-lg);
+            justify-content: center;
+            width: 100%;
         }
         .badge {
-            padding: var(--spacing-xs) var(--spacing-md);
+            padding: 0.25rem 0.6rem;
             background: var(--light-card);
             border: 1px solid var(--light-border);
             border-radius: 50px;
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             font-weight: 500;
             color: var(--primary);
             display: flex;
             align-items: center;
             gap: var(--spacing-xs);
             transition: var(--transition);
+            white-space: nowrap;
         }
         .badge:hover {
             transform: translateY(-2px);
@@ -402,84 +436,89 @@
         }
         .badge i {
             color: var(--brand-blue);
+            font-size: 0.75rem;
         }
         .hero-cta {
             display: flex;
-            gap: var(--spacing-md);
+            gap: var(--spacing-sm);
             flex-wrap: wrap;
-            justify-content: flex-start;
-        }
-        body[dir="ltr"] .hero-cta {
-            justify-content: flex-start;
+            justify-content: center;
+            margin-bottom: var(--spacing-lg);
+            width: 100%;
         }
         .hero-image {
-            position: relative;
             display: flex;
             justify-content: center;
-            align-items: center;
+            margin-top: var(--spacing-md);
+            width: 100%;
         }
         .profile-card {
             background: var(--light-card);
             border-radius: var(--border-radius-xl);
-            padding: var(--spacing-xl);
+            padding: var(--spacing-md);
             box-shadow: var(--shadow-xl);
             position: relative;
             overflow: hidden;
-            max-width: 500px;
+            max-width: 300px;
             width: 100%;
         }
         .profile-image {
-            width: 200px;
-            height: 200px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto var(--spacing-lg);
+            margin: 0 auto var(--spacing-md);
             display: block;
-            border: 4px solid var(--brand-blue);
+            border: 3px solid var(--brand-blue);
         }
         .profile-info {
             text-align: center;
         }
         .profile-name {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: var(--spacing-xs);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         .profile-title {
             color: var(--brand-blue);
             font-weight: 500;
             margin-bottom: var(--spacing-md);
+            font-size: 0.85rem;
+            line-height: 1.3;
         }
         .profile-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-lg);
-            padding-top: var(--spacing-lg);
+            gap: var(--spacing-xs);
+            margin-top: var(--spacing-md);
+            padding-top: var(--spacing-md);
             border-top: 1px solid var(--light-border);
         }
         .stat {
             text-align: center;
         }
         .stat-number {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--brand-blue);
         }
         .stat-label {
-            font-size: 0.875rem;
+            font-size: 0.7rem;
             color: var(--secondary);
+            line-height: 1.2;
         }
         
-        /* Buttons */
+        /* Buttons - Mobile App Style */
         .btn {
             display: inline-flex;
             align-items: center;
             gap: var(--spacing-xs);
-            padding: var(--spacing-sm) var(--spacing-lg);
-            border-radius: var(--border-radius);
+            padding: 0.6rem 1rem;
+            border-radius: var(--border-radius-lg);
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.85rem;
             transition: var(--transition);
             cursor: pointer;
             border: none;
@@ -487,6 +526,8 @@
             position: relative;
             overflow: hidden;
             white-space: nowrap;
+            box-shadow: var(--shadow-md);
+            flex-shrink: 0;
         }
         .btn::before {
             content: '';
@@ -505,7 +546,6 @@
         .btn-primary {
             background: var(--brand-blue);
             color: white;
-            box-shadow: var(--shadow-md);
         }
         .btn-primary:hover {
             background: var(--brand-blue-light);
@@ -515,7 +555,6 @@
         .btn-secondary {
             background: var(--brand-purple);
             color: white;
-            box-shadow: var(--shadow-md);
         }
         .btn-secondary:hover {
             transform: translateY(-2px);
@@ -525,199 +564,213 @@
             background: transparent;
             color: var(--brand-blue);
             border: 2px solid var(--brand-blue);
+            box-shadow: none;
         }
         .btn-outline:hover {
             background: var(--brand-blue);
             color: white;
         }
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
         
-        /* Expertise Section */
-        .expertise {
-            padding: var(--spacing-xxl) 0;
+        /* Section Headers - Mobile App Style */
+        .section {
+            padding: var(--spacing-lg) 0;
             background: var(--light-bg);
+            width: 100%;
+            overflow: hidden;
         }
         .section-header {
             text-align: center;
-            margin-bottom: var(--spacing-xl);
-            max-width: var(--max-width);
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            padding: 0 var(--spacing-md);
+            width: 100%;
         }
         .section-title {
-            font-size: 2.5rem;
+            font-size: 1.3rem;
             margin-bottom: var(--spacing-md);
             position: relative;
             display: inline-block;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -6px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
+            width: 40px;
+            height: 3px;
             background: var(--brand-blue);
             border-radius: 2px;
         }
         .section-subtitle {
             color: var(--secondary);
-            max-width: 600px;
+            max-width: 100%;
             margin: 0 auto;
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-lg);
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 var(--spacing-lg);
-        }
-        .expertise-card {
+        
+        /* Cards - Mobile App Style */
+        .card {
             background: var(--light-card);
             border-radius: var(--border-radius-lg);
-            padding: var(--spacing-xl);
+            padding: var(--spacing-md);
             box-shadow: var(--shadow-md);
             transition: var(--transition);
             border: 1px solid var(--light-border);
+            margin-bottom: var(--spacing-md);
             position: relative;
             overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+            width: 100%;
         }
-        .expertise-card::before {
+        .card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 3px;
             background: var(--brand-blue);
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
-        .expertise-card:hover::before {
+        .card:hover::before {
             transform: scaleX(1);
         }
-        .expertise-card:hover {
-            transform: translateY(-5px);
+        .card:hover {
+            transform: translateY(-3px);
             box-shadow: var(--shadow-xl);
         }
-        .expertise-icon {
-            width: 60px;
-            height: 60px;
+        .card-icon {
+            width: 40px;
+            height: 40px;
             background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-purple) 100%);
             border-radius: var(--border-radius-lg);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1rem;
             margin-bottom: var(--spacing-md);
             flex-shrink: 0;
         }
-        .expertise-title {
-            font-size: 1.25rem;
+        .card-title {
+            font-size: 1rem;
             margin-bottom: var(--spacing-sm);
             color: var(--primary);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
-        .expertise-description {
+        .card-description {
             color: var(--secondary);
-            line-height: 1.6;
-            flex-grow: 1;
+            line-height: 1.4;
+            font-size: 0.85rem;
+        }
+        
+        /* Expertise Section */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            width: 100%;
         }
         
         /* Experience Section */
-        .experience {
-            padding: var(--spacing-xxl) 0;
-            background: var(--light-bg);
-        }
         .experience-timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 0 var(--spacing-lg);
+            padding: 0 var(--spacing-md);
+            width: 100%;
         }
         .experience-timeline::before {
             content: '';
             position: absolute;
-            left: 50%;
+            left: 16px;
             top: 0;
             bottom: 0;
             width: 2px;
             background: var(--light-border);
-            transform: translateX(-50%);
         }
         .timeline-item {
             position: relative;
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+            padding-right: var(--spacing-md);
+            width: 100%;
         }
         .timeline-content {
             background: var(--light-card);
             border-radius: var(--border-radius-lg);
-            padding: var(--spacing-lg);
+            padding: var(--spacing-md);
             box-shadow: var(--shadow-md);
-            width: calc(50% - var(--spacing-xl));
-            position: relative;
+            margin-right: 40px;
             border: 1px solid var(--light-border);
-        }
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-left: auto;
+            width: calc(100% - 40px);
         }
         .timeline-date {
             position: absolute;
             top: var(--spacing-md);
+            right: 0;
             font-weight: 600;
             color: var(--brand-blue);
-            font-size: 0.875rem;
-        }
-        .timeline-item:nth-child(odd) .timeline-date {
-            right: calc(100% + var(--spacing-md));
-        }
-        .timeline-item:nth-child(even) .timeline-date {
-            left: calc(100% + var(--spacing-md));
+            font-size: 0.75rem;
+            width: 32px;
+            text-align: center;
+            line-height: 1.2;
         }
         .timeline-dot {
             position: absolute;
-            top: var(--spacing-lg);
-            left: 50%;
-            width: 16px;
-            height: 16px;
+            top: var(--spacing-md);
+            left: 10px;
+            width: 12px;
+            height: 12px;
             background: var(--brand-blue);
             border-radius: 50%;
-            transform: translateX(-50%);
-            border: 4px solid var(--light-bg);
+            border: 3px solid var(--light-bg);
         }
         .timeline-title {
-            font-size: 1.125rem;
+            font-size: 0.95rem;
             font-weight: 600;
             margin-bottom: var(--spacing-xs);
             color: var(--primary);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         .timeline-company {
             color: var(--brand-blue);
             font-weight: 500;
             margin-bottom: var(--spacing-sm);
+            font-size: 0.85rem;
         }
         .timeline-description {
             color: var(--secondary);
-            font-size: 0.875rem;
+            font-size: 0.8rem;
+            line-height: 1.4;
         }
         
         /* Projects Section */
-        .projects {
-            padding: var(--spacing-xxl) 0;
-            background: var(--light-bg);
-        }
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--spacing-xl);
-            max-width: var(--max-width);
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            max-width: 100%;
             margin: 0 auto;
-            padding: 0 var(--spacing-lg);
+            padding: 0 var(--spacing-md);
+            width: 100%;
         }
         .project-card {
             background: var(--light-card);
@@ -726,36 +779,32 @@
             box-shadow: var(--shadow-md);
             transition: var(--transition);
             border: 1px solid var(--light-border);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+            width: 100%;
         }
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow-xl);
         }
         .project-image {
             width: 100%;
-            height: 200px;
+            height: 160px;
             object-fit: cover;
-            flex-shrink: 0;
         }
         .project-content {
-            padding: var(--spacing-lg);
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+            padding: var(--spacing-md);
         }
         .project-title {
-            font-size: 1.25rem;
+            font-size: 1rem;
             margin-bottom: var(--spacing-sm);
             color: var(--primary);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         .project-description {
             color: var(--secondary);
             margin-bottom: var(--spacing-md);
-            line-height: 1.6;
-            flex-grow: 1;
+            line-height: 1.4;
+            font-size: 0.85rem;
         }
         .project-tags {
             display: flex;
@@ -764,12 +813,13 @@
             margin-bottom: var(--spacing-md);
         }
         .project-tag {
-            padding: 0.25rem 0.75rem;
+            padding: 0.2rem 0.5rem;
             background: rgba(37, 99, 235, 0.1);
             color: var(--brand-blue);
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             font-weight: 500;
+            white-space: nowrap;
         }
         .project-link {
             color: var(--brand-blue);
@@ -778,26 +828,21 @@
             align-items: center;
             gap: var(--spacing-xs);
             transition: var(--transition);
-            margin-top: auto;
+            font-size: 0.85rem;
         }
         .project-link:hover {
             gap: var(--spacing-sm);
         }
         
         /* Case Studies Section */
-        .case-studies {
-            padding: var(--spacing-xxl) 0;
-            background: var(--light-bg);
-        }
-        .case-studies-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-lg);
-        }
         .case-studies-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: var(--spacing-xl);
+            gap: var(--spacing-md);
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            width: 100%;
         }
         .case-study-card {
             background: var(--light-card);
@@ -806,14 +851,15 @@
             box-shadow: var(--shadow-md);
             transition: var(--transition);
             border: 1px solid var(--light-border);
+            width: 100%;
         }
         .case-study-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow-xl);
         }
         .case-study-header {
             position: relative;
-            height: 300px;
+            height: 180px;
             overflow: hidden;
         }
         .case-study-image {
@@ -830,47 +876,50 @@
             background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7));
             display: flex;
             align-items: flex-end;
-            padding: var(--spacing-lg);
+            padding: var(--spacing-md);
         }
         .case-study-title {
             color: white;
-            font-size: 1.75rem;
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: var(--spacing-xs);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         .case-study-subtitle {
             color: rgba(255, 255, 255, 0.9);
-            font-size: 1.125rem;
+            font-size: 0.85rem;
         }
         .case-study-content {
-            padding: var(--spacing-xl);
+            padding: var(--spacing-md);
         }
         .case-study-description {
             color: var(--secondary);
-            margin-bottom: var(--spacing-lg);
-            line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.4;
+            font-size: 0.85rem;
         }
         .case-study-metrics {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-lg);
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
         }
         .metric {
             text-align: center;
-            padding: var(--spacing-md);
+            padding: var(--spacing-sm);
             background: rgba(37, 99, 235, 0.05);
             border-radius: var(--border-radius);
         }
         .metric-value {
-            font-size: 2rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--brand-blue);
-            margin-bottom: var(--spacing-xs);
         }
         .metric-label {
             color: var(--secondary);
-            font-size: 0.875rem;
+            font-size: 0.75rem;
+            line-height: 1.2;
         }
         .case-study-link {
             color: var(--brand-blue);
@@ -879,32 +928,29 @@
             align-items: center;
             gap: var(--spacing-xs);
             transition: var(--transition);
+            font-size: 0.85rem;
         }
         .case-study-link:hover {
             gap: var(--spacing-sm);
         }
         
         /* Skills Section */
-        .skills {
-            padding: var(--spacing-xxl) 0;
-            background: var(--light-bg);
-        }
-        .skills-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-lg);
-        }
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-lg);
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            width: 100%;
         }
         .skill-item {
             background: var(--light-card);
             border-radius: var(--border-radius);
-            padding: var(--spacing-lg);
+            padding: var(--spacing-md);
             border: 1px solid var(--light-border);
             transition: var(--transition);
+            width: 100%;
         }
         .skill-item:hover {
             transform: translateY(-2px);
@@ -922,60 +968,67 @@
             display: flex;
             align-items: center;
             gap: var(--spacing-sm);
+            font-size: 0.9rem;
         }
         .skill-icon {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--brand-blue);
+            flex-shrink: 0;
         }
         .skill-percentage {
             color: var(--brand-blue);
             font-weight: 600;
+            font-size: 0.85rem;
         }
         .skill-bar {
-            height: 8px;
+            height: 6px;
             background: var(--light-border);
-            border-radius: 4px;
+            border-radius: 3px;
             overflow: hidden;
+            width: 100%;
         }
         .skill-progress {
             height: 100%;
             background: linear-gradient(90deg, var(--brand-blue) 0%, var(--brand-purple) 100%);
-            border-radius: 4px;
+            border-radius: 3px;
             transition: width 1.5s ease;
             width: 0;
         }
         
         /* Blog Section */
-        .blog {
-            padding: var(--spacing-xxl) 0;
-            background: var(--light-bg);
-        }
         .blog-container {
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 0 var(--spacing-lg);
+            padding: 0 var(--spacing-md);
+            width: 100%;
         }
         .blog-categories {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-xl);
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-lg);
+            overflow-x: auto;
+            padding-bottom: var(--spacing-sm);
+            -webkit-overflow-scrolling: touch;
+            width: 100%;
         }
         .blog-category {
-            padding: var(--spacing-xs) var(--spacing-md);
+            padding: 0.3rem 0.7rem;
             background: var(--light-card);
             border: 1px solid var(--light-border);
             border-radius: 50px;
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             font-weight: 500;
             color: var(--primary);
             cursor: pointer;
             transition: var(--transition);
+            white-space: nowrap;
+            flex-shrink: 0;
         }
         .blog-category:hover, .blog-category.active {
             background: var(--brand-blue);
@@ -984,8 +1037,9 @@
         }
         .blog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--spacing-xl);
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            width: 100%;
         }
         .blog-card {
             background: var(--light-card);
@@ -994,41 +1048,37 @@
             box-shadow: var(--shadow-md);
             transition: var(--transition);
             border: 1px solid var(--light-border);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+            width: 100%;
         }
         .blog-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow-xl);
         }
         .blog-image {
             width: 100%;
-            height: 200px;
+            height: 160px;
             object-fit: cover;
-            flex-shrink: 0;
         }
         .blog-content {
-            padding: var(--spacing-lg);
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+            padding: var(--spacing-md);
         }
         .blog-date {
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             color: var(--secondary);
             margin-bottom: var(--spacing-sm);
         }
         .blog-title {
-            font-size: 1.25rem;
+            font-size: 1rem;
             margin-bottom: var(--spacing-sm);
             color: var(--primary);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         .blog-description {
             color: var(--secondary);
             margin-bottom: var(--spacing-md);
-            line-height: 1.6;
-            flex-grow: 1;
+            line-height: 1.4;
+            font-size: 0.85rem;
         }
         .blog-tags {
             display: flex;
@@ -1037,12 +1087,13 @@
             margin-bottom: var(--spacing-md);
         }
         .blog-tag {
-            padding: 0.25rem 0.75rem;
+            padding: 0.2rem 0.5rem;
             background: rgba(37, 99, 235, 0.1);
             color: var(--brand-blue);
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             font-weight: 500;
+            white-space: nowrap;
         }
         .blog-link {
             color: var(--brand-blue);
@@ -1051,7 +1102,7 @@
             align-items: center;
             gap: var(--spacing-xs);
             transition: var(--transition);
-            margin-top: auto;
+            font-size: 0.85rem;
         }
         .blog-link:hover {
             gap: var(--spacing-sm);
@@ -1061,33 +1112,32 @@
             align-items: center;
             gap: var(--spacing-xs);
             color: var(--secondary);
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             margin-top: var(--spacing-sm);
         }
         
         /* Calculator Section */
-        .calculator {
-            padding: var(--spacing-xxl) 0;
-            background: var(--light-bg);
-        }
         .calculator-container {
-            max-width: 800px;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 0 var(--spacing-lg);
+            padding: 0 var(--spacing-md);
+            width: 100%;
         }
         .calculator-form {
             background: var(--light-card);
             border-radius: var(--border-radius-xl);
-            padding: var(--spacing-xl);
+            padding: var(--spacing-md);
             box-shadow: var(--shadow-xl);
             border: 1px solid var(--light-border);
+            width: 100%;
         }
         .calculator-result {
             background: rgba(37, 99, 235, 0.1);
             border-radius: var(--border-radius-lg);
-            padding: var(--spacing-lg);
-            margin-top: var(--spacing-lg);
+            padding: var(--spacing-md);
+            margin-top: var(--spacing-md);
             display: none;
+            width: 100%;
         }
         .calculator-result.show {
             display: block;
@@ -1095,35 +1145,39 @@
         .calculator-result h3 {
             color: var(--brand-blue);
             margin-bottom: var(--spacing-sm);
+            font-size: 1rem;
         }
         .calculator-result p {
-            font-size: 1.25rem;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--primary);
         }
         
         /* Contact Section */
-        .contact {
-            padding: var(--spacing-xxl) 0;
-            background: var(--light-bg);
-        }
         .contact-container {
-            max-width: 800px;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 0 var(--spacing-lg);
+            padding: 0 var(--spacing-md);
+            width: 100%;
         }
         .contact-tabs {
             display: flex;
-            margin-bottom: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
             border-bottom: 1px solid var(--light-border);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            width: 100%;
         }
         .contact-tab {
-            padding: var(--spacing-md);
+            padding: var(--spacing-sm);
             font-weight: 600;
             color: var(--secondary);
             cursor: pointer;
             border-bottom: 2px solid transparent;
             transition: var(--transition);
+            white-space: nowrap;
+            font-size: 0.85rem;
+            flex-shrink: 0;
         }
         .contact-tab:hover, .contact-tab.active {
             color: var(--brand-blue);
@@ -1131,43 +1185,46 @@
         }
         .contact-tab-content {
             display: none;
+            width: 100%;
         }
         .contact-tab-content.active {
             display: block;
         }
-        .contact-form {
+        .contact-form, .booking-form {
             background: var(--light-card);
             border-radius: var(--border-radius-xl);
-            padding: var(--spacing-xl);
+            padding: var(--spacing-md);
             box-shadow: var(--shadow-xl);
             border: 1px solid var(--light-border);
+            width: 100%;
         }
         .form-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-md);
+            grid-template-columns: 1fr;
+            gap: var(--spacing-sm);
+            width: 100%;
         }
         .form-group {
-            margin-bottom: var(--spacing-md);
-        }
-        .form-group.full-width {
-            grid-column: 1 / -1;
+            margin-bottom: var(--spacing-sm);
+            width: 100%;
         }
         .form-label {
             display: block;
             margin-bottom: var(--spacing-xs);
             font-weight: 500;
             color: var(--primary);
+            font-size: 0.85rem;
         }
         .form-control {
             width: 100%;
-            padding: var(--spacing-sm);
+            padding: 0.6rem;
             border: 1px solid var(--light-border);
             border-radius: var(--border-radius);
-            font-size: 1rem;
+            font-size: 0.85rem;
             background: var(--light-bg);
             color: var(--primary);
             transition: var(--transition);
+            box-sizing: border-box;
         }
         .form-control:focus {
             outline: none;
@@ -1179,7 +1236,7 @@
         }
         .error-message {
             color: var(--warning);
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             margin-top: 0.25rem;
             display: none;
         }
@@ -1188,38 +1245,34 @@
         }
         textarea.form-control {
             resize: vertical;
-            min-height: 120px;
+            min-height: 80px;
         }
         .form-success {
             background: rgba(16, 185, 129, 0.1);
             color: var(--success);
-            padding: var(--spacing-md);
+            padding: var(--spacing-sm);
             border-radius: var(--border-radius);
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
             display: none;
+            font-size: 0.85rem;
         }
         .form-success.show {
             display: block;
         }
         
         /* Booking Form */
-        .booking-form {
-            background: var(--light-card);
-            border-radius: var(--border-radius-xl);
-            padding: var(--spacing-xl);
-            box-shadow: var(--shadow-xl);
-            border: 1px solid var(--light-border);
-        }
         .date-time-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-md);
+            grid-template-columns: 1fr;
+            gap: var(--spacing-sm);
+            width: 100%;
         }
         .service-options {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-md);
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            width: 100%;
         }
         .service-option {
             position: relative;
@@ -1230,13 +1283,16 @@
         }
         .service-option label {
             display: block;
-            padding: var(--spacing-md);
+            padding: var(--spacing-sm);
             background: var(--light-bg);
             border: 1px solid var(--light-border);
             border-radius: var(--border-radius);
             text-align: center;
             cursor: pointer;
             transition: var(--transition);
+            font-size: 0.8rem;
+            width: 100%;
+            box-sizing: border-box;
         }
         .service-option input[type="radio"]:checked + label {
             background: rgba(37, 99, 235, 0.1);
@@ -1248,27 +1304,31 @@
         footer {
             background: var(--primary);
             color: var(--accent);
-            padding: var(--spacing-xl) 0;
+            padding: var(--spacing-lg) 0;
             text-align: center;
+            margin-top: var(--spacing-lg);
+            width: 100%;
         }
         .footer-content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: var(--spacing-lg);
-            max-width: var(--max-width);
+            gap: var(--spacing-md);
+            max-width: 100%;
             margin: 0 auto;
-            padding: 0 var(--spacing-lg);
+            padding: 0 var(--spacing-md);
+            width: 100%;
         }
         .social-links {
             display: flex;
-            gap: var(--spacing-md);
+            gap: var(--spacing-sm);
             justify-content: center;
             flex-wrap: wrap;
+            width: 100%;
         }
         .social-link {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
@@ -1284,37 +1344,27 @@
         }
         .footer-links {
             display: flex;
-            gap: var(--spacing-lg);
+            gap: var(--spacing-md);
             justify-content: center;
             flex-wrap: wrap;
+            width: 100%;
         }
         .footer-link {
             color: var(--accent);
             transition: var(--transition);
+            font-size: 0.85rem;
         }
         .footer-link:hover {
             color: var(--brand-blue);
         }
         
-        /* Floating Contact */
-        .floating-contact {
+        /* Floating Action Button */
+        .fab {
             position: fixed;
-            bottom: var(--spacing-xl);
-            left: var(--spacing-xl);
-            z-index: 999;
-        }
-        body[dir="ltr"] .floating-contact {
-            left: auto;
-            right: var(--spacing-xl);
-        }
-        .contact-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-sm);
-        }
-        .contact-btn {
-            width: 50px;
-            height: 50px;
+            bottom: calc(var(--bottom-nav-height) + 12px);
+            left: 12px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background: var(--brand-blue);
             color: white;
@@ -1323,32 +1373,79 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: var(--transition);
             box-shadow: var(--shadow-lg);
-            flex-shrink: 0;
+            z-index: 999;
+            transition: var(--transition);
         }
-        .contact-btn:hover {
+        body[dir="ltr"] .fab {
+            left: auto;
+            right: 12px;
+        }
+        .fab:hover {
+            transform: scale(1.1);
+            background: var(--brand-blue-light);
+        }
+        .fab-menu {
+            position: fixed;
+            bottom: calc(var(--bottom-nav-height) + 64px);
+            left: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        body[dir="ltr"] .fab-menu {
+            left: auto;
+            right: 12px;
+        }
+        .fab-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .fab-option {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: white;
+            color: var(--primary);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+        .fab-option:hover {
             transform: scale(1.1);
         }
-        .contact-btn.whatsapp {
+        .fab-option.whatsapp {
             background: #25d366;
+            color: white;
         }
-        .contact-btn.email {
+        .fab-option.email {
             background: var(--brand-purple);
+            color: white;
         }
-        .contact-btn.telegram {
+        .fab-option.telegram {
             background: #0088cc;
+            color: white;
         }
         
         /* Notification */
         .notification {
             position: fixed;
-            top: 100px;
+            top: 70px;
             left: 50%;
             transform: translateX(-50%) translateY(-20px);
             background: var(--light-card);
             color: var(--primary);
-            padding: var(--spacing-md) var(--spacing-lg);
+            padding: var(--spacing-sm) var(--spacing-md);
             border-radius: var(--border-radius-lg);
             box-shadow: var(--shadow-xl);
             z-index: 1002;
@@ -1358,6 +1455,8 @@
             max-width: 90%;
             text-align: center;
             border: 1px solid var(--light-border);
+            font-size: 0.85rem;
+            box-sizing: border-box;
         }
         .notification.show {
             opacity: 1;
@@ -1385,7 +1484,7 @@
         /* Animations */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
         .fade-in.visible {
@@ -1396,11 +1495,9 @@
         /* Responsive Design */
         @media (max-width: 1200px) {
             .container,
-            .nav-container,
-            .hero-grid,
+            .section-header,
             .expertise-grid,
             .projects-grid,
-            .section-header,
             .experience-timeline,
             .skills-container,
             .contact-container,
@@ -1412,112 +1509,163 @@
                 padding-right: var(--spacing-md);
             }
         }
-        @media (max-width: 992px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-lg);
-            }
-            .hero-image {
-                order: -1;
-            }
-            .profile-card {
-                max-width: 400px;
-            }
-            .profile-image {
-                width: 150px;
-                height: 150px;
-            }
+        
+        @media (min-width: 768px) {
             .expertise-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-            .projects-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            }
-            .blog-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            }
-            .case-study-metrics {
                 grid-template-columns: repeat(2, 1fr);
             }
-        }
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .mobile-menu-toggle {
-                display: flex;
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .date-time-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .service-options {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .case-study-metrics {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            /* Adjust sizes for tablets */
             .hero-content h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             .hero-subtitle {
                 font-size: 1rem;
             }
-            .hero-badges {
-                justify-content: center;
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .card-title {
+                font-size: 1.1rem;
+            }
+            .btn {
+                font-size: 0.9rem;
+                padding: 0.7rem 1.2rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .expertise-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .blog-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .hero-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: var(--spacing-xl);
+                align-items: center;
+            }
+            .hero-content {
+                text-align: right;
+            }
+            body[dir="ltr"] .hero-content {
+                text-align: left;
             }
             .hero-cta {
-                justify-content: center;
+                justify-content: flex-start;
+            }
+            body[dir="ltr"] .hero-cta {
+                justify-content: flex-start;
+            }
+            .hero-badges {
+                justify-content: flex-start;
+            }
+            body[dir="ltr"] .hero-badges {
+                justify-content: flex-start;
+            }
+            .hero-image {
+                order: 2;
+            }
+            
+            /* Adjust sizes for desktop */
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .card-title {
+                font-size: 1.2rem;
+            }
+            .btn {
+                font-size: 0.95rem;
+                padding: 0.8rem 1.3rem;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .hero-content h1 {
+                font-size: 1.4rem;
+            }
+            .hero-subtitle {
+                font-size: 0.85rem;
             }
             .profile-card {
-                padding: var(--spacing-lg);
+                padding: var(--spacing-md);
             }
-            .profile-stats {
-                grid-template-columns: repeat(3, 1fr);
-                gap: var(--spacing-sm);
+            .profile-image {
+                width: 90px;
+                height: 90px;
             }
             .timeline-content {
-                width: 100% !important;
-                margin-left: 0 !important;
+                margin-right: 40px;
+                width: calc(100% - 40px);
             }
-            .timeline-date {
-                position: static !important;
-                margin-bottom: var(--spacing-xs);
+            body[dir="ltr"] .timeline-content {
+                margin-right: 0;
+                margin-left: 40px;
             }
             .timeline-dot {
-                display: none;
+                left: 10px;
             }
-            .form-grid {
-                grid-template-columns: 1fr;
+            body[dir="ltr"] .timeline-dot {
+                left: auto;
+                right: 10px;
             }
-            .date-time-grid {
-                grid-template-columns: 1fr;
+            .section-title {
+                font-size: 1.2rem;
+            }
+            .case-study-metrics {
+                grid-template-columns: repeat(2, 1fr);
             }
             .service-options {
                 grid-template-columns: 1fr;
             }
-            .floating-contact {
-                bottom: var(--spacing-md);
-                left: var(--spacing-md);
+            
+            /* Adjust mobile specific sizes */
+            .badge {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.5rem;
             }
-            body[dir="ltr"] .floating-contact {
-                left: auto;
-                right: var(--spacing-md);
+            .nav-item {
+                font-size: 0.6rem;
             }
-            .contact-buttons {
-                flex-direction: row;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .expertise-grid,
-            .projects-grid,
-            .skills-grid,
-            .blog-grid,
-            .case-studies-grid {
-                grid-template-columns: 1fr;
-            }
-            .case-study-metrics {
-                grid-template-columns: 1fr;
+            .nav-item i {
+                font-size: 0.9rem;
             }
         }
+        
         @media (max-width: 480px) {
             .container,
-            .nav-container,
-            .hero-grid,
+            .section-header,
             .expertise-grid,
             .projects-grid,
-            .section-header,
             .experience-timeline,
             .skills-container,
             .contact-container,
@@ -1529,55 +1677,93 @@
                 padding-right: var(--spacing-sm);
             }
             .hero {
-                padding: var(--spacing-xl) 0;
+                padding: var(--spacing-md) 0;
             }
             .section {
-                padding: var(--spacing-xl) 0;
+                padding: var(--spacing-md) 0;
             }
             .hero-content h1 {
-                font-size: 1.75rem;
+                font-size: 1.2rem;
             }
             .profile-card {
-                padding: var(--spacing-md);
+                padding: var(--spacing-sm);
             }
             .profile-image {
-                width: 120px;
-                height: 120px;
+                width: 80px;
+                height: 80px;
             }
             .profile-stats {
                 grid-template-columns: repeat(3, 1fr);
                 gap: var(--spacing-xs);
             }
             .stat-number {
-                font-size: 1.25rem;
+                font-size: 1rem;
             }
             .stat-label {
-                font-size: 0.75rem;
+                font-size: 0.65rem;
             }
             .btn {
-                padding: var(--spacing-xs) var(--spacing-md);
-                font-size: 0.875rem;
+                padding: 0.5rem 0.9rem;
+                font-size: 0.8rem;
             }
-            .expertise-card,
+            .card,
             .timeline-content,
             .contact-form,
             .calculator-form,
             .booking-form,
             .blog-card,
             .case-study-card {
-                padding: var(--spacing-md);
+                padding: var(--spacing-sm);
             }
             .social-link {
-                width: 35px;
-                height: 35px;
-            }
-            .contact-btn {
-                width: 45px;
-                height: 45px;
+                width: 30px;
+                height: 30px;
             }
             .footer-links {
                 flex-direction: column;
                 gap: var(--spacing-sm);
+            }
+            .nav-item {
+                font-size: 0.55rem;
+            }
+            .nav-item i {
+                font-size: 0.85rem;
+            }
+            .fab {
+                width: 40px;
+                height: 40px;
+                bottom: calc(var(--bottom-nav-height) + 10px);
+                left: 10px;
+            }
+            body[dir="ltr"] .fab {
+                left: auto;
+                right: 10px;
+            }
+            .fab-menu {
+                bottom: calc(var(--bottom-nav-height) + 58px);
+                left: 10px;
+            }
+            body[dir="ltr"] .fab-menu {
+                left: auto;
+                right: 10px;
+            }
+            .fab-option {
+                width: 36px;
+                height: 36px;
+            }
+            
+            /* Extra small adjustments */
+            .section-title::after {
+                width: 30px;
+                height: 2px;
+            }
+            .card-icon {
+                width: 36px;
+                height: 36px;
+            }
+            .skill-icon {
+                width: 18px;
+                height: 18px;
             }
         }
         
@@ -1585,26 +1771,21 @@
         body[dir="ltr"] {
             direction: ltr;
         }
-        body[dir="ltr"] .timeline-item:nth-child(odd) .timeline-content {
-            margin-left: 0;
-            margin-right: auto;
-        }
-        body[dir="ltr"] .timeline-item:nth-child(odd) .timeline-date {
-            right: auto;
-            left: calc(100% + var(--spacing-md));
-        }
-        body[dir="ltr"] .timeline-item:nth-child(even) .timeline-date {
-            left: auto;
-            right: calc(100% + var(--spacing-md));
+        body[dir="ltr"] .timeline-content {
+            margin-right: 0;
+            margin-left: 40px;
         }
         body[dir="ltr"] .timeline-dot {
             left: auto;
-            right: 50%;
-            transform: translateX(50%);
+            right: 10px;
         }
-        body[dir="ltr"] .floating-contact {
+        body[dir="ltr"] .fab {
             left: auto;
-            right: var(--spacing-xl);
+            right: 12px;
+        }
+        body[dir="ltr"] .fab-menu {
+            left: auto;
+            right: 12px;
         }
         body[dir="ltr"] .project-link i,
         body[dir="ltr"] .blog-link i,
@@ -1626,35 +1807,24 @@
     <div class="progress-bar" id="progressBar"></div>
     <!-- Notification -->
     <div class="notification" id="notification"></div>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">MS</div>
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-link active"><span class="ar">الرئيسية</span><span class="en">Home</span></a></li>
-                <li><a href="#expertise" class="nav-link"><span class="ar">الخبرات</span><span class="en">Expertise</span></a></li>
-                <li><a href="#experience" class="nav-link"><span class="ar">المسار المهني</span><span class="en">Experience</span></a></li>
-                <li><a href="#projects" class="nav-link"><span class="ar">المشاريع</span><span class="en">Projects</span></a></li>
-                <li><a href="#case-studies" class="nav-link"><span class="ar">دراسات الحالة</span><span class="en">Case Studies</span></a></li>
-                <li><a href="#skills" class="nav-link"><span class="ar">المهارات</span><span class="en">Skills</span></a></li>
-                <li><a href="#blog" class="nav-link"><span class="ar">المدونة</span><span class="en">Blog</span></a></li>
-                <li><a href="#calculator" class="nav-link"><span class="ar">حاسبة التكلفة</span><span class="en">Cost Calculator</span></a></li>
-                <li><a href="#contact" class="nav-link"><span class="ar">تواصل</span><span class="en">Contact</span></a></li>
-            </ul>
-            <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
-                    <span class="ar">EN</span>
-                    <span class="en">AR</span>
-                </button>
-                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+    
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="logo">MS</div>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+                <span class="ar">EN</span>
+                <span class="en">AR</span>
+            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
+    
     <!-- Mobile Menu -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
     <div class="mobile-menu" id="mobileMenu">
@@ -1676,9 +1846,11 @@
             <li><a href="#contact" class="mobile-nav-link"><span class="ar">تواصل</span><span class="en">Contact</span></a></li>
         </ul>
     </div>
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-grid">
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
             <div class="hero-content fade-in">
                 <h1>
                     <span class="ar">مهلب صلاح</span>
@@ -1762,268 +1934,270 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Expertise Section -->
-    <section id="expertise" class="expertise">
-        <div class="section-header fade-in">
-            <h2 class="section-title">
-                <span class="ar">مجالات الخبرة</span>
-                <span class="en">Areas of Expertise</span>
-            </h2>
-            <p class="section-subtitle">
-                <span class="ar">متخصص في تقديم حلول شاملة للشركات الكبرى في مجالات التصميم والتطوير</span>
-                <span class="en">Specialized in providing comprehensive solutions for enterprise companies in design and development</span>
-            </p>
-        </div>
-        <div class="expertise-grid">
-            <div class="expertise-card fade-in">
-                <div class="expertise-icon">
-                    <i class="fas fa-palette"></i>
-                </div>
-                <h3 class="expertise-title">
-                    <span class="ar">الهوية التجارية</span>
-                    <span class="en">Brand Identity</span>
-                </h3>
-                <p class="expertise-description">
-                    <span class="ar">تصميم هويات بصرية متكاملة للشركات الكبرى مع التركيز على القيم المؤسسية والتميز في السوق</span>
-                    <span class="en">Complete visual identity design for enterprise companies with focus on corporate values and market differentiation</span>
+        </section>
+        
+        <!-- Expertise Section -->
+        <section id="expertise" class="section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">
+                    <span class="ar">مجالات الخبرة</span>
+                    <span class="en">Areas of Expertise</span>
+                </h2>
+                <p class="section-subtitle">
+                    <span class="ar">متخصص في تقديم حلول شاملة للشركات الكبرى في مجالات التصميم والتطوير</span>
+                    <span class="en">Specialized in providing comprehensive solutions for enterprise companies in design and development</span>
                 </p>
             </div>
-            <div class="expertise-card fade-in">
-                <div class="expertise-icon">
-                    <i class="fas fa-code"></i>
+            <div class="expertise-grid">
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="card-title">
+                        <span class="ar">الهوية التجارية</span>
+                        <span class="en">Brand Identity</span>
+                    </h3>
+                    <p class="card-description">
+                        <span class="ar">تصميم هويات بصرية متكاملة للشركات الكبرى مع التركيز على القيم المؤسسية والتميز في السوق</span>
+                        <span class="en">Complete visual identity design for enterprise companies with focus on corporate values and market differentiation</span>
+                    </p>
                 </div>
-                <h3 class="expertise-title">
-                    <span class="ar">تطوير المؤسسات</span>
-                    <span class="en">Enterprise Development</span>
-                </h3>
-                <p class="expertise-description">
-                    <span class="ar">تطوير تطبيقات ومواقع ويب للمؤسسات الكبيرة مع التركيز على الأمان والتكامل</span>
-                    <span class="en">Developing web applications and sites for large enterprises with focus on security and integration</span>
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="card-title">
+                        <span class="ar">تطوير المؤسسات</span>
+                        <span class="en">Enterprise Development</span>
+                    </h3>
+                    <p class="card-description">
+                        <span class="ar">تطوير تطبيقات ومواقع ويب للمؤسسات الكبيرة مع التركيز على الأمان والتكامل</span>
+                        <span class="en">Developing web applications and sites for large enterprises with focus on security and integration</span>
+                    </p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="card-title">
+                        <span class="ar">تجربة المستخدم</span>
+                        <span class="en">User Experience</span>
+                    </h3>
+                    <p class="card-description">
+                        <span class="ar">تصميم تجارب مستخدم استثنائية للمنصات الرقمية مع التركيز على سهولة الاستخدام</span>
+                        <span class="en">Designing exceptional user experiences for digital platforms with focus on usability</span>
+                    </p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="card-title">
+                        <span class="ar">التسويق الرقمي</span>
+                        <span class="en">Digital Marketing</span>
+                    </h3>
+                    <p class="card-description">
+                        <span class="ar">استراتيجيات تسويق رقمي متكاملة للشركات الكبرى مع التركيز على العائد على الاستثمار</span>
+                        <span class="en">Comprehensive digital marketing strategies for enterprise companies with focus on ROI</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">
+                    <span class="ar">المسار المهني</span>
+                    <span class="en">Professional Journey</span>
+                </h2>
+                <p class="section-subtitle">
+                    <span class="ar">خبرة متنوعة في العمل مع الشركات الكبرى والمشاريع الضخمة</span>
+                    <span class="en">Diverse experience working with large companies and major projects</span>
                 </p>
             </div>
-            <div class="expertise-card fade-in">
-                <div class="expertise-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <h3 class="expertise-title">
-                    <span class="ar">تجربة المستخدم</span>
-                    <span class="en">User Experience</span>
-                </h3>
-                <p class="expertise-description">
-                    <span class="ar">تصميم تجارب مستخدم استثنائية للمنصات الرقمية مع التركيز على سهولة الاستخدام</span>
-                    <span class="en">Designing exceptional user experiences for digital platforms with focus on usability</span>
-                </p>
-            </div>
-            <div class="expertise-card fade-in">
-                <div class="expertise-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3 class="expertise-title">
-                    <span class="ar">التسويق الرقمي</span>
-                    <span class="en">Digital Marketing</span>
-                </h3>
-                <p class="expertise-description">
-                    <span class="ar">استراتيجيات تسويق رقمي متكاملة للشركات الكبرى مع التركيز على العائد على الاستثمار</span>
-                    <span class="en">Comprehensive digital marketing strategies for enterprise companies with focus on ROI</span>
-                </p>
-            </div>
-        </div>
-    </section>
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="section-header fade-in">
-            <h2 class="section-title">
-                <span class="ar">المسار المهني</span>
-                <span class="en">Professional Journey</span>
-            </h2>
-            <p class="section-subtitle">
-                <span class="ar">خبرة متنوعة في العمل مع الشركات الكبرى والمشاريع الضخمة</span>
-                <span class="en">Diverse experience working with large companies and major projects</span>
-            </p>
-        </div>
-        <div class="experience-timeline">
-            <div class="timeline-item fade-in">
-                <div class="timeline-content">
+            <div class="experience-timeline">
+                <div class="timeline-item fade-in">
                     <div class="timeline-date">
                         <span class="ar">2023 - الآن</span>
                         <span class="en">2023 - Present</span>
                     </div>
                     <div class="timeline-dot"></div>
-                    <h3 class="timeline-title">
-                        <span class="ar">مستشار تصميم وتطوير</span>
-                        <span class="en">Design & Development Consultant</span>
-                    </h3>
-                    <p class="timeline-company">
-                        <span class="ar">عمل مستقل للشركات الكبرى</span>
-                        <span class="en">Freelance for Enterprise Companies</span>
-                    </p>
-                    <p class="timeline-description">
-                        <span class="ar">تقديم استشارات تصميم وتطوير للشركات الكبرى في منطقة الشرق الأوسط وشمال إفريقيا</span>
-                        <span class="en">Providing design and development consulting for large companies in MENA region</span>
-                    </p>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">
+                            <span class="ar">مستشار تصميم وتطوير</span>
+                            <span class="en">Design & Development Consultant</span>
+                        </h3>
+                        <p class="timeline-company">
+                            <span class="ar">عمل مستقل للشركات الكبرى</span>
+                            <span class="en">Freelance for Enterprise Companies</span>
+                        </p>
+                        <p class="timeline-description">
+                            <span class="ar">تقديم استشارات تصميم وتطوير للشركات الكبرى في منطقة الشرق الأوسط وشمال إفريقيا</span>
+                            <span class="en">Providing design and development consulting for large companies in MENA region</span>
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="timeline-item fade-in">
-                <div class="timeline-content">
+                <div class="timeline-item fade-in">
                     <div class="timeline-date">
                         <span class="ar">2019 - 2023</span>
                         <span class="en">2019 - 2023</span>
                     </div>
                     <div class="timeline-dot"></div>
-                    <h3 class="timeline-title">
-                        <span class="ar">مصمم بصري أول</span>
-                        <span class="en">Senior Visual Designer</span>
-                    </h3>
-                    <p class="timeline-company">
-                        <span class="ar">شركة المدينة للصناعات الغذائية - عمان</span>
-                        <span class="en">Al Madina Food Industries - Oman</span>
-                    </p>
-                    <p class="timeline-description">
-                        <span class="ar">إدارة تصميم العلامات التجارية والتغليف للمشاريع الضخمة في أسواق الخليج</span>
-                        <span class="en">Managing brand design and packaging for large projects in Gulf markets</span>
-                    </p>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">
+                            <span class="ar">مصمم بصري أول</span>
+                            <span class="en">Senior Visual Designer</span>
+                        </h3>
+                        <p class="timeline-company">
+                            <span class="ar">شركة المدينة للصناعات الغذائية - عمان</span>
+                            <span class="en">Al Madina Food Industries - Oman</span>
+                        </p>
+                        <p class="timeline-description">
+                            <span class="ar">إدارة تصميم العلامات التجارية والتغليف للمشاريع الضخمة في أسواق الخليج</span>
+                            <span class="en">Managing brand design and packaging for large projects in Gulf markets</span>
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="timeline-item fade-in">
-                <div class="timeline-content">
+                <div class="timeline-item fade-in">
                     <div class="timeline-date">
                         <span class="ar">2015 - 2019</span>
                         <span class="en">2015 - 2019</span>
                     </div>
                     <div class="timeline-dot"></div>
-                    <h3 class="timeline-title">
-                        <span class="ar">مطور ويب ومصمم</span>
-                        <span class="en">Web Developer & Designer</span>
-                    </h3>
-                    <p class="timeline-company">
-                        <span class="ar">شركة ليوبارد للأنشطة المتعددة - السودان</span>
-                        <span class="en">Leopard Multi Activities - Sudan</span>
-                    </p>
-                    <p class="timeline-description">
-                        <span class="ar">تطوير مواقع وتصاميم للشركات الكبرى في قطاعات متعددة</span>
-                        <span class="en">Developing websites and designs for large companies in multiple sectors</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="section-header fade-in">
-            <h2 class="section-title">
-                <span class="ar">مشاريع مختارة</span>
-                <span class="en">Selected Projects</span>
-            </h2>
-            <p class="section-subtitle">
-                <span class="ar">نماذج من أعمالي مع الشركات الكبرى والمشاريع الضخمة</span>
-                <span class="en">Samples of my work with large companies and major projects</span>
-            </p>
-        </div>
-        <div class="projects-grid">
-            <div class="project-card fade-in">
-                <img 
-                    src="https://i.ibb.co/yBqdJfJw/themar.webp" 
-                    srcset="https://i.ibb.co/yBqdJfJw/themar.webp 1x, https://i.ibb.co/yBqdJfJw/themar.webp 2x" 
-                    alt="Brand Identity" 
-                    class="project-image" 
-                    loading="lazy"
-                >
-                <div class="project-content">
-                    <h3 class="project-title">
-                        <span class="ar">هوية تجارية متكاملة</span>
-                        <span class="en">Complete Brand Identity</span>
-                    </h3>
-                    <p class="project-description">
-                        <span class="ar">تصميم هوية تجارية متكاملة لشركة غذائية كبرى في منطقة الخليج</span>
-                        <span class="en">Complete brand identity for a large food company in the Gulf region</span>
-                    </p>
-                    <div class="project-tags">
-                        <span class="project-tag">Branding</span>
-                        <span class="project-tag">Packaging</span>
-                        <span class="project-tag">Strategy</span>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">
+                            <span class="ar">مطور ويب ومصمم</span>
+                            <span class="en">Web Developer & Designer</span>
+                        </h3>
+                        <p class="timeline-company">
+                            <span class="ar">شركة ليوبارد للأنشطة المتعددة - السودان</span>
+                            <span class="en">Leopard Multi Activities - Sudan</span>
+                        </p>
+                        <p class="timeline-description">
+                            <span class="ar">تطوير مواقع وتصاميم للشركات الكبرى في قطاعات متعددة</span>
+                            <span class="en">Developing websites and designs for large companies in multiple sectors</span>
+                        </p>
                     </div>
-                    <a href="#" class="project-link">
-                        <span class="ar">عرض التفاصيل</span>
-                        <span class="en">View Details</span>
-                        <i class="fas fa-arrow-left"></i>
-                    </a>
                 </div>
             </div>
-            <div class="project-card fade-in">
-                <img 
-                    src="https://i.ibb.co/FbkxpVjG/qarmash.webp" 
-                    srcset="https://i.ibb.co/FbkxpVjG/qarmash.webp 1x, https://i.ibb.co/FbkxpVjG/qarmash.webp 2x" 
-                    alt="Logo Design" 
-                    class="project-image" 
-                    loading="lazy"
-                >
-                <div class="project-content">
-                    <h3 class="project-title">
-                        <span class="ar">مجموعة شعارات</span>
-                        <span class="en">Logo Collection</span>
-                    </h3>
-                    <p class="project-description">
-                        <span class="ar">مجموعة شعارات لعلامات تجارية كبرى في قطاعات مختلفة</span>
-                        <span class="en">Logo collection for major brands in different sectors</span>
-                    </p>
-                    <div class="project-tags">
-                        <span class="project-tag">Logo Design</span>
-                        <span class="project-tag">Brand Strategy</span>
-                        <span class="project-tag">Visual Identity</span>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">
+                    <span class="ar">مشاريع مختارة</span>
+                    <span class="en">Selected Projects</span>
+                </h2>
+                <p class="section-subtitle">
+                    <span class="ar">نماذج من أعمالي مع الشركات الكبرى والمشاريع الضخمة</span>
+                    <span class="en">Samples of my work with large companies and major projects</span>
+                </p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <img 
+                        src="https://i.ibb.co/yBqdJfJw/themar.webp" 
+                        srcset="https://i.ibb.co/yBqdJfJw/themar.webp 1x, https://i.ibb.co/yBqdJfJw/themar.webp 2x" 
+                        alt="Brand Identity" 
+                        class="project-image" 
+                        loading="lazy"
+                    >
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <span class="ar">هوية تجارية متكاملة</span>
+                            <span class="en">Complete Brand Identity</span>
+                        </h3>
+                        <p class="project-description">
+                            <span class="ar">تصميم هوية تجارية متكاملة لشركة غذائية كبرى في منطقة الخليج</span>
+                            <span class="en">Complete brand identity for a large food company in the Gulf region</span>
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Branding</span>
+                            <span class="project-tag">Packaging</span>
+                            <span class="project-tag">Strategy</span>
+                        </div>
+                        <a href="#" class="project-link">
+                            <span class="ar">عرض التفاصيل</span>
+                            <span class="en">View Details</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
                     </div>
-                    <a href="#" class="project-link">
-                        <span class="ar">عرض التفاصيل</span>
-                        <span class="en">View Details</span>
-                        <i class="fas fa-arrow-left"></i>
-                    </a>
                 </div>
-            </div>
-            <div class="project-card fade-in">
-                <img 
-                    src="https://i.ibb.co/99yZHks8/ql.webp" 
-                    srcset="https://i.ibb.co/99yZHks8/ql.webp 1x, https://i.ibb.co/99yZHks8/ql.webp 2x" 
-                    alt="E-commerce" 
-                    class="project-image" 
-                    loading="lazy"
-                >
-                <div class="project-content">
-                    <h3 class="project-title">
-                        <span class="ar">منصة تجارة إلكترونية</span>
-                        <span class="en">E-commerce Platform</span>
-                    </h3>
-                    <p class="project-description">
-                        <span class="ar">تطوير منصة تجارة إلكترونية متكاملة لشركة تجارية كبرى</span>
-                        <span class="en">Developing a complete e-commerce platform for a large trading company</span>
-                    </p>
-                    <div class="project-tags">
-                        <span class="project-tag">Web Development</span>
-                        <span class="project-tag">UI/UX</span>
-                        <span class="project-tag">E-commerce</span>
+                <div class="project-card fade-in">
+                    <img 
+                        src="https://i.ibb.co/FbkxpVjG/qarmash.webp" 
+                        srcset="https://i.ibb.co/FbkxpVjG/qarmash.webp 1x, https://i.ibb.co/FbkxpVjG/qarmash.webp 2x" 
+                        alt="Logo Design" 
+                        class="project-image" 
+                        loading="lazy"
+                    >
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <span class="ar">مجموعة شعارات</span>
+                            <span class="en">Logo Collection</span>
+                        </h3>
+                        <p class="project-description">
+                            <span class="ar">مجموعة شعارات لعلامات تجارية كبرى في قطاعات مختلفة</span>
+                            <span class="en">Logo collection for major brands in different sectors</span>
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Logo Design</span>
+                            <span class="project-tag">Brand Strategy</span>
+                            <span class="project-tag">Visual Identity</span>
+                        </div>
+                        <a href="#" class="project-link">
+                            <span class="ar">عرض التفاصيل</span>
+                            <span class="en">View Details</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
                     </div>
-                    <a href="#" class="project-link">
-                        <span class="ar">عرض التفاصيل</span>
-                        <span class="en">View Details</span>
-                        <i class="fas fa-arrow-left"></i>
-                    </a>
+                </div>
+                <div class="project-card fade-in">
+                    <img 
+                        src="https://i.ibb.co/99yZHks8/ql.webp" 
+                        srcset="https://i.ibb.co/99yZHks8/ql.webp 1x, https://i.ibb.co/99yZHks8/ql.webp 2x" 
+                        alt="E-commerce" 
+                        class="project-image" 
+                        loading="lazy"
+                    >
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <span class="ar">منصة تجارة إلكترونية</span>
+                            <span class="en">E-commerce Platform</span>
+                        </h3>
+                        <p class="project-description">
+                            <span class="ar">تطوير منصة تجارة إلكترونية متكاملة لشركة تجارية كبرى</span>
+                            <span class="en">Developing a complete e-commerce platform for a large trading company</span>
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Web Development</span>
+                            <span class="project-tag">UI/UX</span>
+                            <span class="project-tag">E-commerce</span>
+                        </div>
+                        <a href="#" class="project-link">
+                            <span class="ar">عرض التفاصيل</span>
+                            <span class="en">View Details</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Case Studies Section -->
-    <section id="case-studies" class="case-studies">
-        <div class="section-header fade-in">
-            <h2 class="section-title">
-                <span class="ar">دراسات الحالة</span>
-                <span class="en">Case Studies</span>
-            </h2>
-            <p class="section-subtitle">
-                <span class="ar">أمثلة تفصيلية لمشاريع ناجحة مع نتائج قابلة للقياس</span>
-                <span class="en">Detailed examples of successful projects with measurable results</span>
-            </p>
-        </div>
-        <div class="case-studies-container">
+        </section>
+        
+        <!-- Case Studies Section -->
+        <section id="case-studies" class="section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">
+                    <span class="ar">دراسات الحالة</span>
+                    <span class="en">Case Studies</span>
+                </h2>
+                <p class="section-subtitle">
+                    <span class="ar">أمثلة تفصيلية لمشاريع ناجحة مع نتائج قابلة للقياس</span>
+                    <span class="en">Detailed examples of successful projects with measurable results</span>
+                </p>
+            </div>
             <div class="case-studies-grid">
                 <div class="case-study-card fade-in">
                     <div class="case-study-header">
@@ -2155,21 +2329,20 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="section-header fade-in">
-            <h2 class="section-title">
-                <span class="ar">المهارات التقنية</span>
-                <span class="en">Technical Skills</span>
-            </h2>
-            <p class="section-subtitle">
-                <span class="ar">مجموعة المهارات التي تمكنني من تقديم حلول متكاملة للشركات الكبرى</span>
-                <span class="en">Skills that enable me to provide comprehensive solutions for enterprise companies</span>
-            </p>
-        </div>
-        <div class="skills-container">
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">
+                    <span class="ar">المهارات التقنية</span>
+                    <span class="en">Technical Skills</span>
+                </h2>
+                <p class="section-subtitle">
+                    <span class="ar">مجموعة المهارات التي تمكنني من تقديم حلول متكاملة للشركات الكبرى</span>
+                    <span class="en">Skills that enable me to provide comprehensive solutions for enterprise companies</span>
+                </p>
+            </div>
             <div class="skills-grid">
                 <div class="skill-item fade-in">
                     <div class="skill-header">
@@ -2250,597 +2423,646 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Blog Section -->
-    <section id="blog" class="blog">
-        <div class="section-header fade-in">
-            <h2 class="section-title">
-                <span class="ar">المدونة</span>
-                <span class="en">Blog</span>
-            </h2>
-            <p class="section-subtitle">
-                <span class="ar">أحدث المقالات والمعلومات حول التصميم والتطوير</span>
-                <span class="en">Latest articles and information about design and development</span>
-            </p>
-        </div>
-        <div class="blog-container">
-            <div class="blog-categories">
-                <div class="blog-category active" data-category="all">
-                    <span class="ar">الكل</span>
-                    <span class="en">All</span>
-                </div>
-                <div class="blog-category" data-category="design">
-                    <span class="ar">تصميم</span>
-                    <span class="en">Design</span>
-                </div>
-                <div class="blog-category" data-category="development">
-                    <span class="ar">تطوير</span>
-                    <span class="en">Development</span>
-                </div>
-                <div class="blog-category" data-category="marketing">
-                    <span class="ar">تسويق</span>
-                    <span class="en">Marketing</span>
-                </div>
-            </div>
-            <div class="blog-grid">
-                <div class="blog-card fade-in" data-category="design">
-                    <img 
-                        src="https://i.ibb.co/4Jd8Jj1f/blog1.webp" 
-                        srcset="https://i.ibb.co/4Jd8Jj1f/blog1.webp 1x, https://i.ibb.co/4Jd8Jj1f/blog1.webp 2x" 
-                        alt="Blog Post" 
-                        class="blog-image" 
-                        loading="lazy"
-                    >
-                    <div class="blog-content">
-                        <p class="blog-date">15 يونيو 2023</p>
-                        <h3 class="blog-title">
-                            <span class="ar">أهمية الهوية البصرية للشركات الناشئة</span>
-                            <span class="en">The Importance of Visual Identity for Startups</span>
-                        </h3>
-                        <p class="blog-description">
-                            <span class="ar">الهوية البصرية هي أحد أهم العناصر التي تساعد الشركات الناشئة على التميز في السوق...</span>
-                            <span class="en">Visual identity is one of the most important elements that help startups stand out in the market...</span>
-                        </p>
-                        <div class="blog-tags">
-                            <span class="blog-tag">تصميم</span>
-                            <span class="blog-tag">هوية بصرية</span>
-                        </div>
-                        <a href="#" class="blog-link">
-                            <span class="ar">قراءة المزيد</span>
-                            <span class="en">Read More</span>
-                            <i class="fas fa-arrow-left"></i>
-                        </a>
-                        <div class="blog-comments">
-                            <i class="fas fa-comment"></i>
-                            <span>12</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-card fade-in" data-category="development">
-                    <img 
-                        src="https://i.ibb.co/6HfWQYtG/blog2.webp" 
-                        srcset="https://i.ibb.co/6HfWQYtG/blog2.webp 1x, https://i.ibb.co/6HfWQYtG/blog2.webp 2x" 
-                        alt="Blog Post" 
-                        class="blog-image" 
-                        loading="lazy"
-                    >
-                    <div class="blog-content">
-                        <p class="blog-date">22 مايو 2023</p>
-                        <h3 class="blog-title">
-                            <span class="ar">اتجاهات تصميم المواقع في 2023</span>
-                            <span class="en">Web Design Trends in 2023</span>
-                        </h3>
-                        <p class="blog-description">
-                            <span class="ar">يستمر تصميم المواقع في التطور مع ظهور تقنيات واتجاهات جديدة كل عام...</span>
-                            <span class="en">Web design continues to evolve with new technologies and trends emerging every year...</span>
-                        </p>
-                        <div class="blog-tags">
-                            <span class="blog-tag">تطوير</span>
-                            <span class="blog-tag">تصميم ويب</span>
-                        </div>
-                        <a href="#" class="blog-link">
-                            <span class="ar">قراءة المزيد</span>
-                            <span class="en">Read More</span>
-                            <i class="fas fa-arrow-left"></i>
-                        </a>
-                        <div class="blog-comments">
-                            <i class="fas fa-comment"></i>
-                            <span>8</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-card fade-in" data-category="design">
-                    <img 
-                        src="https://i.ibb.co/ZXK3Jq2W/blog3.webp" 
-                        srcset="https://i.ibb.co/ZXK3Jq2W/blog3.webp 1x, https://i.ibb.co/ZXK3Jq2W/blog3.webp 2x" 
-                        alt="Blog Post" 
-                        class="blog-image" 
-                        loading="lazy"
-                    >
-                    <div class="blog-content">
-                        <p class="blog-date">8 مايو 2023</p>
-                        <h3 class="blog-title">
-                            <span class="ar">كيف تختار المصمم المناسب لمشروعك</span>
-                            <span class="en">How to Choose the Right Designer for Your Project</span>
-                        </h3>
-                        <p class="blog-description">
-                            <span class="ar">اختيار المصمم المناسب لمشروعك يمكن أن يكون الفرق بين النجاح والفشل...</span>
-                            <span class="en">Choosing the right designer for your project can be the difference between success and failure...</span>
-                        </p>
-                        <div class="blog-tags">
-                            <span class="blog-tag">تصميم</span>
-                            <span class="blog-tag">نصائح</span>
-                        </div>
-                        <a href="#" class="blog-link">
-                            <span class="ar">قراءة المزيد</span>
-                            <span class="en">Read More</span>
-                            <i class="fas fa-arrow-left"></i>
-                        </a>
-                        <div class="blog-comments">
-                            <i class="fas fa-comment"></i>
-                            <span>15</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Calculator Section -->
-    <section id="calculator" class="calculator">
-        <div class="section-header fade-in">
-            <h2 class="section-title">
-                <span class="ar">حاسبة تكلفة المشروع</span>
-                <span class="en">Project Cost Calculator</span>
-            </h2>
-            <p class="section-subtitle">
-                <span class="ar">احصل على تقدير تقريبي لتكلفة مشروعك</span>
-                <span class="en">Get an approximate estimate of your project cost</span>
-            </p>
-        </div>
-        <div class="calculator-container">
-            <form class="calculator-form fade-in" id="calculatorForm">
-                <div class="form-group">
-                    <label class="form-label">
-                        <span class="ar">نوع المشروع</span>
-                        <span class="en">Project Type</span>
-                    </label>
-                    <select class="form-control" id="projectType" required>
-                        <option value="" disabled selected>
-                            <span class="ar">اختر نوع المشروع</span>
-                            <span class="en">Select Project Type</span>
-                        </option>
-                        <option value="branding">
-                            <span class="ar">هوية بصرية</span>
-                            <span class="en">Brand Identity</span>
-                        </option>
-                        <option value="website">
-                            <span class="ar">موقع إلكتروني</span>
-                            <span class="en">Website</span>
-                        </option>
-                        <option value="ecommerce">
-                            <span class="ar">متجر إلكتروني</span>
-                            <span class="en">E-commerce</span>
-                        </option>
-                        <option value="app">
-                            <span class="ar">تطبيق جوال</span>
-                            <span class="en">Mobile App</span>
-                        </option>
-                        <option value="marketing">
-                            <span class="ar">تسويق رقمي</span>
-                            <span class="en">Digital Marketing</span>
-                        </option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">
-                        <span class="ar">حجم المشروع</span>
-                        <span class="en">Project Size</span>
-                    </label>
-                    <select class="form-control" id="projectSize" required>
-                        <option value="" disabled selected>
-                            <span class="ar">اختر حجم المشروع</span>
-                            <span class="en">Select Project Size</span>
-                        </option>
-                        <option value="small">
-                            <span class="ar">صغير</span>
-                            <span class="en">Small</span>
-                        </option>
-                        <option value="medium">
-                            <span class="ar">متوسط</span>
-                            <span class="en">Medium</span>
-                        </option>
-                        <option value="large">
-                            <span class="ar">كبير</span>
-                            <span class="en">Large</span>
-                        </option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">
-                        <span class="ar">المدة الزمنية</span>
-                        <span class="en">Timeline</span>
-                    </label>
-                    <select class="form-control" id="projectTimeline" required>
-                        <option value="" disabled selected>
-                            <span class="ar">اختر المدة الزمنية</span>
-                            <span class="en">Select Timeline</span>
-                        </option>
-                        <option value="urgent">
-                            <span class="ar">عاجل (أقل من شهر)</span>
-                            <span class="en">Urgent (Less than a month)</span>
-                        </option>
-                        <option value="normal">
-                            <span class="ar">عادي (1-3 أشهر)</span>
-                            <span class="en">Normal (1-3 months)</span>
-                        </option>
-                        <option value="flexible">
-                            <span class="ar">مرن (أكثر من 3 أشهر)</span>
-                            <span class="en">Flexible (More than 3 months)</span>
-                        </option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">
-                        <span class="ar">الميزانية التقريبية</span>
-                        <span class="en">Approximate Budget</span>
-                    </label>
-                    <select class="form-control" id="projectBudget" required>
-                        <option value="" disabled selected>
-                            <span class="ar">اختر الميزانية</span>
-                            <span class="en">Select Budget</span>
-                        </option>
-                        <option value="low">
-                            <span class="ar">منخفضة</span>
-                            <span class="en">Low</span>
-                        </option>
-                        <option value="medium">
-                            <span class="ar">متوسطة</span>
-                            <span class="en">Medium</span>
-                        </option>
-                        <option value="high">
-                            <span class="ar">عالية</span>
-                            <span class="en">High</span>
-                        </option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-md);">
-                    <i class="fas fa-calculator"></i>
-                    <span class="ar">حساب التكلفة</span>
-                    <span class="en">Calculate Cost</span>
-                </button>
-            </form>
-            <div class="calculator-result" id="calculatorResult">
-                <h3>
-                    <span class="ar">التكلفة التقريبية للمشروع</span>
-                    <span class="en">Approximate Project Cost</span>
-                </h3>
-                <p id="costResult"></p>
-                <p style="margin-top: var(--spacing-md); color: var(--secondary);">
-                    <span class="ar">هذه مجرد تقدير أولي وسيتصل بك فريقنا لتقديم عرض مفصل</span>
-                    <span class="en">This is just an initial estimate and our team will contact you to provide a detailed quote</span>
+        </section>
+        
+        <!-- Blog Section -->
+        <section id="blog" class="section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">
+                    <span class="ar">المدونة</span>
+                    <span class="en">Blog</span>
+                </h2>
+                <p class="section-subtitle">
+                    <span class="ar">أحدث المقالات والمعلومات حول التصميم والتطوير</span>
+                    <span class="en">Latest articles and information about design and development</span>
                 </p>
             </div>
-        </div>
-    </section>
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="section-header fade-in">
-            <h2 class="section-title">
-                <span class="ar">تواصل معي</span>
-                <span class="en">Get In Touch</span>
-            </h2>
-            <p class="section-subtitle">
-                <span class="ar">أنا متاح للانضمام إلى فريقكم وتقديم حلول إبداعية لشركتكم</span>
-                <span class="en">I'm available to join your team and provide creative solutions for your company</span>
-            </p>
-        </div>
-        <div class="contact-container">
-            <div class="contact-tabs">
-                <div class="contact-tab active" data-tab="message">
-                    <span class="ar">رسالة</span>
-                    <span class="en">Message</span>
+            <div class="blog-container">
+                <div class="blog-categories">
+                    <div class="blog-category active" data-category="all">
+                        <span class="ar">الكل</span>
+                        <span class="en">All</span>
+                    </div>
+                    <div class="blog-category" data-category="design">
+                        <span class="ar">تصميم</span>
+                        <span class="en">Design</span>
+                    </div>
+                    <div class="blog-category" data-category="development">
+                        <span class="ar">تطوير</span>
+                        <span class="en">Development</span>
+                    </div>
+                    <div class="blog-category" data-category="marketing">
+                        <span class="ar">تسويق</span>
+                        <span class="en">Marketing</span>
+                    </div>
                 </div>
-                <div class="contact-tab" data-tab="booking">
-                    <span class="ar">حجز استشارة</span>
-                    <span class="en">Book Consultation</span>
-                </div>
-            </div>
-            
-            <div class="contact-tab-content active" id="message-tab">
-                <div class="form-success" id="formSuccess">
-                    <i class="fas fa-check-circle"></i>
-                    <span class="ar">تم إرسال رسالتك بنجاح! سأعود إليك قريباً.</span>
-                    <span class="en">Your message has been sent successfully! I will get back to you soon.</span>
-                </div>
-                <form class="contact-form fade-in" id="contactForm">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label class="form-label">
-                                <span class="ar">الاسم الكامل</span>
-                                <span class="en">Full Name</span>
-                            </label>
-                            <input type="text" class="form-control" id="fullName" required>
-                            <div class="error-message">
-                                <span class="ar">الرجاء إدخال اسمك الكامل</span>
-                                <span class="en">Please enter your full name</span>
+                <div class="blog-grid">
+                    <div class="blog-card fade-in" data-category="design">
+                        <img 
+                            src="https://i.ibb.co/4Jd8Jj1f/blog1.webp" 
+                            srcset="https://i.ibb.co/4Jd8Jj1f/blog1.webp 1x, https://i.ibb.co/4Jd8Jj1f/blog1.webp 2x" 
+                            alt="Blog Post" 
+                            class="blog-image" 
+                            loading="lazy"
+                        >
+                        <div class="blog-content">
+                            <p class="blog-date">15 يونيو 2023</p>
+                            <h3 class="blog-title">
+                                <span class="ar">أهمية الهوية البصرية للشركات الناشئة</span>
+                                <span class="en">The Importance of Visual Identity for Startups</span>
+                            </h3>
+                            <p class="blog-description">
+                                <span class="ar">الهوية البصرية هي أحد أهم العناصر التي تساعد الشركات الناشئة على التميز في السوق...</span>
+                                <span class="en">Visual identity is one of the most important elements that help startups stand out in the market...</span>
+                            </p>
+                            <div class="blog-tags">
+                                <span class="blog-tag">تصميم</span>
+                                <span class="blog-tag">هوية بصرية</span>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">
-                                <span class="ar">البريد الإلكتروني</span>
-                                <span class="en">Email</span>
-                            </label>
-                            <input type="email" class="form-control" id="email" required>
-                            <div class="error-message">
-                                <span class="ar">الرجاء إدخال بريد إلكتروني صحيح</span>
-                                <span class="en">Please enter a valid email</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">
-                                <span class="ar">الشركة</span>
-                                <span class="en">Company</span>
-                            </label>
-                            <input type="text" class="form-control" id="company">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">
-                                <span class="ar">المسمى الوظيفي</span>
-                                <span class="en">Position</span>
-                            </label>
-                            <input type="text" class="form-control" id="position">
-                        </div>
-                        <div class="form-group full-width">
-                            <label class="form-label">
-                                <span class="ar">نوع الخدمة</span>
-                                <span class="en">Service Type</span>
-                            </label>
-                            <select class="form-control" id="serviceType">
-                                <option value="" disabled selected>
-                                    <span class="ar">اختر نوع الخدمة</span>
-                                    <span class="en">Select Service Type</span>
-                                </option>
-                                <option value="branding">
-                                    <span class="ar">هوية بصرية</span>
-                                    <span class="en">Brand Identity</span>
-                                </option>
-                                <option value="website">
-                                    <span class="ar">موقع إلكتروني</span>
-                                    <span class="en">Website</span>
-                                </option>
-                                <option value="ecommerce">
-                                    <span class="ar">متجر إلكتروني</span>
-                                    <span class="en">E-commerce</span>
-                                </option>
-                                <option value="app">
-                                    <span class="ar">تطبيق جوال</span>
-                                    <span class="en">Mobile App</span>
-                                </option>
-                                <option value="marketing">
-                                    <span class="ar">تسويق رقمي</span>
-                                    <span class="en">Digital Marketing</span>
-                                </option>
-                                <option value="other">
-                                    <span class="ar">أخرى</span>
-                                    <span class="en">Other</span>
-                                </option>
-                            </select>
-                        </div>
-                        <div class="form-group full-width">
-                            <label class="form-label">
-                                <span class="ar">الميزانية التقريبية</span>
-                                <span class="en">Approximate Budget</span>
-                            </label>
-                            <select class="form-control" id="budget">
-                                <option value="" disabled selected>
-                                    <span class="ar">اختر الميزانية</span>
-                                    <span class="en">Select Budget</span>
-                                </option>
-                                <option value="low">
-                                    <span class="ar">أقل من 1000 دولار</span>
-                                    <span class="en">Less than $1000</span>
-                                </option>
-                                <option value="medium">
-                                    <span class="ar">1000 - 5000 دولار</span>
-                                    <span class="en">$1000 - $5000</span>
-                                </option>
-                                <option value="high">
-                                    <span class="ar">5000 - 10000 دولار</span>
-                                    <span class="en">$5000 - $10000</span>
-                                </option>
-                                <option value="enterprise">
-                                    <span class="ar">أكثر من 10000 دولار</span>
-                                    <span class="en">More than $10000</span>
-                                </option>
-                            </select>
-                        </div>
-                        <div class="form-group full-width">
-                            <label class="form-label">
-                                <span class="ar">رسالتك</span>
-                                <span class="en">Your Message</span>
-                            </label>
-                            <textarea class="form-control" id="message" rows="5" required></textarea>
-                            <div class="error-message">
-                                <span class="ar">الرجاء إدخال رسالتك</span>
-                                <span class="en">Please enter your message</span>
+                            <a href="#" class="blog-link">
+                                <span class="ar">قراءة المزيد</span>
+                                <span class="en">Read More</span>
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
+                            <div class="blog-comments">
+                                <i class="fas fa-comment"></i>
+                                <span>12</span>
                             </div>
                         </div>
                     </div>
+                    <div class="blog-card fade-in" data-category="development">
+                        <img 
+                            src="https://i.ibb.co/6HfWQYtG/blog2.webp" 
+                            srcset="https://i.ibb.co/6HfWQYtG/blog2.webp 1x, https://i.ibb.co/6HfWQYtG/blog2.webp 2x" 
+                            alt="Blog Post" 
+                            class="blog-image" 
+                            loading="lazy"
+                        >
+                        <div class="blog-content">
+                            <p class="blog-date">22 مايو 2023</p>
+                            <h3 class="blog-title">
+                                <span class="ar">اتجاهات تصميم المواقع في 2023</span>
+                                <span class="en">Web Design Trends in 2023</span>
+                            </h3>
+                            <p class="blog-description">
+                                <span class="ar">يستمر تصميم المواقع في التطور مع ظهور تقنيات واتجاهات جديدة كل عام...</span>
+                                <span class="en">Web design continues to evolve with new technologies and trends emerging every year...</span>
+                            </p>
+                            <div class="blog-tags">
+                                <span class="blog-tag">تطوير</span>
+                                <span class="blog-tag">تصميم ويب</span>
+                            </div>
+                            <a href="#" class="blog-link">
+                                <span class="ar">قراءة المزيد</span>
+                                <span class="en">Read More</span>
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
+                            <div class="blog-comments">
+                                <i class="fas fa-comment"></i>
+                                <span>8</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-card fade-in" data-category="design">
+                        <img 
+                            src="https://i.ibb.co/ZXK3Jq2W/blog3.webp" 
+                            srcset="https://i.ibb.co/ZXK3Jq2W/blog3.webp 1x, https://i.ibb.co/ZXK3Jq2W/blog3.webp 2x" 
+                            alt="Blog Post" 
+                            class="blog-image" 
+                            loading="lazy"
+                        >
+                        <div class="blog-content">
+                            <p class="blog-date">8 مايو 2023</p>
+                            <h3 class="blog-title">
+                                <span class="ar">كيف تختار المصمم المناسب لمشروعك</span>
+                                <span class="en">How to Choose the Right Designer for Your Project</span>
+                            </h3>
+                            <p class="blog-description">
+                                <span class="ar">اختيار المصمم المناسب لمشروعك يمكن أن يكون الفرق بين النجاح والفشل...</span>
+                                <span class="en">Choosing the right designer for your project can be the difference between success and failure...</span>
+                            </p>
+                            <div class="blog-tags">
+                                <span class="blog-tag">تصميم</span>
+                                <span class="blog-tag">نصائح</span>
+                            </div>
+                            <a href="#" class="blog-link">
+                                <span class="ar">قراءة المزيد</span>
+                                <span class="en">Read More</span>
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
+                            <div class="blog-comments">
+                                <i class="fas fa-comment"></i>
+                                <span>15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Calculator Section -->
+        <section id="calculator" class="section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">
+                    <span class="ar">حاسبة تكلفة المشروع</span>
+                    <span class="en">Project Cost Calculator</span>
+                </h2>
+                <p class="section-subtitle">
+                    <span class="ar">احصل على تقدير تقريبي لتكلفة مشروعك</span>
+                    <span class="en">Get an approximate estimate of your project cost</span>
+                </p>
+            </div>
+            <div class="calculator-container">
+                <form class="calculator-form fade-in" id="calculatorForm">
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="ar">نوع المشروع</span>
+                            <span class="en">Project Type</span>
+                        </label>
+                        <select class="form-control" id="projectType" required>
+                            <option value="" disabled selected>
+                                <span class="ar">اختر نوع المشروع</span>
+                                <span class="en">Select Project Type</span>
+                            </option>
+                            <option value="branding">
+                                <span class="ar">هوية بصرية</span>
+                                <span class="en">Brand Identity</span>
+                            </option>
+                            <option value="website">
+                                <span class="ar">موقع إلكتروني</span>
+                                <span class="en">Website</span>
+                            </option>
+                            <option value="ecommerce">
+                                <span class="ar">متجر إلكتروني</span>
+                                <span class="en">E-commerce</span>
+                            </option>
+                            <option value="app">
+                                <span class="ar">تطبيق جوال</span>
+                                <span class="en">Mobile App</span>
+                            </option>
+                            <option value="marketing">
+                                <span class="ar">تسويق رقمي</span>
+                                <span class="en">Digital Marketing</span>
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="ar">حجم المشروع</span>
+                            <span class="en">Project Size</span>
+                        </label>
+                        <select class="form-control" id="projectSize" required>
+                            <option value="" disabled selected>
+                                <span class="ar">اختر حجم المشروع</span>
+                                <span class="en">Select Project Size</span>
+                            </option>
+                            <option value="small">
+                                <span class="ar">صغير</span>
+                                <span class="en">Small</span>
+                            </option>
+                            <option value="medium">
+                                <span class="ar">متوسط</span>
+                                <span class="en">Medium</span>
+                            </option>
+                            <option value="large">
+                                <span class="ar">كبير</span>
+                                <span class="en">Large</span>
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="ar">المدة الزمنية</span>
+                            <span class="en">Timeline</span>
+                        </label>
+                        <select class="form-control" id="projectTimeline" required>
+                            <option value="" disabled selected>
+                                <span class="ar">اختر المدة الزمنية</span>
+                                <span class="en">Select Timeline</span>
+                            </option>
+                            <option value="urgent">
+                                <span class="ar">عاجل (أقل من شهر)</span>
+                                <span class="en">Urgent (Less than a month)</span>
+                            </option>
+                            <option value="normal">
+                                <span class="ar">عادي (1-3 أشهر)</span>
+                                <span class="en">Normal (1-3 months)</span>
+                            </option>
+                            <option value="flexible">
+                                <span class="ar">مرن (أكثر من 3 أشهر)</span>
+                                <span class="en">Flexible (More than 3 months)</span>
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="ar">الميزانية التقريبية</span>
+                            <span class="en">Approximate Budget</span>
+                        </label>
+                        <select class="form-control" id="projectBudget" required>
+                            <option value="" disabled selected>
+                                <span class="ar">اختر الميزانية</span>
+                                <span class="en">Select Budget</span>
+                            </option>
+                            <option value="low">
+                                <span class="ar">منخفضة</span>
+                                <span class="en">Low</span>
+                            </option>
+                            <option value="medium">
+                                <span class="ar">متوسطة</span>
+                                <span class="en">Medium</span>
+                            </option>
+                            <option value="high">
+                                <span class="ar">عالية</span>
+                                <span class="en">High</span>
+                            </option>
+                        </select>
+                    </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-md);">
-                        <i class="fas fa-paper-plane"></i>
-                        <span class="ar">إرسال الرسالة</span>
-                        <span class="en">Send Message</span>
+                        <i class="fas fa-calculator"></i>
+                        <span class="ar">حساب التكلفة</span>
+                        <span class="en">Calculate Cost</span>
                     </button>
                 </form>
-            </div>
-            
-            <div class="contact-tab-content" id="booking-tab">
-                <div class="form-success" id="bookingSuccess">
-                    <i class="fas fa-check-circle"></i>
-                    <span class="ar">تم حجز استشارتك بنجاح! سأتواصل معك قريباً لتأكيد الموعد.</span>
-                    <span class="en">Your consultation has been booked successfully! I will contact you soon to confirm the appointment.</span>
+                <div class="calculator-result" id="calculatorResult">
+                    <h3>
+                        <span class="ar">التكلفة التقريبية للمشروع</span>
+                        <span class="en">Approximate Project Cost</span>
+                    </h3>
+                    <p id="costResult"></p>
+                    <p style="margin-top: var(--spacing-md); color: var(--secondary);">
+                        <span class="ar">هذه مجرد تقدير أولي وسيتصل بك فريقنا لتقديم عرض مفصل</span>
+                        <span class="en">This is just an initial estimate and our team will contact you to provide a detailed quote</span>
+                    </p>
                 </div>
-                <form class="booking-form fade-in" id="bookingForm">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label class="form-label">
-                                <span class="ar">الاسم الكامل</span>
-                                <span class="en">Full Name</span>
-                            </label>
-                            <input type="text" class="form-control" id="bookingFullName" required>
-                            <div class="error-message">
-                                <span class="ar">الرجاء إدخال اسمك الكامل</span>
-                                <span class="en">Please enter your full name</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">
-                                <span class="ar">البريد الإلكتروني</span>
-                                <span class="en">Email</span>
-                            </label>
-                            <input type="email" class="form-control" id="bookingEmail" required>
-                            <div class="error-message">
-                                <span class="ar">الرجاء إدخال بريد إلكتروني صحيح</span>
-                                <span class="en">Please enter a valid email</span>
-                            </div>
-                        </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">
+                    <span class="ar">تواصل معي</span>
+                    <span class="en">Get In Touch</span>
+                </h2>
+                <p class="section-subtitle">
+                    <span class="ar">أنا متاح للانضمام إلى فريقكم وتقديم حلول إبداعية لشركتكم</span>
+                    <span class="en">I'm available to join your team and provide creative solutions for your company</span>
+                </p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-tabs">
+                    <div class="contact-tab active" data-tab="message">
+                        <span class="ar">رسالة</span>
+                        <span class="en">Message</span>
                     </div>
-                    <div class="date-time-grid">
-                        <div class="form-group">
-                            <label class="form-label">
-                                <span class="ar">التاريخ المفضل</span>
-                                <span class="en">Preferred Date</span>
-                            </label>
-                            <input type="date" class="form-control" id="preferredDate" required>
-                            <div class="error-message">
-                                <span class="ar">الرجاء اختيار التاريخ</span>
-                                <span class="en">Please select a date</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">
-                                <span class="ar">الوقت المفضل</span>
-                                <span class="en">Preferred Time</span>
-                            </label>
-                            <select class="form-control" id="preferredTime" required>
-                                <option value="" disabled selected>
-                                    <span class="ar">اختر الوقت</span>
-                                    <span class="en">Select Time</span>
-                                </option>
-                                <option value="09:00">
-                                    <span class="ar">9:00 ص</span>
-                                    <span class="en">9:00 AM</span>
-                                </option>
-                                <option value="10:00">
-                                    <span class="ar">10:00 ص</span>
-                                    <span class="en">10:00 AM</span>
-                                </option>
-                                <option value="11:00">
-                                    <span class="ar">11:00 ص</span>
-                                    <span class="en">11:00 AM</span>
-                                </option>
-                                <option value="12:00">
-                                    <span class="ar">12:00 م</span>
-                                    <span class="en">12:00 PM</span>
-                                </option>
-                                <option value="13:00">
-                                    <span class="ar">1:00 م</span>
-                                    <span class="en">1:00 PM</span>
-                                </option>
-                                <option value="14:00">
-                                    <span class="ar">2:00 م</span>
-                                    <span class="en">2:00 PM</span>
-                                </option>
-                                <option value="15:00">
-                                    <span class="ar">3:00 م</span>
-                                    <span class="en">3:00 PM</span>
-                                </option>
-                                <option value="16:00">
-                                    <span class="ar">4:00 م</span>
-                                    <span class="en">4:00 PM</span>
-                                </option>
-                                <option value="17:00">
-                                    <span class="ar">5:00 م</span>
-                                    <span class="en">5:00 PM</span>
-                                </option>
-                            </select>
-                            <div class="error-message">
-                                <span class="ar">الرجاء اختيار الوقت</span>
-                                <span class="en">Please select a time</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">
-                            <span class="ar">نوع الاستشارة</span>
-                            <span class="en">Consultation Type</span>
-                        </label>
-                        <div class="service-options">
-                            <div class="service-option">
-                                <input type="radio" id="brandingConsultation" name="consultationType" value="branding">
-                                <label for="brandingConsultation">
-                                    <span class="ar">هوية بصرية</span>
-                                    <span class="en">Brand Identity</span>
-                                </label>
-                            </div>
-                            <div class="service-option">
-                                <input type="radio" id="websiteConsultation" name="consultationType" value="website">
-                                <label for="websiteConsultation">
-                                    <span class="ar">موقع إلكتروني</span>
-                                    <span class="en">Website</span>
-                                </label>
-                            </div>
-                            <div class="service-option">
-                                <input type="radio" id="ecommerceConsultation" name="consultationType" value="ecommerce">
-                                <label for="ecommerceConsultation">
-                                    <span class="ar">متجر إلكتروني</span>
-                                    <span class="en">E-commerce</span>
-                                </label>
-                            </div>
-                            <div class="service-option">
-                                <input type="radio" id="appConsultation" name="consultationType" value="app">
-                                <label for="appConsultation">
-                                    <span class="ar">تطبيق جوال</span>
-                                    <span class="en">Mobile App</span>
-                                </label>
-                            </div>
-                            <div class="service-option">
-                                <input type="radio" id="marketingConsultation" name="consultationType" value="marketing">
-                                <label for="marketingConsultation">
-                                    <span class="ar">تسويق رقمي</span>
-                                    <span class="en">Digital Marketing</span>
-                                </label>
-                            </div>
-                            <div class="service-option">
-                                <input type="radio" id="otherConsultation" name="consultationType" value="other">
-                                <label for="otherConsultation">
-                                    <span class="ar">أخرى</span>
-                                    <span class="en">Other</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="error-message">
-                            <span class="ar">الرجاء اختيار نوع الاستشارة</span>
-                            <span class="en">Please select consultation type</span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">
-                            <span class="ar">رسالة إضافية (اختياري)</span>
-                            <span class="en">Additional Message (Optional)</span>
-                        </label>
-                        <textarea class="form-control" id="bookingMessage" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-md);">
-                        <i class="fas fa-calendar-check"></i>
-                        <span class="ar">حجز الاستشارة</span>
+                    <div class="contact-tab" data-tab="booking">
+                        <span class="ar">حجز استشارة</span>
                         <span class="en">Book Consultation</span>
-                    </button>
-                </form>
+                    </div>
+                </div>
+                
+                <div class="contact-tab-content active" id="message-tab">
+                    <div class="form-success" id="formSuccess">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="ar">تم إرسال رسالتك بنجاح! سأعود إليك قريباً.</span>
+                        <span class="en">Your message has been sent successfully! I will get back to you soon.</span>
+                    </div>
+                    <form class="contact-form fade-in" id="contactForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <span class="ar">الاسم الكامل</span>
+                                    <span class="en">Full Name</span>
+                                </label>
+                                <input type="text" class="form-control" id="fullName" required>
+                                <div class="error-message">
+                                    <span class="ar">الرجاء إدخال اسمك الكامل</span>
+                                    <span class="en">Please enter your full name</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <span class="ar">البريد الإلكتروني</span>
+                                    <span class="en">Email</span>
+                                </label>
+                                <input type="email" class="form-control" id="email" required>
+                                <div class="error-message">
+                                    <span class="ar">الرجاء إدخال بريد إلكتروني صحيح</span>
+                                    <span class="en">Please enter a valid email</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <span class="ar">الشركة</span>
+                                    <span class="en">Company</span>
+                                </label>
+                                <input type="text" class="form-control" id="company">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <span class="ar">المسمى الوظيفي</span>
+                                    <span class="en">Position</span>
+                                </label>
+                                <input type="text" class="form-control" id="position">
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="form-label">
+                                    <span class="ar">نوع الخدمة</span>
+                                    <span class="en">Service Type</span>
+                                </label>
+                                <select class="form-control" id="serviceType">
+                                    <option value="" disabled selected>
+                                        <span class="ar">اختر نوع الخدمة</span>
+                                        <span class="en">Select Service Type</span>
+                                    </option>
+                                    <option value="branding">
+                                        <span class="ar">هوية بصرية</span>
+                                        <span class="en">Brand Identity</span>
+                                    </option>
+                                    <option value="website">
+                                        <span class="ar">موقع إلكتروني</span>
+                                        <span class="en">Website</span>
+                                    </option>
+                                    <option value="ecommerce">
+                                        <span class="ar">متجر إلكتروني</span>
+                                        <span class="en">E-commerce</span>
+                                    </option>
+                                    <option value="app">
+                                        <span class="ar">تطبيق جوال</span>
+                                        <span class="en">Mobile App</span>
+                                    </option>
+                                    <option value="marketing">
+                                        <span class="ar">تسويق رقمي</span>
+                                        <span class="en">Digital Marketing</span>
+                                    </option>
+                                    <option value="other">
+                                        <span class="ar">أخرى</span>
+                                        <span class="en">Other</span>
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="form-label">
+                                    <span class="ar">الميزانية التقريبية</span>
+                                    <span class="en">Approximate Budget</span>
+                                </label>
+                                <select class="form-control" id="budget">
+                                    <option value="" disabled selected>
+                                        <span class="ar">اختر الميزانية</span>
+                                        <span class="en">Select Budget</span>
+                                    </option>
+                                    <option value="low">
+                                        <span class="ar">أقل من 1000 دولار</span>
+                                        <span class="en">Less than $1000</span>
+                                    </option>
+                                    <option value="medium">
+                                        <span class="ar">1000 - 5000 دولار</span>
+                                        <span class="en">$1000 - $5000</span>
+                                    </option>
+                                    <option value="high">
+                                        <span class="ar">5000 - 10000 دولار</span>
+                                        <span class="en">$5000 - $10000</span>
+                                    </option>
+                                    <option value="enterprise">
+                                        <span class="ar">أكثر من 10000 دولار</span>
+                                        <span class="en">More than $10000</span>
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="form-label">
+                                    <span class="ar">رسالتك</span>
+                                    <span class="en">Your Message</span>
+                                </label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                                <div class="error-message">
+                                    <span class="ar">الرجاء إدخال رسالتك</span>
+                                    <span class="en">Please enter your message</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-md);">
+                            <i class="fas fa-paper-plane"></i>
+                            <span class="ar">إرسال الرسالة</span>
+                            <span class="en">Send Message</span>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-tab-content" id="booking-tab">
+                    <div class="form-success" id="bookingSuccess">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="ar">تم حجز استشارتك بنجاح! سأتواصل معك قريباً لتأكيد الموعد.</span>
+                        <span class="en">Your consultation has been booked successfully! I will contact you soon to confirm the appointment.</span>
+                    </div>
+                    <form class="booking-form fade-in" id="bookingForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <span class="ar">الاسم الكامل</span>
+                                    <span class="en">Full Name</span>
+                                </label>
+                                <input type="text" class="form-control" id="bookingFullName" required>
+                                <div class="error-message">
+                                    <span class="ar">الرجاء إدخال اسمك الكامل</span>
+                                    <span class="en">Please enter your full name</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <span class="ar">البريد الإلكتروني</span>
+                                    <span class="en">Email</span>
+                                </label>
+                                <input type="email" class="form-control" id="bookingEmail" required>
+                                <div class="error-message">
+                                    <span class="ar">الرجاء إدخال بريد إلكتروني صحيح</span>
+                                    <span class="en">Please enter a valid email</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="date-time-grid">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <span class="ar">التاريخ المفضل</span>
+                                    <span class="en">Preferred Date</span>
+                                </label>
+                                <input type="date" class="form-control" id="preferredDate" required>
+                                <div class="error-message">
+                                    <span class="ar">الرجاء اختيار التاريخ</span>
+                                    <span class="en">Please select a date</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <span class="ar">الوقت المفضل</span>
+                                    <span class="en">Preferred Time</span>
+                                </label>
+                                <select class="form-control" id="preferredTime" required>
+                                    <option value="" disabled selected>
+                                        <span class="ar">اختر الوقت</span>
+                                        <span class="en">Select Time</span>
+                                    </option>
+                                    <option value="09:00">
+                                        <span class="ar">9:00 ص</span>
+                                        <span class="en">9:00 AM</span>
+                                    </option>
+                                    <option value="10:00">
+                                        <span class="ar">10:00 ص</span>
+                                        <span class="en">10:00 AM</span>
+                                    </option>
+                                    <option value="11:00">
+                                        <span class="ar">11:00 ص</span>
+                                        <span class="en">11:00 AM</span>
+                                    </option>
+                                    <option value="12:00">
+                                        <span class="ar">12:00 م</span>
+                                        <span class="en">12:00 PM</span>
+                                    </option>
+                                    <option value="13:00">
+                                        <span class="ar">1:00 م</span>
+                                        <span class="en">1:00 PM</span>
+                                    </option>
+                                    <option value="14:00">
+                                        <span class="ar">2:00 م</span>
+                                        <span class="en">2:00 PM</span>
+                                    </option>
+                                    <option value="15:00">
+                                        <span class="ar">3:00 م</span>
+                                        <span class="en">3:00 PM</span>
+                                    </option>
+                                    <option value="16:00">
+                                        <span class="ar">4:00 م</span>
+                                        <span class="en">4:00 PM</span>
+                                    </option>
+                                    <option value="17:00">
+                                        <span class="ar">5:00 م</span>
+                                        <span class="en">5:00 PM</span>
+                                    </option>
+                                </select>
+                                <div class="error-message">
+                                    <span class="ar">الرجاء اختيار الوقت</span>
+                                    <span class="en">Please select a time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                <span class="ar">نوع الاستشارة</span>
+                                <span class="en">Consultation Type</span>
+                            </label>
+                            <div class="service-options">
+                                <div class="service-option">
+                                    <input type="radio" id="brandingConsultation" name="consultationType" value="branding">
+                                    <label for="brandingConsultation">
+                                        <span class="ar">هوية بصرية</span>
+                                        <span class="en">Brand Identity</span>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" id="websiteConsultation" name="consultationType" value="website">
+                                    <label for="websiteConsultation">
+                                        <span class="ar">موقع إلكتروني</span>
+                                        <span class="en">Website</span>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" id="ecommerceConsultation" name="consultationType" value="ecommerce">
+                                    <label for="ecommerceConsultation">
+                                        <span class="ar">متجر إلكتروني</span>
+                                        <span class="en">E-commerce</span>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" id="appConsultation" name="consultationType" value="app">
+                                    <label for="appConsultation">
+                                        <span class="ar">تطبيق جوال</span>
+                                        <span class="en">Mobile App</span>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" id="marketingConsultation" name="consultationType" value="marketing">
+                                    <label for="marketingConsultation">
+                                        <span class="ar">تسويق رقمي</span>
+                                        <span class="en">Digital Marketing</span>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" id="otherConsultation" name="consultationType" value="other">
+                                    <label for="otherConsultation">
+                                        <span class="ar">أخرى</span>
+                                        <span class="en">Other</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="error-message">
+                                <span class="ar">الرجاء اختيار نوع الاستشارة</span>
+                                <span class="en">Please select consultation type</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                <span class="ar">رسالة إضافية (اختياري)</span>
+                                <span class="en">Additional Message (Optional)</span>
+                            </label>
+                            <textarea class="form-control" id="bookingMessage" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-md);">
+                            <i class="fas fa-calendar-check"></i>
+                            <span class="ar">حجز الاستشارة</span>
+                            <span class="en">Book Consultation</span>
+                        </button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
+    
+    <!-- Bottom Navigation - Mobile App Style -->
+    <nav class="bottom-nav">
+        <a href="#home" class="nav-item active" data-section="home">
+            <i class="fas fa-home"></i>
+            <span class="ar">الرئيسية</span>
+            <span class="en">Home</span>
+        </a>
+        <a href="#expertise" class="nav-item" data-section="expertise">
+            <i class="fas fa-star"></i>
+            <span class="ar">الخبرات</span>
+            <span class="en">Expertise</span>
+        </a>
+        <a href="#projects" class="nav-item" data-section="projects">
+            <i class="fas fa-briefcase"></i>
+            <span class="ar">المشاريع</span>
+            <span class="en">Projects</span>
+        </a>
+        <a href="#blog" class="nav-item" data-section="blog">
+            <i class="fas fa-newspaper"></i>
+            <span class="ar">المدونة</span>
+            <span class="en">Blog</span>
+        </a>
+        <a href="#contact" class="nav-item" data-section="contact">
+            <i class="fas fa-envelope"></i>
+            <span class="ar">تواصل</span>
+            <span class="en">Contact</span>
+        </a>
+    </nav>
+    
+    <!-- Floating Action Button -->
+    <button class="fab" id="fab">
+        <i class="fas fa-plus"></i>
+    </button>
+    <div class="fab-menu" id="fabMenu">
+        <a href="https://wa.me/249119005441" target="_blank" rel="noopener noreferrer" class="fab-option whatsapp" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="mailto:muhalabsalah@gmail.com" class="fab-option email" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://t.me/muhalabsalah" target="_blank" rel="noopener noreferrer" class="fab-option telegram" aria-label="Telegram">
+            <i class="fab fa-telegram"></i>
+        </a>
+    </div>
+    
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -2886,20 +3108,7 @@
             </p>
         </div>
     </footer>
-    <!-- Floating Contact -->
-    <div class="floating-contact">
-        <div class="contact-buttons">
-            <a href="https://wa.me/249119005441" target="_blank" rel="noopener noreferrer" class="contact-btn whatsapp" aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="mailto:muhalabsalah@gmail.com" class="contact-btn email" aria-label="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://t.me/muhalabsalah" target="_blank" rel="noopener noreferrer" class="contact-btn telegram" aria-label="Telegram">
-                <i class="fab fa-telegram"></i>
-            </a>
-        </div>
-    </div>
+    
     <script>
         // Settings Manager
         class SettingsManager {
@@ -2928,6 +3137,7 @@
                 return localStorage.getItem('language') || 'ar';
             }
         }
+        
         // Notification Manager
         class NotificationManager {
             static show(message, type = 'success') {
@@ -2942,6 +3152,7 @@
                 }
             }
         }
+        
         // Form Validator
         class FormValidator {
             static validateEmail(email) {
@@ -2980,6 +3191,7 @@
                 return isValid;
             }
         }
+        
         // Project Calculator
         class ProjectCalculator {
             static calculateCost(type, size, timeline, budget) {
@@ -3015,6 +3227,7 @@
                 return Math.round(cost);
             }
         }
+        
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             // Hide loader when page is fully loaded
@@ -3099,6 +3312,7 @@
             // Active navigation link
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            const bottomNavItems = document.querySelectorAll('.nav-item');
             
             const updateActiveNavLink = () => {
                 let current = '';
@@ -3111,10 +3325,19 @@
                     }
                 });
                 
+                // Update side nav links
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href').slice(1) === current) {
                         link.classList.add('active');
+                    }
+                });
+                
+                // Update bottom nav items
+                bottomNavItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('data-section') === current) {
+                        item.classList.add('active');
                     }
                 });
             };
@@ -3381,6 +3604,35 @@
             document.querySelectorAll('.fade-in').forEach(el => {
                 observer.observe(el);
             });
+            
+            // Floating Action Button
+            const fab = document.getElementById('fab');
+            const fabMenu = document.getElementById('fabMenu');
+            
+            if (fab && fabMenu) {
+                let fabOpen = false;
+                
+                fab.addEventListener('click', () => {
+                    fabOpen = !fabOpen;
+                    
+                    if (fabOpen) {
+                        fab.querySelector('i').className = 'fas fa-times';
+                        fabMenu.classList.add('active');
+                    } else {
+                        fab.querySelector('i').className = 'fas fa-plus';
+                        fabMenu.classList.remove('active');
+                    }
+                });
+                
+                // Close FAB menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (fabOpen && !fab.contains(e.target) && !fabMenu.contains(e.target)) {
+                        fabOpen = false;
+                        fab.querySelector('i').className = 'fas fa-plus';
+                        fabMenu.classList.remove('active');
+                    }
+                });
+            }
             
             // Save form data to localStorage
             const formInputs = document.querySelectorAll('#contactForm input, #contactForm textarea, #contactForm select');
