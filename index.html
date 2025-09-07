@@ -1,0 +1,3447 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Muhalab Salah - مصمم جرافيك ومطور ويب محترف. متخصص في تصميم العلامات التجارية وتطوير المواقع للشركات الكبرى.">
+    <meta name="keywords" content="Muhalab Salah, مهلب صلاح, مصمم جرافيك, مطور ويب, تصميم شعارات, هوية بصرية, تطوير مواقع, وظائف, شركات كبرى, تصميم UI/UX, تطوير تطبيقات, هوية تجارية, تسويق رقمي">
+    <meta property="og:title" content="Muhalab Salah | مصمم جرافيك ومطور ويب للشركات الكبرى">
+    <meta property="og:description" content="محترف في تصميم العلامات التجارية وتطوير المواقع الإلكترونية للشركات الكبرى حول العالم">
+    <meta property="og:image" content="https://i.ibb.co/MkqK8xcd/Screenshot-20250726-093516.jpg">
+    <meta property="og:url" content="https://muhalabsalah.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Muhalab Salah",
+        "jobTitle": "Graphic Designer & Web Developer",
+        "url": "https://muhalabsalah.com",
+        "sameAs": [
+            "https://linkedin.com/in/muhalabsalah",
+            "https://behance.net/MuhalabSalah",
+            "https://github.com/muhalabsalah",
+            "https://twitter.com/muhalabsalah"
+        ],
+        "knowsAbout": [
+            "Graphic Design",
+            "Web Development",
+            "Brand Identity",
+            "User Experience",
+            "Digital Marketing",
+            "UI/UX Design",
+            "Frontend Development",
+            "Backend Development",
+            "Mobile App Development"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Sudan",
+            "addressCountry": "SD"
+        },
+        "email": "muhalabsalah@gmail.com"
+    }
+    </script>
+    
+    <title>Muhalab Salah | مصمم جرافيك ومطور ويب للشركات الكبرى</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Critical CSS - Loaded first -->
+    <style>
+        :root {
+            --primary: #1a1f36;
+            --secondary: #4a5568;
+            --accent: #ffffff;
+            --brand-blue: #2563eb;
+            --brand-blue-light: #3b82f6;
+            --brand-purple: #7c3aed;
+            --brand-teal: #0d9488;
+            --brand-orange: #ea580c;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --light-bg: #f8fafc;
+            --light-card: #ffffff;
+            --light-border: #e2e8f0;
+            --dark-bg: #0f172a;
+            --dark-card: #1e293b;
+            --dark-border: #334155;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-xxl: 4rem;
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --border-radius-xl: 16px;
+            --max-width: 1400px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        [data-theme="dark"] {
+            --primary: #f1f5f9;
+            --secondary: #94a3b8;
+            --accent: #0f172a;
+            --light-bg: #0f172a;
+            --light-card: #1e293b;
+            --light-border: #334155;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+        body[dir="ltr"] {
+            font-family: 'Inter', 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        
+        /* Loading Spinner */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--light-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(37, 99, 235, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--brand-blue);
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-blue) 0%, var(--brand-purple) 100%);
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--light-border);
+            transition: var(--transition);
+        }
+        [data-theme="dark"] nav {
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom-color: var(--dark-border);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            flex-shrink: 0;
+        }
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-lg);
+            list-style: none;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+        .nav-links a {
+            font-weight: 500;
+            color: var(--primary);
+            position: relative;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--brand-blue);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--brand-blue);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .theme-toggle, .lang-toggle, .mobile-menu-toggle {
+            background: none;
+            border: 1px solid var(--light-border);
+            border-radius: var(--border-radius);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--primary);
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+        .theme-toggle:hover, .lang-toggle:hover, .mobile-menu-toggle:hover {
+            background: var(--light-card);
+            border-color: var(--brand-blue);
+            color: var(--brand-blue);
+        }
+        .mobile-menu-toggle {
+            display: none;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background: var(--light-card);
+            box-shadow: var(--shadow-xl);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            padding: var(--spacing-xl) var(--spacing-lg);
+            overflow-y: auto;
+        }
+        body[dir="ltr"] .mobile-menu {
+            right: auto;
+            left: -300px;
+        }
+        body[dir="ltr"] .mobile-menu.active {
+            left: 0;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        .mobile-menu-links {
+            list-style: none;
+        }
+        .mobile-menu-links li {
+            margin-bottom: var(--spacing-md);
+        }
+        .mobile-menu-links a {
+            display: block;
+            padding: var(--spacing-sm);
+            color: var(--primary);
+            font-weight: 500;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        .mobile-menu-links a:hover, .mobile-menu-links a.active {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--brand-blue);
+        }
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: var(--spacing-xxl) 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        [data-theme="dark"] .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        .hero-content h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary);
+            text-align: right;
+        }
+        body[dir="ltr"] .hero-content h1 {
+            text-align: left;
+        }
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            margin-bottom: var(--spacing-lg);
+            text-align: right;
+        }
+        body[dir="ltr"] .hero-subtitle {
+            text-align: left;
+        }
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+            justify-content: flex-start;
+        }
+        body[dir="ltr"] .hero-badges {
+            justify-content: flex-start;
+        }
+        .badge {
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: var(--light-card);
+            border: 1px solid var(--light-border);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            transition: var(--transition);
+        }
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .badge i {
+            color: var(--brand-blue);
+        }
+        .hero-cta {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        body[dir="ltr"] .hero-cta {
+            justify-content: flex-start;
+        }
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile-card {
+            background: var(--light-card);
+            border-radius: var(--border-radius-xl);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+            max-width: 500px;
+            width: 100%;
+        }
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto var(--spacing-lg);
+            display: block;
+            border: 4px solid var(--brand-blue);
+        }
+        .profile-info {
+            text-align: center;
+        }
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+        }
+        .profile-title {
+            color: var(--brand-blue);
+            font-weight: 500;
+            margin-bottom: var(--spacing-md);
+        }
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--light-border);
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--brand-blue);
+        }
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--secondary);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        .btn:hover::before {
+            transform: translateX(0);
+        }
+        .btn-primary {
+            background: var(--brand-blue);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+        .btn-primary:hover {
+            background: var(--brand-blue-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        .btn-secondary {
+            background: var(--brand-purple);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--brand-blue);
+            border: 2px solid var(--brand-blue);
+        }
+        .btn-outline:hover {
+            background: var(--brand-blue);
+            color: white;
+        }
+        
+        /* Expertise Section */
+        .expertise {
+            padding: var(--spacing-xxl) 0;
+            background: var(--light-bg);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            max-width: var(--max-width);
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 var(--spacing-lg);
+        }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--brand-blue);
+            border-radius: 2px;
+        }
+        .section-subtitle {
+            color: var(--secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        .expertise-card {
+            background: var(--light-card);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid var(--light-border);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--brand-blue);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .expertise-card:hover::before {
+            transform: scaleX(1);
+        }
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        .expertise-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-purple) 100%);
+            border-radius: var(--border-radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+            flex-shrink: 0;
+        }
+        .expertise-title {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary);
+        }
+        .expertise-description {
+            color: var(--secondary);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        /* Experience Section */
+        .experience {
+            padding: var(--spacing-xxl) 0;
+            background: var(--light-bg);
+        }
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--light-border);
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--spacing-xl);
+        }
+        .timeline-content {
+            background: var(--light-card);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            width: calc(50% - var(--spacing-xl));
+            position: relative;
+            border: 1px solid var(--light-border);
+        }
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+        .timeline-date {
+            position: absolute;
+            top: var(--spacing-md);
+            font-weight: 600;
+            color: var(--brand-blue);
+            font-size: 0.875rem;
+        }
+        .timeline-item:nth-child(odd) .timeline-date {
+            right: calc(100% + var(--spacing-md));
+        }
+        .timeline-item:nth-child(even) .timeline-date {
+            left: calc(100% + var(--spacing-md));
+        }
+        .timeline-dot {
+            position: absolute;
+            top: var(--spacing-lg);
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            background: var(--brand-blue);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            border: 4px solid var(--light-bg);
+        }
+        .timeline-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--primary);
+        }
+        .timeline-company {
+            color: var(--brand-blue);
+            font-weight: 500;
+            margin-bottom: var(--spacing-sm);
+        }
+        .timeline-description {
+            color: var(--secondary);
+            font-size: 0.875rem;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: var(--spacing-xxl) 0;
+            background: var(--light-bg);
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-xl);
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        .project-card {
+            background: var(--light-card);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid var(--light-border);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .project-content {
+            padding: var(--spacing-lg);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary);
+        }
+        .project-description {
+            color: var(--secondary);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-md);
+        }
+        .project-tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--brand-blue);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .project-link {
+            color: var(--brand-blue);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            transition: var(--transition);
+            margin-top: auto;
+        }
+        .project-link:hover {
+            gap: var(--spacing-sm);
+        }
+        
+        /* Case Studies Section */
+        .case-studies {
+            padding: var(--spacing-xxl) 0;
+            background: var(--light-bg);
+        }
+        .case-studies-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xl);
+        }
+        .case-study-card {
+            background: var(--light-card);
+            border-radius: var(--border-radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid var(--light-border);
+        }
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        .case-study-header {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+        .case-study-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .case-study-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7));
+            display: flex;
+            align-items: flex-end;
+            padding: var(--spacing-lg);
+        }
+        .case-study-title {
+            color: white;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+        }
+        .case-study-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+        }
+        .case-study-content {
+            padding: var(--spacing-xl);
+        }
+        .case-study-description {
+            color: var(--secondary);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.6;
+        }
+        .case-study-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        .metric {
+            text-align: center;
+            padding: var(--spacing-md);
+            background: rgba(37, 99, 235, 0.05);
+            border-radius: var(--border-radius);
+        }
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--brand-blue);
+            margin-bottom: var(--spacing-xs);
+        }
+        .metric-label {
+            color: var(--secondary);
+            font-size: 0.875rem;
+        }
+        .case-study-link {
+            color: var(--brand-blue);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            transition: var(--transition);
+        }
+        .case-study-link:hover {
+            gap: var(--spacing-sm);
+        }
+        
+        /* Skills Section */
+        .skills {
+            padding: var(--spacing-xxl) 0;
+            background: var(--light-bg);
+        }
+        .skills-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        .skill-item {
+            background: var(--light-card);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            border: 1px solid var(--light-border);
+            transition: var(--transition);
+        }
+        .skill-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+        .skill-name {
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        .skill-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand-blue);
+        }
+        .skill-percentage {
+            color: var(--brand-blue);
+            font-weight: 600;
+        }
+        .skill-bar {
+            height: 8px;
+            background: var(--light-border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--brand-blue) 0%, var(--brand-purple) 100%);
+            border-radius: 4px;
+            transition: width 1.5s ease;
+            width: 0;
+        }
+        
+        /* Blog Section */
+        .blog {
+            padding: var(--spacing-xxl) 0;
+            background: var(--light-bg);
+        }
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        .blog-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+        }
+        .blog-category {
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: var(--light-card);
+            border: 1px solid var(--light-border);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .blog-category:hover, .blog-category.active {
+            background: var(--brand-blue);
+            color: white;
+            border-color: var(--brand-blue);
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-xl);
+        }
+        .blog-card {
+            background: var(--light-card);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid var(--light-border);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .blog-content {
+            padding: var(--spacing-lg);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-date {
+            font-size: 0.875rem;
+            color: var(--secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+        .blog-title {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary);
+        }
+        .blog-description {
+            color: var(--secondary);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-md);
+        }
+        .blog-tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--brand-blue);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .blog-link {
+            color: var(--brand-blue);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            transition: var(--transition);
+            margin-top: auto;
+        }
+        .blog-link:hover {
+            gap: var(--spacing-sm);
+        }
+        .blog-comments {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--secondary);
+            font-size: 0.875rem;
+            margin-top: var(--spacing-sm);
+        }
+        
+        /* Calculator Section */
+        .calculator {
+            padding: var(--spacing-xxl) 0;
+            background: var(--light-bg);
+        }
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        .calculator-form {
+            background: var(--light-card);
+            border-radius: var(--border-radius-xl);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--light-border);
+        }
+        .calculator-result {
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            display: none;
+        }
+        .calculator-result.show {
+            display: block;
+        }
+        .calculator-result h3 {
+            color: var(--brand-blue);
+            margin-bottom: var(--spacing-sm);
+        }
+        .calculator-result p {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: var(--spacing-xxl) 0;
+            background: var(--light-bg);
+        }
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        .contact-tabs {
+            display: flex;
+            margin-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--light-border);
+        }
+        .contact-tab {
+            padding: var(--spacing-md);
+            font-weight: 600;
+            color: var(--secondary);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: var(--transition);
+        }
+        .contact-tab:hover, .contact-tab.active {
+            color: var(--brand-blue);
+            border-bottom-color: var(--brand-blue);
+        }
+        .contact-tab-content {
+            display: none;
+        }
+        .contact-tab-content.active {
+            display: block;
+        }
+        .contact-form {
+            background: var(--light-card);
+            border-radius: var(--border-radius-xl);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--light-border);
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--primary);
+        }
+        .form-control {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--light-border);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            background: var(--light-bg);
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--brand-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        .form-control.error {
+            border-color: var(--warning);
+        }
+        .error-message {
+            color: var(--warning);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        .form-control.error + .error-message {
+            display: block;
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-md);
+            display: none;
+        }
+        .form-success.show {
+            display: block;
+        }
+        
+        /* Booking Form */
+        .booking-form {
+            background: var(--light-card);
+            border-radius: var(--border-radius-xl);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--light-border);
+        }
+        .date-time-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+        .service-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        .service-option {
+            position: relative;
+        }
+        .service-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+        .service-option label {
+            display: block;
+            padding: var(--spacing-md);
+            background: var(--light-bg);
+            border: 1px solid var(--light-border);
+            border-radius: var(--border-radius);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .service-option input[type="radio"]:checked + label {
+            background: rgba(37, 99, 235, 0.1);
+            border-color: var(--brand-blue);
+            color: var(--brand-blue);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--accent);
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-lg);
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        .social-links {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+        .social-link:hover {
+            background: var(--brand-blue);
+            transform: translateY(-2px);
+        }
+        .footer-links {
+            display: flex;
+            gap: var(--spacing-lg);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .footer-link {
+            color: var(--accent);
+            transition: var(--transition);
+        }
+        .footer-link:hover {
+            color: var(--brand-blue);
+        }
+        
+        /* Floating Contact */
+        .floating-contact {
+            position: fixed;
+            bottom: var(--spacing-xl);
+            left: var(--spacing-xl);
+            z-index: 999;
+        }
+        body[dir="ltr"] .floating-contact {
+            left: auto;
+            right: var(--spacing-xl);
+        }
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        .contact-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--brand-blue);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-lg);
+            flex-shrink: 0;
+        }
+        .contact-btn:hover {
+            transform: scale(1.1);
+        }
+        .contact-btn.whatsapp {
+            background: #25d366;
+        }
+        .contact-btn.email {
+            background: var(--brand-purple);
+        }
+        .contact-btn.telegram {
+            background: #0088cc;
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-20px);
+            background: var(--light-card);
+            color: var(--primary);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-xl);
+            z-index: 1002;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            max-width: 90%;
+            text-align: center;
+            border: 1px solid var(--light-border);
+        }
+        .notification.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .notification.success {
+            border-left: 4px solid var(--success);
+        }
+        .notification.error {
+            border-left: 4px solid var(--warning);
+        }
+        
+        /* Language Support */
+        .en {
+            display: none;
+        }
+        body[dir="ltr"] .en {
+            display: inline;
+        }
+        body[dir="ltr"] .ar {
+            display: none;
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container,
+            .nav-container,
+            .hero-grid,
+            .expertise-grid,
+            .projects-grid,
+            .section-header,
+            .experience-timeline,
+            .skills-container,
+            .contact-container,
+            .calculator-container,
+            .blog-container,
+            .case-studies-container,
+            .footer-content {
+                padding-left: var(--spacing-md);
+                padding-right: var(--spacing-md);
+            }
+        }
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            .hero-image {
+                order: -1;
+            }
+            .profile-card {
+                max-width: 400px;
+            }
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+            .expertise-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            .blog-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            .case-study-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .hero-badges {
+                justify-content: center;
+            }
+            .hero-cta {
+                justify-content: center;
+            }
+            .profile-card {
+                padding: var(--spacing-lg);
+            }
+            .profile-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--spacing-sm);
+            }
+            .timeline-content {
+                width: 100% !important;
+                margin-left: 0 !important;
+            }
+            .timeline-date {
+                position: static !important;
+                margin-bottom: var(--spacing-xs);
+            }
+            .timeline-dot {
+                display: none;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .date-time-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-options {
+                grid-template-columns: 1fr;
+            }
+            .floating-contact {
+                bottom: var(--spacing-md);
+                left: var(--spacing-md);
+            }
+            body[dir="ltr"] .floating-contact {
+                left: auto;
+                right: var(--spacing-md);
+            }
+            .contact-buttons {
+                flex-direction: row;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .expertise-grid,
+            .projects-grid,
+            .skills-grid,
+            .blog-grid,
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+            .case-study-metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .container,
+            .nav-container,
+            .hero-grid,
+            .expertise-grid,
+            .projects-grid,
+            .section-header,
+            .experience-timeline,
+            .skills-container,
+            .contact-container,
+            .calculator-container,
+            .blog-container,
+            .case-studies-container,
+            .footer-content {
+                padding-left: var(--spacing-sm);
+                padding-right: var(--spacing-sm);
+            }
+            .hero {
+                padding: var(--spacing-xl) 0;
+            }
+            .section {
+                padding: var(--spacing-xl) 0;
+            }
+            .hero-content h1 {
+                font-size: 1.75rem;
+            }
+            .profile-card {
+                padding: var(--spacing-md);
+            }
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+            .profile-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--spacing-xs);
+            }
+            .stat-number {
+                font-size: 1.25rem;
+            }
+            .stat-label {
+                font-size: 0.75rem;
+            }
+            .btn {
+                padding: var(--spacing-xs) var(--spacing-md);
+                font-size: 0.875rem;
+            }
+            .expertise-card,
+            .timeline-content,
+            .contact-form,
+            .calculator-form,
+            .booking-form,
+            .blog-card,
+            .case-study-card {
+                padding: var(--spacing-md);
+            }
+            .social-link {
+                width: 35px;
+                height: 35px;
+            }
+            .contact-btn {
+                width: 45px;
+                height: 45px;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+        }
+        
+        /* RTL Support */
+        body[dir="ltr"] {
+            direction: ltr;
+        }
+        body[dir="ltr"] .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: auto;
+        }
+        body[dir="ltr"] .timeline-item:nth-child(odd) .timeline-date {
+            right: auto;
+            left: calc(100% + var(--spacing-md));
+        }
+        body[dir="ltr"] .timeline-item:nth-child(even) .timeline-date {
+            left: auto;
+            right: calc(100% + var(--spacing-md));
+        }
+        body[dir="ltr"] .timeline-dot {
+            left: auto;
+            right: 50%;
+            transform: translateX(50%);
+        }
+        body[dir="ltr"] .floating-contact {
+            left: auto;
+            right: var(--spacing-xl);
+        }
+        body[dir="ltr"] .project-link i,
+        body[dir="ltr"] .blog-link i,
+        body[dir="ltr"] .case-study-link i {
+            transform: rotate(180deg);
+        }
+    </style>
+    
+    <!-- Deferred CSS - Loaded after page render -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"></noscript>
+</head>
+<body>
+    <!-- Loading Spinner -->
+    <div class="loader" id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">MS</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active"><span class="ar">الرئيسية</span><span class="en">Home</span></a></li>
+                <li><a href="#expertise" class="nav-link"><span class="ar">الخبرات</span><span class="en">Expertise</span></a></li>
+                <li><a href="#experience" class="nav-link"><span class="ar">المسار المهني</span><span class="en">Experience</span></a></li>
+                <li><a href="#projects" class="nav-link"><span class="ar">المشاريع</span><span class="en">Projects</span></a></li>
+                <li><a href="#case-studies" class="nav-link"><span class="ar">دراسات الحالة</span><span class="en">Case Studies</span></a></li>
+                <li><a href="#skills" class="nav-link"><span class="ar">المهارات</span><span class="en">Skills</span></a></li>
+                <li><a href="#blog" class="nav-link"><span class="ar">المدونة</span><span class="en">Blog</span></a></li>
+                <li><a href="#calculator" class="nav-link"><span class="ar">حاسبة التكلفة</span><span class="en">Cost Calculator</span></a></li>
+                <li><a href="#contact" class="nav-link"><span class="ar">تواصل</span><span class="en">Contact</span></a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+                    <span class="ar">EN</span>
+                    <span class="en">AR</span>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="logo">MS</div>
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close mobile menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-menu-links">
+            <li><a href="#home" class="mobile-nav-link active"><span class="ar">الرئيسية</span><span class="en">Home</span></a></li>
+            <li><a href="#expertise" class="mobile-nav-link"><span class="ar">الخبرات</span><span class="en">Expertise</span></a></li>
+            <li><a href="#experience" class="mobile-nav-link"><span class="ar">المسار المهني</span><span class="en">Experience</span></a></li>
+            <li><a href="#projects" class="mobile-nav-link"><span class="ar">المشاريع</span><span class="en">Projects</span></a></li>
+            <li><a href="#case-studies" class="mobile-nav-link"><span class="ar">دراسات الحالة</span><span class="en">Case Studies</span></a></li>
+            <li><a href="#skills" class="mobile-nav-link"><span class="ar">المهارات</span><span class="en">Skills</span></a></li>
+            <li><a href="#blog" class="mobile-nav-link"><span class="ar">المدونة</span><span class="en">Blog</span></a></li>
+            <li><a href="#calculator" class="mobile-nav-link"><span class="ar">حاسبة التكلفة</span><span class="en">Cost Calculator</span></a></li>
+            <li><a href="#contact" class="mobile-nav-link"><span class="ar">تواصل</span><span class="en">Contact</span></a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-grid">
+            <div class="hero-content fade-in">
+                <h1>
+                    <span class="ar">مهلب صلاح</span>
+                    <span class="en">Muhalab Salah</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <span class="ar">مصمم جرافيك ومطور ويب متخصص في تقديم حلول إبداعية للشركات الكبرى</span>
+                    <span class="en">Graphic Designer & Web Developer specializing in creative solutions for enterprise companies</span>
+                </p>
+                <div class="hero-badges">
+                    <div class="badge">
+                        <i class="fas fa-building"></i>
+                        <span class="ar">8+ سنوات خبرة</span>
+                        <span class="en">8+ Years Experience</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-globe"></i>
+                        <span class="ar">عمل دولي</span>
+                        <span class="en">International Work</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-award"></i>
+                        <span class="ar">مشاريع ناجحة</span>
+                        <span class="en">Successful Projects</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        <span class="ar">تواصل معي</span>
+                        <span class="en">Contact Me</span>
+                    </a>
+                    <a href="#projects" class="btn btn-secondary">
+                        <i class="fas fa-briefcase"></i>
+                        <span class="ar">معرض الأعمال</span>
+                        <span class="en">View Portfolio</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image fade-in">
+                <div class="profile-card">
+                    <img 
+                        src="https://i.ibb.co/MkqK8xcd/Screenshot-20250726-093516.jpg" 
+                        srcset="https://i.ibb.co/MkqK8xcd/Screenshot-20250726-093516.jpg 1x, https://i.ibb.co/MkqK8xcd/Screenshot-20250726-093516.jpg 2x" 
+                        alt="Muhalab Salah" 
+                        class="profile-image" 
+                        loading="lazy"
+                    >
+                    <div class="profile-info">
+                        <h3 class="profile-name">
+                            <span class="ar">مهلب صلاح</span>
+                            <span class="en">Muhalab Salah</span>
+                        </h3>
+                        <p class="profile-title">
+                            <span class="ar">مصمم جرافيك ومطور ويب</span>
+                            <span class="en">Graphic Designer & Web Developer</span>
+                        </p>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">
+                                <span class="ar">عميل</span>
+                                <span class="en">Clients</span>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">
+                                <span class="ar">مشروع</span>
+                                <span class="en">Projects</span>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">8+</div>
+                            <div class="stat-label">
+                                <span class="ar">سنوات</span>
+                                <span class="en">Years</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="expertise">
+        <div class="section-header fade-in">
+            <h2 class="section-title">
+                <span class="ar">مجالات الخبرة</span>
+                <span class="en">Areas of Expertise</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="ar">متخصص في تقديم حلول شاملة للشركات الكبرى في مجالات التصميم والتطوير</span>
+                <span class="en">Specialized in providing comprehensive solutions for enterprise companies in design and development</span>
+            </p>
+        </div>
+        <div class="expertise-grid">
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3 class="expertise-title">
+                    <span class="ar">الهوية التجارية</span>
+                    <span class="en">Brand Identity</span>
+                </h3>
+                <p class="expertise-description">
+                    <span class="ar">تصميم هويات بصرية متكاملة للشركات الكبرى مع التركيز على القيم المؤسسية والتميز في السوق</span>
+                    <span class="en">Complete visual identity design for enterprise companies with focus on corporate values and market differentiation</span>
+                </p>
+            </div>
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="expertise-title">
+                    <span class="ar">تطوير المؤسسات</span>
+                    <span class="en">Enterprise Development</span>
+                </h3>
+                <p class="expertise-description">
+                    <span class="ar">تطوير تطبيقات ومواقع ويب للمؤسسات الكبيرة مع التركيز على الأمان والتكامل</span>
+                    <span class="en">Developing web applications and sites for large enterprises with focus on security and integration</span>
+                </p>
+            </div>
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="expertise-title">
+                    <span class="ar">تجربة المستخدم</span>
+                    <span class="en">User Experience</span>
+                </h3>
+                <p class="expertise-description">
+                    <span class="ar">تصميم تجارب مستخدم استثنائية للمنصات الرقمية مع التركيز على سهولة الاستخدام</span>
+                    <span class="en">Designing exceptional user experiences for digital platforms with focus on usability</span>
+                </p>
+            </div>
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="expertise-title">
+                    <span class="ar">التسويق الرقمي</span>
+                    <span class="en">Digital Marketing</span>
+                </h3>
+                <p class="expertise-description">
+                    <span class="ar">استراتيجيات تسويق رقمي متكاملة للشركات الكبرى مع التركيز على العائد على الاستثمار</span>
+                    <span class="en">Comprehensive digital marketing strategies for enterprise companies with focus on ROI</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="section-header fade-in">
+            <h2 class="section-title">
+                <span class="ar">المسار المهني</span>
+                <span class="en">Professional Journey</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="ar">خبرة متنوعة في العمل مع الشركات الكبرى والمشاريع الضخمة</span>
+                <span class="en">Diverse experience working with large companies and major projects</span>
+            </p>
+        </div>
+        <div class="experience-timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">
+                        <span class="ar">2023 - الآن</span>
+                        <span class="en">2023 - Present</span>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <h3 class="timeline-title">
+                        <span class="ar">مستشار تصميم وتطوير</span>
+                        <span class="en">Design & Development Consultant</span>
+                    </h3>
+                    <p class="timeline-company">
+                        <span class="ar">عمل مستقل للشركات الكبرى</span>
+                        <span class="en">Freelance for Enterprise Companies</span>
+                    </p>
+                    <p class="timeline-description">
+                        <span class="ar">تقديم استشارات تصميم وتطوير للشركات الكبرى في منطقة الشرق الأوسط وشمال إفريقيا</span>
+                        <span class="en">Providing design and development consulting for large companies in MENA region</span>
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">
+                        <span class="ar">2019 - 2023</span>
+                        <span class="en">2019 - 2023</span>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <h3 class="timeline-title">
+                        <span class="ar">مصمم بصري أول</span>
+                        <span class="en">Senior Visual Designer</span>
+                    </h3>
+                    <p class="timeline-company">
+                        <span class="ar">شركة المدينة للصناعات الغذائية - عمان</span>
+                        <span class="en">Al Madina Food Industries - Oman</span>
+                    </p>
+                    <p class="timeline-description">
+                        <span class="ar">إدارة تصميم العلامات التجارية والتغليف للمشاريع الضخمة في أسواق الخليج</span>
+                        <span class="en">Managing brand design and packaging for large projects in Gulf markets</span>
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">
+                        <span class="ar">2015 - 2019</span>
+                        <span class="en">2015 - 2019</span>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <h3 class="timeline-title">
+                        <span class="ar">مطور ويب ومصمم</span>
+                        <span class="en">Web Developer & Designer</span>
+                    </h3>
+                    <p class="timeline-company">
+                        <span class="ar">شركة ليوبارد للأنشطة المتعددة - السودان</span>
+                        <span class="en">Leopard Multi Activities - Sudan</span>
+                    </p>
+                    <p class="timeline-description">
+                        <span class="ar">تطوير مواقع وتصاميم للشركات الكبرى في قطاعات متعددة</span>
+                        <span class="en">Developing websites and designs for large companies in multiple sectors</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="section-header fade-in">
+            <h2 class="section-title">
+                <span class="ar">مشاريع مختارة</span>
+                <span class="en">Selected Projects</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="ar">نماذج من أعمالي مع الشركات الكبرى والمشاريع الضخمة</span>
+                <span class="en">Samples of my work with large companies and major projects</span>
+            </p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <img 
+                    src="https://i.ibb.co/yBqdJfJw/themar.webp" 
+                    srcset="https://i.ibb.co/yBqdJfJw/themar.webp 1x, https://i.ibb.co/yBqdJfJw/themar.webp 2x" 
+                    alt="Brand Identity" 
+                    class="project-image" 
+                    loading="lazy"
+                >
+                <div class="project-content">
+                    <h3 class="project-title">
+                        <span class="ar">هوية تجارية متكاملة</span>
+                        <span class="en">Complete Brand Identity</span>
+                    </h3>
+                    <p class="project-description">
+                        <span class="ar">تصميم هوية تجارية متكاملة لشركة غذائية كبرى في منطقة الخليج</span>
+                        <span class="en">Complete brand identity for a large food company in the Gulf region</span>
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Branding</span>
+                        <span class="project-tag">Packaging</span>
+                        <span class="project-tag">Strategy</span>
+                    </div>
+                    <a href="#" class="project-link">
+                        <span class="ar">عرض التفاصيل</span>
+                        <span class="en">View Details</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="project-card fade-in">
+                <img 
+                    src="https://i.ibb.co/FbkxpVjG/qarmash.webp" 
+                    srcset="https://i.ibb.co/FbkxpVjG/qarmash.webp 1x, https://i.ibb.co/FbkxpVjG/qarmash.webp 2x" 
+                    alt="Logo Design" 
+                    class="project-image" 
+                    loading="lazy"
+                >
+                <div class="project-content">
+                    <h3 class="project-title">
+                        <span class="ar">مجموعة شعارات</span>
+                        <span class="en">Logo Collection</span>
+                    </h3>
+                    <p class="project-description">
+                        <span class="ar">مجموعة شعارات لعلامات تجارية كبرى في قطاعات مختلفة</span>
+                        <span class="en">Logo collection for major brands in different sectors</span>
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Logo Design</span>
+                        <span class="project-tag">Brand Strategy</span>
+                        <span class="project-tag">Visual Identity</span>
+                    </div>
+                    <a href="#" class="project-link">
+                        <span class="ar">عرض التفاصيل</span>
+                        <span class="en">View Details</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="project-card fade-in">
+                <img 
+                    src="https://i.ibb.co/99yZHks8/ql.webp" 
+                    srcset="https://i.ibb.co/99yZHks8/ql.webp 1x, https://i.ibb.co/99yZHks8/ql.webp 2x" 
+                    alt="E-commerce" 
+                    class="project-image" 
+                    loading="lazy"
+                >
+                <div class="project-content">
+                    <h3 class="project-title">
+                        <span class="ar">منصة تجارة إلكترونية</span>
+                        <span class="en">E-commerce Platform</span>
+                    </h3>
+                    <p class="project-description">
+                        <span class="ar">تطوير منصة تجارة إلكترونية متكاملة لشركة تجارية كبرى</span>
+                        <span class="en">Developing a complete e-commerce platform for a large trading company</span>
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Web Development</span>
+                        <span class="project-tag">UI/UX</span>
+                        <span class="project-tag">E-commerce</span>
+                    </div>
+                    <a href="#" class="project-link">
+                        <span class="ar">عرض التفاصيل</span>
+                        <span class="en">View Details</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="case-studies">
+        <div class="section-header fade-in">
+            <h2 class="section-title">
+                <span class="ar">دراسات الحالة</span>
+                <span class="en">Case Studies</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="ar">أمثلة تفصيلية لمشاريع ناجحة مع نتائج قابلة للقياس</span>
+                <span class="en">Detailed examples of successful projects with measurable results</span>
+            </p>
+        </div>
+        <div class="case-studies-container">
+            <div class="case-studies-grid">
+                <div class="case-study-card fade-in">
+                    <div class="case-study-header">
+                        <img 
+                            src="https://i.ibb.co/4Jd8Jj1f/blog1.webp" 
+                            srcset="https://i.ibb.co/4Jd8Jj1f/blog1.webp 1x, https://i.ibb.co/4Jd8Jj1f/blog1.webp 2x" 
+                            alt="Case Study" 
+                            class="case-study-image" 
+                            loading="lazy"
+                        >
+                        <div class="case-study-overlay">
+                            <div>
+                                <h3 class="case-study-title">
+                                    <span class="ar">إعادة تصميم هوية شركة غذائية</span>
+                                    <span class="en">Food Company Brand Redesign</span>
+                                </h3>
+                                <p class="case-study-subtitle">
+                                    <span class="ar">شركة الأغذية المتحدة</span>
+                                    <span class="en">United Foods Company</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-study-content">
+                        <p class="case-study-description">
+                            <span class="ar">تمت إعادة تصميم الهوية البصرية بالكامل لشركة الأغذية المتحدة، بما في ذلك الشعار والتغليف والمواد التسويقية. كان الهدف هو تحديث الصورة العلامة التجارية وجعلها أكثر جاذبية للجمهور المستهدف مع الحفاظ على القيم التقليدية للشركة.</span>
+                            <span class="en">Complete visual identity redesign for United Foods Company, including logo, packaging, and marketing materials. The goal was to modernize the brand image and make it more appealing to the target audience while preserving the company's traditional values.</span>
+                        </p>
+                        <div class="case-study-metrics">
+                            <div class="metric">
+                                <div class="metric-value">35%</div>
+                                <div class="metric-label">
+                                    <span class="ar">زيادة المبيعات</span>
+                                    <span class="en">Sales Increase</span>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">60%</div>
+                                <div class="metric-label">
+                                    <span class="ar">زيادة الوعي بالعلامة</span>
+                                    <span class="en">Brand Awareness</span>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">45%</div>
+                                <div class="metric-label">
+                                    <span class="ar">زيادة التفاعل</span>
+                                    <span class="en">Engagement Increase</span>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">3 أشهر</div>
+                                <div class="metric-label">
+                                    <span class="ar">مدة المشروع</span>
+                                    <span class="en">Project Duration</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="case-study-link">
+                            <span class="ar">قراءة الدراسة الكاملة</span>
+                            <span class="en">Read Full Case Study</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="case-study-card fade-in">
+                    <div class="case-study-header">
+                        <img 
+                            src="https://i.ibb.co/6HfWQYtG/blog2.webp" 
+                            srcset="https://i.ibb.co/6HfWQYtG/blog2.webp 1x, https://i.ibb.co/6HfWQYtG/blog2.webp 2x" 
+                            alt="Case Study" 
+                            class="case-study-image" 
+                            loading="lazy"
+                        >
+                        <div class="case-study-overlay">
+                            <div>
+                                <h3 class="case-study-title">
+                                    <span class="ar">تطوير منصة التجارة الإلكترونية</span>
+                                    <span class="en">E-commerce Platform Development</span>
+                                </h3>
+                                <p class="case-study-subtitle">
+                                    <span class="ar">مجموعة المتاجر الذكية</span>
+                                    <span class="en">Smart Stores Group</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-study-content">
+                        <p class="case-study-description">
+                            <span class="ar">تم تطوير منصة تجارة إلكترونية متكاملة لمجموعة المتاجر الذكية، تشمل نظام إدارة المنتجات، سلة التسوق، بوابات الدفع الآمنة، ونظام تتبع الطلبات. تم تصميم الواجهة لتكون سهلة الاستخدام ومتجاوبة مع جميع الأجهزة.</span>
+                            <span class="en">Complete e-commerce platform development for Smart Stores Group, including product management system, shopping cart, secure payment gateways, and order tracking system. The interface was designed to be user-friendly and responsive across all devices.</span>
+                        </p>
+                        <div class="case-study-metrics">
+                            <div class="metric">
+                                <div class="metric-value">70%</div>
+                                <div class="metric-label">
+                                    <span class="ar">زيادة التحويلات</span>
+                                    <span class="en">Conversion Increase</span>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">50%</div>
+                                <div class="metric-label">
+                                    <span class="ar">انخفاض معدل الارتداد</span>
+                                    <span class="en">Bounce Rate Decrease</span>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">85%</div>
+                                <div class="metric-label">
+                                    <span class="ar">رضا العملاء</span>
+                                    <span class="en">Customer Satisfaction</span>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">6 أشهر</div>
+                                <div class="metric-label">
+                                    <span class="ar">مدة المشروع</span>
+                                    <span class="en">Project Duration</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="case-study-link">
+                            <span class="ar">قراءة الدراسة الكاملة</span>
+                            <span class="en">Read Full Case Study</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="section-header fade-in">
+            <h2 class="section-title">
+                <span class="ar">المهارات التقنية</span>
+                <span class="en">Technical Skills</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="ar">مجموعة المهارات التي تمكنني من تقديم حلول متكاملة للشركات الكبرى</span>
+                <span class="en">Skills that enable me to provide comprehensive solutions for enterprise companies</span>
+            </p>
+        </div>
+        <div class="skills-container">
+            <div class="skills-grid">
+                <div class="skill-item fade-in">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
+                            <span class="ar">تصميم الجرافيك</span>
+                            <span class="en">Graphic Design</span>
+                        </span>
+                        <span class="skill-percentage">95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <div class="skill-icon"><i class="fas fa-code"></i></div>
+                            <span class="ar">تطوير الواجهات</span>
+                            <span class="en">Frontend Development</span>
+                        </span>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <div class="skill-icon"><i class="fas fa-trademark"></i></div>
+                            <span class="ar">تصميم العلامات</span>
+                            <span class="en">Brand Design</span>
+                        </span>
+                        <span class="skill-percentage">92%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="92%"></div>
+                    </div>
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <div class="skill-icon"><i class="fas fa-server"></i></div>
+                            <span class="ar">تطوير الخلفيات</span>
+                            <span class="en">Backend Development</span>
+                        </span>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+                            <span class="ar">تطوير التطبيقات</span>
+                            <span class="en">App Development</span>
+                        </span>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="80%"></div>
+                    </div>
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <div class="skill-icon"><i class="fas fa-bullhorn"></i></div>
+                            <span class="ar">التسويق الرقمي</span>
+                            <span class="en">Digital Marketing</span>
+                        </span>
+                        <span class="skill-percentage">88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="88%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="section-header fade-in">
+            <h2 class="section-title">
+                <span class="ar">المدونة</span>
+                <span class="en">Blog</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="ar">أحدث المقالات والمعلومات حول التصميم والتطوير</span>
+                <span class="en">Latest articles and information about design and development</span>
+            </p>
+        </div>
+        <div class="blog-container">
+            <div class="blog-categories">
+                <div class="blog-category active" data-category="all">
+                    <span class="ar">الكل</span>
+                    <span class="en">All</span>
+                </div>
+                <div class="blog-category" data-category="design">
+                    <span class="ar">تصميم</span>
+                    <span class="en">Design</span>
+                </div>
+                <div class="blog-category" data-category="development">
+                    <span class="ar">تطوير</span>
+                    <span class="en">Development</span>
+                </div>
+                <div class="blog-category" data-category="marketing">
+                    <span class="ar">تسويق</span>
+                    <span class="en">Marketing</span>
+                </div>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card fade-in" data-category="design">
+                    <img 
+                        src="https://i.ibb.co/4Jd8Jj1f/blog1.webp" 
+                        srcset="https://i.ibb.co/4Jd8Jj1f/blog1.webp 1x, https://i.ibb.co/4Jd8Jj1f/blog1.webp 2x" 
+                        alt="Blog Post" 
+                        class="blog-image" 
+                        loading="lazy"
+                    >
+                    <div class="blog-content">
+                        <p class="blog-date">15 يونيو 2023</p>
+                        <h3 class="blog-title">
+                            <span class="ar">أهمية الهوية البصرية للشركات الناشئة</span>
+                            <span class="en">The Importance of Visual Identity for Startups</span>
+                        </h3>
+                        <p class="blog-description">
+                            <span class="ar">الهوية البصرية هي أحد أهم العناصر التي تساعد الشركات الناشئة على التميز في السوق...</span>
+                            <span class="en">Visual identity is one of the most important elements that help startups stand out in the market...</span>
+                        </p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">تصميم</span>
+                            <span class="blog-tag">هوية بصرية</span>
+                        </div>
+                        <a href="#" class="blog-link">
+                            <span class="ar">قراءة المزيد</span>
+                            <span class="en">Read More</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                        <div class="blog-comments">
+                            <i class="fas fa-comment"></i>
+                            <span>12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-card fade-in" data-category="development">
+                    <img 
+                        src="https://i.ibb.co/6HfWQYtG/blog2.webp" 
+                        srcset="https://i.ibb.co/6HfWQYtG/blog2.webp 1x, https://i.ibb.co/6HfWQYtG/blog2.webp 2x" 
+                        alt="Blog Post" 
+                        class="blog-image" 
+                        loading="lazy"
+                    >
+                    <div class="blog-content">
+                        <p class="blog-date">22 مايو 2023</p>
+                        <h3 class="blog-title">
+                            <span class="ar">اتجاهات تصميم المواقع في 2023</span>
+                            <span class="en">Web Design Trends in 2023</span>
+                        </h3>
+                        <p class="blog-description">
+                            <span class="ar">يستمر تصميم المواقع في التطور مع ظهور تقنيات واتجاهات جديدة كل عام...</span>
+                            <span class="en">Web design continues to evolve with new technologies and trends emerging every year...</span>
+                        </p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">تطوير</span>
+                            <span class="blog-tag">تصميم ويب</span>
+                        </div>
+                        <a href="#" class="blog-link">
+                            <span class="ar">قراءة المزيد</span>
+                            <span class="en">Read More</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                        <div class="blog-comments">
+                            <i class="fas fa-comment"></i>
+                            <span>8</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-card fade-in" data-category="design">
+                    <img 
+                        src="https://i.ibb.co/ZXK3Jq2W/blog3.webp" 
+                        srcset="https://i.ibb.co/ZXK3Jq2W/blog3.webp 1x, https://i.ibb.co/ZXK3Jq2W/blog3.webp 2x" 
+                        alt="Blog Post" 
+                        class="blog-image" 
+                        loading="lazy"
+                    >
+                    <div class="blog-content">
+                        <p class="blog-date">8 مايو 2023</p>
+                        <h3 class="blog-title">
+                            <span class="ar">كيف تختار المصمم المناسب لمشروعك</span>
+                            <span class="en">How to Choose the Right Designer for Your Project</span>
+                        </h3>
+                        <p class="blog-description">
+                            <span class="ar">اختيار المصمم المناسب لمشروعك يمكن أن يكون الفرق بين النجاح والفشل...</span>
+                            <span class="en">Choosing the right designer for your project can be the difference between success and failure...</span>
+                        </p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">تصميم</span>
+                            <span class="blog-tag">نصائح</span>
+                        </div>
+                        <a href="#" class="blog-link">
+                            <span class="ar">قراءة المزيد</span>
+                            <span class="en">Read More</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                        <div class="blog-comments">
+                            <i class="fas fa-comment"></i>
+                            <span>15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="calculator">
+        <div class="section-header fade-in">
+            <h2 class="section-title">
+                <span class="ar">حاسبة تكلفة المشروع</span>
+                <span class="en">Project Cost Calculator</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="ar">احصل على تقدير تقريبي لتكلفة مشروعك</span>
+                <span class="en">Get an approximate estimate of your project cost</span>
+            </p>
+        </div>
+        <div class="calculator-container">
+            <form class="calculator-form fade-in" id="calculatorForm">
+                <div class="form-group">
+                    <label class="form-label">
+                        <span class="ar">نوع المشروع</span>
+                        <span class="en">Project Type</span>
+                    </label>
+                    <select class="form-control" id="projectType" required>
+                        <option value="" disabled selected>
+                            <span class="ar">اختر نوع المشروع</span>
+                            <span class="en">Select Project Type</span>
+                        </option>
+                        <option value="branding">
+                            <span class="ar">هوية بصرية</span>
+                            <span class="en">Brand Identity</span>
+                        </option>
+                        <option value="website">
+                            <span class="ar">موقع إلكتروني</span>
+                            <span class="en">Website</span>
+                        </option>
+                        <option value="ecommerce">
+                            <span class="ar">متجر إلكتروني</span>
+                            <span class="en">E-commerce</span>
+                        </option>
+                        <option value="app">
+                            <span class="ar">تطبيق جوال</span>
+                            <span class="en">Mobile App</span>
+                        </option>
+                        <option value="marketing">
+                            <span class="ar">تسويق رقمي</span>
+                            <span class="en">Digital Marketing</span>
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">
+                        <span class="ar">حجم المشروع</span>
+                        <span class="en">Project Size</span>
+                    </label>
+                    <select class="form-control" id="projectSize" required>
+                        <option value="" disabled selected>
+                            <span class="ar">اختر حجم المشروع</span>
+                            <span class="en">Select Project Size</span>
+                        </option>
+                        <option value="small">
+                            <span class="ar">صغير</span>
+                            <span class="en">Small</span>
+                        </option>
+                        <option value="medium">
+                            <span class="ar">متوسط</span>
+                            <span class="en">Medium</span>
+                        </option>
+                        <option value="large">
+                            <span class="ar">كبير</span>
+                            <span class="en">Large</span>
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">
+                        <span class="ar">المدة الزمنية</span>
+                        <span class="en">Timeline</span>
+                    </label>
+                    <select class="form-control" id="projectTimeline" required>
+                        <option value="" disabled selected>
+                            <span class="ar">اختر المدة الزمنية</span>
+                            <span class="en">Select Timeline</span>
+                        </option>
+                        <option value="urgent">
+                            <span class="ar">عاجل (أقل من شهر)</span>
+                            <span class="en">Urgent (Less than a month)</span>
+                        </option>
+                        <option value="normal">
+                            <span class="ar">عادي (1-3 أشهر)</span>
+                            <span class="en">Normal (1-3 months)</span>
+                        </option>
+                        <option value="flexible">
+                            <span class="ar">مرن (أكثر من 3 أشهر)</span>
+                            <span class="en">Flexible (More than 3 months)</span>
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">
+                        <span class="ar">الميزانية التقريبية</span>
+                        <span class="en">Approximate Budget</span>
+                    </label>
+                    <select class="form-control" id="projectBudget" required>
+                        <option value="" disabled selected>
+                            <span class="ar">اختر الميزانية</span>
+                            <span class="en">Select Budget</span>
+                        </option>
+                        <option value="low">
+                            <span class="ar">منخفضة</span>
+                            <span class="en">Low</span>
+                        </option>
+                        <option value="medium">
+                            <span class="ar">متوسطة</span>
+                            <span class="en">Medium</span>
+                        </option>
+                        <option value="high">
+                            <span class="ar">عالية</span>
+                            <span class="en">High</span>
+                        </option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-md);">
+                    <i class="fas fa-calculator"></i>
+                    <span class="ar">حساب التكلفة</span>
+                    <span class="en">Calculate Cost</span>
+                </button>
+            </form>
+            <div class="calculator-result" id="calculatorResult">
+                <h3>
+                    <span class="ar">التكلفة التقريبية للمشروع</span>
+                    <span class="en">Approximate Project Cost</span>
+                </h3>
+                <p id="costResult"></p>
+                <p style="margin-top: var(--spacing-md); color: var(--secondary);">
+                    <span class="ar">هذه مجرد تقدير أولي وسيتصل بك فريقنا لتقديم عرض مفصل</span>
+                    <span class="en">This is just an initial estimate and our team will contact you to provide a detailed quote</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-header fade-in">
+            <h2 class="section-title">
+                <span class="ar">تواصل معي</span>
+                <span class="en">Get In Touch</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="ar">أنا متاح للانضمام إلى فريقكم وتقديم حلول إبداعية لشركتكم</span>
+                <span class="en">I'm available to join your team and provide creative solutions for your company</span>
+            </p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-tabs">
+                <div class="contact-tab active" data-tab="message">
+                    <span class="ar">رسالة</span>
+                    <span class="en">Message</span>
+                </div>
+                <div class="contact-tab" data-tab="booking">
+                    <span class="ar">حجز استشارة</span>
+                    <span class="en">Book Consultation</span>
+                </div>
+            </div>
+            
+            <div class="contact-tab-content active" id="message-tab">
+                <div class="form-success" id="formSuccess">
+                    <i class="fas fa-check-circle"></i>
+                    <span class="ar">تم إرسال رسالتك بنجاح! سأعود إليك قريباً.</span>
+                    <span class="en">Your message has been sent successfully! I will get back to you soon.</span>
+                </div>
+                <form class="contact-form fade-in" id="contactForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <span class="ar">الاسم الكامل</span>
+                                <span class="en">Full Name</span>
+                            </label>
+                            <input type="text" class="form-control" id="fullName" required>
+                            <div class="error-message">
+                                <span class="ar">الرجاء إدخال اسمك الكامل</span>
+                                <span class="en">Please enter your full name</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                <span class="ar">البريد الإلكتروني</span>
+                                <span class="en">Email</span>
+                            </label>
+                            <input type="email" class="form-control" id="email" required>
+                            <div class="error-message">
+                                <span class="ar">الرجاء إدخال بريد إلكتروني صحيح</span>
+                                <span class="en">Please enter a valid email</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                <span class="ar">الشركة</span>
+                                <span class="en">Company</span>
+                            </label>
+                            <input type="text" class="form-control" id="company">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                <span class="ar">المسمى الوظيفي</span>
+                                <span class="en">Position</span>
+                            </label>
+                            <input type="text" class="form-control" id="position">
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="form-label">
+                                <span class="ar">نوع الخدمة</span>
+                                <span class="en">Service Type</span>
+                            </label>
+                            <select class="form-control" id="serviceType">
+                                <option value="" disabled selected>
+                                    <span class="ar">اختر نوع الخدمة</span>
+                                    <span class="en">Select Service Type</span>
+                                </option>
+                                <option value="branding">
+                                    <span class="ar">هوية بصرية</span>
+                                    <span class="en">Brand Identity</span>
+                                </option>
+                                <option value="website">
+                                    <span class="ar">موقع إلكتروني</span>
+                                    <span class="en">Website</span>
+                                </option>
+                                <option value="ecommerce">
+                                    <span class="ar">متجر إلكتروني</span>
+                                    <span class="en">E-commerce</span>
+                                </option>
+                                <option value="app">
+                                    <span class="ar">تطبيق جوال</span>
+                                    <span class="en">Mobile App</span>
+                                </option>
+                                <option value="marketing">
+                                    <span class="ar">تسويق رقمي</span>
+                                    <span class="en">Digital Marketing</span>
+                                </option>
+                                <option value="other">
+                                    <span class="ar">أخرى</span>
+                                    <span class="en">Other</span>
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="form-label">
+                                <span class="ar">الميزانية التقريبية</span>
+                                <span class="en">Approximate Budget</span>
+                            </label>
+                            <select class="form-control" id="budget">
+                                <option value="" disabled selected>
+                                    <span class="ar">اختر الميزانية</span>
+                                    <span class="en">Select Budget</span>
+                                </option>
+                                <option value="low">
+                                    <span class="ar">أقل من 1000 دولار</span>
+                                    <span class="en">Less than $1000</span>
+                                </option>
+                                <option value="medium">
+                                    <span class="ar">1000 - 5000 دولار</span>
+                                    <span class="en">$1000 - $5000</span>
+                                </option>
+                                <option value="high">
+                                    <span class="ar">5000 - 10000 دولار</span>
+                                    <span class="en">$5000 - $10000</span>
+                                </option>
+                                <option value="enterprise">
+                                    <span class="ar">أكثر من 10000 دولار</span>
+                                    <span class="en">More than $10000</span>
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="form-label">
+                                <span class="ar">رسالتك</span>
+                                <span class="en">Your Message</span>
+                            </label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                            <div class="error-message">
+                                <span class="ar">الرجاء إدخال رسالتك</span>
+                                <span class="en">Please enter your message</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-md);">
+                        <i class="fas fa-paper-plane"></i>
+                        <span class="ar">إرسال الرسالة</span>
+                        <span class="en">Send Message</span>
+                    </button>
+                </form>
+            </div>
+            
+            <div class="contact-tab-content" id="booking-tab">
+                <div class="form-success" id="bookingSuccess">
+                    <i class="fas fa-check-circle"></i>
+                    <span class="ar">تم حجز استشارتك بنجاح! سأتواصل معك قريباً لتأكيد الموعد.</span>
+                    <span class="en">Your consultation has been booked successfully! I will contact you soon to confirm the appointment.</span>
+                </div>
+                <form class="booking-form fade-in" id="bookingForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <span class="ar">الاسم الكامل</span>
+                                <span class="en">Full Name</span>
+                            </label>
+                            <input type="text" class="form-control" id="bookingFullName" required>
+                            <div class="error-message">
+                                <span class="ar">الرجاء إدخال اسمك الكامل</span>
+                                <span class="en">Please enter your full name</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                <span class="ar">البريد الإلكتروني</span>
+                                <span class="en">Email</span>
+                            </label>
+                            <input type="email" class="form-control" id="bookingEmail" required>
+                            <div class="error-message">
+                                <span class="ar">الرجاء إدخال بريد إلكتروني صحيح</span>
+                                <span class="en">Please enter a valid email</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="date-time-grid">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <span class="ar">التاريخ المفضل</span>
+                                <span class="en">Preferred Date</span>
+                            </label>
+                            <input type="date" class="form-control" id="preferredDate" required>
+                            <div class="error-message">
+                                <span class="ar">الرجاء اختيار التاريخ</span>
+                                <span class="en">Please select a date</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                <span class="ar">الوقت المفضل</span>
+                                <span class="en">Preferred Time</span>
+                            </label>
+                            <select class="form-control" id="preferredTime" required>
+                                <option value="" disabled selected>
+                                    <span class="ar">اختر الوقت</span>
+                                    <span class="en">Select Time</span>
+                                </option>
+                                <option value="09:00">
+                                    <span class="ar">9:00 ص</span>
+                                    <span class="en">9:00 AM</span>
+                                </option>
+                                <option value="10:00">
+                                    <span class="ar">10:00 ص</span>
+                                    <span class="en">10:00 AM</span>
+                                </option>
+                                <option value="11:00">
+                                    <span class="ar">11:00 ص</span>
+                                    <span class="en">11:00 AM</span>
+                                </option>
+                                <option value="12:00">
+                                    <span class="ar">12:00 م</span>
+                                    <span class="en">12:00 PM</span>
+                                </option>
+                                <option value="13:00">
+                                    <span class="ar">1:00 م</span>
+                                    <span class="en">1:00 PM</span>
+                                </option>
+                                <option value="14:00">
+                                    <span class="ar">2:00 م</span>
+                                    <span class="en">2:00 PM</span>
+                                </option>
+                                <option value="15:00">
+                                    <span class="ar">3:00 م</span>
+                                    <span class="en">3:00 PM</span>
+                                </option>
+                                <option value="16:00">
+                                    <span class="ar">4:00 م</span>
+                                    <span class="en">4:00 PM</span>
+                                </option>
+                                <option value="17:00">
+                                    <span class="ar">5:00 م</span>
+                                    <span class="en">5:00 PM</span>
+                                </option>
+                            </select>
+                            <div class="error-message">
+                                <span class="ar">الرجاء اختيار الوقت</span>
+                                <span class="en">Please select a time</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="ar">نوع الاستشارة</span>
+                            <span class="en">Consultation Type</span>
+                        </label>
+                        <div class="service-options">
+                            <div class="service-option">
+                                <input type="radio" id="brandingConsultation" name="consultationType" value="branding">
+                                <label for="brandingConsultation">
+                                    <span class="ar">هوية بصرية</span>
+                                    <span class="en">Brand Identity</span>
+                                </label>
+                            </div>
+                            <div class="service-option">
+                                <input type="radio" id="websiteConsultation" name="consultationType" value="website">
+                                <label for="websiteConsultation">
+                                    <span class="ar">موقع إلكتروني</span>
+                                    <span class="en">Website</span>
+                                </label>
+                            </div>
+                            <div class="service-option">
+                                <input type="radio" id="ecommerceConsultation" name="consultationType" value="ecommerce">
+                                <label for="ecommerceConsultation">
+                                    <span class="ar">متجر إلكتروني</span>
+                                    <span class="en">E-commerce</span>
+                                </label>
+                            </div>
+                            <div class="service-option">
+                                <input type="radio" id="appConsultation" name="consultationType" value="app">
+                                <label for="appConsultation">
+                                    <span class="ar">تطبيق جوال</span>
+                                    <span class="en">Mobile App</span>
+                                </label>
+                            </div>
+                            <div class="service-option">
+                                <input type="radio" id="marketingConsultation" name="consultationType" value="marketing">
+                                <label for="marketingConsultation">
+                                    <span class="ar">تسويق رقمي</span>
+                                    <span class="en">Digital Marketing</span>
+                                </label>
+                            </div>
+                            <div class="service-option">
+                                <input type="radio" id="otherConsultation" name="consultationType" value="other">
+                                <label for="otherConsultation">
+                                    <span class="ar">أخرى</span>
+                                    <span class="en">Other</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="error-message">
+                            <span class="ar">الرجاء اختيار نوع الاستشارة</span>
+                            <span class="en">Please select consultation type</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="ar">رسالة إضافية (اختياري)</span>
+                            <span class="en">Additional Message (Optional)</span>
+                        </label>
+                        <textarea class="form-control" id="bookingMessage" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-md);">
+                        <i class="fas fa-calendar-check"></i>
+                        <span class="ar">حجز الاستشارة</span>
+                        <span class="en">Book Consultation</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/muhalabsalah" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://behance.net/MuhalabSalah" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Behance">
+                    <i class="fab fa-behance"></i>
+                </a>
+                <a href="https://github.com/muhalabsalah" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://twitter.com/muhalabsalah" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="#home" class="footer-link">
+                    <span class="ar">الرئيسية</span>
+                    <span class="en">Home</span>
+                </a>
+                <a href="#projects" class="footer-link">
+                    <span class="ar">المشاريع</span>
+                    <span class="en">Projects</span>
+                </a>
+                <a href="#blog" class="footer-link">
+                    <span class="ar">المدونة</span>
+                    <span class="en">Blog</span>
+                </a>
+                <a href="#contact" class="footer-link">
+                    <span class="ar">تواصل</span>
+                    <span class="en">Contact</span>
+                </a>
+                <a href="sitemap.xml" class="footer-link">
+                    <span class="ar">خريطة الموقع</span>
+                    <span class="en">Sitemap</span>
+                </a>
+            </div>
+            <p>
+                <span class="ar">© 2025 مهلب صلاح. جميع الحقوق محفوظة.</span>
+                <span class="en">© 2025 Muhalab Salah. All rights reserved.</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Floating Contact -->
+    <div class="floating-contact">
+        <div class="contact-buttons">
+            <a href="https://wa.me/249119005441" target="_blank" rel="noopener noreferrer" class="contact-btn whatsapp" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="mailto:muhalabsalah@gmail.com" class="contact-btn email" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://t.me/muhalabsalah" target="_blank" rel="noopener noreferrer" class="contact-btn telegram" aria-label="Telegram">
+                <i class="fab fa-telegram"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Settings Manager
+        class SettingsManager {
+            static setTheme(theme) {
+                localStorage.setItem('theme', theme);
+                document.documentElement.setAttribute('data-theme', theme);
+                const icon = document.querySelector('#themeToggle i');
+                icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+            static getTheme() {
+                return localStorage.getItem('theme') || 'light';
+            }
+            static setLanguage(lang) {
+                localStorage.setItem('language', lang);
+                document.documentElement.lang = lang;
+                document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+                const langToggle = document.getElementById('langToggle');
+                if (langToggle) {
+                    const langText = langToggle.querySelector(`.${lang === 'ar' ? 'en' : 'ar'}`);
+                    if (langText) {
+                        langToggle.textContent = langText.textContent;
+                    }
+                }
+            }
+            static getLanguage() {
+                return localStorage.getItem('language') || 'ar';
+            }
+        }
+
+        // Notification Manager
+        class NotificationManager {
+            static show(message, type = 'success') {
+                const notification = document.getElementById('notification');
+                if (notification) {
+                    notification.textContent = message;
+                    notification.className = `notification ${type} show`;
+                    
+                    setTimeout(() => {
+                        notification.classList.remove('show');
+                    }, 5000);
+                }
+            }
+        }
+
+        // Form Validator
+        class FormValidator {
+            static validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+            
+            static validateForm(formId) {
+                const form = document.getElementById(formId);
+                if (!form) return true;
+                
+                let isValid = true;
+                const inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
+                
+                inputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        input.classList.add('error');
+                        isValid = false;
+                    } else if (input.type === 'email' && !this.validateEmail(input.value)) {
+                        input.classList.add('error');
+                        isValid = false;
+                    } else if (input.type === 'radio') {
+                        const radioGroup = form.querySelectorAll(`input[name="${input.name}"]`);
+                        const isChecked = Array.from(radioGroup).some(radio => radio.checked);
+                        if (!isChecked) {
+                            input.closest('.form-group').querySelector('.error-message').style.display = 'block';
+                            isValid = false;
+                        } else {
+                            input.closest('.form-group').querySelector('.error-message').style.display = 'none';
+                        }
+                    } else {
+                        input.classList.remove('error');
+                    }
+                });
+                
+                return isValid;
+            }
+        }
+
+        // Project Calculator
+        class ProjectCalculator {
+            static calculateCost(type, size, timeline, budget) {
+                // Base costs in USD
+                const baseCosts = {
+                    branding: { small: 1000, medium: 2500, large: 5000 },
+                    website: { small: 1500, medium: 4000, large: 8000 },
+                    ecommerce: { small: 3000, medium: 7000, large: 15000 },
+                    app: { small: 5000, medium: 12000, large: 25000 },
+                    marketing: { small: 800, medium: 2000, large: 5000 }
+                };
+                
+                // Timeline multipliers
+                const timelineMultipliers = {
+                    urgent: 1.5,
+                    normal: 1.2,
+                    flexible: 1
+                };
+                
+                // Get base cost
+                let cost = baseCosts[type][size];
+                
+                // Apply timeline multiplier
+                cost *= timelineMultipliers[timeline];
+                
+                // Apply budget adjustment
+                if (budget === 'low') {
+                    cost *= 0.8;
+                } else if (budget === 'high') {
+                    cost *= 1.2;
+                }
+                
+                return Math.round(cost);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hide loader when page is fully loaded
+            window.addEventListener('load', () => {
+                const loader = document.getElementById('loader');
+                if (loader) {
+                    loader.classList.add('hidden');
+                }
+            });
+            
+            // Apply settings
+            SettingsManager.setTheme(SettingsManager.getTheme());
+            SettingsManager.setLanguage(SettingsManager.getLanguage());
+            
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const currentTheme = SettingsManager.getTheme();
+                    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                    SettingsManager.setTheme(newTheme);
+                });
+            }
+            
+            // Language toggle
+            const langToggle = document.getElementById('langToggle');
+            if (langToggle) {
+                langToggle.addEventListener('click', () => {
+                    const currentLang = SettingsManager.getLanguage();
+                    const newLang = currentLang === 'ar' ? 'en' : 'ar';
+                    SettingsManager.setLanguage(newLang);
+                });
+            }
+            
+            // Mobile menu toggle
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            
+            if (mobileMenuToggle && mobileMenu && mobileMenuOverlay) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.add('active');
+                    mobileMenuOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+                
+                const closeMobileMenu = () => {
+                    mobileMenu.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                };
+                
+                if (mobileMenuClose) {
+                    mobileMenuClose.addEventListener('click', closeMobileMenu);
+                }
+                
+                mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+            }
+            
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (mobileMenu && mobileMenu.classList.contains('active')) {
+                            mobileMenu.classList.remove('active');
+                            mobileMenuOverlay.classList.remove('active');
+                            document.body.style.overflow = '';
+                        }
+                    }
+                });
+            });
+            
+            // Active navigation link
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            
+            const updateActiveNavLink = () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').slice(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', updateActiveNavLink);
+            updateActiveNavLink();
+            
+            // Progress bar
+            const progressBar = document.getElementById('progressBar');
+            const updateProgressBar = () => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.body.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                if (progressBar) {
+                    progressBar.style.width = scrollPercent + '%';
+                }
+            };
+            
+            window.addEventListener('scroll', updateProgressBar);
+            updateProgressBar();
+            
+            // Contact tabs
+            const contactTabs = document.querySelectorAll('.contact-tab');
+            const contactTabContents = document.querySelectorAll('.contact-tab-content');
+            
+            contactTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    contactTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Update active content
+                    contactTabContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === `${tabId}-tab`) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Form submission - Contact Form
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    if (FormValidator.validateForm('contactForm')) {
+                        const currentLang = SettingsManager.getLanguage();
+                        
+                        // Show success message
+                        const formSuccess = document.getElementById('formSuccess');
+                        if (formSuccess) {
+                            formSuccess.classList.add('show');
+                        }
+                        
+                        // Show notification
+                        if (currentLang === 'ar') {
+                            NotificationManager.show('تم إرسال رسالتك بنجاح! سأعود إليك قريباً.');
+                        } else {
+                            NotificationManager.show('Your message has been sent successfully! I will get back to you soon.');
+                        }
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            if (formSuccess) {
+                                formSuccess.classList.remove('show');
+                            }
+                        }, 5000);
+                    }
+                });
+                
+                // Real-time validation
+                const inputs = contactForm.querySelectorAll('input, textarea, select');
+                inputs.forEach(input => {
+                    input.addEventListener('blur', () => {
+                        if (input.hasAttribute('required') && !input.value.trim()) {
+                            input.classList.add('error');
+                        } else if (input.type === 'email' && input.value.trim() && !FormValidator.validateEmail(input.value)) {
+                            input.classList.add('error');
+                        } else {
+                            input.classList.remove('error');
+                        }
+                    });
+                    
+                    input.addEventListener('input', () => {
+                        if (input.classList.contains('error')) {
+                            if (input.value.trim()) {
+                                if (input.type === 'email') {
+                                    if (FormValidator.validateEmail(input.value)) {
+                                        input.classList.remove('error');
+                                    }
+                                } else {
+                                    input.classList.remove('error');
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+            
+            // Form submission - Booking Form
+            const bookingForm = document.getElementById('bookingForm');
+            if (bookingForm) {
+                // Set minimum date to today
+                const dateInput = document.getElementById('preferredDate');
+                if (dateInput) {
+                    const today = new Date().toISOString().split('T')[0];
+                    dateInput.setAttribute('min', today);
+                }
+                
+                bookingForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    if (FormValidator.validateForm('bookingForm')) {
+                        const currentLang = SettingsManager.getLanguage();
+                        
+                        // Show success message
+                        const bookingSuccess = document.getElementById('bookingSuccess');
+                        if (bookingSuccess) {
+                            bookingSuccess.classList.add('show');
+                        }
+                        
+                        // Show notification
+                        if (currentLang === 'ar') {
+                            NotificationManager.show('تم حجز استشارتك بنجاح! سأتواصل معك قريباً لتأكيد الموعد.');
+                        } else {
+                            NotificationManager.show('Your consultation has been booked successfully! I will contact you soon to confirm the appointment.');
+                        }
+                        
+                        // Reset form
+                        bookingForm.reset();
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            if (bookingSuccess) {
+                                bookingSuccess.classList.remove('show');
+                            }
+                        }, 5000);
+                    }
+                });
+                
+                // Real-time validation
+                const bookingInputs = bookingForm.querySelectorAll('input, textarea, select');
+                bookingInputs.forEach(input => {
+                    input.addEventListener('blur', () => {
+                        if (input.hasAttribute('required') && !input.value.trim()) {
+                            input.classList.add('error');
+                        } else if (input.type === 'email' && input.value.trim() && !FormValidator.validateEmail(input.value)) {
+                            input.classList.add('error');
+                        } else {
+                            input.classList.remove('error');
+                        }
+                    });
+                    
+                    input.addEventListener('input', () => {
+                        if (input.classList.contains('error')) {
+                            if (input.value.trim()) {
+                                if (input.type === 'email') {
+                                    if (FormValidator.validateEmail(input.value)) {
+                                        input.classList.remove('error');
+                                    }
+                                } else {
+                                    input.classList.remove('error');
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+            
+            // Project calculator
+            const calculatorForm = document.getElementById('calculatorForm');
+            const calculatorResult = document.getElementById('calculatorResult');
+            const costResult = document.getElementById('costResult');
+            
+            if (calculatorForm && calculatorResult && costResult) {
+                calculatorForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const projectType = document.getElementById('projectType').value;
+                    const projectSize = document.getElementById('projectSize').value;
+                    const projectTimeline = document.getElementById('projectTimeline').value;
+                    const projectBudget = document.getElementById('projectBudget').value;
+                    
+                    if (projectType && projectSize && projectTimeline && projectBudget) {
+                        const cost = ProjectCalculator.calculateCost(
+                            projectType,
+                            projectSize,
+                            projectTimeline,
+                            projectBudget
+                        );
+                        
+                        const currentLang = SettingsManager.getLanguage();
+                        
+                        if (currentLang === 'ar') {
+                            costResult.textContent = `${cost.toLocaleString()} دولار أمريكي`;
+                        } else {
+                            costResult.textContent = `$${cost.toLocaleString()} USD`;
+                        }
+                        
+                        calculatorResult.classList.add('show');
+                        
+                        // Scroll to result
+                        calculatorResult.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'nearest'
+                        });
+                    }
+                });
+            }
+            
+            // Blog categories filter
+            const blogCategories = document.querySelectorAll('.blog-category');
+            const blogCards = document.querySelectorAll('.blog-card');
+            
+            blogCategories.forEach(category => {
+                category.addEventListener('click', () => {
+                    // Update active category
+                    blogCategories.forEach(c => c.classList.remove('active'));
+                    category.classList.add('active');
+                    
+                    // Filter blog cards
+                    const selectedCategory = category.getAttribute('data-category');
+                    
+                    blogCards.forEach(card => {
+                        if (selectedCategory === 'all' || card.getAttribute('data-category') === selectedCategory) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Animate on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Animate skill bars if this is a skill item
+                        if (entry.target.classList.contains('skill-item')) {
+                            const progress = entry.target.querySelector('.skill-progress');
+                            if (progress) {
+                                const width = progress.getAttribute('data-width');
+                                setTimeout(() => {
+                                    progress.style.width = width;
+                                }, 200);
+                            }
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Save form data to localStorage
+            const formInputs = document.querySelectorAll('#contactForm input, #contactForm textarea, #contactForm select');
+            formInputs.forEach(input => {
+                // Load saved data
+                const savedValue = localStorage.getItem(input.id);
+                if (savedValue) {
+                    input.value = savedValue;
+                }
+                
+                // Save data on input
+                input.addEventListener('input', () => {
+                    localStorage.setItem(input.id, input.value);
+                });
+            });
+            
+            // Save booking form data to localStorage
+            const bookingFormInputs = document.querySelectorAll('#bookingForm input, #bookingForm textarea, #bookingForm select');
+            bookingFormInputs.forEach(input => {
+                // Load saved data
+                const savedValue = localStorage.getItem(input.id);
+                if (savedValue) {
+                    input.value = savedValue;
+                }
+                
+                // Save data on input
+                input.addEventListener('input', () => {
+                    localStorage.setItem(input.id, input.value);
+                });
+            });
+            
+            // Clear saved data on form submit
+            if (contactForm) {
+                contactForm.addEventListener('submit', () => {
+                    formInputs.forEach(input => {
+                        localStorage.removeItem(input.id);
+                    });
+                });
+            }
+            
+            if (bookingForm) {
+                bookingForm.addEventListener('submit', () => {
+                    bookingFormInputs.forEach(input => {
+                        localStorage.removeItem(input.id);
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
