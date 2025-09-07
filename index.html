@@ -12,6 +12,15 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DCQ93RDL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4DCQ93RDL9');
+    </script>
+    
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -1613,13 +1622,10 @@
     <div class="loader" id="loader">
         <div class="spinner"></div>
     </div>
-
     <!-- Progress Bar -->
     <div class="progress-bar" id="progressBar"></div>
-
     <!-- Notification -->
     <div class="notification" id="notification"></div>
-
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
@@ -1649,7 +1655,6 @@
             </div>
         </div>
     </nav>
-
     <!-- Mobile Menu -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
     <div class="mobile-menu" id="mobileMenu">
@@ -1671,7 +1676,6 @@
             <li><a href="#contact" class="mobile-nav-link"><span class="ar">تواصل</span><span class="en">Contact</span></a></li>
         </ul>
     </div>
-
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-grid">
@@ -1760,7 +1764,6 @@
             </div>
         </div>
     </section>
-
     <!-- Expertise Section -->
     <section id="expertise" class="expertise">
         <div class="section-header fade-in">
@@ -1828,7 +1831,6 @@
             </div>
         </div>
     </section>
-
     <!-- Experience Section -->
     <section id="experience" class="experience">
         <div class="section-header fade-in">
@@ -1907,7 +1909,6 @@
             </div>
         </div>
     </section>
-
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="section-header fade-in">
@@ -2010,7 +2011,6 @@
             </div>
         </div>
     </section>
-
     <!-- Case Studies Section -->
     <section id="case-studies" class="case-studies">
         <div class="section-header fade-in">
@@ -2157,7 +2157,6 @@
             </div>
         </div>
     </section>
-
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="section-header fade-in">
@@ -2253,7 +2252,6 @@
             </div>
         </div>
     </section>
-
     <!-- Blog Section -->
     <section id="blog" class="blog">
         <div class="section-header fade-in">
@@ -2388,7 +2386,6 @@
             </div>
         </div>
     </section>
-
     <!-- Calculator Section -->
     <section id="calculator" class="calculator">
         <div class="section-header fade-in">
@@ -2526,7 +2523,6 @@
             </div>
         </div>
     </section>
-
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="section-header fade-in">
@@ -2845,7 +2841,6 @@
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -2891,7 +2886,6 @@
             </p>
         </div>
     </footer>
-
     <!-- Floating Contact -->
     <div class="floating-contact">
         <div class="contact-buttons">
@@ -2906,7 +2900,6 @@
             </a>
         </div>
     </div>
-
     <script>
         // Settings Manager
         class SettingsManager {
@@ -2935,7 +2928,6 @@
                 return localStorage.getItem('language') || 'ar';
             }
         }
-
         // Notification Manager
         class NotificationManager {
             static show(message, type = 'success') {
@@ -2950,7 +2942,6 @@
                 }
             }
         }
-
         // Form Validator
         class FormValidator {
             static validateEmail(email) {
@@ -2989,7 +2980,6 @@
                 return isValid;
             }
         }
-
         // Project Calculator
         class ProjectCalculator {
             static calculateCost(type, size, timeline, budget) {
@@ -3025,7 +3015,6 @@
                 return Math.round(cost);
             }
         }
-
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             // Hide loader when page is fully loaded
@@ -3371,7 +3360,6 @@
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
             };
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -3390,7 +3378,6 @@
                     }
                 });
             }, observerOptions);
-
             document.querySelectorAll('.fade-in').forEach(el => {
                 observer.observe(el);
             });
