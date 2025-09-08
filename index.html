@@ -1153,125 +1153,348 @@
             font-size: 0.85rem;
         }
         
-        /* Slider Styles */
-        .slider-container {
-            position: relative;
-            width: 100%;
+        /* Portfolio Gallery Styles */
+        .portfolio-gallery {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        /* Gallery Filter */
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .filter-btn {
+            background: var(--light-card);
+            border: 1px solid var(--light-border);
+            border-radius: 30px;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
             overflow: hidden;
+        }
+        
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--brand-blue) 0%, var(--brand-purple) 100%);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+        
+        .filter-btn:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .filter-btn:hover::before {
+            width: 100%;
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(90deg, var(--brand-blue) 0%, var(--brand-purple) 100%);
+            color: var(--accent);
+            border-color: transparent;
+        }
+        
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xxl);
+        }
+        
+        /* Gallery Card */
+        .gallery-card {
+            background: var(--light-card);
             border-radius: var(--border-radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--light-border);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .gallery-card:hover {
+            transform: translateY(-10px);
             box-shadow: var(--shadow-xl);
         }
-        .slider-wrapper {
+        
+        /* Gallery Image Container */
+        .gallery-image-container {
             position: relative;
-            width: 100%;
             overflow: hidden;
+            height: 220px;
+            flex-shrink: 0;
         }
-        .slider-track {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        .slide {
-            min-width: 100%;
-            position: relative;
-        }
-        .slide-image-container {
-            position: relative;
+        
+        .gallery-image {
             width: 100%;
-            padding-top: 75%; /* 4:3 Aspect Ratio */
-            overflow: hidden;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-        .slide-image {
+        
+        .gallery-card:hover .gallery-image {
+            transform: scale(1.08);
+        }
+        
+        /* Gallery Overlay */
+        .gallery-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7));
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: var(--spacing-md);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
-        .slide:hover .slide-image {
-            transform: scale(1.05);
+        
+        .gallery-card:hover .gallery-overlay {
+            opacity: 1;
         }
-        .slide-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: var(--spacing-xl);
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
-            transform: translateY(100%);
-            transition: transform 0.5s ease;
+        
+        .gallery-category {
+            align-self: flex-start;
+            background: rgba(37, 99, 235, 0.9);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-10px);
+            transition: transform 0.4s ease;
         }
-        .slide:hover .slide-overlay {
+        
+        .gallery-card:hover .gallery-category {
             transform: translateY(0);
         }
-        .slide-content {
-            color: white;
+        
+        .gallery-actions {
+            align-self: flex-end;
+            transform: translateY(10px);
+            transition: transform 0.4s ease;
+            display: flex;
+            gap: var(--spacing-sm);
         }
-        .slide-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
+        
+        .gallery-card:hover .gallery-actions {
+            transform: translateY(0);
         }
-        .slide-description {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-        .slider-control {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
+        
+        .gallery-view-btn, .gallery-info-btn {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            z-index: 10;
+            font-size: 1rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-md);
+            cursor: pointer;
         }
-        .slider-control:hover {
-            background: var(--brand-blue);
-            color: white;
-            transform: translateY(-50%) scale(1.1);
+        
+        .gallery-view-btn:hover, .gallery-info-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
         }
-        .slider-control-prev {
-            left: var(--spacing-lg);
-        }
-        .slider-control-next {
-            right: var(--spacing-lg);
-        }
-        .slider-indicators {
+        
+        /* Gallery Content */
+        .gallery-content {
+            padding: var(--spacing-lg);
+            flex-grow: 1;
             display: flex;
-            justify-content: center;
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-lg);
+            flex-direction: column;
         }
-        .slider-indicator {
-            width: 12px;
-            height: 12px;
+        
+        .gallery-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .gallery-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--brand-blue);
+            transition: width 0.3s ease;
+        }
+        
+        .gallery-card:hover .gallery-title::after {
+            width: 100%;
+        }
+        
+        .gallery-description {
+            color: var(--secondary);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-top: var(--spacing-sm);
+        }
+        
+        /* Gallery CTA */
+        .gallery-cta {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+        
+        .load-more-btn {
+            min-width: 180px;
+        }
+        
+        /* Lightbox Modal */
+        .lightbox-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: var(--spacing-md);
+        }
+        
+        .lightbox-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .lightbox-content {
+            background: var(--light-card);
+            border-radius: var(--border-radius-xl);
+            max-width: 1000px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-xl);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        
+        .lightbox-modal.active .lightbox-content {
+            transform: scale(1);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: var(--light-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        .slider-indicator.active {
-            background: var(--brand-blue);
-            transform: scale(1.2);
+        
+        .lightbox-close:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
         }
-        /* Lazy Loading Placeholder */
-        .lazy-load {
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        
+        .lightbox-image-container {
+            width: 100%;
+            max-height: 60vh;
+            overflow: hidden;
+            position: relative;
         }
-        .lazy-load.loaded {
-            opacity: 1;
+        
+        .lightbox-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .lightbox-info {
+            padding: var(--spacing-xl);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .lightbox-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0;
+        }
+        
+        .lightbox-description {
+            color: var(--secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .lightbox-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--spacing-md);
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+        
+        .lightbox-category {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+            color: var(--brand-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .lightbox-category i {
+            font-size: 0.8rem;
         }
         
         /* Expertise Section - Redesigned */
@@ -2472,36 +2695,47 @@
                 line-height: 1.4;
             }
             
-            /* Slider Responsive - Small Screens */
-            .slider-container {
-                border-radius: var(--border-radius-lg);
+            /* Gallery Responsive - Small Screens */
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: var(--spacing-lg);
             }
-            .slide-image-container {
-                padding-top: 66.67%; /* 3:2 Aspect Ratio for mobile */
+            
+            .gallery-image-container {
+                height: 180px;
             }
-            .slide-overlay {
+            
+            .gallery-content {
                 padding: var(--spacing-md);
-                transform: translateY(80%);
             }
-            .slide-title {
-                font-size: 1.2rem;
+            
+            .gallery-title {
+                font-size: 1.1rem;
             }
-            .slide-description {
-                font-size: 0.9rem;
+            
+            .gallery-description {
+                font-size: 0.85rem;
             }
-            .slider-control {
-                width: 40px;
-                height: 40px;
+            
+            .lightbox-content {
+                max-height: 95vh;
             }
-            .slider-control-prev {
-                left: var(--spacing-md);
+            
+            .lightbox-image-container {
+                max-height: 50vh;
             }
-            .slider-control-next {
-                right: var(--spacing-md);
+            
+            .lightbox-info {
+                padding: var(--spacing-lg);
             }
-            .slider-indicator {
-                width: 10px;
-                height: 10px;
+            
+            .lightbox-title {
+                font-size: 1.4rem;
+            }
+            
+            .lightbox-meta {
+                flex-direction: column;
+                align-items: flex-start;
             }
             
             /* Expertise Section - Small Screens */
@@ -2885,15 +3119,10 @@
                 font-size: 0.9rem;
             }
             
-            /* Slider Responsive - Medium Screens */
-            .slide-image-container {
-                padding-top: 70%; /* 10:7 Aspect Ratio */
-            }
-            .slide-overlay {
-                transform: translateY(90%);
-            }
-            .slide-title {
-                font-size: 1.3rem;
+            /* Gallery Responsive - Medium Screens */
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-xl);
             }
             
             /* Expertise Section - Medium Screens */
@@ -3157,15 +3386,31 @@
                 line-height: 1.6;
             }
             
-            /* Slider Responsive - Large Screens */
-            .slide {
-                min-width: 33.333%;
+            /* Gallery Responsive - Large Screens */
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--spacing-xxl);
             }
-            .slide-overlay {
-                transform: translateY(100%);
+            
+            .lightbox-content {
+                flex-direction: row;
+                max-height: 80vh;
             }
-            .slide-title {
-                font-size: 1.4rem;
+            
+            .lightbox-image-container {
+                width: 60%;
+                max-height: none;
+            }
+            
+            .lightbox-info {
+                width: 40%;
+                padding: var(--spacing-xxl);
+            }
+            
+            .lightbox-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-md);
             }
             
             /* Expertise Section - Large Screens */
@@ -3437,6 +3682,12 @@
             
             .card-description {
                 font-size: 0.75rem;
+            }
+            
+            /* Gallery Responsive - Very Small Screens */
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
             }
             
             /* Header adjustments for very small screens */
@@ -3766,7 +4017,7 @@
             </div>
         </section>
         
-        <!-- Slider Section -->
+        <!-- Portfolio Gallery Section -->
         <section id="slider" class="section">
             <div class="section-header fade-in">
                 <h2 class="section-title">
@@ -3779,271 +4030,444 @@
                 </p>
             </div>
             
-            <div class="slider-container">
-                <div class="slider-wrapper">
-                    <div class="slider-track" id="sliderTrack">
-                        <!-- Slide 1 -->
-                        <div class="slide">
-                            <div class="slide-image-container">
+            <div class="portfolio-gallery">
+                <!-- Gallery Filter -->
+                <div class="gallery-filter">
+                    <button class="filter-btn active" data-filter="all">
+                        <span class="ar">الكل</span>
+                        <span class="en">All</span>
+                    </button>
+                    <button class="filter-btn" data-filter="branding">
+                        <span class="ar">هوية تجارية</span>
+                        <span class="en">Branding</span>
+                    </button>
+                    <button class="filter-btn" data-filter="packaging">
+                        <span class="ar">تغليف</span>
+                        <span class="en">Packaging</span>
+                    </button>
+                    <button class="filter-btn" data-filter="web">
+                        <span class="ar">ويب</span>
+                        <span class="en">Web</span>
+                    </button>
+                </div>
+                
+                <!-- Gallery Grid -->
+                <div class="gallery-grid">
+                    <!-- Project 1 -->
+                    <div class="gallery-item" data-category="packaging">
+                        <div class="gallery-card">
+                            <div class="gallery-image-container">
                                 <img 
-                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIyMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TG9hZGluZyBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=" 
-                                    data-src="https://i.ibb.co/gZMckKyh/170-MILK-1.webp" 
+                                    src="https://i.ibb.co/gZMckKyh/170-MILK-1.webp" 
                                     alt="Milk Product Design" 
-                                    class="slide-image lazy-load" 
+                                    class="gallery-image" 
                                     loading="lazy"
                                 >
-                                <div class="slide-overlay">
-                                    <div class="slide-content">
-                                        <h3 class="slide-title">
-                                            <span class="ar">حليب 170 مل</span>
-                                            <span class="en">170ml Milk</span>
-                                        </h3>
-                                        <p class="slide-description">
-                                            <span class="ar">تصميم عبوة حليب عصري</span>
-                                            <span class="en">Modern milk packaging design</span>
-                                        </p>
+                                <div class="gallery-overlay">
+                                    <div class="gallery-category">
+                                        <span class="ar">تغليف</span>
+                                        <span class="en">Packaging</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="gallery-view-btn" aria-label="View project">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="gallery-info-btn" aria-label="Project info">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                            <div class="gallery-content">
+                                <h3 class="gallery-title">
+                                    <span class="ar">حليب 170 مل</span>
+                                    <span class="en">170ml Milk</span>
+                                </h3>
+                                <p class="gallery-description">
+                                    <span class="ar">تصميم عبوة حليب عصري</span>
+                                    <span class="en">Modern milk packaging design</span>
+                                </p>
+                            </div>
                         </div>
-                        
-                        <!-- Slide 2 -->
-                        <div class="slide">
-                            <div class="slide-image-container">
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="gallery-item" data-category="packaging">
+                        <div class="gallery-card">
+                            <div class="gallery-image-container">
                                 <img 
-                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIyMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TG9hZGluZyBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=" 
-                                    data-src="https://i.ibb.co/jvw7rRDn/CHICK-PEAS-1.webp" 
+                                    src="https://i.ibb.co/jvw7rRDn/CHICK-PEAS-1.webp" 
                                     alt="Chick Peas Product Design" 
-                                    class="slide-image lazy-load" 
+                                    class="gallery-image" 
                                     loading="lazy"
                                 >
-                                <div class="slide-overlay">
-                                    <div class="slide-content">
-                                        <h3 class="slide-title">
-                                            <span class="ar">حمص</span>
-                                            <span class="en">Chick Peas</span>
-                                        </h3>
-                                        <p class="slide-description">
-                                            <span class="ar">تصميم عبوة حمص جذاب</span>
-                                            <span class="en">Attractive chick peas packaging</span>
-                                        </p>
+                                <div class="gallery-overlay">
+                                    <div class="gallery-category">
+                                        <span class="ar">تغليف</span>
+                                        <span class="en">Packaging</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="gallery-view-btn" aria-label="View project">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="gallery-info-btn" aria-label="Project info">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                            <div class="gallery-content">
+                                <h3 class="gallery-title">
+                                    <span class="ar">حمص</span>
+                                    <span class="en">Chick Peas</span>
+                                </h3>
+                                <p class="gallery-description">
+                                    <span class="ar">تصميم عبوة حمص جذاب</span>
+                                    <span class="en">Attractive chick peas packaging</span>
+                                </p>
+                            </div>
                         </div>
-                        
-                        <!-- Slide 3 -->
-                        <div class="slide">
-                            <div class="slide-image-container">
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="gallery-item" data-category="packaging">
+                        <div class="gallery-card">
+                            <div class="gallery-image-container">
                                 <img 
-                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIyMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TG9hZGluZyBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=" 
-                                    data-src="https://i.ibb.co/Xr4qShNF/BAREEQ-1-8-OIL-1.webp" 
+                                    src="https://i.ibb.co/Xr4qShNF/BAREEQ-1-8-OIL-1.webp" 
                                     alt="Bareeq Oil Product Design" 
-                                    class="slide-image lazy-load" 
+                                    class="gallery-image" 
                                     loading="lazy"
                                 >
-                                <div class="slide-overlay">
-                                    <div class="slide-content">
-                                        <h3 class="slide-title">
-                                            <span class="ar">زيت بريق 1.8 لتر</span>
-                                            <span class="en">Bareeq 1.8L Oil</span>
-                                        </h3>
-                                        <p class="slide-description">
-                                            <span class="ar">تصميم عبوة زيت فاخر</span>
-                                            <span class="en">Premium oil packaging design</span>
-                                        </p>
+                                <div class="gallery-overlay">
+                                    <div class="gallery-category">
+                                        <span class="ar">تغليف</span>
+                                        <span class="en">Packaging</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="gallery-view-btn" aria-label="View project">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="gallery-info-btn" aria-label="Project info">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                            <div class="gallery-content">
+                                <h3 class="gallery-title">
+                                    <span class="ar">زيت بريق 1.8 لتر</span>
+                                    <span class="en">Bareeq 1.8L Oil</span>
+                                </h3>
+                                <p class="gallery-description">
+                                    <span class="ar">تصميم عبوة زيت فاخر</span>
+                                    <span class="en">Premium oil packaging design</span>
+                                </p>
+                            </div>
                         </div>
-                        
-                        <!-- Slide 4 -->
-                        <div class="slide">
-                            <div class="slide-image-container">
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="gallery-item" data-category="packaging">
+                        <div class="gallery-card">
+                            <div class="gallery-image-container">
                                 <img 
-                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIyMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TG9hZGluZyBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=" 
-                                    data-src="https://i.ibb.co/gFgDFzZx/Popcorn-1.webp" 
+                                    src="https://i.ibb.co/gFgDFzZx/Popcorn-1.webp" 
                                     alt="Popcorn Product Design" 
-                                    class="slide-image lazy-load" 
+                                    class="gallery-image" 
                                     loading="lazy"
                                 >
-                                <div class="slide-overlay">
-                                    <div class="slide-content">
-                                        <h3 class="slide-title">
-                                            <span class="ar">فشار</span>
-                                            <span class="en">Popcorn</span>
-                                        </h3>
-                                        <p class="slide-description">
-                                            <span class="ar">تصميم عبوة فشار مميز</span>
-                                            <span class="en">Distinctive popcorn packaging</span>
-                                        </p>
+                                <div class="gallery-overlay">
+                                    <div class="gallery-category">
+                                        <span class="ar">تغليف</span>
+                                        <span class="en">Packaging</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="gallery-view-btn" aria-label="View project">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="gallery-info-btn" aria-label="Project info">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                            <div class="gallery-content">
+                                <h3 class="gallery-title">
+                                    <span class="ar">فشار</span>
+                                    <span class="en">Popcorn</span>
+                                </h3>
+                                <p class="gallery-description">
+                                    <span class="ar">تصميم عبوة فشار مميز</span>
+                                    <span class="en">Distinctive popcorn packaging</span>
+                                </p>
+                            </div>
                         </div>
-                        
-                        <!-- Slide 5 -->
-                        <div class="slide">
-                            <div class="slide-image-container">
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="gallery-item" data-category="packaging">
+                        <div class="gallery-card">
+                            <div class="gallery-image-container">
                                 <img 
-                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIyMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TG9hZGluZyBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=" 
-                                    data-src="https://i.ibb.co/WvGQYFSW/410-MIL-1.webp" 
+                                    src="https://i.ibb.co/WvGQYFSW/410-MIL-1.webp" 
                                     alt="410ml Milk Product Design" 
-                                    class="slide-image lazy-load" 
+                                    class="gallery-image" 
                                     loading="lazy"
                                 >
-                                <div class="slide-overlay">
-                                    <div class="slide-content">
-                                        <h3 class="slide-title">
-                                            <span class="ar">حليب 410 مل</span>
-                                            <span class="en">410ml Milk</span>
-                                        </h3>
-                                        <p class="slide-description">
-                                            <span class="ar">تصميم عبوة حليب عملي</span>
-                                            <span class="en">Practical milk packaging design</span>
-                                        </p>
+                                <div class="gallery-overlay">
+                                    <div class="gallery-category">
+                                        <span class="ar">تغليف</span>
+                                        <span class="en">Packaging</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="gallery-view-btn" aria-label="View project">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="gallery-info-btn" aria-label="Project info">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                            <div class="gallery-content">
+                                <h3 class="gallery-title">
+                                    <span class="ar">حليب 410 مل</span>
+                                    <span class="en">410ml Milk</span>
+                                </h3>
+                                <p class="gallery-description">
+                                    <span class="ar">تصميم عبوة حليب عملي</span>
+                                    <span class="en">Practical milk packaging design</span>
+                                </p>
+                            </div>
                         </div>
-                        
-                        <!-- Slide 6 -->
-                        <div class="slide">
-                            <div class="slide-image-container">
+                    </div>
+                    
+                    <!-- Project 6 -->
+                    <div class="gallery-item" data-category="packaging">
+                        <div class="gallery-card">
+                            <div class="gallery-image-container">
                                 <img 
-                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIyMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TG9hZGluZyBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=" 
-                                    data-src="https://i.ibb.co/dwpfvzC5/Marooj-2-kg-1.webp" 
+                                    src="https://i.ibb.co/dwpfvzC5/Marooj-2-kg-1.webp" 
                                     alt="Marooj 2kg Product Design" 
-                                    class="slide-image lazy-load" 
+                                    class="gallery-image" 
                                     loading="lazy"
                                 >
-                                <div class="slide-overlay">
-                                    <div class="slide-content">
-                                        <h3 class="slide-title">
-                                            <span class="ar">معروض 2 كجم</span>
-                                            <span class="en">Marooj 2kg</span>
-                                        </h3>
-                                        <p class="slide-description">
-                                            <span class="ar">تصميم عبوة منتج غذائي</span>
-                                            <span class="en">Food product packaging design</span>
-                                        </p>
+                                <div class="gallery-overlay">
+                                    <div class="gallery-category">
+                                        <span class="ar">تغليف</span>
+                                        <span class="en">Packaging</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="gallery-view-btn" aria-label="View project">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="gallery-info-btn" aria-label="Project info">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                            <div class="gallery-content">
+                                <h3 class="gallery-title">
+                                    <span class="ar">معروض 2 كجم</span>
+                                    <span class="en">Marooj 2kg</span>
+                                </h3>
+                                <p class="gallery-description">
+                                    <span class="ar">تصميم عبوة منتج غذائي</span>
+                                    <span class="en">Food product packaging design</span>
+                                </p>
+                            </div>
                         </div>
-                        
-                        <!-- Slide 7 -->
-                        <div class="slide">
-                            <div class="slide-image-container">
+                    </div>
+                    
+                    <!-- Project 7 -->
+                    <div class="gallery-item" data-category="branding">
+                        <div class="gallery-card">
+                            <div class="gallery-image-container">
                                 <img 
-                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIyMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TG9hZGluZyBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=" 
-                                    data-src="https://i.ibb.co/6c77T8xT/2-ND-1-0-1.webp" 
+                                    src="https://i.ibb.co/6c77T8xT/2-ND-1-0-1.webp" 
                                     alt="2ND Product Design" 
-                                    class="slide-image lazy-load" 
+                                    class="gallery-image" 
                                     loading="lazy"
                                 >
-                                <div class="slide-overlay">
-                                    <div class="slide-content">
-                                        <h3 class="slide-title">
-                                            <span class="ar">منتج 2ND</span>
-                                            <span class="en">2ND Product</span>
-                                        </h3>
-                                        <p class="slide-description">
-                                            <span class="ar">تصميم عبوة منتج عصري</span>
-                                            <span class="en">Modern product packaging design</span>
-                                        </p>
+                                <div class="gallery-overlay">
+                                    <div class="gallery-category">
+                                        <span class="ar">هوية تجارية</span>
+                                        <span class="en">Branding</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="gallery-view-btn" aria-label="View project">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="gallery-info-btn" aria-label="Project info">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                            <div class="gallery-content">
+                                <h3 class="gallery-title">
+                                    <span class="ar">منتج 2ND</span>
+                                    <span class="en">2ND Product</span>
+                                </h3>
+                                <p class="gallery-description">
+                                    <span class="ar">تصميم عبوة منتج عصري</span>
+                                    <span class="en">Modern product packaging design</span>
+                                </p>
+                            </div>
                         </div>
-                        
-                        <!-- Slide 8 -->
-                        <div class="slide">
-                            <div class="slide-image-container">
+                    </div>
+                    
+                    <!-- Project 8 -->
+                    <div class="gallery-item" data-category="branding">
+                        <div class="gallery-card">
+                            <div class="gallery-image-container">
                                 <img 
-                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIyMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TG9hZGluZyBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=" 
-                                    data-src="https://i.ibb.co/Wp5btjg8/Theme-1.webp" 
+                                    src="https://i.ibb.co/Wp5btjg8/Theme-1.webp" 
                                     alt="Theme Design" 
-                                    class="slide-image lazy-load" 
+                                    class="gallery-image" 
                                     loading="lazy"
                                 >
-                                <div class="slide-overlay">
-                                    <div class="slide-content">
-                                        <h3 class="slide-title">
-                                            <span class="ar">تصميم ثيم</span>
-                                            <span class="en">Theme Design</span>
-                                        </h3>
-                                        <p class="slide-description">
-                                            <span class="ar">تصميم ثيم إبداعي</span>
-                                            <span class="en">Creative theme design</span>
-                                        </p>
+                                <div class="gallery-overlay">
+                                    <div class="gallery-category">
+                                        <span class="ar">هوية تجارية</span>
+                                        <span class="en">Branding</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="gallery-view-btn" aria-label="View project">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="gallery-info-btn" aria-label="Project info">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                            <div class="gallery-content">
+                                <h3 class="gallery-title">
+                                    <span class="ar">تصميم ثيم</span>
+                                    <span class="en">Theme Design</span>
+                                </h3>
+                                <p class="gallery-description">
+                                    <span class="ar">تصميم ثيم إبداعي</span>
+                                    <span class="en">Creative theme design</span>
+                                </p>
+                            </div>
                         </div>
-                        
-                        <!-- Slide 9 -->
-                        <div class="slide">
-                            <div class="slide-image-container">
+                    </div>
+                    
+                    <!-- Project 9 -->
+                    <div class="gallery-item" data-category="branding">
+                        <div class="gallery-card">
+                            <div class="gallery-image-container">
                                 <img 
-                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIyMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TG9hZGluZyBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=" 
-                                    data-src="https://i.ibb.co/sdQpnhNJ/Rice-theme-2.webp" 
+                                    src="https://i.ibb.co/sdQpnhNJ/Rice-theme-2.webp" 
                                     alt="Rice Theme Design" 
-                                    class="slide-image lazy-load" 
+                                    class="gallery-image" 
                                     loading="lazy"
                                 >
-                                <div class="slide-overlay">
-                                    <div class="slide-content">
-                                        <h3 class="slide-title">
-                                            <span class="ar">ثيم أرز</span>
-                                            <span class="en">Rice Theme</span>
-                                        </h3>
-                                        <p class="slide-description">
-                                            <span class="ar">تصميم ثيم أرز أنيق</span>
-                                            <span class="en">Elegant rice theme design</span>
-                                        </p>
+                                <div class="gallery-overlay">
+                                    <div class="gallery-category">
+                                        <span class="ar">هوية تجارية</span>
+                                        <span class="en">Branding</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="gallery-view-btn" aria-label="View project">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="gallery-info-btn" aria-label="Project info">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                            <div class="gallery-content">
+                                <h3 class="gallery-title">
+                                    <span class="ar">ثيم أرز</span>
+                                    <span class="en">Rice Theme</span>
+                                </h3>
+                                <p class="gallery-description">
+                                    <span class="ar">تصميم ثيم أرز أنيق</span>
+                                    <span class="en">Elegant rice theme design</span>
+                                </p>
+                            </div>
                         </div>
-                        
-                        <!-- Slide 10 -->
-                        <div class="slide">
-                            <div class="slide-image-container">
+                    </div>
+                    
+                    <!-- Project 10 -->
+                    <div class="gallery-item" data-category="branding">
+                        <div class="gallery-card">
+                            <div class="gallery-image-container">
                                 <img 
-                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIyMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TG9hZGluZyBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=" 
-                                    data-src="https://i.ibb.co/1GHXLKNg/Sunflower-seeds-02-1.webp" 
+                                    src="https://i.ibb.co/1GHXLKNg/Sunflower-seeds-02-1.webp" 
                                     alt="Sunflower Seeds Product Design" 
-                                    class="slide-image lazy-load" 
+                                    class="gallery-image" 
                                     loading="lazy"
                                 >
-                                <div class="slide-overlay">
-                                    <div class="slide-content">
-                                        <h3 class="slide-title">
-                                            <span class="ar">بذور عباد الشمس</span>
-                                            <span class="en">Sunflower Seeds</span>
-                                        </h3>
-                                        <p class="slide-description">
-                                            <span class="ar">تصميم عبوة بذور عباد الشمس</span>
-                                            <span class="en">Sunflower seeds packaging design</span>
-                                        </p>
+                                <div class="gallery-overlay">
+                                    <div class="gallery-category">
+                                        <span class="ar">هوية تجارية</span>
+                                        <span class="en">Branding</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="gallery-view-btn" aria-label="View project">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="gallery-info-btn" aria-label="Project info">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="gallery-content">
+                                <h3 class="gallery-title">
+                                    <span class="ar">بذور عباد الشمس</span>
+                                    <span class="en">Sunflower Seeds</span>
+                                </h3>
+                                <p class="gallery-description">
+                                    <span class="ar">تصميم عبوة بذور عباد الشمس</span>
+                                    <span class="en">Sunflower seeds packaging design</span>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Slider Controls -->
-                <button class="slider-control slider-control-prev" id="sliderPrev" aria-label="Previous slide">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <button class="slider-control slider-control-next" id="sliderNext" aria-label="Next slide">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                
-                <!-- Slider Indicators -->
-                <div class="slider-indicators" id="sliderIndicators"></div>
+                <!-- Load More Button -->
+                <div class="gallery-cta">
+                    <button class="btn btn-outline load-more-btn">
+                        <i class="fas fa-plus"></i>
+                        <span class="ar">عرض المزيد</span>
+                        <span class="en">Load More</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Lightbox Modal -->
+            <div class="lightbox-modal" id="lightboxModal">
+                <div class="lightbox-content">
+                    <button class="lightbox-close" id="lightboxClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="lightbox-image-container">
+                        <img src="" alt="" class="lightbox-image" id="lightboxImage">
+                    </div>
+                    <div class="lightbox-info">
+                        <h3 class="lightbox-title" id="lightboxTitle"></h3>
+                        <p class="lightbox-description" id="lightboxDescription"></p>
+                        <div class="lightbox-meta">
+                            <div class="lightbox-category" id="lightboxCategory"></div>
+                            <div class="lightbox-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span class="ar">زيارة المشروع</span>
+                                    <span class="en">Visit Project</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -5492,196 +5916,185 @@
             }
         };
         
-        // Slider functionality
-        class ImageSlider {
+        // Portfolio Gallery Functionality
+        class PortfolioGallery {
             constructor() {
-                this.sliderTrack = document.getElementById('sliderTrack');
-                this.slides = document.querySelectorAll('.slide');
-                this.prevBtn = document.getElementById('sliderPrev');
-                this.nextBtn = document.getElementById('sliderNext');
-                this.indicatorsContainer = document.getElementById('sliderIndicators');
+                this.galleryItems = document.querySelectorAll('.gallery-item');
+                this.filterButtons = document.querySelectorAll('.filter-btn');
+                this.loadMoreBtn = document.querySelector('.load-more-btn');
+                this.lightboxModal = document.getElementById('lightboxModal');
+                this.lightboxClose = document.getElementById('lightboxClose');
+                this.lightboxImage = document.getElementById('lightboxImage');
+                this.lightboxTitle = document.getElementById('lightboxTitle');
+                this.lightboxDescription = document.getElementById('lightboxDescription');
+                this.lightboxCategory = document.getElementById('lightboxCategory');
                 
-                this.currentSlide = 0;
-                this.slidesToShow = this.getSlidesToShow();
-                this.totalSlides = this.slides.length;
-                this.slideWidth = 100 / this.slidesToShow;
-                this.autoplayInterval = null;
-                this.touchStartX = 0;
-                this.touchEndX = 0;
+                this.itemsToShow = 6;
+                this.currentFilter = 'all';
                 
                 this.init();
             }
             
             init() {
-                this.createIndicators();
-                this.updateSlider();
-                this.setupEventListeners();
-                this.setupLazyLoading();
-                this.startAutoplay();
-                
-                // Handle window resize
-                window.addEventListener('resize', () => {
-                    const newSlidesToShow = this.getSlidesToShow();
-                    if (newSlidesToShow !== this.slidesToShow) {
-                        this.slidesToShow = newSlidesToShow;
-                        this.slideWidth = 100 / this.slidesToShow;
-                        this.updateSlider();
-                        this.updateIndicators();
+                this.setupFilterButtons();
+                this.setupLightbox();
+                this.setupLoadMore();
+                this.showInitialItems();
+            }
+            
+            setupFilterButtons() {
+                this.filterButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        // Update active filter button
+                        this.filterButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+                        
+                        // Get filter value
+                        this.currentFilter = button.getAttribute('data-filter');
+                        
+                        // Filter items
+                        this.filterItems();
+                        
+                        // Reset load more
+                        this.showInitialItems();
+                    });
+                });
+            }
+            
+            filterItems() {
+                this.galleryItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    
+                    if (this.currentFilter === 'all' || category === this.currentFilter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
                     }
                 });
             }
             
-            getSlidesToShow() {
-                if (window.innerWidth >= 992) {
-                    return 3; // Show 3 slides on large screens
-                } else if (window.innerWidth >= 768) {
-                    return 2; // Show 2 slides on medium screens
+            showInitialItems() {
+                // Get visible items
+                const visibleItems = Array.from(this.galleryItems).filter(
+                    item => item.style.display !== 'none'
+                );
+                
+                // Hide all items beyond the initial count
+                visibleItems.forEach((item, index) => {
+                    if (index >= this.itemsToShow) {
+                        item.classList.add('hidden');
+                    } else {
+                        item.classList.remove('hidden');
+                    }
+                });
+                
+                // Update load more button visibility
+                this.updateLoadMoreButton(visibleItems.length);
+            }
+            
+            updateLoadMoreButton(visibleItemCount) {
+                if (visibleItemCount <= this.itemsToShow) {
+                    this.loadMoreBtn.style.display = 'none';
                 } else {
-                    return 1; // Show 1 slide on small screens
+                    this.loadMoreBtn.style.display = 'inline-flex';
                 }
             }
             
-            createIndicators() {
-                this.indicatorsContainer.innerHTML = '';
-                const indicatorCount = Math.ceil(this.totalSlides / this.slidesToShow);
-                
-                for (let i = 0; i < indicatorCount; i++) {
-                    const indicator = document.createElement('div');
-                    indicator.classList.add('slider-indicator');
-                    if (i === 0) indicator.classList.add('active');
+            setupLoadMore() {
+                this.loadMoreBtn.addEventListener('click', () => {
+                    // Get visible items
+                    const visibleItems = Array.from(this.galleryItems).filter(
+                        item => item.style.display !== 'none' && item.classList.contains('hidden')
+                    );
                     
-                    indicator.addEventListener('click', () => {
-                        this.goToSlide(i);
+                    // Show next batch of items
+                    visibleItems.slice(0, 3).forEach(item => {
+                        item.classList.remove('hidden');
                     });
                     
-                    this.indicatorsContainer.appendChild(indicator);
-                }
-            }
-            
-            updateIndicators() {
-                this.createIndicators();
-            }
-            
-            setupEventListeners() {
-                // Previous button
-                this.prevBtn.addEventListener('click', () => {
-                    this.prevSlide();
-                });
-                
-                // Next button
-                this.nextBtn.addEventListener('click', () => {
-                    this.nextSlide();
-                });
-                
-                // Touch events for mobile swipe
-                this.sliderTrack.addEventListener('touchstart', (e) => {
-                    this.touchStartX = e.changedTouches[0].screenX;
-                    this.stopAutoplay();
-                }, { passive: true });
-                
-                this.sliderTrack.addEventListener('touchend', (e) => {
-                    this.touchEndX = e.changedTouches[0].screenX;
-                    this.handleSwipe();
-                    this.startAutoplay();
-                }, { passive: true });
-                
-                // Pause autoplay on hover
-                this.sliderTrack.addEventListener('mouseenter', () => {
-                    this.stopAutoplay();
-                });
-                
-                this.sliderTrack.addEventListener('mouseleave', () => {
-                    this.startAutoplay();
-                });
-            }
-            
-            setupLazyLoading() {
-                const lazyImages = document.querySelectorAll('.lazy-load');
-                
-                const imageObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            const src = img.getAttribute('data-src');
-                            
-                            if (src) {
-                                img.src = src;
-                                img.onload = () => {
-                                    img.classList.add('loaded');
-                                };
-                            }
-                            
-                            observer.unobserve(img);
-                        }
-                    });
-                });
-                
-                lazyImages.forEach(img => {
-                    imageObserver.observe(img);
-                });
-            }
-            
-            handleSwipe() {
-                const swipeThreshold = 50;
-                const diff = this.touchStartX - this.touchEndX;
-                
-                if (Math.abs(diff) > swipeThreshold) {
-                    if (diff > 0) {
-                        // Swipe left, go to next slide
-                        this.nextSlide();
-                    } else {
-                        // Swipe right, go to previous slide
-                        this.prevSlide();
+                    // Update load more button visibility
+                    const remainingHidden = visibleItems.length - 3;
+                    if (remainingHidden <= 0) {
+                        this.loadMoreBtn.style.display = 'none';
                     }
-                }
+                    
+                    // Animate newly shown items
+                    this.animateItems(visibleItems.slice(0, 3));
+                });
             }
             
-            updateSlider() {
-                const translateX = -this.currentSlide * this.slideWidth;
-                this.sliderTrack.style.transform = `translateX(${translateX}%)`;
+            animateItems(items) {
+                items.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('fade-in');
+                        item.classList.add('visible');
+                    }, index * 100);
+                });
+            }
+            
+            setupLightbox() {
+                // View buttons
+                const viewButtons = document.querySelectorAll('.gallery-view-btn');
+                viewButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const card = button.closest('.gallery-card');
+                        this.openLightbox(card);
+                    });
+                });
                 
-                // Update indicators
-                const indicators = this.indicatorsContainer.querySelectorAll('.slider-indicator');
-                const activeIndicatorIndex = Math.floor(this.currentSlide / this.slidesToShow);
+                // Info buttons
+                const infoButtons = document.querySelectorAll('.gallery-info-btn');
+                infoButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const card = button.closest('.gallery-card');
+                        this.openLightbox(card);
+                    });
+                });
                 
-                indicators.forEach((indicator, index) => {
-                    if (index === activeIndicatorIndex) {
-                        indicator.classList.add('active');
-                    } else {
-                        indicator.classList.remove('active');
+                // Close lightbox
+                this.lightboxClose.addEventListener('click', () => {
+                    this.closeLightbox();
+                });
+                
+                // Close lightbox when clicking outside content
+                this.lightboxModal.addEventListener('click', (e) => {
+                    if (e.target === this.lightboxModal) {
+                        this.closeLightbox();
+                    }
+                });
+                
+                // Close lightbox on escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && this.lightboxModal.classList.contains('active')) {
+                        this.closeLightbox();
                     }
                 });
             }
             
-            nextSlide() {
-                const maxIndex = this.totalSlides - this.slidesToShow;
-                this.currentSlide = this.currentSlide >= maxIndex ? 0 : this.currentSlide + 1;
-                this.updateSlider();
+            openLightbox(card) {
+                // Get content from card
+                const image = card.querySelector('.gallery-image');
+                const title = card.querySelector('.gallery-title');
+                const description = card.querySelector('.gallery-description');
+                const category = card.querySelector('.gallery-category');
+                
+                // Set lightbox content
+                this.lightboxImage.src = image.src;
+                this.lightboxImage.alt = image.alt;
+                this.lightboxTitle.innerHTML = title.innerHTML;
+                this.lightboxDescription.innerHTML = description.innerHTML;
+                this.lightboxCategory.innerHTML = category.innerHTML;
+                
+                // Show lightbox
+                this.lightboxModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             }
             
-            prevSlide() {
-                const maxIndex = this.totalSlides - this.slidesToShow;
-                this.currentSlide = this.currentSlide <= 0 ? maxIndex : this.currentSlide - 1;
-                this.updateSlider();
-            }
-            
-            goToSlide(index) {
-                this.currentSlide = index * this.slidesToShow;
-                this.updateSlider();
-            }
-            
-            startAutoplay() {
-                this.stopAutoplay();
-                this.autoplayInterval = setInterval(() => {
-                    this.nextSlide();
-                }, 5000);
-            }
-            
-            stopAutoplay() {
-                if (this.autoplayInterval) {
-                    clearInterval(this.autoplayInterval);
-                    this.autoplayInterval = null;
-                }
+            closeLightbox() {
+                this.lightboxModal.classList.remove('active');
+                document.body.style.overflow = '';
             }
         }
         
@@ -5821,8 +6234,8 @@
             // Initialize calculator form handler
             CalculatorFormHandler.init();
             
-            // Initialize slider
-            const slider = new ImageSlider();
+            // Initialize portfolio gallery
+            const portfolioGallery = new PortfolioGallery();
             
             // Animate on scroll
             const observerOptions = {
