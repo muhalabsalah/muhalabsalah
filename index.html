@@ -18,7 +18,6 @@
 <meta name="geo.placename" content="Sudan">
 <meta name="geo.position" content="15.5007;32.5599">
 <meta name="ICBM" content="15.5007, 32.5599">
-
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://muhalabsalah.com">
@@ -34,7 +33,6 @@
 <meta property="og:locale:alternate" content="ar_SA">
 <meta property="article:author" content="Muhalab Salah">
 <meta property="article:publisher" content="https://muhalabsalah.com">
-
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@muhalabsalah">
@@ -44,16 +42,13 @@
 <meta name="twitter:description" content="Professional graphic designer and web developer specializing in brand identity and web development for enterprise companies. 8+ years experience creating innovative solutions.">
 <meta name="twitter:image" content="https://i.ibb.co/MkqK8xcd/Screenshot-20250726-093516.jpg">
 <meta name="twitter:image:alt" content="Muhalab Salah - Professional Graphic Designer and Web Developer">
-
 <!-- Additional Meta Tags -->
 <meta name="theme-color" content="#2563eb">
 <meta name="msapplication-TileColor" content="#2563eb">
 <meta name="msapplication-config" content="/browserconfig.xml">
 <link rel="manifest" href="/manifest.json">
-
 <!-- Canonical URL -->
 <link rel="canonical" href="https://muhalabsalah.com">
-
 <!-- Favicon and Icons -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -62,20 +57,17 @@
 <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2563eb">
-
 <!-- DNS Prefetching -->
 <link rel="dns-prefetch" href="//www.googletagmanager.com">
 <link rel="dns-prefetch" href="//www.google-analytics.com">
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-
 <!-- Preconnect to External Resources -->
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
-
 <!-- Structured Data - JSON-LD -->
 <script type="application/ld+json">
 {
@@ -162,7 +154,6 @@
   }
 }
 </script>
-
 <!-- Additional Structured Data - WebSite -->
 <script type="application/ld+json">
 {
@@ -184,7 +175,6 @@
   "inLanguage": ["English", "Arabic"]
 }
 </script>
-
 <!-- Google Tag Manager -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DCQ93RDL9"></script>
 <script>
@@ -193,16 +183,8 @@
   gtag('js', new Date());
   gtag('config', 'G-4DCQ93RDL9');
 </script>
-
 <!-- Microsoft Clarity -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "t5mcxxmzje");
-</script>
-
+<script type="text/javascript"> (function(c,l,a,r,i,t,y){ c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)}; t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i; y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y); })(window, document, "clarity", "script", "t71o27k63s"); </script>
 <!-- Security Headers -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob: 'unsafe-inline'">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -227,6 +209,7 @@
             --brand-orange: #ea580c;
             --success: #10b981;
             --warning: #f59e0b;
+            --error: #e53e3e;
             --light-bg: #f8fafc;
             --light-card: #ffffff;
             --light-border: #e2e8f0;
@@ -553,6 +536,8 @@
             margin-right: auto;
             line-height: 1.4;
         }
+        
+        /* Enhanced Hero Badges */
         .hero-badges {
             display: flex;
             flex-wrap: wrap;
@@ -573,16 +558,29 @@
             align-items: center;
             gap: var(--spacing-xs);
             transition: var(--transition);
+            /* Enhanced for long text */
             white-space: nowrap;
+            max-width: 140px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex-shrink: 1;
         }
         .badge:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
+            /* Show full text on hover */
+            white-space: normal;
+            overflow: visible;
+            text-overflow: unset;
+            z-index: 1;
+            position: relative;
+            max-width: 180px;
         }
         .badge i {
             color: var(--brand-blue);
             font-size: 0.75rem;
         }
+        
         .hero-cta {
             display: flex;
             gap: var(--spacing-sm);
@@ -673,6 +671,7 @@
             white-space: nowrap;
             box-shadow: var(--shadow-md);
             flex-shrink: 0;
+            min-height: 44px; /* Minimum touch target size */
         }
         .btn::before {
             content: '';
@@ -834,7 +833,7 @@
             width: 100%;
         }
         
-        /* Experience Section */
+        /* Experience Section - Enhanced for mobile */
         .experience-timeline {
             position: relative;
             max-width: 100%;
@@ -907,6 +906,94 @@
             line-height: 1.4;
         }
         
+        /* Mobile improvements for timeline */
+        @media (max-width: 767px) {
+            .experience-timeline::before {
+                left: 12px;
+            }
+            
+            .timeline-item {
+                margin-bottom: var(--spacing-md);
+                padding-right: var(--spacing-sm);
+            }
+            
+            .timeline-content {
+                margin-right: 32px;
+                width: calc(100% - 32px);
+                padding: var(--spacing-sm);
+            }
+            
+            .timeline-date {
+                width: 28px;
+                font-size: 0.7rem;
+                top: calc(var(--spacing-sm) + 2px);
+            }
+            
+            .timeline-dot {
+                left: 8px;
+                width: 10px;
+                height: 10px;
+                top: calc(var(--spacing-sm) + 4px);
+            }
+            
+            .timeline-title {
+                font-size: 0.9rem;
+                margin-bottom: calc(var(--spacing-xs) / 2);
+            }
+            
+            .timeline-company {
+                font-size: 0.8rem;
+                margin-bottom: calc(var(--spacing-xs) / 2);
+            }
+            
+            .timeline-description {
+                font-size: 0.75rem;
+                line-height: 1.3;
+            }
+        }
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .experience-timeline::before {
+                left: 8px;
+            }
+            
+            .timeline-item {
+                margin-bottom: calc(var(--spacing-md) * 0.8);
+            }
+            
+            .timeline-content {
+                margin-right: 24px;
+                width: calc(100% - 24px);
+                padding: 0.6rem;
+            }
+            
+            .timeline-date {
+                width: 20px;
+                font-size: 0.6rem;
+                top: 0.6rem;
+            }
+            
+            .timeline-dot {
+                left: 5px;
+                width: 8px;
+                height: 8px;
+                top: 0.7rem;
+            }
+            
+            .timeline-title {
+                font-size: 0.85rem;
+            }
+            
+            .timeline-company {
+                font-size: 0.75rem;
+            }
+            
+            .timeline-description {
+                font-size: 0.7rem;
+                line-height: 1.2;
+            }
+        }
+        
         /* Projects Section */
         .projects-grid {
             display: grid;
@@ -951,11 +1038,15 @@
             line-height: 1.4;
             font-size: 0.85rem;
         }
+        
+        /* Enhanced Project Tags */
         .project-tags {
             display: flex;
             flex-wrap: wrap;
             gap: var(--spacing-xs);
             margin-bottom: var(--spacing-md);
+            width: 100%;
+            overflow: hidden;
         }
         .project-tag {
             padding: 0.2rem 0.5rem;
@@ -964,8 +1055,25 @@
             border-radius: 20px;
             font-size: 0.65rem;
             font-weight: 500;
+            /* Enhanced for long text */
             white-space: nowrap;
+            max-width: 120px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex-shrink: 1;
+            transition: var(--transition);
         }
+        .project-tag:hover {
+            max-width: 150px;
+            background: rgba(37, 99, 235, 0.2);
+            /* Show full text on hover */
+            white-space: normal;
+            overflow: visible;
+            text-overflow: unset;
+            z-index: 1;
+            position: relative;
+        }
+        
         .project-link {
             color: var(--brand-blue);
             font-weight: 500;
@@ -1144,7 +1252,7 @@
             width: 0;
         }
         
-        /* Blog Section */
+        /* Blog Section - Enhanced for long text */
         .blog-container {
             max-width: 100%;
             margin: 0 auto;
@@ -1174,6 +1282,9 @@
             transition: var(--transition);
             white-space: nowrap;
             flex-shrink: 0;
+            min-height: 32px;
+            display: flex;
+            align-items: center;
         }
         .blog-category:hover, .blog-category.active {
             background: var(--brand-blue);
@@ -1216,20 +1327,41 @@
             font-size: 1rem;
             margin-bottom: var(--spacing-sm);
             color: var(--primary);
+            /* Enhanced for long text */
             word-wrap: break-word;
             overflow-wrap: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            line-height: 1.4;
+            max-height: 2.8em;
         }
         .blog-description {
             color: var(--secondary);
             margin-bottom: var(--spacing-md);
             line-height: 1.4;
             font-size: 0.85rem;
+            /* Enhanced for long text */
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            max-height: 4.2em;
         }
+        
+        /* Enhanced Blog Tags */
         .blog-tags {
             display: flex;
             flex-wrap: wrap;
             gap: var(--spacing-xs);
             margin-bottom: var(--spacing-md);
+            width: 100%;
+            overflow: hidden;
         }
         .blog-tag {
             padding: 0.2rem 0.5rem;
@@ -1238,8 +1370,25 @@
             border-radius: 20px;
             font-size: 0.65rem;
             font-weight: 500;
+            /* Enhanced for long text */
             white-space: nowrap;
+            max-width: 120px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex-shrink: 1;
+            transition: var(--transition);
         }
+        .blog-tag:hover {
+            max-width: 150px;
+            background: rgba(37, 99, 235, 0.2);
+            /* Show full text on hover */
+            white-space: normal;
+            overflow: visible;
+            text-overflow: unset;
+            z-index: 1;
+            position: relative;
+        }
+        
         .blog-link {
             color: var(--brand-blue);
             font-weight: 500;
@@ -1248,6 +1397,11 @@
             gap: var(--spacing-xs);
             transition: var(--transition);
             font-size: 0.85rem;
+            /* Enhanced for long text */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
         }
         .blog-link:hover {
             gap: var(--spacing-sm);
@@ -1353,6 +1507,9 @@
             margin-bottom: var(--spacing-sm);
             width: 100%;
         }
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
         .form-label {
             display: block;
             margin-bottom: var(--spacing-xs);
@@ -1370,6 +1527,7 @@
             color: var(--primary);
             transition: var(--transition);
             box-sizing: border-box;
+            min-height: 44px; /* Minimum touch target size */
         }
         .form-control:focus {
             outline: none;
@@ -1377,13 +1535,21 @@
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
         .form-control.error {
-            border-color: var(--warning);
+            border-color: var(--error);
+            background-color: rgba(229, 62, 62, 0.05);
+            box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.2);
         }
         .error-message {
-            color: var(--warning);
-            font-size: 0.75rem;
-            margin-top: 0.25rem;
+            color: var(--error);
+            font-size: 0.8rem;
+            margin-top: 0.4rem;
+            padding: 0.3rem 0.5rem;
+            background-color: rgba(229, 62, 62, 0.1);
+            border-radius: 4px;
+            border-left: 3px solid var(--error);
             display: none;
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         .form-control.error + .error-message {
             display: block;
@@ -1412,37 +1578,61 @@
             gap: var(--spacing-sm);
             width: 100%;
         }
+        
+        /* Enhanced Service Options */
         .service-options {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
             gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
             width: 100%;
         }
+        
         .service-option {
             position: relative;
         }
+        
         .service-option input[type="radio"] {
             position: absolute;
             opacity: 0;
         }
+        
         .service-option label {
             display: block;
-            padding: var(--spacing-sm);
+            padding: var(--spacing-md);
             background: var(--light-bg);
             border: 1px solid var(--light-border);
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius-lg);
             text-align: center;
             cursor: pointer;
             transition: var(--transition);
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             width: 100%;
             box-sizing: border-box;
+            height: 100%;
+            min-height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            /* Enhanced for long text */
+            white-space: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.3;
         }
+        
         .service-option input[type="radio"]:checked + label {
             background: rgba(37, 99, 235, 0.1);
             border-color: var(--brand-blue);
             color: var(--brand-blue);
+            font-weight: 600;
+        }
+        
+        .service-option label:hover {
+            background: rgba(37, 99, 235, 0.05);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
         
         /* Footer */
@@ -1464,43 +1654,77 @@
             padding: 0 var(--spacing-md);
             width: 100%;
         }
+        
+        /* Enhanced Social Links */
         .social-links {
-            display: flex;
-            gap: var(--spacing-sm);
-            justify-content: center;
-            flex-wrap: wrap;
-            width: 100%;
-        }
-        .social-link {
-            width: 32px;
-            height: 32px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
-            transition: var(--transition);
-            flex-shrink: 0;
-        }
-        .social-link:hover {
-            background: var(--brand-blue);
-            transform: translateY(-2px);
-        }
-        .footer-links {
             display: flex;
             gap: var(--spacing-md);
             justify-content: center;
             flex-wrap: wrap;
             width: 100%;
+            margin-bottom: var(--spacing-md);
         }
-        .footer-link {
-            color: var(--accent);
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: var(--transition);
-            font-size: 0.85rem;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+            border: 1px solid transparent;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
         }
-        .footer-link:hover {
-            color: var(--brand-blue);
+        /* Light theme specific adjustments */
+        html[data-theme="light"] .social-link {
+            background: #1e293b;
+            color: white;
+            border-color: #334155;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        html[data-theme="light"] .social-link:hover {
+            background: var(--brand-blue);
+            color: white;
+            border-color: var(--brand-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        /* Dark theme specific adjustments */
+        html[data-theme="dark"] .social-link {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        html[data-theme="dark"] .social-link:hover {
+            background: var(--brand-blue);
+            color: white;
+            border-color: var(--brand-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        /* Add a subtle gradient overlay for better visibility */
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 100%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        /* Ensure icons are always visible */
+        .social-link i {
+            font-size: 1.2rem;
+            line-height: 1;
+            position: relative;
+            z-index: 2;
         }
         
         /* Floating Action Button */
@@ -1612,7 +1836,7 @@
             border-left: 4px solid var(--success);
         }
         .notification.error {
-            border-left: 4px solid var(--warning);
+            border-left: 4px solid var(--error);
         }
         
         /* Language Support */
@@ -1637,7 +1861,23 @@
             transform: translateY(0);
         }
         
-        /* Responsive Design */
+        /* Error Shake Animation */
+        @keyframes shake {
+            10%, 90% {
+                transform: translate3d(-1px, 0, 0);
+            }
+            20%, 80% {
+                transform: translate3d(2px, 0, 0);
+            }
+            30%, 50%, 70% {
+                transform: translate3d(-3px, 0, 0);
+            }
+            40%, 60% {
+                transform: translate3d(3px, 0, 0);
+            }
+        }
+        
+        /* Enhanced Responsive Design */
         @media (max-width: 1200px) {
             .container,
             .section-header,
@@ -1672,7 +1912,7 @@
                 grid-template-columns: 1fr 1fr;
             }
             .service-options {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
             .case-study-metrics {
                 grid-template-columns: repeat(4, 1fr);
@@ -1694,6 +1934,29 @@
             .btn {
                 font-size: 0.9rem;
                 padding: 0.7rem 1.2rem;
+            }
+            
+            /* Service options for tablets */
+            .service-option label {
+                font-size: 0.85rem;
+                padding: var(--spacing-sm);
+                min-height: 56px;
+            }
+            
+            /* Badge adjustments for tablets */
+            .badge {
+                max-width: 120px;
+            }
+            .badge:hover {
+                max-width: 150px;
+            }
+            
+            /* Tag adjustments for tablets */
+            .project-tag, .blog-tag {
+                max-width: 100px;
+            }
+            .project-tag:hover, .blog-tag:hover {
+                max-width: 130px;
             }
         }
         
@@ -1752,6 +2015,27 @@
                 font-size: 0.95rem;
                 padding: 0.8rem 1.3rem;
             }
+            
+            /* Service options for desktop */
+            .service-options {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            /* Badge adjustments for desktop */
+            .badge {
+                max-width: 140px;
+            }
+            .badge:hover {
+                max-width: 180px;
+            }
+            
+            /* Tag adjustments for desktop */
+            .project-tag, .blog-tag {
+                max-width: 120px;
+            }
+            .project-tag:hover, .blog-tag:hover {
+                max-width: 150px;
+            }
         }
         
         @media (max-width: 767px) {
@@ -1789,24 +2073,49 @@
             .case-study-metrics {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            /* Service options for mobile */
             .service-options {
                 grid-template-columns: 1fr;
+                gap: var(--spacing-xs);
+            }
+            .service-option label {
+                font-size: 0.9rem;
+                padding: var(--spacing-md);
+                min-height: 64px;
             }
             
-            /* Adjust mobile specific sizes */
+            /* Badge adjustments for mobile */
             .badge {
+                max-width: 100px;
                 font-size: 0.7rem;
-                padding: 0.2rem 0.5rem;
             }
-            .nav-item {
+            .badge:hover {
+                max-width: 130px;
+            }
+            
+            /* Tag adjustments for mobile */
+            .project-tag, .blog-tag {
+                max-width: 90px;
                 font-size: 0.6rem;
             }
-            .nav-item i {
-                font-size: 0.9rem;
+            .project-tag:hover, .blog-tag:hover {
+                max-width: 110px;
             }
         }
         
+        /* Enhanced Small Screen Support (480px and below) */
         @media (max-width: 480px) {
+            /* General spacing adjustments */
+            :root {
+                --spacing-xs: 0.2rem;
+                --spacing-sm: 0.4rem;
+                --spacing-md: 0.8rem;
+                --spacing-lg: 1.2rem;
+                --spacing-xl: 1.6rem;
+            }
+            
+            /* Container adjustments */
             .container,
             .section-header,
             .expertise-grid,
@@ -1818,20 +2127,25 @@
             .blog-container,
             .case-studies-container,
             .footer-content {
-                padding-left: var(--spacing-sm);
-                padding-right: var(--spacing-sm);
+                padding-left: 0.8rem;
+                padding-right: 0.8rem;
             }
+            
+            /* Hero Section Enhancements */
             .hero {
-                padding: var(--spacing-md) 0;
-            }
-            .section {
-                padding: var(--spacing-md) 0;
+                padding: 1rem 0;
             }
             .hero-content h1 {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+                line-height: 1.3;
+            }
+            .hero-subtitle {
+                font-size: 0.8rem;
+                line-height: 1.3;
             }
             .profile-card {
-                padding: var(--spacing-sm);
+                padding: 0.8rem;
+                max-width: 280px;
             }
             .profile-image {
                 width: 80px;
@@ -1839,7 +2153,7 @@
             }
             .profile-stats {
                 grid-template-columns: repeat(3, 1fr);
-                gap: var(--spacing-xs);
+                gap: 0.5rem;
             }
             .stat-number {
                 font-size: 1rem;
@@ -1847,10 +2161,15 @@
             .stat-label {
                 font-size: 0.65rem;
             }
+            
+            /* Button Enhancements */
             .btn {
-                padding: 0.5rem 0.9rem;
-                font-size: 0.8rem;
+                padding: 0.7rem 1.2rem;
+                font-size: 0.85rem;
+                min-height: 44px;
             }
+            
+            /* Card Enhancements */
             .card,
             .timeline-content,
             .contact-form,
@@ -1858,43 +2177,255 @@
             .booking-form,
             .blog-card,
             .case-study-card {
-                padding: var(--spacing-sm);
+                padding: 0.8rem;
             }
-            .social-link {
-                width: 30px;
-                height: 30px;
+            
+            /* Expertise Section */
+            .expertise-grid {
+                gap: 0.8rem;
             }
-            .footer-links {
-                flex-direction: column;
-                gap: var(--spacing-sm);
+            .card-icon {
+                width: 36px;
+                height: 36px;
+                margin-bottom: 0.8rem;
             }
-            .nav-item {
-                font-size: 0.55rem;
+            .card-title {
+                font-size: 0.95rem;
+                margin-bottom: 0.5rem;
             }
-            .nav-item i {
+            .card-description {
+                font-size: 0.8rem;
+                line-height: 1.3;
+            }
+            
+            /* Experience Section */
+            .experience-timeline::before {
+                left: 8px;
+            }
+            .timeline-item {
+                margin-bottom: 1rem;
+                padding-right: 0.5rem;
+            }
+            .timeline-content {
+                margin-right: 24px;
+                width: calc(100% - 24px);
+                padding: 0.6rem;
+            }
+            .timeline-date {
+                width: 20px;
+                font-size: 0.6rem;
+                top: 0.6rem;
+            }
+            .timeline-dot {
+                left: 5px;
+                width: 8px;
+                height: 8px;
+                top: 0.7rem;
+            }
+            .timeline-title {
+                font-size: 0.85rem;
+                margin-bottom: 0.3rem;
+            }
+            .timeline-company {
+                font-size: 0.75rem;
+                margin-bottom: 0.4rem;
+            }
+            .timeline-description {
+                font-size: 0.7rem;
+                line-height: 1.2;
+            }
+            
+            /* Projects Section */
+            .project-card {
+                margin-bottom: 1rem;
+            }
+            .project-image {
+                height: 140px;
+            }
+            .project-content {
+                padding: 0.8rem;
+            }
+            .project-title {
+                font-size: 0.9rem;
+                line-height: 1.3;
+                max-height: 2.6em;
+                -webkit-line-clamp: 2;
+            }
+            .project-description {
+                font-size: 0.75rem;
+                max-height: 3.9em;
+                -webkit-line-clamp: 3;
+            }
+            .project-tag {
+                min-height: 24px;
+                padding: 0.25rem 0.5rem;
+                font-size: 0.6rem;
+            }
+            
+            /* Case Studies Section */
+            .case-study-header {
+                height: 160px;
+            }
+            .case-study-content {
+                padding: 0.8rem;
+            }
+            .case-study-metrics {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            .metric {
+                padding: 0.6rem;
+            }
+            .metric-value {
+                font-size: 1rem;
+            }
+            .metric-label {
+                font-size: 0.65rem;
+                line-height: 1.2;
+            }
+            
+            /* Skills Section */
+            .skills-grid {
+                gap: 0.8rem;
+            }
+            .skill-item {
+                padding: 0.8rem;
+            }
+            .skill-name {
                 font-size: 0.85rem;
             }
+            .skill-icon {
+                width: 16px;
+                height: 16px;
+            }
+            .skill-percentage {
+                font-size: 0.8rem;
+            }
+            .skill-bar {
+                height: 4px;
+            }
+            
+            /* Blog Section */
+            .blog-categories {
+                gap: 0.4rem;
+                padding-bottom: 0.5rem;
+            }
+            .blog-category {
+                padding: 0.25rem 0.6rem;
+                font-size: 0.7rem;
+                min-height: 32px;
+            }
+            .blog-card {
+                margin-bottom: 1rem;
+            }
+            .blog-image {
+                height: 140px;
+            }
+            .blog-content {
+                padding: 0.8rem;
+            }
+            .blog-title {
+                font-size: 0.9rem;
+                max-height: 2.6em;
+            }
+            .blog-description {
+                font-size: 0.75rem;
+                max-height: 3.9em;
+            }
+            .blog-tag {
+                min-height: 24px;
+                padding: 0.25rem 0.5rem;
+                font-size: 0.6rem;
+            }
+            .blog-comments {
+                font-size: 0.7rem;
+                margin-top: 0.5rem;
+            }
+            .blog-comments i {
+                font-size: 0.8rem;
+            }
+            
+            /* Calculator Section */
+            .calculator-form {
+                padding: 1rem;
+            }
+            .form-control {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+                min-height: 44px;
+            }
+            .form-label {
+                font-size: 0.85rem;
+                margin-bottom: 0.4rem;
+            }
+            .btn {
+                min-height: 48px;
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            /* Contact Section */
+            .service-option label {
+                padding: 0.8rem;
+                font-size: 0.85rem;
+                min-height: 56px;
+            }
+            .contact-tabs {
+                gap: 0.5rem;
+            }
+            .contact-tab {
+                padding: 0.6rem;
+                font-size: 0.8rem;
+            }
+            .form-control {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+                min-height: 44px;
+            }
+            /* Improve date/time inputs */
+            input[type="date"],
+            input[type="time"],
+            select {
+                font-size: 1rem !important;
+                padding: 0.8rem !important;
+            }
+            
+            /* Navigation Enhancements */
+            .bottom-nav {
+                height: 60px;
+            }
+            .nav-item {
+                font-size: 0.6rem;
+                padding: 0.3rem;
+            }
+            .nav-item i {
+                font-size: 1rem;
+                margin-bottom: 0.2rem;
+            }
             .fab {
-                width: 40px;
-                height: 40px;
-                bottom: calc(var(--bottom-nav-height) + 10px);
-                left: 10px;
+                width: 48px;
+                height: 48px;
+                bottom: calc(var(--bottom-nav-height) + 8px);
             }
             body[dir="ltr"] .fab {
                 left: auto;
-                right: 10px;
+                right: 8px;
             }
             .fab-menu {
-                bottom: calc(var(--bottom-nav-height) + 58px);
-                left: 10px;
+                bottom: calc(var(--bottom-nav-height) + 60px);
             }
             body[dir="ltr"] .fab-menu {
                 left: auto;
-                right: 10px;
+                right: 8px;
             }
             .fab-option {
-                width: 36px;
-                height: 36px;
+                width: 40px;
+                height: 40px;
+            }
+            
+            /* Improve body padding for bottom nav */
+            body {
+                padding-bottom: 70px;
             }
             
             /* Extra small adjustments */
@@ -1909,6 +2440,34 @@
             .skill-icon {
                 width: 18px;
                 height: 18px;
+            }
+            
+            /* Service options for very small screens */
+            .service-options {
+                gap: calc(var(--spacing-xs) * 0.8);
+            }
+            .service-option label {
+                padding: calc(var(--spacing-md) * 0.8);
+                min-height: 56px;
+                font-size: 0.85rem;
+            }
+            
+            /* Badge adjustments for very small screens */
+            .badge {
+                max-width: 90px;
+                font-size: 0.65rem;
+            }
+            .badge:hover {
+                max-width: 110px;
+            }
+            
+            /* Tag adjustments for very small screens */
+            .project-tag, .blog-tag {
+                max-width: 80px;
+                font-size: 0.55rem;
+            }
+            .project-tag:hover, .blog-tag:hover {
+                max-width: 100px;
             }
         }
         
@@ -1937,12 +2496,76 @@
         body[dir="ltr"] .case-study-link i {
             transform: rotate(180deg);
         }
+        
+        /* Image Fallback Styles */
+        .image-fallback {
+            background: var(--light-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .image-loading {
+            position: relative;
+            background: var(--light-border);
+            overflow: hidden;
+        }
+        
+        .image-loading::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Image Retry Animation */
+        .image-retry {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+        
+        /* Skip to main content for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--brand-blue);
+            color: white;
+            padding: 8px;
+            z-index: 1002;
+            text-decoration: none;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
     </style>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- Loading Spinner -->
     <div class="loader" id="loader">
         <div class="spinner"></div>
@@ -1992,7 +2615,7 @@
     </div>
     
     <!-- Main Content -->
-    <main>
+    <main id="main-content">
         <!-- Hero Section -->
         <section id="home" class="hero">
             <div class="hero-content fade-in">
@@ -2042,6 +2665,8 @@
                         alt="Muhalab Salah - Professional Graphic Designer and Web Developer" 
                         class="profile-image" 
                         loading="lazy"
+                        data-original-src="https://i.ibb.co/MkqK8xcd/Screenshot-20250726-093516.jpg"
+                        onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjhGQUZDIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEyMCIgcj0iNDAiIGZpbGw9IiM0QTU1NjgiLz4KPHBhdGggZD0iTTc1IDI1MEM3NSAyMjUgMTUwIDI3NSAxNTAgMjc1QzE1MCAyNzUgMjI1IDIyNSAyMjUgMjUwVjI4MEg3NVYyNTBaIiBmaWxsPSIjNEE1NTY4Ii8+Cjx0ZXh0IHg9IjE1MCIgeT0iMTQwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NUzwvdGV4dD4KPC9zdmc+';"
                     >
                     <div class="profile-info">
                         <h3 class="profile-name">
@@ -2247,6 +2872,8 @@
                         alt="Brand Identity Design Project" 
                         class="project-image" 
                         loading="lazy"
+                        data-original-src="https://i.ibb.co/yBqdJfJw/themar.webp"
+                        onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
                     >
                     <div class="project-content">
                         <h3 class="project-title">
@@ -2276,6 +2903,8 @@
                         alt="Logo Design Collection" 
                         class="project-image" 
                         loading="lazy"
+                        data-original-src="https://i.ibb.co/FbkxpVjG/qarmash.webp"
+                        onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
                     >
                     <div class="project-content">
                         <h3 class="project-title">
@@ -2305,6 +2934,8 @@
                         alt="E-commerce Platform Development" 
                         class="project-image" 
                         loading="lazy"
+                        data-original-src="https://i.ibb.co/99yZHks8/ql.webp"
+                        onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
                     >
                     <div class="project-content">
                         <h3 class="project-title">
@@ -2351,6 +2982,8 @@
                             alt="Food Company Brand Redesign Case Study" 
                             class="case-study-image" 
                             loading="lazy"
+                            data-original-src="https://i.ibb.co/4Jd8Jj1f/blog1.webp"
+                            onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgdmlld0JveD0iMCAwIDQwMCAyODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjgwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTQwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxNDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q2FzZSBTdHVkeSBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
                         >
                         <div class="case-study-overlay">
                             <div>
@@ -2416,6 +3049,8 @@
                             alt="E-commerce Platform Development Case Study" 
                             class="case-study-image" 
                             loading="lazy"
+                            data-original-src="https://i.ibb.co/6HfWQYtG/blog2.webp"
+                            onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgdmlld0JveD0iMCAwIDQwMCAyODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjgwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTQwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxNDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q2FzZSBTdHVkeSBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
                         >
                         <div class="case-study-overlay">
                             <div>
@@ -2569,7 +3204,7 @@
             </div>
         </section>
         
-        <!-- Blog Section -->
+        <!-- Blog Section - Enhanced for long text -->
         <section id="blog" class="section">
             <div class="section-header fade-in">
                 <h2 class="section-title">
@@ -2595,45 +3230,107 @@
                         <span class="ar">تطوير</span>
                         <span class="en">Development</span>
                     </div>
-                    <div class="blog-category" data-category="marketing">
-                        <span class="ar">تسويق</span>
-                        <span class="en">Marketing</span>
+                    <div class="blog-category" data-category="aboutSudan">
+                        <span class="ar">عن السودان</span>
+                        <span class="en">About Sudan</span>
                     </div>
                 </div>
                 <div class="blog-grid">
-                    <div class="blog-card fade-in" data-category="design">
+                    <!-- LinkedIn Post Card - Moved to About Sudan Category -->
+                    <div class="blog-card fade-in" data-category="aboutSudan">
                         <img 
-                            src="https://i.ibb.co/4Jd8Jj1f/blog1.webp" 
-                            srcset="https://i.ibb.co/4Jd8Jj1f/blog1.webp 1x, https://i.ibb.co/4Jd8Jj1f/blog1-2x.webp 2x" 
-                            alt="The Importance of Visual Identity for Startups" 
+                            src="https://i.ibb.co/yF9qB8MK/youth.webp" 
+                            srcset="https://i.ibb.co/yF9qB8MK/youth.webp 1x, https://i.ibb.co/yF9qB8MK/youth.webp 2x" 
+                            alt="Sudanese Youth Under the Shadow of War" 
                             class="blog-image" 
                             loading="lazy"
+                            data-original-src="https://i.ibb.co/yF9qB8MK/youth.webp"
+                            onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QmxvZyBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
                         >
                         <div class="blog-content">
-                            <p class="blog-date">15 يونيو 2023</p>
+                            <p class="blog-date">2 يوليو 2025</p>
                             <h3 class="blog-title">
-                                <span class="ar">أهمية الهوية البصرية للشركات الناشئة</span>
-                                <span class="en">The Importance of Visual Identity for Startups</span>
+                                <span class="ar">الشباب السوداني في ظل الحرب</span>
+                                <span class="en">Sudanese Youth Under the Shadow of War</span>
                             </h3>
                             <p class="blog-description">
-                                <span class="ar">الهوية البصرية هي أحد أهم العناصر التي تساعد الشركات الناشئة على التميز في السوق...</span>
-                                <span class="en">Visual identity is one of the most important elements that help startups stand out in the market...</span>
+                                <span class="ar">في بلد مليان خوف ونزوح.. لسه في ناس بتحلم، ولسه في شباب بيرسموا المستقبل، حتى لو فوق الركام. التصميم دا ما مشروع شغل.. دا مشروع وجع وأمل. "الشباب السوداني في ظل الحرب" بوستر بصري حاولت من خلاله أرسم الحكاية البتتقال من غير كلام.</span>
+                                <span class="en">In a country full of fear and displacement... There are still people dreaming, still youth sketching the future, even if it's over the rubble. This design isn't a job… It's a project of pain and hope. "Sudanese Youth Under the Shadow of War". A visual poster where I tried to draw a story that words can't carry.</span>
                             </p>
                             <div class="blog-tags">
-                                <span class="blog-tag">تصميم</span>
-                                <span class="blog-tag">هوية بصرية</span>
+                                <span class="blog-tag">عن السودان</span>
+                                <span class="blog-tag">لينكدإن</span>
+                                <span class="blog-tag">حرب</span>
+                                <span class="blog-tag">أمل</span>
+                                <span class="blog-tag">شباب</span>
                             </div>
-                            <a href="#" class="blog-link">
-                                <span class="ar">قراءة المزيد</span>
-                                <span class="en">Read More</span>
-                                <i class="fas fa-arrow-left"></i>
+                            <a href="https://www.linkedin.com/posts/muhalabsalah_aezaeiaetabraepaesaevaezaeqabraeuaeaaezaehabraepaesaevaesaet-activity-7343184750674632705-8pXP?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAACE4mj0BK4RzHGOQAki6kCo53XORa2YaFR0&utm_campaign=copy_link" target="_blank" rel="noopener noreferrer" class="blog-link">
+                                <span class="ar">قراءة المزيد على لينكدإن</span>
+                                <span class="en">Read More on LinkedIn</span>
+                                <i class="fab fa-linkedin"></i>
                             </a>
                             <div class="blog-comments">
-                                <i class="fas fa-comment"></i>
-                                <span>12</span>
+                                <i class="fas fa-heart"></i>
+                                <span>5</span>
+                                <i class="fas fa-comment" style="margin-right: 10px;"></i>
+                                <span>0</span>
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- New Blog Post: A Mother's Strength, Amid the Chaos -->
+                    <div class="blog-card fade-in" data-category="aboutSudan">
+                        <img 
+                            src="https://i.ibb.co/Swk0tj3R/IMG-20250624-123018.webp" 
+                            srcset="https://i.ibb.co/Swk0tj3R/IMG-20250624-123018.webp 1x, https://i.ibb.co/Swk0tj3R/IMG-20250624-123018-2x.webp 2x" 
+                            alt="A Mother's Strength, Amid the Chaos" 
+                            class="blog-image" 
+                            loading="lazy"
+                            data-original-src="https://i.ibb.co/Swk0tj3R/IMG-20250624-123018.webp"
+                            onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QmxvZyBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
+                        >
+                        <div class="blog-content">
+                            <p class="blog-date">5 يوليو 2025</p>
+                            <h3 class="blog-title">
+                                <span class="ar">قوة الأم وسط الفوضى</span>
+                                <span class="en">A Mother's Strength, Amid the Chaos</span>
+                            </h3>
+                            <p class="blog-description">
+                                <span class="ar">أم. حرب. وعد.
+في منزل محطم، تتمسك بطفلها، بالأمل، بثقل الحب.
+هذا العمل الفني جزء من حملتي البصرية المستمرة التي تسلط الضوء على صمود السودانيين.
+لا عناوين رئيسية. فقط أشخاص حقيقيون، يحملون المستقبل.</span>
+                                <span class="en">A mother. A war. A promise.
+In the middle of a shattered home, she holds on to her child, to hope, to the weight of love.
+This artwork is part of my ongoing visual campaign spotlighting Sudanese resilience.
+No headlines. Just real people, carrying the future.</span>
+                            </p>
+                            <div class="blog-tags">
+                                <span class="blog-tag">السودان</span>
+                                <span class="blog-tag">أمل بصري</span>
+                                <span class="blog-tag">تصميم للخير</span>
+                                <span class="blog-tag">النساء السودانيات</span>
+                                <span class="blog-tag">فن للتأثير</span>
+                                <span class="blog-tag">المقاومة الإبداعية</span>
+                                <span class="blog-tag">الأمومة في الحرب</span>
+                                <span class="blog-tag">الصمود</span>
+                                <span class="blog-tag">رسم زيتي</span>
+                                <span class="blog-tag">حملة السودان</span>
+                            </div>
+                            <a href="https://www.linkedin.com/posts/muhalabsalah_sudan-visualhope-designforgood-activity-7343224516006801408-xUjB?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAACE4mj0BK4RzHGOQAki6kCo53XORa2YaFR0&utm_campaign=copy_link" target="_blank" rel="noopener noreferrer" class="blog-link">
+                                <span class="ar">قراءة المزيد على لينكدإن</span>
+                                <span class="en">Read More on LinkedIn</span>
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <div class="blog-comments">
+                                <i class="fas fa-heart"></i>
+                                <span>4</span>
+                                <i class="fas fa-comment" style="margin-right: 10px;"></i>
+                                <span>2</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="blog-card fade-in" data-category="development">
                         <img 
                             src="https://i.ibb.co/6HfWQYtG/blog2.webp" 
@@ -2641,6 +3338,8 @@
                             alt="Web Design Trends in 2023" 
                             class="blog-image" 
                             loading="lazy"
+                            data-original-src="https://i.ibb.co/6HfWQYtG/blog2.webp"
+                            onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QmxvZyBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
                         >
                         <div class="blog-content">
                             <p class="blog-date">22 مايو 2023</p>
@@ -2667,6 +3366,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="blog-card fade-in" data-category="design">
                         <img 
                             src="https://i.ibb.co/ZXK3Jq2W/blog3.webp" 
@@ -2674,6 +3374,8 @@
                             alt="How to Choose the Right Designer for Your Project" 
                             class="blog-image" 
                             loading="lazy"
+                            data-original-src="https://i.ibb.co/ZXK3Jq2W/blog3.webp"
+                            onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QmxvZyBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
                         >
                         <div class="blog-content">
                             <p class="blog-date">8 مايو 2023</p>
@@ -2749,6 +3451,10 @@
                                 <span class="en">Digital Marketing</span>
                             </option>
                         </select>
+                        <div class="error-message">
+                            <span class="ar">الرجاء اختيار نوع المشروع</span>
+                            <span class="en">Please select project type</span>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="form-label">
@@ -2773,6 +3479,10 @@
                                 <span class="en">Large</span>
                             </option>
                         </select>
+                        <div class="error-message">
+                            <span class="ar">الرجاء اختيار حجم المشروع</span>
+                            <span class="en">Please select project size</span>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="form-label">
@@ -2797,6 +3507,10 @@
                                 <span class="en">Flexible (More than 3 months)</span>
                             </option>
                         </select>
+                        <div class="error-message">
+                            <span class="ar">الرجاء اختيار المدة الزمنية</span>
+                            <span class="en">Please select timeline</span>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="form-label">
@@ -2821,6 +3535,10 @@
                                 <span class="en">High</span>
                             </option>
                         </select>
+                        <div class="error-message">
+                            <span class="ar">الرجاء اختيار الميزانية</span>
+                            <span class="en">Please select budget</span>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-md);">
                         <i class="fas fa-calculator"></i>
@@ -3086,7 +3804,7 @@
                                 </select>
                                 <div class="error-message">
                                     <span class="ar">الرجاء اختيار الوقت</span>
-                                    <span class="en">Please select a time</span>
+                                    <span class="en">Please select time</span>
                                 </div>
                             </div>
                         </div>
@@ -3254,6 +3972,14 @@
     </footer>
     
     <script>
+        // Image Fallback System
+        const fallbackImages = {
+            profile: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjhGQUZDIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEyMCIgcj0iNDAiIGZpbGw9IiM0QTU1NjgiLz4KPHBhdGggZD0iTTc1IDI1MEM3NSAyMjUgMTUwIDI3NSAxNTAgMjc1QzE1MCAyNzUgMjI1IDIyNSAyMjUgMjUwVjI4MEg3NVYyNTBaIiBmaWxsPSIjNEE1NTY4Ii8+Cjx0ZXh0IHg9IjE1MCIgeT0iMTQwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NUzwvdGV4dD4KPC9zdmc+',
+            project: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=',
+            blog: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QmxvZyBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=',
+            caseStudy: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgdmlld0JveD0iMCAwIDQwMCAyODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjgwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTQwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxNDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q2FzZSBTdHVkeSBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4='
+        };
+        
         // Settings Manager
         class SettingsManager {
             static setTheme(theme) {
@@ -3379,8 +4105,99 @@
             }
         }
         
+        // Image Handler
+        class ImageHandler {
+            static init() {
+                this.setupImageFallback();
+                this.setupLazyLoading();
+                this.setupRetrySystem();
+            }
+            
+            static setupImageFallback() {
+                const images = document.querySelectorAll('img[data-original-src]');
+                images.forEach(img => {
+                    img.addEventListener('error', () => {
+                        console.warn(`Failed to load image: ${img.src}`);
+                        this.handleImageError(img);
+                    });
+                });
+            }
+            
+            static handleImageError(img) {
+                // Determine image type based on context
+                let imgType = 'project';
+                if (img.classList.contains('profile-image')) imgType = 'profile';
+                if (img.closest('.blog-card')) imgType = 'blog';
+                if (img.closest('.case-study-card')) imgType = 'caseStudy';
+                
+                // Apply fallback image
+                img.src = fallbackImages[imgType] || fallbackImages.project;
+                img.classList.add('image-fallback');
+                
+                // Add retry animation
+                img.classList.add('image-retry');
+                setTimeout(() => {
+                    img.classList.remove('image-retry');
+                }, 3000);
+            }
+            
+            static setupLazyLoading() {
+                const images = document.querySelectorAll('img[loading="lazy"]');
+                
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            const originalSrc = img.getAttribute('data-original-src');
+                            
+                            if (originalSrc && img.src !== originalSrc) {
+                                // Add loading state
+                                img.classList.add('image-loading');
+                                
+                                // Load image
+                                img.src = originalSrc;
+                                
+                                // Remove loading state when loaded
+                                img.onload = () => {
+                                    img.classList.remove('image-loading');
+                                };
+                            }
+                            
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+                
+                images.forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
+            
+            static setupRetrySystem() {
+                // Retry failed images every 30 seconds
+                setInterval(() => {
+                    const failedImages = document.querySelectorAll('img[src^="data:image"]');
+                    failedImages.forEach(img => {
+                        const originalSrc = img.getAttribute('data-original-src');
+                        if (originalSrc) {
+                            // Add retry animation
+                            img.classList.add('image-retry');
+                            
+                            // Attempt to reload
+                            setTimeout(() => {
+                                img.src = originalSrc;
+                            }, 500);
+                        }
+                    });
+                }, 30000);
+            }
+        }
+        
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize image handler
+            ImageHandler.init();
+            
             // Hide loader when page is fully loaded
             window.addEventListener('load', () => {
                 const loader = document.getElementById('loader');
