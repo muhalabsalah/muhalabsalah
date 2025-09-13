@@ -1215,56 +1215,6 @@
             opacity: 1;
         }
         
-        /* Elite Scroll Indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 2;
-        }
-        
-        .scroll-mouse {
-            width: 30px;
-            height: 50px;
-            border: 2px solid var(--brand-blue);
-            border-radius: 15px;
-            position: relative;
-            margin-bottom: var(--spacing-sm);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-        }
-        
-        .mouse-wheel {
-            width: 6px;
-            height: 10px;
-            background: var(--brand-blue);
-            border-radius: 3px;
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: scroll-wheel 2s infinite;
-        }
-        
-        @keyframes scroll-wheel {
-            0% { top: 8px; opacity: 1; }
-            100% { top: 25px; opacity: 0; }
-        }
-        
-        .scroll-text {
-            font-size: 0.9rem;
-            color: var(--secondary);
-            font-weight: 500;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(5px);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-        }
-        
         /* Buttons - Enhanced */
         .btn {
             display: inline-flex;
@@ -4410,17 +4360,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Elite Scroll Indicator -->
-            <div class="scroll-indicator">
-                <div class="scroll-mouse">
-                    <div class="mouse-wheel"></div>
-                </div>
-                <div class="scroll-text">
-                    <span class="ar">اسحب للاستكشاف</span>
-                    <span class="en">Scroll to explore</span>
                 </div>
             </div>
         </section>
