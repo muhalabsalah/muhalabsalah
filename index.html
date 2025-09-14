@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 <head>
-    <!-- Basic Meta Tags for SEO and Browser Compatibility -->
+      <!-- Basic Meta Tags for SEO and Browser Compatibility -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -80,7 +80,6 @@
     <meta name="msapplication-TileColor" content="#2563eb">
     <meta name="msapplication-config" content="/browserconfig.xml">
     <link rel="manifest" href="/manifest.json">
-    
     <!-- Canonical URL to Prevent Duplicate Content -->
     <link rel="canonical" href="https://muhalabsalah.github.io/muhalabsalah">
     
@@ -3931,50 +3930,105 @@
             transform: rotate(180deg);
         }
         
-        /* Image Fallback Styles */
-        .image-fallback {
-            background: var(--light-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-            font-size: 0.8rem;
-            text-align: center;
-            padding: 1rem;
-        }
-        
-        .image-loading {
-            position: relative;
-            background: var(--light-border);
-            overflow: hidden;
-        }
-        
-        .image-loading::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            animation: loading 1.5s infinite;
-        }
-        
-        @keyframes loading {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        
-        /* Image Retry Animation */
-        .image-retry {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { opacity: 0.6; }
-            50% { opacity: 1; }
-            100% { opacity: 0.6; }
-        }
+        /* Enhanced Image Loading Styles */
+.lazy-loading {
+    opacity: 0;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    transition: opacity 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.lazy-loading::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+.lazy-loaded {
+    opacity: 1;
+    animation: fadeIn 0.5s ease;
+}
+
+.image-fallback {
+    position: relative;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    color: #666;
+}
+
+.image-fallback::after {
+    content: "Image unavailable";
+    position: absolute;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.image-retry {
+    animation: pulse 2s infinite;
+    filter: brightness(1.1);
+}
+
+/* Enhanced Animations */
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { 
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1.02);
+    }
+    100% { 
+        opacity: 0.6;
+        transform: scale(1);
+    }
+}
+
+/* Image Loading Spinner */
+.image-loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-top-color: var(--brand-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
         
         /* Reduced Motion Support */
         @media (prefers-reduced-motion: reduce) {
@@ -4357,9 +4411,17 @@
             
             <div class="hero-image-container">
                 <div class="hero-image-wrapper">
-                    <img src="https://i.ibb.co/kVvppBTW/muhalabsalah.webp" alt="Muhalab Salah - Professional Graphic Designer and Web Developer" class="hero-image" loading="eager">
-                    <div class="hero-image-shape"></div>
-                </div>
+    <img 
+        src="https://i.ibb.co/kVvppBTW/muhalabsalah.webp" 
+        data-srcset="https://i.ibb.co/kVvppBTW/muhalabsalah-small.webp 400w, https://i.ibb.co/kVvppBTW/muhalabsalah-medium.webp 800w, https://i.ibb.co/kVvppBTW/muhalabsalah-large.webp 1200w, https://i.ibb.co/kVvppBTW/muhalabsalah.webp 1600w"
+        data-original-src="https://i.ibb.co/kVvppBTW/muhalabsalah.webp"
+        alt="Muhalab Salah - Professional Graphic Designer and Web Developer" 
+        class="hero-image" 
+        loading="eager"
+        onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjhGQUZDIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEyMCIgcj0iNDAiIGZpbGw9IiM0QTU1NjgiLz4KPHBhdGggZD0iTTc1IDI1MCg3NSAyMjUgMTUwIDI3NSAxNTAgMjc1QzE1MCAyNzUgMjI1IDIyNSAyMjUgMjUwVjI4MEg3NVYyNTBaIiBmaWxsPSIjNEE1NTY4Ii8+Cjx0ZXh0IHg9IjE1MCIgeT0iMTQwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NUzwvdGV4dD4KPC9zdmc+';"
+    >
+    <div class="hero-image-shape"></div>
+</div>
                 
                 <div class="hero-socials">
                     <a href="https://www.behance.net/MuhalabSalah" target="_blank" aria-label="Behance" class="hero-social">
@@ -4388,55 +4450,145 @@
     <!-- Main Content Area -->
     <main>
         <!-- Slideshow Section - Auto-rotating image gallery -->
-        <section id="slideshow" class="section">
-            <div class="slideshow-container">
-                <div class="slideshow-wrapper">
-                    <div class="slide zoom-in active">
-                        <img src="https://i.ibb.co/MDqRZDM1/KIDS.webp" alt="Creative Design" width="1200" height="500" loading="lazy">
-                    </div>
-                    <div class="slide slide-left">
-                        <img src="https://i.ibb.co/xS85vv5Z/RAYYAN.webp" alt="Design Work" width="1200" height="500" loading="lazy">
-                    </div>
-                    <div class="slide slide-right">
-                        <img src="https://i.ibb.co/0yvXdyTk/APEX.webp" alt="Artistic Design" width="1200" height="500" loading="lazy">
-                    </div>
-                    <div class="slide rotate">
-                        <img src="https://i.ibb.co/1JJh2ZPy/S-LOGO.webp" alt="Logo Design" width="1200" height="500" loading="lazy">
-                    </div>
-                    <div class="slide slide-top">
-                        <img src="https://i.ibb.co/xtcQr3qk/FAKHRA.webp" alt="Creative Work" width="1200" height="500" loading="lazy">
-                    </div>
-                    <div class="slide slide-bottom">
-                        <img src="https://i.ibb.co/27XszZ9w/N-LOGO.webp" alt="Design Element" width="1200" height="500" loading="lazy">
-                    </div>
-                    <div class="slide rotate-zoom">
-                        <img src="https://i.ibb.co/R5Wh5NS/TECH.webp" alt="Tech Design" width="1200" height="500" loading="lazy">
-                    </div>
-                    <div class="slide zoom-out">
-                        <img src="https://i.ibb.co/zhtKbMcN/NT.webp" alt="Modern Design" width="1200" height="500" loading="lazy">
-                    </div>
-                    <div class="slide diagonal-tl">
-                        <img src="https://i.ibb.co/qwSZnz1/VR.webp" alt="Innovative Design" width="1200" height="500" loading="lazy">
-                    </div>
-                    <div class="slide diagonal-br">
-                        <img src="https://i.ibb.co/fYgD1WQ6/Green-leaf.webp" alt="Nature Design" width="1200" height="500" loading="lazy">
-                    </div>
-                </div>
-                
-                <!-- Slideshow Controls -->
-                <div class="slideshow-controls">
-                    <button class="slide-control prev" aria-label="Previous slide">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="slide-indicators">
-                        <!-- Indicators will be added by JavaScript -->
-                    </div>
-                    <button class="slide-control next" aria-label="Next slide">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
+<section id="slideshow" class="section">
+    <div class="slideshow-container">
+        <div class="slideshow-wrapper">
+            <div class="slide zoom-in active">
+                <img 
+                    src="https://i.ibb.co/MDqRZDM1/KIDS.webp" 
+                    data-srcset="https://i.ibb.co/MDqRZDM1/KIDS-small.webp 600w, https://i.ibb.co/MDqRZDM1/KIDS-medium.webp 900w, https://i.ibb.co/MDqRZDM1/KIDS.webp 1200w"
+                    data-original-src="https://i.ibb.co/MDqRZDM1/KIDS.webp"
+                    alt="Creative Design" 
+                    width="1200" 
+                    height="500" 
+                    loading="lazy"
+                    onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
+                >
             </div>
-        </section>
+            <div class="slide slide-left">
+                <img 
+                    src="https://i.ibb.co/xS85vv5Z/RAYYAN.webp" 
+                    data-srcset="https://i.ibb.co/xS85vv5Z/RAYYAN-small.webp 600w, https://i.ibb.co/xS85vv5Z/RAYYAN-medium.webp 900w, https://i.ibb.co/xS85vv5Z/RAYYAN.webp 1200w"
+                    data-original-src="https://i.ibb.co/xS85vv5Z/RAYYAN.webp"
+                    alt="Design Work" 
+                    width="1200" 
+                    height="500" 
+                    loading="lazy"
+                    onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
+                >
+            </div>
+            <div class="slide slide-right">
+                <img 
+                    src="https://i.ibb.co/0yvXdyTk/APEX.webp" 
+                    data-srcset="https://i.ibb.co/0yvXdyTk/APEX-small.webp 600w, https://i.ibb.co/0yvXdyTk/APEX-medium.webp 900w, https://i.ibb.co/0yvXdyTk/APEX.webp 1200w"
+                    data-original-src="https://i.ibb.co/0yvXdyTk/APEX.webp"
+                    alt="Artistic Design" 
+                    width="1200" 
+                    height="500" 
+                    loading="lazy"
+                    onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
+                >
+            </div>
+            <div class="slide rotate">
+                <img 
+                    src="https://i.ibb.co/1JJh2ZPy/S-LOGO.webp" 
+                    data-srcset="https://i.ibb.co/1JJh2ZPy/S-LOGO-small.webp 600w, https://i.ibb.co/1JJh2ZPy/S-LOGO-medium.webp 900w, https://i.ibb.co/1JJh2ZPy/S-LOGO.webp 1200w"
+                    data-original-src="https://i.ibb.co/1JJh2ZPy/S-LOGO.webp"
+                    alt="Logo Design" 
+                    width="1200" 
+                    height="500" 
+                    loading="lazy"
+                    onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
+                >
+            </div>
+            <div class="slide slide-top">
+                <img 
+                    src="https://i.ibb.co/xtcQr3qk/FAKHRA.webp" 
+                    data-srcset="https://i.ibb.co/xtcQr3qk/FAKHRA-small.webp 600w, https://i.ibb.co/xtcQr3qk/FAKHRA-medium.webp 900w, https://i.ibb.co/xtcQr3qk/FAKHRA.webp 1200w"
+                    data-original-src="https://i.ibb.co/xtcQr3qk/FAKHRA.webp"
+                    alt="Creative Work" 
+                    width="1200" 
+                    height="500" 
+                    loading="lazy"
+                    onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
+                >
+            </div>
+            <div class="slide slide-bottom">
+                <img 
+                    src="https://i.ibb.co/27XszZ9w/N-LOGO.webp" 
+                    data-srcset="https://i.ibb.co/27XszZ9w/N-LOGO-small.webp 600w, https://i.ibb.co/27XszZ9w/N-LOGO-medium.webp 900w, https://i.ibb.co/27XszZ9w/N-LOGO.webp 1200w"
+                    data-original-src="https://i.ibb.co/27XszZ9w/N-LOGO.webp"
+                    alt="Design Element" 
+                    width="1200" 
+                    height="500" 
+                    loading="lazy"
+                    onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
+                >
+            </div>
+            <div class="slide rotate-zoom">
+                <img 
+                    src="https://i.ibb.co/R5Wh5NS/TECH.webp" 
+                    data-srcset="https://i.ibb.co/R5Wh5NS/TECH-small.webp 600w, https://i.ibb.co/R5Wh5NS/TECH-medium.webp 900w, https://i.ibb.co/R5Wh5NS/TECH.webp 1200w"
+                    data-original-src="https://i.ibb.co/R5Wh5NS/TECH.webp"
+                    alt="Tech Design" 
+                    width="1200" 
+                    height="500" 
+                    loading="lazy"
+                    onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
+                >
+            </div>
+            <div class="slide zoom-out">
+                <img 
+                    src="https://i.ibb.co/zhtKbMcN/NT.webp" 
+                    data-srcset="https://i.ibb.co/zhtKbMcN/NT-small.webp 600w, https://i.ibb.co/zhtKbMcN/NT-medium.webp 900w, https://i.ibb.co/zhtKbMcN/NT.webp 1200w"
+                    data-original-src="https://i.ibb.co/zhtKbMcN/NT.webp"
+                    alt="Modern Design" 
+                    width="1200" 
+                    height="500" 
+                    loading="lazy"
+                    onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
+                >
+            </div>
+            <div class="slide diagonal-tl">
+                <img 
+                    src="https://i.ibb.co/qwSZnz1/VR.webp" 
+                    data-srcset="https://i.ibb.co/qwSZnz1/VR-small.webp 600w, https://i.ibb.co/qwSZnz1/VR-medium.webp 900w, https://i.ibb.co/qwSZnz1/VR.webp 1200w"
+                    data-original-src="https://i.ibb.co/qwSZnz1/VR.webp"
+                    alt="Innovative Design" 
+                    width="1200" 
+                    height="500" 
+                    loading="lazy"
+                    onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
+                >
+            </div>
+            <div class="slide diagonal-br">
+                <img 
+                    src="https://i.ibb.co/fYgD1WQ6/Green-leaf.webp" 
+                    data-srcset="https://i.ibb.co/fYgD1WQ6/Green-leaf-small.webp 600w, https://i.ibb.co/fYgD1WQ6/Green-leaf-medium.webp 900w, https://i.ibb.co/fYgD1WQ6/Green-leaf.webp 1200w"
+                    data-original-src="https://i.ibb.co/fYgD1WQ6/Green-leaf.webp"
+                    alt="Nature Design" 
+                    width="1200" 
+                    height="500" 
+                    loading="lazy"
+                    onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
+                >
+            </div>
+        </div>
+        
+        <!-- Slideshow Controls -->
+        <div class="slideshow-controls">
+            <button class="slide-control prev" aria-label="Previous slide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="slide-indicators">
+                <!-- Indicators will be added by JavaScript -->
+            </div>
+            <button class="slide-control next" aria-label="Next slide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
         
         <!-- Professional Journey & Expertise Section - Timeline and skills -->
         <section id="professional-journey" class="section">
@@ -4809,14 +4961,18 @@
                     <div class="gallery-item" data-category="packaging">
                         <div class="gallery-card">
                             <div class="gallery-image-container">
-                                <img 
-                                    src="https://i.ibb.co/1GYFqXSB/170-MILK.webp" 
-                                    alt="Milk Product Design" 
-                                    class="gallery-image" 
-                                    loading="lazy"
-                                    width="400"
-                                    height="400"
-                                >
+    <img 
+        src="https://i.ibb.co/1GYFqXSB/170-MILK.webp" 
+        data-srcset="https://i.ibb.co/1GYFqXSB/170-MILK-small.webp 300w, https://i.ibb.co/1GYFqXSB/170-MILK-medium.webp 600w, https://i.ibb.co/1GYFqXSB/170-MILK.webp 800w"
+        data-original-src="https://i.ibb.co/1GYFqXSB/170-MILK.webp"
+        alt="Milk Product Design" 
+        class="gallery-image" 
+        loading="lazy"
+        width="400"
+        height="400"
+        onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIyMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=';"
+    >
+</div>
                                 <div class="gallery-overlay">
                                     <div class="gallery-category">
                                         <span class="ar">تغليف</span>
@@ -6221,93 +6377,211 @@
             }
         }
         
-        // Image Handler - Manages image loading and fallbacks
-        class ImageHandler {
-            static init() {
-                this.setupImageFallback();
-                this.setupLazyLoading();
-                this.setupRetrySystem();
-            }
-            
-            static setupImageFallback() {
-                const images = document.querySelectorAll('img[data-original-src]');
-                images.forEach(img => {
-                    img.addEventListener('error', () => {
-                        console.warn(`Failed to load image: ${img.src}`);
-                        this.handleImageError(img);
-                    });
-                });
-            }
-            
-            static handleImageError(img) {
-                // Determine image type based on context
-                let imgType = 'project';
-                if (img.classList.contains('profile-image')) imgType = 'profile';
-                if (img.closest('.blog-card')) imgType = 'blog';
-                if (img.closest('.case-study-card')) imgType = 'caseStudy';
-                
-                // Apply fallback image
-                img.src = fallbackImages[imgType] || fallbackImages.project;
-                img.classList.add('image-fallback');
-                
-                // Add retry animation
+        // Enhanced Image Handler - Manages image loading, lazy loading, and fallbacks
+class ImageHandler {
+    static init() {
+        this.setupImageFallback();
+        this.setupEnhancedLazyLoading();
+        this.setupRetrySystem();
+        this.setupResponsiveImages();
+        this.preloadCriticalImages();
+        this.optimizeImages();
+        this.setupCaching();
+    }
+    
+    static setupImageFallback() {
+        const images = document.querySelectorAll('img[data-original-src]');
+        images.forEach(img => {
+            img.addEventListener('error', () => {
+                console.warn(`Failed to load image: ${img.src}`);
+                this.handleImageError(img);
+            });
+        });
+    }
+    
+    static handleImageError(img) {
+        // Remove loading state
+        img.classList.remove('lazy-loading');
+        
+        // Determine image type based on context
+        let imgType = 'project';
+        if (img.classList.contains('profile-image')) imgType = 'profile';
+        if (img.closest('.blog-card')) imgType = 'blog';
+        if (img.closest('.case-study-card')) imgType = 'caseStudy';
+        
+        // Apply fallback image
+        img.src = fallbackImages[imgType] || fallbackImages.project;
+        img.classList.add('image-fallback');
+        
+        // Add retry animation
+        img.classList.add('image-retry');
+        setTimeout(() => {
+            img.classList.remove('image-retry');
+        }, 3000);
+        
+        // Schedule retry
+        this.scheduleRetry(img);
+    }
+    
+    static scheduleRetry(img) {
+        const originalSrc = img.getAttribute('data-original-src');
+        if (!originalSrc) return;
+        
+        // Retry after 30 seconds
+        setTimeout(() => {
+            // Check if image is still showing fallback
+            if (img.src.startsWith('data:image')) {
+                // Attempt to reload
                 img.classList.add('image-retry');
-                setTimeout(() => {
-                    img.classList.remove('image-retry');
-                }, 3000);
-            }
-            
-            static setupLazyLoading() {
-                const images = document.querySelectorAll('img[loading="lazy"]');
+                img.src = originalSrc;
                 
-                const imageObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            const originalSrc = img.getAttribute('data-original-src');
-                            
-                            if (originalSrc && img.src !== originalSrc) {
-                                // Add loading state
-                                img.classList.add('image-loading');
-                                
-                                // Load image
-                                img.src = originalSrc;
-                                
-                                // Remove loading state when loaded
-                                img.onload = () => {
-                                    img.classList.remove('image-loading');
-                                };
-                            }
-                            
-                            observer.unobserve(img);
+                img.onload = () => {
+                    img.classList.remove('image-retry', 'image-fallback');
+                    img.classList.add('lazy-loaded');
+                };
+            }
+        }, 30000);
+    }
+    
+    static setupEnhancedLazyLoading() {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const originalSrc = img.getAttribute('data-original-src');
+                    
+                    if (originalSrc && img.src !== originalSrc) {
+                        // Add loading state
+                        img.classList.add('lazy-loading');
+                        
+                        // Set decoding attribute for non-blocking rendering
+                        if (!img.hasAttribute('decoding')) {
+                            img.setAttribute('decoding', 'async');
                         }
-                    });
-                });
+                        
+                        // Load image
+                        img.src = originalSrc;
+                        
+                        // Remove loading state when loaded
+                        img.onload = () => {
+                            img.classList.remove('lazy-loading');
+                            img.classList.add('lazy-loaded');
+                        };
+                        
+                        img.onerror = () => {
+                            img.classList.remove('lazy-loading');
+                            this.handleImageError(img);
+                        };
+                    }
+                    
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px', // Start loading 50px before entering viewport
+            threshold: 0.01
+        });
+        
+        images.forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+    
+    static setupRetrySystem() {
+        // Retry failed images every 30 seconds
+        setInterval(() => {
+            const failedImages = document.querySelectorAll('img[src^="data:image"]');
+            failedImages.forEach(img => {
+                const originalSrc = img.getAttribute('data-original-src');
+                if (originalSrc) {
+                    // Add retry animation
+                    img.classList.add('image-retry');
+                    
+                    // Attempt to reload
+                    setTimeout(() => {
+                        img.src = originalSrc;
+                    }, 500);
+                }
+            });
+        }, 30000);
+    }
+    
+    static setupResponsiveImages() {
+        const responsiveImages = document.querySelectorAll('img[data-srcset]');
+        
+        responsiveImages.forEach(img => {
+            const srcset = img.getAttribute('data-srcset');
+            if (srcset) {
+                // Create srcset attribute from data
+                img.setAttribute('srcset', srcset);
                 
-                images.forEach(img => {
-                    imageObserver.observe(img);
-                });
+                // Add sizes attribute if not present
+                if (!img.hasAttribute('sizes')) {
+                    img.setAttribute('sizes', '(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw');
+                }
             }
+        });
+    }
+    
+    static preloadCriticalImages() {
+        const criticalImages = [
+            'https://i.ibb.co/kVvppBTW/muhalabsalah.webp', // Hero image
+            'https://i.ibb.co/fGSHzpdw/logo.webp' // Logo
+        ];
+        
+        criticalImages.forEach(src => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = src;
+            document.head.appendChild(link);
+        });
+    }
+    
+    static optimizeImages() {
+        const images = document.querySelectorAll('img[data-original-src]');
+        
+        images.forEach(img => {
+            const originalSrc = img.getAttribute('data-original-src');
             
-            static setupRetrySystem() {
-                // Retry failed images every 30 seconds
-                setInterval(() => {
-                    const failedImages = document.querySelectorAll('img[src^="data:image"]');
-                    failedImages.forEach(img => {
-                        const originalSrc = img.getAttribute('data-original-src');
-                        if (originalSrc) {
-                            // Add retry animation
-                            img.classList.add('image-retry');
-                            
-                            // Attempt to reload
-                            setTimeout(() => {
-                                img.src = originalSrc;
-                            }, 500);
-                        }
-                    });
-                }, 30000);
+            // Add responsive attributes
+            if (!img.hasAttribute('srcset')) {
+                // Create responsive image URLs
+                const baseUrl = originalSrc.split('?')[0];
+                const ext = baseUrl.split('.').pop();
+                const name = baseUrl.replace(`.${ext}`, '');
+                
+                // Create srcset for different screen sizes
+                const srcset = `
+                    ${name}-small.${ext} 400w,
+                    ${name}-medium.${ext} 800w,
+                    ${name}-large.${ext} 1200w,
+                    ${originalSrc} 1600w
+                `;
+                
+                img.setAttribute('srcset', srcset);
+                img.setAttribute('sizes', '(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw');
             }
-        }
+        });
+    }
+    
+    static setupCaching() {
+        // Set cache headers for images
+        const images = document.querySelectorAll('img[data-original-src]');
+        
+        images.forEach(img => {
+            const src = img.getAttribute('data-original-src');
+            if (src) {
+                // Create a cache-busting URL with version parameter
+                const url = new URL(src);
+                url.searchParams.set('v', '1.0'); // Version parameter
+                img.setAttribute('data-original-src', url.toString());
+            }
+        });
+    }
+}
         
         // Device Detection - Checks device capabilities
         const DeviceDetector = {
