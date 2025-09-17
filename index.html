@@ -4401,30 +4401,14 @@
     </main>
     
     <!-- JavaScript for functionality -->
-    // Enhanced JavaScript for functionality
+    <!-- Enhanced JavaScript for functionality -->
 <script>
-    // Feature Detection
-    const features = {
-        intersectionObserver: 'IntersectionObserver' in window,
-        performanceObserver: 'PerformanceObserver' in window,
-        localStorage: (() => {
-            try {
-                const testKey = '__test__';
-                localStorage.setItem(testKey, testKey);
-                localStorage.removeItem(testKey);
-                return true;
-            } catch (e) {
-                return false;
-            }
-        })()
-    };
-
     // Image Fallback System - Handles broken images with fallbacks
     const fallbackImages = {
         profile: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjhGQUZDIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEyMCIgcj0iNDAiIGZpbGw9IiM0QTU1NjgiLz4KPHBhdGggZD0iTTc1IDI1MCg3NSAyMjUgMTUwIDI3NSAxNTAgMjc1QzE1MCAyNzUgMjI1IDIyNSAyMjUgMjUwVjI4MEg3NVYyNTBaIiBmaWxsPSIjNEE1NTY4Ii8+Cjx0ZXh0IHg9IjE1MCIgeT0iMTQwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NUzwvdGV4dD4KPC9zdmc+',
-        project: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlByb2plY3QgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg==',
-        blog: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkJsb2cgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg==',
-        caseStudy: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgdmlld0JveD0iMCAwIDQwMCAyODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjgwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTQwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNhc2UgU3R1ZHkgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg==',
+        project: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=',
+        blog: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxMDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QmxvZyBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=',
+        caseStudy: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgdmlld0JveD0iMCAwIDQwMCAyODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjgwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTQwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiB4PSIyMDAiIGR5PSIxNDAiIGZvbnQtZmFtaWx5PSJDYWlybyIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzRBNTU2OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q2FzZSBTdHVkeSBJbWFnZTwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=',
         hero: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjhGQUZDIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkhvcm8gSW1hZ2U8L3RleHQ+Cjwvc3ZnPg==',
         gallery: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRTJFOEYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiBmb250LWZhbWlseT0iQ2Fpcm8iIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM0QTU1NjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdhbGxlcnkgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='
     };
@@ -4433,23 +4417,14 @@
     class SettingsManager {
         static setLanguage(lang) {
             try {
-                if (features.localStorage) {
-                    localStorage.setItem('language', lang);
-                }
-                
-                if (document.documentElement) {
-                    document.documentElement.lang = lang;
-                }
-                
-                if (document.body) {
-                    document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
-                }
-                
+                localStorage.setItem('language', lang);
+                document.documentElement.lang = lang;
+                document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
                 const langToggle = document.getElementById('langToggle');
                 if (langToggle) {
-                    const langText = langToggle.querySelector(lang === 'ar' ? '.en' : '.ar');
+                    const langText = langToggle.querySelector(`.${lang === 'ar' ? 'en' : 'ar'}`);
                     if (langText) {
-                        langToggle.innerHTML = langText.textContent;
+                        langToggle.textContent = langText.textContent;
                     }
                 }
             } catch (e) {
@@ -4459,7 +4434,7 @@
         
         static getLanguage() {
             try {
-                return features.localStorage ? localStorage.getItem('language') || 'ar' : 'ar';
+                return localStorage.getItem('language') || 'ar';
             } catch (e) {
                 console.warn('Failed to get language:', e);
                 return 'ar';
@@ -4572,7 +4547,7 @@
                 img.classList.remove('image-retry');
             }, 3000);
             
-            // Schedule retry with exponential backoff
+            // Schedule retry
             this.scheduleRetry(img);
         }
         
@@ -4585,16 +4560,11 @@
                 clearTimeout(this.retryTimeouts.get(img));
             }
             
-            // Get retry count or initialize to 0
-            const retryCount = parseInt(img.getAttribute('data-retry-count') || '0');
-            
-            // Exponential backoff: 5s, 10s, 20s, 40s, max 60s
-            const delay = Math.min(5000 * Math.pow(2, retryCount), 60000);
-            
+            // Retry after 30 seconds
             const timeoutId = setTimeout(() => {
                 // Check if image is still showing fallback
                 if (img.src.startsWith('data:image')) {
-                    img.setAttribute('data-retry-count', retryCount + 1);
+                    // Attempt to reload
                     img.classList.add('image-retry');
                     img.src = originalSrc;
                     
@@ -4603,17 +4573,12 @@
                         img.classList.add('lazy-loaded');
                     };
                 }
-            }, delay);
+            }, 30000);
             
             this.retryTimeouts.set(img, timeoutId);
         }
         
         static setupEnhancedLazyLoading() {
-            if (!features.intersectionObserver) {
-                console.warn('IntersectionObserver not supported - lazy loading disabled');
-                return;
-            }
-            
             const images = document.querySelectorAll('img[loading="lazy"]');
             
             const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -4660,7 +4625,7 @@
         }
         
         static setupRetrySystem() {
-            // Retry failed images with exponential backoff
+            // Retry failed images every 30 seconds
             setInterval(() => {
                 const failedImages = document.querySelectorAll('img[src^="data:image"]');
                 failedImages.forEach(img => {
@@ -4714,14 +4679,25 @@
             const images = document.querySelectorAll('img[data-original-src]');
             
             images.forEach(img => {
-                // Only add srcset if explicitly provided in data-srcset attribute
-                const srcset = img.getAttribute('data-srcset');
-                if (srcset) {
-                    img.setAttribute('srcset', srcset);
+                const originalSrc = img.getAttribute('data-original-src');
+                
+                // Add responsive attributes
+                if (!img.hasAttribute('srcset')) {
+                    // Create responsive image URLs
+                    const baseUrl = originalSrc.split('?')[0];
+                    const ext = baseUrl.split('.').pop();
+                    const name = baseUrl.replace(`.${ext}`, '');
                     
-                    if (!img.hasAttribute('sizes')) {
-                        img.setAttribute('sizes', '(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw');
-                    }
+                    // Create srcset for different screen sizes
+                    const srcset = `
+                        ${name}-small.${ext} 400w,
+                        ${name}-medium.${ext} 800w,
+                        ${name}-large.${ext} 1200w,
+                        ${originalSrc} 1600w
+                    `;
+                    
+                    img.setAttribute('srcset', srcset);
+                    img.setAttribute('sizes', '(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw');
                 }
             });
         }
@@ -4754,7 +4730,7 @@
     const DeviceDetector = {
         isHighEndDevice: () => {
             return !window.matchMedia('(prefers-reduced-motion: reduce)').matches && 
-                   features.intersectionObserver &&
+                   'IntersectionObserver' in window &&
                    'CSS' in window && CSS.supports('transform', 'translateZ(0)');
         },
         
@@ -4785,14 +4761,6 @@
             this.visibleItems = [];
             this.intersectionObserver = null;
             
-            // Bind methods to maintain context
-            this.handleFilterClick = this.handleFilterClick.bind(this);
-            this.handleLightboxClose = this.handleLightboxClose.bind(this);
-            this.handleLightboxPrev = this.handleLightboxPrev.bind(this);
-            this.handleLightboxNext = this.handleLightboxNext.bind(this);
-            this.handleLoadMoreClick = this.handleLoadMoreClick.bind(this);
-            this.handleKeyDown = this.handleKeyDown.bind(this);
-            
             this.init();
         }
         
@@ -4808,24 +4776,21 @@
         
         setupFilterButtons() {
             this.filterButtons.forEach(button => {
-                button.addEventListener('click', this.handleFilterClick);
+                button.addEventListener('click', () => {
+                    // Update active filter button
+                    this.filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // Get filter value
+                    this.currentFilter = button.getAttribute('data-filter');
+                    
+                    // Filter items
+                    this.filterItems();
+                    
+                    // Reset load more
+                    this.showInitialItems();
+                });
             });
-        }
-        
-        handleFilterClick(e) {
-            const button = e.currentTarget;
-            // Update active filter button
-            this.filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            
-            // Get filter value
-            this.currentFilter = button.getAttribute('data-filter');
-            
-            // Filter items and update visibleItems array
-            this.filterItems();
-            
-            // Reset load more
-            this.showInitialItems();
         }
         
         filterItems() {
@@ -4833,21 +4798,19 @@
                 const category = item.getAttribute('data-category');
                 
                 if (this.currentFilter === 'all' || category === this.currentFilter) {
-                    item.classList.add('visible');
-                    item.classList.remove('hidden');
+                    item.style.display = 'block';
                 } else {
-                    item.classList.add('hidden');
-                    item.classList.remove('visible');
+                    item.style.display = 'none';
                 }
             });
-            
-            // Update visibleItems array after filtering
-            this.visibleItems = Array.from(this.galleryItems).filter(
-                item => !item.classList.contains('hidden')
-            );
         }
         
         showInitialItems() {
+            // Get visible items
+            this.visibleItems = Array.from(this.galleryItems).filter(
+                item => item.style.display !== 'none'
+            );
+            
             // Hide all items beyond the initial count
             this.visibleItems.forEach((item, index) => {
                 if (index >= this.itemsToShow) {
@@ -4865,8 +4828,6 @@
         }
         
         updateLoadMoreButton() {
-            if (!this.loadMoreBtn) return;
-            
             if (this.visibleItems.length <= this.itemsToShow) {
                 this.loadMoreBtn.style.display = 'none';
             } else {
@@ -4875,32 +4836,28 @@
         }
         
         setupLoadMore() {
-            if (this.loadMoreBtn) {
-                this.loadMoreBtn.addEventListener('click', this.handleLoadMoreClick);
-            }
-        }
-        
-        handleLoadMoreClick() {
-            // Get hidden items
-            const hiddenItems = this.visibleItems.filter(
-                item => item.classList.contains('hidden')
-            );
-            
-            // Show next batch of items
-            hiddenItems.slice(0, 3).forEach(item => {
-                item.classList.remove('hidden');
-                // Add animation class
-                item.classList.add('fade-in');
-                setTimeout(() => {
-                    item.classList.add('visible');
-                }, 10);
+            this.loadMoreBtn.addEventListener('click', () => {
+                // Get hidden items
+                const hiddenItems = this.visibleItems.filter(
+                    item => item.classList.contains('hidden')
+                );
+                
+                // Show next batch of items
+                hiddenItems.slice(0, 3).forEach(item => {
+                    item.classList.remove('hidden');
+                    // Add animation class
+                    item.classList.add('fade-in');
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                    }, 10);
+                });
+                
+                // Update load more button visibility
+                const remainingHidden = hiddenItems.length - 3;
+                if (remainingHidden <= 0) {
+                    this.loadMoreBtn.style.display = 'none';
+                }
             });
-            
-            // Update load more button visibility
-            const remainingHidden = hiddenItems.length - 3;
-            if (remainingHidden <= 0 && this.loadMoreBtn) {
-                this.loadMoreBtn.style.display = 'none';
-            }
         }
         
         animateItems(items) {
@@ -4913,11 +4870,6 @@
         }
         
         setupScrollAnimations() {
-            if (!features.intersectionObserver) {
-                console.warn('IntersectionObserver not supported - scroll animations disabled');
-                return;
-            }
-            
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -4937,8 +4889,6 @@
         }
         
         setupTouchSupport() {
-            if (!this.lightboxImage) return;
-            
             let touchStartX = 0;
             let touchEndX = 0;
             
@@ -4972,10 +4922,8 @@
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const card = button.closest('.gallery-card');
-                    if (card) {
-                        this.currentLightboxIndex = index;
-                        this.openLightbox(card);
-                    }
+                    this.currentLightboxIndex = index;
+                    this.openLightbox(card);
                 });
             });
             
@@ -4985,96 +4933,64 @@
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const card = button.closest('.gallery-card');
-                    if (card) {
-                        this.currentLightboxIndex = index;
-                        this.openLightbox(card);
-                    }
+                    this.currentLightboxIndex = index;
+                    this.openLightbox(card);
                 });
             });
             
             // Close lightbox
-            if (this.lightboxClose) {
-                this.lightboxClose.addEventListener('click', this.handleLightboxClose);
-            }
+            this.lightboxClose.addEventListener('click', () => {
+                this.closeLightbox();
+            });
             
             // Navigation buttons
-            if (this.lightboxPrev) {
-                this.lightboxPrev.addEventListener('click', this.handleLightboxPrev);
-            }
+            this.lightboxPrev.addEventListener('click', () => {
+                this.navigateLightbox(-1);
+            });
             
-            if (this.lightboxNext) {
-                this.lightboxNext.addEventListener('click', this.handleLightboxNext);
-            }
+            this.lightboxNext.addEventListener('click', () => {
+                this.navigateLightbox(1);
+            });
             
             // Close lightbox when clicking outside content
-            if (this.lightboxModal) {
-                this.lightboxModal.addEventListener('click', (e) => {
-                    if (e.target === this.lightboxModal) {
-                        this.closeLightbox();
-                    }
-                });
-            }
-        }
-        
-        handleLightboxClose() {
-            this.closeLightbox();
-        }
-        
-        handleLightboxPrev() {
-            this.navigateLightbox(-1);
-        }
-        
-        handleLightboxNext() {
-            this.navigateLightbox(1);
+            this.lightboxModal.addEventListener('click', (e) => {
+                if (e.target === this.lightboxModal) {
+                    this.closeLightbox();
+                }
+            });
         }
         
         setupKeyboardNavigation() {
-            document.addEventListener('keydown', this.handleKeyDown);
-        }
-        
-        handleKeyDown(e) {
-            if (!this.lightboxModal || !this.lightboxModal.classList.contains('active')) return;
-            
-            switch(e.key) {
-                case 'Escape':
-                    this.closeLightbox();
-                    break;
-                case 'ArrowLeft':
-                    this.navigateLightbox(-1);
-                    break;
-                case 'ArrowRight':
-                    this.navigateLightbox(1);
-                    break;
-            }
+            document.addEventListener('keydown', (e) => {
+                if (!this.lightboxModal.classList.contains('active')) return;
+                
+                switch(e.key) {
+                    case 'Escape':
+                        this.closeLightbox();
+                        break;
+                    case 'ArrowLeft':
+                        this.navigateLightbox(-1);
+                        break;
+                    case 'ArrowRight':
+                        this.navigateLightbox(1);
+                        break;
+                }
+            });
         }
         
         openLightbox(card) {
-            if (!this.lightboxImage || !this.lightboxTitle || 
-                !this.lightboxDescription || !this.lightboxCategory) return;
-            
             // Get content from card
             const image = card.querySelector('.gallery-image');
             const title = card.querySelector('.gallery-title');
             const description = card.querySelector('.gallery-description');
             const category = card.querySelector('.gallery-category');
             
-            // Set lightbox content with safety checks
-            if (image) {
-                this.lightboxImage.src = image.src;
-                this.lightboxImage.alt = image.alt || '';
-            }
-            
-            if (title) {
-                this.lightboxTitle.innerHTML = title.innerHTML;
-            }
-            
-            if (description) {
-                this.lightboxDescription.innerHTML = description.innerHTML;
-            }
-            
-            if (category) {
-                this.lightboxCategory.innerHTML = category.innerHTML;
-            }
+            // Set lightbox content
+            this.lightboxImage.src = image.src;
+            this.lightboxImage.alt = image.alt;
+            this.lightboxTitle.innerHTML = title.innerHTML;
+            this.lightboxDescription.innerHTML = description.innerHTML;
+            this.lightboxCategory.innerHTML = category.innerHTML;
             
             // Update counter
             this.updateLightboxCounter();
@@ -5085,8 +5001,6 @@
         }
         
         closeLightbox() {
-            if (!this.lightboxModal) return;
-            
             this.lightboxModal.classList.remove('active');
             document.body.style.overflow = '';
         }
@@ -5094,7 +5008,7 @@
         navigateLightbox(direction) {
             // Get all visible items
             const items = Array.from(this.galleryItems).filter(
-                item => !item.classList.contains('hidden')
+                item => item.style.display !== 'none'
             );
             
             // Calculate new index
@@ -5109,53 +5023,35 @@
             
             // Get new item
             const newItem = items[this.currentLightboxIndex];
-            if (!newItem) return;
-            
             const card = newItem.querySelector('.gallery-card');
-            if (!card) return;
             
             // Update lightbox content with fade effect
-            if (this.lightboxImage) {
-                this.lightboxImage.style.opacity = '0';
+            this.lightboxImage.style.opacity = '0';
+            
+            setTimeout(() => {
+                const image = card.querySelector('.gallery-image');
+                const title = card.querySelector('.gallery-title');
+                const description = card.querySelector('.gallery-description');
+                const category = card.querySelector('.gallery-category');
                 
-                setTimeout(() => {
-                    const image = card.querySelector('.gallery-image');
-                    const title = card.querySelector('.gallery-title');
-                    const description = card.querySelector('.gallery-description');
-                    const category = card.querySelector('.gallery-category');
-                    
-                    if (image) {
-                        this.lightboxImage.src = image.src;
-                        this.lightboxImage.alt = image.alt || '';
-                    }
-                    
-                    if (title) {
-                        this.lightboxTitle.innerHTML = title.innerHTML;
-                    }
-                    
-                    if (description) {
-                        this.lightboxDescription.innerHTML = description.innerHTML;
-                    }
-                    
-                    if (category) {
-                        this.lightboxCategory.innerHTML = category.innerHTML;
-                    }
-                    
-                    // Update counter
-                    this.updateLightboxCounter();
-                    
-                    // Fade in
-                    this.lightboxImage.style.opacity = '1';
-                }, 300);
-            }
+                this.lightboxImage.src = image.src;
+                this.lightboxImage.alt = image.alt;
+                this.lightboxTitle.innerHTML = title.innerHTML;
+                this.lightboxDescription.innerHTML = description.innerHTML;
+                this.lightboxCategory.innerHTML = category.innerHTML;
+                
+                // Update counter
+                this.updateLightboxCounter();
+                
+                // Fade in
+                this.lightboxImage.style.opacity = '1';
+            }, 300);
         }
         
         updateLightboxCounter() {
-            if (!this.lightboxCounter) return;
-            
             // Get all visible items
             const items = Array.from(this.galleryItems).filter(
-                item => !item.classList.contains('hidden')
+                item => item.style.display !== 'none'
             );
             
             // Update counter text
@@ -5170,59 +5066,43 @@
             
             // Remove event listeners
             this.filterButtons.forEach(button => {
-                button.removeEventListener('click', this.handleFilterClick);
+                button.removeEventListener('click', this.setupFilterButtons);
             });
             
-            if (this.loadMoreBtn) {
-                this.loadMoreBtn.removeEventListener('click', this.handleLoadMoreClick);
-            }
-            
-            if (this.lightboxClose) {
-                this.lightboxClose.removeEventListener('click', this.handleLightboxClose);
-            }
-            
-            if (this.lightboxPrev) {
-                this.lightboxPrev.removeEventListener('click', this.handleLightboxPrev);
-            }
-            
-            if (this.lightboxNext) {
-                this.lightboxNext.removeEventListener('click', this.handleLightboxNext);
-            }
-            
-            document.removeEventListener('keydown', this.handleKeyDown);
+            this.lightboxClose.removeEventListener('click', this.closeLightbox);
+            this.lightboxPrev.removeEventListener('click', () => this.navigateLightbox(-1));
+            this.lightboxNext.removeEventListener('click', () => this.navigateLightbox(1));
         }
     }
 
     // Performance Observer with Enhanced Error Handling
     class PerformanceManager {
         static init() {
-            if (!features.performanceObserver) {
-                console.warn('PerformanceObserver not supported - performance metrics disabled');
-                return;
-            }
-            
-            try {
-                console.log('PerformanceObserver is supported');
-                
-                if (PerformanceObserver.supportedEntryTypes) {
-                    console.log('Supported entry types:', PerformanceObserver.supportedEntryTypes);
+            if ('PerformanceObserver' in window) {
+                try {
+                    console.log('PerformanceObserver is supported');
                     
-                    // Initialize long task observer
-                    this.initLongTaskObserver();
-                    
-                    // Initialize general performance observer
-                    this.initGeneralPerformanceObserver();
-                } else {
-                    console.log('PerformanceObserver.supportedEntryTypes not available');
+                    if (PerformanceObserver.supportedEntryTypes) {
+                        console.log('Supported entry types:', PerformanceObserver.supportedEntryTypes);
+                        
+                        // Initialize long task observer
+                        this.initLongTaskObserver();
+                        
+                        // Initialize general performance observer
+                        this.initGeneralPerformanceObserver();
+                    } else {
+                        console.log('PerformanceObserver.supportedEntryTypes not available');
+                    }
+                } catch (e) {
+                    console.warn('PerformanceObserver not available or failed to initialize:', e);
                 }
-            } catch (e) {
-                console.warn('PerformanceObserver not available or failed to initialize:', e);
+            } else {
+                console.log('PerformanceObserver not supported in this browser');
             }
         }
         
         static initLongTaskObserver() {
-            if (PerformanceObserver.supportedEntryTypes && 
-                PerformanceObserver.supportedEntryTypes.includes('longtask')) {
+            if (PerformanceObserver.supportedEntryTypes.includes('longtask')) {
                 try {
                     const perfObserver = new PerformanceObserver((list) => {
                         for (const entry of list.getEntries()) {
@@ -5260,18 +5140,10 @@
                     }
                 });
                 
-                const entryTypes = ['largest-contentful-paint', 'first-input', 'layout-shift'];
-                const supportedEntryTypes = PerformanceObserver.supportedEntryTypes || [];
-                const validEntryTypes = entryTypes.filter(type => 
-                    supportedEntryTypes.includes(type)
-                );
-                
-                if (validEntryTypes.length > 0) {
-                    generalObserver.observe({ entryTypes: validEntryTypes });
-                    console.log('General performance observer successfully initialized');
-                } else {
-                    console.log('No supported performance entry types available');
-                }
+                generalObserver.observe({ 
+                    entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] 
+                });
+                console.log('General performance observer successfully initialized');
                 
             } catch (e) {
                 console.warn('Failed to initialize general performance observer:', e.message);
@@ -5364,9 +5236,7 @@
                         // Close mobile menu if open
                         if (mobileMenu && mobileMenu.classList.contains('active')) {
                             mobileMenu.classList.remove('active');
-                            if (mobileMenuOverlay) {
-                                mobileMenuOverlay.classList.remove('active');
-                            }
+                            mobileMenuOverlay.classList.remove('active');
                             document.body.style.overflow = '';
                         }
                     }
@@ -5414,8 +5284,7 @@
                 // Update side nav links
                 navLinks.forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('href') && 
-                        link.getAttribute('href').slice(1) === current) {
+                    if (link.getAttribute('href').slice(1) === current) {
                         link.classList.add('active');
                     }
                 });
@@ -5455,11 +5324,6 @@
         }
         
         setupScrollAnimations() {
-            if (!features.intersectionObserver) {
-                console.warn('IntersectionObserver not supported - scroll animations disabled');
-                return;
-            }
-            
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -5523,7 +5387,7 @@
         // Global error handler
         window.addEventListener('error', function(event) {
             const shouldSuppress = suppressedErrors.some(error => 
-                event.message && event.message.includes(error)
+                event.message.includes(error)
             );
             
             if (shouldSuppress) {
@@ -5675,6 +5539,10 @@
             appManager.destroy();
         }
     });
+</script>
+
+<!-- EmailJS Script for form submissions -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
 </script>
 </body>
 </html>
