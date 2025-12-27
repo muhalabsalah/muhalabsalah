@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Muhalab Basheir | Senior Designer</title>
   
   <!-- Font: Poppins -->
@@ -17,9 +17,9 @@
     :root {
       /* Light Theme Palette */
       --bg-start: #ffffff;
-      --bg-end: #f8fafc; /* Very light slate gray */
-      --primary-dark: #0f172a; /* Deep Slate for text/headings */
-      --accent-gold: #ca8a04; /* Darker Gold for better contrast on white */
+      --bg-end: #f8fafc; 
+      --primary-dark: #0f172a; 
+      --accent-gold: #ca8a04; 
       --accent-gold-light: #fef3c7;
       --text-main: #1e293b;
       --text-muted: #64748b;
@@ -28,12 +28,14 @@
       --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
       --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --nav-height: 80px;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent; /* Removes blue tap on mobile */
     }
 
     html {
@@ -43,9 +45,9 @@
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
-      background-attachment: fixed; /* Keeps gradient consistent during scroll */
+      background-attachment: fixed;
       color: var(--text-main);
-      line-height: 1.7;
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
@@ -53,13 +55,12 @@
       color: var(--primary-dark);
       margin-bottom: 16px;
       line-height: 1.2;
-      letter-spacing: -0.02em; /* Tighter tracking for Poppins */
+      letter-spacing: -0.02em;
     }
 
-    h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; }
-    h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 24px; position: relative; display: inline-block; font-weight: 600; }
+    h1 { font-size: clamp(2.2rem, 5vw, 4.5rem); font-weight: 700; }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.5rem); margin-bottom: 24px; position: relative; display: inline-block; font-weight: 600; }
     
-    /* Underline Accent */
     h2::after {
       content: '';
       position: absolute;
@@ -71,13 +72,14 @@
       border-radius: 2px;
     }
 
-    h3 { font-size: 1.25rem; color: var(--accent-gold); font-weight: 600; }
+    h3 { font-size: 1.15rem; color: var(--accent-gold); font-weight: 600; }
     
     p { 
       color: var(--text-muted); 
       margin-bottom: 20px; 
       font-weight: 400; 
       max-width: 65ch; 
+      font-size: 1rem;
     }
 
     a { text-decoration: none; color: inherit; transition: var(--transition); }
@@ -95,13 +97,15 @@
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      padding: 14px 32px;
-      border-radius: 50px; /* Pill shape looks modern */
+      padding: 14px 28px;
+      border-radius: 50px;
       font-weight: 600;
       font-size: 0.95rem;
       cursor: pointer;
       transition: var(--transition);
+      width: auto; /* Mobile override */
     }
 
     .btn-primary {
@@ -130,7 +134,7 @@
     }
 
     section {
-      padding: 100px 0;
+      padding: 80px 0; /* Reduced from 100px for mobile */
     }
 
     /* --- Navigation --- */
@@ -139,26 +143,31 @@
       top: 0;
       width: 100%;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-color);
-      padding: 20px 0;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
     }
 
     .nav-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      width: 100%;
     }
 
     .logo {
       font-weight: 700;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: var(--primary-dark);
       letter-spacing: -0.5px;
+      z-index: 102;
     }
     .logo span { color: var(--accent-gold); }
 
+    /* Desktop Nav */
     .nav-links {
       display: flex;
       gap: 30px;
@@ -169,6 +178,7 @@
       font-weight: 500;
       color: var(--text-muted);
       position: relative;
+      padding: 5px 0;
     }
 
     .nav-links a:hover, .nav-links a.active {
@@ -180,7 +190,7 @@
       position: absolute;
       width: 0;
       height: 2px;
-      bottom: -4px;
+      bottom: 0;
       left: 0;
       background-color: var(--accent-gold);
       transition: width 0.3s;
@@ -189,13 +199,24 @@
 
     .nav-links a:hover::after { width: 100%; }
 
+    /* Mobile Toggle */
+    .mobile-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+      cursor: pointer;
+      z-index: 102;
+      background: none;
+      border: none;
+    }
+
     /* --- Hero Section --- */
     .hero {
       position: relative;
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding-top: 80px;
+      padding-top: var(--nav-height);
       overflow: hidden;
     }
 
@@ -207,7 +228,8 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      opacity: 0.6; /* Slightly subtler on light mode */
+      opacity: 0.6;
+      pointer-events: none; /* Allows scrolling on canvas */
     }
 
     .hero-content {
@@ -222,7 +244,7 @@
       gap: 8px;
       background: var(--accent-gold-light);
       border: 1px solid var(--accent-gold);
-      color: #854d0e; /* Darker gold text for readability */
+      color: #854d0e; 
       padding: 8px 16px;
       border-radius: 50px;
       font-size: 0.75rem;
@@ -240,7 +262,7 @@
     }
 
     .hero-subtitle {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       color: var(--text-muted);
       font-weight: 300;
       margin-bottom: 32px;
@@ -255,14 +277,14 @@
     /* --- Grid & Cards --- */
     .grid-3 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly smaller min for mobile */
+      gap: 24px;
     }
 
     .card {
       background: var(--card-bg);
       border-radius: 16px;
-      padding: 32px;
+      padding: 24px; /* Reduced padding */
       transition: var(--transition);
       position: relative;
       overflow: hidden;
@@ -270,7 +292,6 @@
       border: 1px solid var(--border-color);
     }
 
-    /* Hover accent effect */
     .card::before {
       content: '';
       position: absolute;
@@ -291,12 +312,12 @@
     }
 
     .card-icon {
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: var(--primary-dark);
       margin-bottom: 20px;
       background: var(--bg-end);
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -306,9 +327,9 @@
     .card ul li {
       position: relative;
       padding-left: 20px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: var(--text-muted);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     .card ul li::before {
@@ -324,12 +345,13 @@
       position: relative;
       max-width: 800px;
       margin-top: 40px;
+      padding-left: 10px; /* Mobile adjustment */
     }
 
     .timeline::before {
       content: '';
       position: absolute;
-      left: 0;
+      left: 15px; /* Adjusted for mobile */
       top: 0;
       width: 2px;
       height: 100%;
@@ -338,14 +360,14 @@
 
     .timeline-item {
       position: relative;
-      padding-left: 40px;
-      margin-bottom: 50px;
+      padding-left: 45px;
+      margin-bottom: 40px;
     }
 
     .timeline-item::after {
       content: '';
       position: absolute;
-      left: -5px;
+      left: 10px; /* Adjusted for mobile */
       top: 5px;
       width: 12px;
       height: 12px;
@@ -356,7 +378,7 @@
     }
 
     .timeline-date {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 600;
       color: var(--accent-gold);
       text-transform: uppercase;
@@ -369,12 +391,17 @@
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
       color: var(--primary-dark);
+      font-size: 1.1rem;
+    }
+
+    .timeline-content p {
+      font-size: 0.9rem;
     }
 
     /* --- Tools Marquee --- */
     .tools-container {
       background: var(--card-bg);
-      padding: 40px;
+      padding: 32px 20px;
       border-radius: 16px;
       text-align: center;
       border: 1px solid var(--border-color);
@@ -385,16 +412,16 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
+      gap: 10px;
       margin-top: 20px;
     }
 
     .tool-tag {
       background: var(--bg-end);
-      padding: 10px 20px;
-      border-radius: 8px;
+      padding: 8px 16px;
+      border-radius: 6px;
       color: var(--primary-dark);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 500;
       border: 1px solid var(--border-color);
       transition: var(--transition);
@@ -408,33 +435,32 @@
 
     /* --- CTA / Contact --- */
     .cta-section {
-      background: var(--primary-dark); /* Dark box for contrast on light page */
-      padding: 80px 40px;
+      background: var(--primary-dark); 
+      padding: 60px 24px; /* Tighter padding on mobile */
       text-align: center;
-      border-radius: 24px;
+      border-radius: 20px;
       position: relative;
       overflow: hidden;
       box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
     }
-    
-    /* Decorative circle */
+
     .cta-section::after {
       content: '';
       position: absolute;
       top: -50px;
       right: -50px;
-      width: 200px;
-      height: 200px;
+      width: 150px;
+      height: 150px;
       background: rgba(255,255,255,0.05);
       border-radius: 50%;
     }
 
-    .cta-section h2 { color: #fff; }
+    .cta-section h2 { color: #fff; font-size: 1.8rem; }
     .cta-section h2::after { background: #fff; left: 50%; transform: translateX(-50%); }
-    .cta-section p { color: #cbd5e1; }
+    .cta-section p { color: #cbd5e1; font-size: 0.95rem; }
 
     .email-link {
-      font-size: 1.5rem;
+      font-size: 1.1rem; /* Smaller on mobile */
       color: #fff;
       border-bottom: 1px solid var(--accent-gold);
       padding-bottom: 5px;
@@ -458,7 +484,8 @@
       padding: 16px;
       position: fixed;
       z-index: 1000;
-      right: 30px;
+      right: 20px;
+      left: 20px; /* Centered on mobile */
       bottom: 30px;
       box-shadow: var(--shadow-hover);
       transform: translateY(100px);
@@ -483,20 +510,77 @@
       transform: translateY(0);
     }
 
-    /* Mobile Responsive */
+    /* --- MOBILE MEDIA QUERIES --- */
     @media (max-width: 768px) {
-      h1 { font-size: 2.5rem; }
+      body { font-size: 15px; }
+      
+      .hero { padding-top: 100px; align-items: flex-start; text-align: left; }
       .hero-btns { flex-direction: column; width: 100%; }
-      .btn { width: 100%; justify-content: center; }
-      .timeline { padding-left: 10px; }
-      .timeline::before { left: 10px; }
-      .timeline-item { padding-left: 30px; }
-      .timeline-item::after { left: 5px; }
-      .nav-links { display: none; }
+      .btn { width: 100%; }
+      
+      /* About Grid Stacking */
+      .grid-3[style*="grid-template-columns"] { /* Targeting the about section specifically */
+        display: block;
+      }
+      
+      #about .grid-3 > div {
+        margin-bottom: 40px;
+      }
+      
+      /* Mobile Nav */
+      .mobile-toggle { display: block; }
+      
+      .nav-links {
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        transform: translateY(-150%);
+        transition: transform 0.4s ease-in-out;
+        z-index: 101;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+      }
+      
+      .nav-links a {
+        font-size: 1.1rem;
+        display: block;
+        width: 100%;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      
+      .nav-links a:hover {
+        background: var(--bg-end);
+        color: var(--accent-gold);
+      }
+      
+      .nav-links a::after { display: none; } /* Remove underline on mobile menu */
+      
+      /* Adjust About Image */
+      #about div[style*="height: 400px"] { height: 250px; }
+      
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.8rem; }
+    }
+    
+    /* Small Mobile (< 400px) */
+    @media (max-width: 400px) {
+      .container { padding: 0 20px; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .card { padding: 20px; }
     }
   </style>
 </head>
-
 <body>
 
   <!-- Background Animation Canvas -->
@@ -506,11 +590,17 @@
   <nav>
     <div class="container nav-content">
       <div class="logo">Muhalab<span>.</span></div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Expertise</a>
-        <a href="#experience">Journey</a>
-        <a href="#contact">Contact</a>
+      
+      <!-- Hamburger Icon -->
+      <button class="mobile-toggle" aria-label="Toggle Menu" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about" onclick="toggleMenu()">About</a>
+        <a href="#skills" onclick="toggleMenu()">Expertise</a>
+        <a href="#experience" onclick="toggleMenu()">Journey</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
       </div>
     </div>
   </nav>
@@ -541,7 +631,8 @@
     <!-- About Section -->
     <section id="about">
       <div class="container">
-        <div class="grid-3" style="grid-template-columns: 1fr 1.2fr; align-items: center;">
+        <!-- Using an inline style override for the grid layout specifically for this section -->
+        <div class="grid-3" style="grid-template-columns: 1fr 1.2fr; align-items: center; display: grid; gap: 40px;">
           <div class="fade-in-up">
             <h2>Philosophy & <br>Approach</h2>
             <p>
@@ -552,14 +643,14 @@
               Alongside commercial work, I’ve contributed to humanitarian initiatives during wartime
               and public health crises — strengthening my adaptability, empathy, and problem-solving mindset.
             </p>
-            <div style="margin-top: 30px; display: flex; gap: 50px;">
+            <div style="margin-top: 30px; display: flex; gap: 40px;">
               <div>
-                <h4 style="color: var(--accent-gold); margin:0; font-size: 2.5rem; line-height: 1;">8+</h4>
-                <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 500;">Years Experience</span>
+                <h4 style="color: var(--accent-gold); margin:0; font-size: 2.2rem; line-height: 1;">8+</h4>
+                <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 500;">Years Experience</span>
               </div>
               <div>
-                <h4 style="color: var(--accent-gold); margin:0; font-size: 2.5rem; line-height: 1;">2+</h4>
-                <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 500;">GCC Market</span>
+                <h4 style="color: var(--accent-gold); margin:0; font-size: 2.2rem; line-height: 1;">2+</h4>
+                <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 500;">GCC Market</span>
               </div>
             </div>
           </div>
@@ -709,17 +800,38 @@
   <div id="toast">Email copied to clipboard!</div>
 
   <script>
-    // --- 1. Canvas Animation (Updated for Light Mode) ---
+    // --- 1. Mobile Menu Toggle ---
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      const toggleBtn = document.querySelector('.mobile-toggle i');
+      const isOpen = navLinks.classList.contains('active');
+      
+      if (isOpen) {
+        navLinks.classList.remove('active');
+        toggleBtn.classList.remove('fa-xmark');
+        toggleBtn.classList.add('fa-bars');
+        document.body.style.overflow = ''; // Re-enable scroll
+      } else {
+        navLinks.classList.add('active');
+        toggleBtn.classList.remove('fa-bars');
+        toggleBtn.classList.add('fa-xmark');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+      }
+    }
+
+    // --- 2. Canvas Animation (Optimized for Mobile) ---
     const canvas = document.getElementById('hero-canvas');
     const ctx = canvas.getContext('2d');
     
     let width, height;
     let particles = [];
     
-    // Configuration for Light Mode (Dark Slate particles)
-    const particleColor = 'rgba(15, 23, 42, '; // Dark slate
+    // Adjust particle count based on screen size for performance
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 30 : 60; 
+
+    const particleColor = 'rgba(15, 23, 42, '; 
     const lineColor = 'rgba(15, 23, 42, '; 
-    const particleCount = 50;
     const connectionDistance = 150;
 
     function resize() {
@@ -731,8 +843,10 @@
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
+        // Slower movement for mobile touch feel
+        const speedMultiplier = isMobile ? 0.2 : 0.4; 
+        this.vx = (Math.random() - 0.5) * speedMultiplier;
+        this.vy = (Math.random() - 0.5) * speedMultiplier;
         this.size = Math.random() * 2 + 1;
       }
 
@@ -747,7 +861,7 @@
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = particleColor + '0.4)'; // Slightly transparent
+        ctx.fillStyle = particleColor + '0.4)'; 
         ctx.fill();
       }
     }
@@ -773,7 +887,7 @@
 
           if (distance < connectionDistance) {
             ctx.beginPath();
-            ctx.strokeStyle = lineColor + (1 - distance / connectionDistance) * 0.15 + ')'; // Very subtle lines
+            ctx.strokeStyle = lineColor + (1 - distance / connectionDistance) * 0.15 + ')'; 
             ctx.lineWidth = 1;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -790,7 +904,7 @@
     animate();
 
 
-    // --- 2. Scroll Animation (Intersection Observer) ---
+    // --- 3. Scroll Animation (Intersection Observer) ---
     const observerOptions = {
       threshold: 0.1,
       rootMargin: "0px 0px -50px 0px"
@@ -800,7 +914,7 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          observer.unobserve(entry.target); 
         }
       });
     }, observerOptions);
@@ -810,7 +924,7 @@
     });
 
 
-    // --- 3. Interaction Logic ---
+    // --- 4. Interaction Logic ---
     function copyEmail(e) {
       e.preventDefault();
       const email = "muhalabsalah@gmail.com";
