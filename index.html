@@ -29,12 +29,16 @@
       --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       --nav-height: 80px;
+      
+      /* Magnetic Config */
+      --magnetic-strength: 0.4; /* How strongly the button pulls */
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      cursor: none; /* Hide default cursor */
     }
 
     html {
@@ -105,10 +109,10 @@
       border-radius: 50px;
       font-weight: 600;
       font-size: 0.95rem;
-      cursor: pointer;
-      transition: var(--transition);
       text-decoration: none;
       border: 1px solid transparent;
+      position: relative;
+      z-index: 1;
     }
 
     .btn-primary {
@@ -118,7 +122,6 @@
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
       box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
       background: var(--accent-gold);
       border-color: var(--accent-gold);
@@ -139,6 +142,49 @@
     section {
       padding: 100px 0;
       position: relative;
+    }
+
+    /* --- Custom Cursor Styles --- */
+    .cursor-dot,
+    .cursor-outline {
+      position: fixed;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--primary-dark);
+    }
+
+    .cursor-outline {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(15, 23, 42, 0.5);
+      transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+    }
+
+    /* Hover state for cursor */
+    body.hovering .cursor-outline {
+      width: 60px;
+      height: 60px;
+      border-color: var(--accent-gold);
+      background-color: rgba(202, 138, 4, 0.1);
+    }
+    
+    body.hovering .cursor-dot {
+      background-color: var(--accent-gold);
+    }
+
+    /* Hide custom cursor on touch devices */
+    @media (hover: none) and (pointer: coarse) {
+      .cursor-dot, .cursor-outline { display: none; }
+      * { cursor: auto; }
     }
 
     /* --- Navigation --- */
@@ -171,6 +217,7 @@
       font-size: 1.4rem;
       color: var(--primary-dark);
       letter-spacing: -0.5px;
+      user-select: none;
     }
     .logo span { color: var(--accent-gold); }
 
@@ -200,10 +247,9 @@
       display: none;
       background: none;
       border: none;
-      cursor: pointer;
-      color: var(--primary-dark);
       font-size: 1.5rem;
       z-index: 102;
+      color: var(--primary-dark);
     }
 
     /* --- Hero Section --- */
@@ -519,9 +565,9 @@
       position: fixed;
       bottom: 30px;
       right: 30px;
-      z-index: 95; /* Above content, below Nav */
+      z-index: 95;
       display: flex;
-      flex-direction: column-reverse; /* Stack main button on top visually */
+      flex-direction: column-reverse;
       align-items: center;
       gap: 12px;
     }
@@ -534,23 +580,12 @@
       color: #fff;
       border: none;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      cursor: pointer;
       font-size: 1.2rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     
-    .fab-main:hover {
-      transform: scale(1.1);
-    }
-
-    .fab-main i {
-      transition: transform 0.3s ease;
-    }
-
-    /* Rotate icon when active */
     .fab-wrapper.active .fab-main i {
       transform: rotate(45deg);
     }
@@ -570,37 +605,31 @@
       color: var(--primary-dark);
       border: none;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.2rem;
       text-decoration: none;
       
-      /* Hidden State */
       opacity: 0;
       transform: translateY(20px) scale(0.8);
       pointer-events: none;
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    /* Show actions when wrapper is active */
     .fab-wrapper.active .fab-action-btn {
       opacity: 1;
       transform: translateY(0) scale(1);
       pointer-events: auto;
     }
 
-    /* Staggered Animation Delays */
     .fab-wrapper.active .fab-action-btn:nth-child(1) { transition-delay: 0.05s; }
     .fab-wrapper.active .fab-action-btn:nth-child(2) { transition-delay: 0.1s; }
     .fab-wrapper.active .fab-action-btn:nth-child(3) { transition-delay: 0.15s; }
 
-    /* Individual Brand Colors */
     .fab-action-btn.whatsapp:hover { background: #25D366; color: #fff; }
     .fab-action-btn.linkedin:hover { background: #0077b5; color: #fff; }
     .fab-action-btn.behance:hover { background: #1769ff; color: #fff; }
-
 
     /* --- Animation Classes --- */
     .fade-in-up {
@@ -646,7 +675,7 @@
 
       .mobile-menu-overlay.active { transform: translateX(0); }
       .mobile-menu-overlay a { font-size: 1.5rem; font-weight: 600; color: var(--primary-dark); }
-      .mobile-menu-overlay .close-btn { position: absolute; top: 30px; right: 30px; font-size: 2rem; color: var(--primary-dark); cursor: pointer; background: none; border: none; }
+      .mobile-menu-overlay .close-btn { position: absolute; top: 30px; right: 30px; font-size: 2rem; color: var(--primary-dark); background: none; border: none; }
 
       /* Hero Alignment */
       .hero { padding-top: 100px; align-items: flex-start; }
@@ -683,6 +712,10 @@
 </head>
 
 <body>
+
+  <!-- Custom Cursor DOM -->
+  <div class="cursor-dot" data-cursor-dot></div>
+  <div class="cursor-outline" data-cursor-outline></div>
 
   <!-- Background Animation Canvas -->
   <canvas id="hero-canvas"></canvas>
@@ -742,10 +775,10 @@
             I create visual stories that communicate, engage, and elevate brands.
           </p>
           <div class="hero-btns">
-            <a href="#contact" class="btn btn-primary">Start a Project</a>
+            <!-- Added data-magnetic for interaction -->
+            <a href="#contact" class="btn btn-primary" data-magnetic="true">Start a Project</a>
             
-            <!-- Download CV Button -->
-            <a href="https://drive.google.com/drive/folders/1v9F3-A6LxfW75P2UEdKV2l5bYvUYyYNq?usp=drive_link" target="_blank" class="btn btn-outline">
+            <a href="https://drive.google.com/drive/folders/1v9F3-A6LxfW75P2UEdKV2l5bYvUYyYNq?usp=drive_link" target="_blank" class="btn btn-outline" data-magnetic="true">
                 <i class="fa-solid fa-download"></i> Download CV
             </a>
             
@@ -757,10 +790,9 @@
       </div>
     </section>
 
-    <!-- About Section (Drawing Removed & Aligned) -->
+    <!-- About Section -->
     <section id="about">
       <div class="container">
-        <!-- New Wrapper for Centering on Big Screens -->
         <div class="about-content-wrapper fade-in-up">
           <div>
             <h2>Philosophy & <br>Approach</h2>
@@ -774,7 +806,6 @@
             </p>
           </div>
           
-          <!-- Statistics Row -->
           <div class="stat-row">
             <div class="stat-item">
               <h4>8+</h4>
@@ -786,7 +817,6 @@
             </div>
           </div>
         </div>
-        <!-- Drawing element removed completely -->
       </div>
     </section>
 
@@ -923,25 +953,22 @@
 
   <!-- Floating Action Button (FAB) -->
   <div class="fab-wrapper" id="fabWrapper">
-    <!-- Main Toggle Button -->
-    <button class="fab-main" onclick="toggleFab()" aria-label="Contact Menu">
+    <!-- Added data-magnetic -->
+    <button class="fab-main" onclick="toggleFab()" aria-label="Contact Menu" data-magnetic="true">
       <i class="fa-solid fa-plus"></i>
     </button>
     
-    <!-- Actions (Hidden by default) -->
     <div class="fab-actions">
-      <!-- WhatsApp -->
-      <a href="https://wa.me/249119005441" target="_blank" class="fab-action-btn whatsapp" aria-label="WhatsApp">
+      <!-- Added data-magnetic to action items -->
+      <a href="https://wa.me/249119005441" target="_blank" class="fab-action-btn whatsapp" aria-label="WhatsApp" data-magnetic="true">
         <i class="fa-brands fa-whatsapp"></i>
       </a>
       
-      <!-- LinkedIn -->
-      <a href="https://linkedin.com/in/muhalabsalah" target="_blank" class="fab-action-btn linkedin" aria-label="LinkedIn">
+      <a href="https://linkedin.com/in/muhalabsalah" target="_blank" class="fab-action-btn linkedin" aria-label="LinkedIn" data-magnetic="true">
         <i class="fa-brands fa-linkedin-in"></i>
       </a>
       
-      <!-- Behance -->
-      <a href="https://behance.net/MuhalabSalah" target="_blank" class="fab-action-btn behance" aria-label="Behance">
+      <a href="https://behance.net/MuhalabSalah" target="_blank" class="fab-action-btn behance" aria-label="Behance" data-magnetic="true">
         <i class="fa-brands fa-behance"></i>
       </a>
     </div>
@@ -1100,7 +1127,6 @@
       fab.classList.toggle('active');
     }
 
-    // Close FAB when clicking outside
     document.addEventListener('click', function(event) {
       const fab = document.getElementById('fabWrapper');
       const isClickInside = fab.contains(event.target);
@@ -1109,6 +1135,89 @@
         fab.classList.remove('active');
       }
     });
+
+    // ==========================================
+    // 6. MICRO-INTERACTIONS: Custom Cursor & Magnetic Buttons
+    // ==========================================
+
+    const cursorDot = document.querySelector('[data-cursor-dot]');
+    const cursorOutline = document.querySelector('[data-cursor-outline]');
+    
+    // Mouse Position Tracker
+    let mouseX = 0;
+    let mouseY = 0;
+    
+    // Current Outline Position (for lag effect)
+    let cursorX = 0;
+    let cursorY = 0;
+
+    document.addEventListener('mousemove', function(e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      // Dot follows instantly
+      cursorDot.style.left = `${mouseX}px`;
+      cursorDot.style.top = `${mouseY}px`;
+    });
+
+    // Animation Loop for smooth outline movement (Linear Interpolation)
+    function animateCursor() {
+      // Lerp formula: current + (target - current) * fraction
+      let distX = mouseX - cursorX;
+      let distY = mouseY - cursorY;
+      
+      cursorX += distX * 0.15; // Adjust 0.15 for speed (lower = more lag)
+      cursorY += distY * 0.15;
+      
+      cursorOutline.style.left = `${cursorX}px`;
+      cursorOutline.style.top = `${cursorY}px`;
+      
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Hover States for interactive elements
+    const interactables = document.querySelectorAll('a, button, .card');
+    
+    interactables.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        document.body.classList.add('hovering');
+      });
+      el.addEventListener('mouseleave', () => {
+        document.body.classList.remove('hovering');
+      });
+    });
+
+    // Magnetic Button Effect
+    const magneticBtns = document.querySelectorAll('[data-magnetic="true"]');
+    
+    magneticBtns.forEach(btn => {
+      btn.addEventListener('mousemove', function(e) {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left; // x position within the element
+        const y = e.clientY - rect.top;  // y position within the element
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        // Calculate distance from center
+        const deltaX = (x - centerX) * getComputedStyle(document.documentElement).getPropertyValue('--magnetic-strength').trim();
+        const deltaY = (y - centerY) * getComputedStyle(document.documentElement).getPropertyValue('--magnetic-strength').trim();
+        
+        // Apply translation
+        btn.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        
+        // Remove transition during movement for instant response
+        btn.style.transition = 'none';
+      });
+
+      btn.addEventListener('mouseleave', function() {
+        // Reset position with transition
+        btn.style.transform = 'translate(0, 0)';
+        btn.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)';
+      });
+    });
+
   </script>
 </body>
 </html>
