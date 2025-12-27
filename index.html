@@ -31,7 +31,7 @@
       --nav-height: 80px;
       
       /* Magnetic Config */
-      --magnetic-strength: 0.4; /* How strongly the button pulls */
+      --magnetic-strength: 0.4;
     }
 
     * {
@@ -169,7 +169,6 @@
       transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
     }
 
-    /* Hover state for cursor */
     body.hovering .cursor-outline {
       width: 60px;
       height: 60px;
@@ -181,7 +180,6 @@
       background-color: var(--accent-gold);
     }
 
-    /* Hide custom cursor on touch devices */
     @media (hover: none) and (pointer: coarse) {
       .cursor-dot, .cursor-outline { display: none; }
       * { cursor: auto; }
@@ -252,7 +250,7 @@
       color: var(--primary-dark);
     }
 
-    /* --- Hero Section --- */
+    /* --- Hero Section (Centered) --- */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -277,7 +275,9 @@
       position: relative;
       z-index: 2;
       max-width: 800px;
-      text-align: left; 
+      /* UPDATED: Center text alignment */
+      text-align: center;
+      margin: 0 auto; 
     }
 
     .badge-gcc {
@@ -310,10 +310,12 @@
       margin-bottom: 30px;
     }
 
+    /* UPDATED: Center buttons */
     .hero-btns {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
+      justify-content: center; 
     }
 
     /* --- About Section --- */
@@ -370,7 +372,8 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      text-align: left;
+      /* UPDATED: Center card text */
+      text-align: center; 
     }
 
     .card::before {
@@ -395,7 +398,7 @@
     .card-icon {
       font-size: 1.8rem;
       color: var(--primary-dark);
-      margin-bottom: 24px;
+      margin: 0 auto 24px auto; /* Center icon */
       background: var(--bg-end);
       width: 56px;
       height: 56px;
@@ -408,36 +411,36 @@
     .card ul {
       list-style: none;
       margin-top: 16px;
+      /* UPDATED: Center list items */
+      display: inline-block; 
+      text-align: center;
     }
 
     .card ul li {
       position: relative;
-      padding-left: 20px;
+      padding: 0;
       margin-bottom: 10px;
       color: var(--text-muted);
       font-size: 0.9rem;
     }
 
+    /* UPDATED: Hide custom bullets for centered look */
     .card ul li::before {
-      content: '•';
-      color: var(--accent-gold);
-      position: absolute;
-      left: 0;
-      font-weight: bold;
+      display: none; 
     }
 
-    /* --- Timeline --- */
+    /* --- Timeline (Centered Layout) --- */
     .timeline {
       position: relative;
       max-width: 800px;
       margin-top: 48px;
+      /* UPDATED: Default text alignment left, overridden by desktop centered style below */
       text-align: left;
     }
 
     .timeline::before {
       content: '';
       position: absolute;
-      left: 0;
       top: 0;
       width: 2px;
       height: 100%;
@@ -446,14 +449,12 @@
 
     .timeline-item {
       position: relative;
-      padding-left: 32px;
       margin-bottom: 40px;
     }
 
     .timeline-item::after {
       content: '';
       position: absolute;
-      left: -6px;
       top: 6px;
       width: 14px;
       height: 14px;
@@ -560,7 +561,7 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    /* --- Floating Action Button (FAB) Styles --- */
+    /* --- FAB Styles --- */
     .fab-wrapper {
       position: fixed;
       bottom: 30px;
@@ -677,21 +678,17 @@
       .mobile-menu-overlay a { font-size: 1.5rem; font-weight: 600; color: var(--primary-dark); }
       .mobile-menu-overlay .close-btn { position: absolute; top: 30px; right: 30px; font-size: 2rem; color: var(--primary-dark); background: none; border: none; }
 
-      /* Hero Alignment */
+      /* Hero is already centered by default CSS changes, ensuring width fits */
       .hero { padding-top: 100px; align-items: flex-start; }
-      .hero-content { text-align: center; margin: 0 auto; } 
-      .badge-gcc { margin: 0 auto 24px auto; }
-      .hero-btns { flex-direction: column; width: 100%; justify-content: center; align-items: center; }
       .btn { width: 100%; max-width: 320px; }
 
-      /* About Section */
+      /* About */
       .stat-row { gap: 20px; flex-wrap: wrap; }
       
-      /* Skills Cards */
+      /* Skills */
       .grid-3 { grid-template-columns: 1fr; }
-      .card { text-align: left; }
 
-      /* Timeline */
+      /* Timeline - Keep Left aligned on mobile for readability */
       .timeline { padding-left: 10px; margin-top: 30px; }
       .timeline::before { left: 10px; }
       .timeline-item { padding-left: 32px; }
@@ -701,12 +698,40 @@
       .cta-section { padding: 60px 20px; }
       .email-link { font-size: 1rem; word-break: break-all; }
       
-      /* Adjust FAB for mobile to avoid toast overlap */
       .fab-wrapper { bottom: 20px; right: 20px; }
     }
 
     @media (min-width: 769px) {
       .mobile-menu-overlay { display: none; }
+
+      /* =========================================
+         DESKTOP CENTERING OVERRIDES
+         ========================================= */
+
+      /* Hero: Already centered via base CSS, ensuring width */
+      .hero-content {
+        width: 100%;
+      }
+
+      /* Timeline Centered Layout for Desktop */
+      .timeline::before {
+        left: 50%; /* Move line to center */
+      }
+
+      .timeline-item {
+        width: 50%; /* Occupy half width */
+        margin-left: 50%; /* Push to the right of the center line */
+        padding-left: 40px;
+        padding-right: 0;
+        text-align: left; /* Keep text left-aligned inside the box for readability */
+      }
+
+      .timeline-item::after {
+        left: -6px; /* Position dot on the center line relative to the item */
+        /* Actually, since item is 50% width and pushed right, left: -6px works nicely 
+           if we consider the parent center. Let's force dot to absolute center of container */
+        left: -6px; 
+      }
     }
   </style>
 </head>
@@ -775,14 +800,13 @@
             I create visual stories that communicate, engage, and elevate brands.
           </p>
           <div class="hero-btns">
-            <!-- Added data-magnetic for interaction -->
             <a href="#contact" class="btn btn-primary" data-magnetic="true">Start a Project</a>
             
             <a href="https://drive.google.com/drive/folders/1v9F3-A6LxfW75P2UEdKV2l5bYvUYyYNq?usp=drive_link" target="_blank" class="btn btn-outline" data-magnetic="true">
                 <i class="fa-solid fa-download"></i> Download CV
             </a>
             
-            <a href="#experience" class="btn btn-outline" style="border: none; padding-left: 0; justify-content: flex-start; width: auto; max-width: none;">
+            <a href="#experience" class="btn btn-outline" style="border: none; padding-left: 0; justify-content: center; width: auto; max-width: none;">
                 View Experience <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem; margin-left: 8px;"></i>
             </a>
           </div>
@@ -953,13 +977,11 @@
 
   <!-- Floating Action Button (FAB) -->
   <div class="fab-wrapper" id="fabWrapper">
-    <!-- Added data-magnetic -->
     <button class="fab-main" onclick="toggleFab()" aria-label="Contact Menu" data-magnetic="true">
       <i class="fa-solid fa-plus"></i>
     </button>
     
     <div class="fab-actions">
-      <!-- Added data-magnetic to action items -->
       <a href="https://wa.me/249119005441" target="_blank" class="fab-action-btn whatsapp" aria-label="WhatsApp" data-magnetic="true">
         <i class="fa-brands fa-whatsapp"></i>
       </a>
@@ -1084,7 +1106,7 @@
       }
     }
 
-    // --- 3. Scroll Animation (Intersection Observer) ---
+    // --- 3. Scroll Animation ---
     const observerOptions = {
       threshold: 0.1,
       rootMargin: "0px 0px -50px 0px"
@@ -1143,11 +1165,8 @@
     const cursorDot = document.querySelector('[data-cursor-dot]');
     const cursorOutline = document.querySelector('[data-cursor-outline]');
     
-    // Mouse Position Tracker
     let mouseX = 0;
     let mouseY = 0;
-    
-    // Current Outline Position (for lag effect)
     let cursorX = 0;
     let cursorY = 0;
 
@@ -1155,18 +1174,15 @@
       mouseX = e.clientX;
       mouseY = e.clientY;
 
-      // Dot follows instantly
       cursorDot.style.left = `${mouseX}px`;
       cursorDot.style.top = `${mouseY}px`;
     });
 
-    // Animation Loop for smooth outline movement (Linear Interpolation)
     function animateCursor() {
-      // Lerp formula: current + (target - current) * fraction
       let distX = mouseX - cursorX;
       let distY = mouseY - cursorY;
       
-      cursorX += distX * 0.15; // Adjust 0.15 for speed (lower = more lag)
+      cursorX += distX * 0.15; 
       cursorY += distY * 0.15;
       
       cursorOutline.style.left = `${cursorX}px`;
@@ -1176,7 +1192,6 @@
     }
     animateCursor();
 
-    // Hover States for interactive elements
     const interactables = document.querySelectorAll('a, button, .card');
     
     interactables.forEach(el => {
@@ -1188,31 +1203,25 @@
       });
     });
 
-    // Magnetic Button Effect
     const magneticBtns = document.querySelectorAll('[data-magnetic="true"]');
     
     magneticBtns.forEach(btn => {
       btn.addEventListener('mousemove', function(e) {
         const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left; // x position within the element
-        const y = e.clientY - rect.top;  // y position within the element
+        const x = e.clientX - rect.left; 
+        const y = e.clientY - rect.top;  
         
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
         
-        // Calculate distance from center
         const deltaX = (x - centerX) * getComputedStyle(document.documentElement).getPropertyValue('--magnetic-strength').trim();
         const deltaY = (y - centerY) * getComputedStyle(document.documentElement).getPropertyValue('--magnetic-strength').trim();
         
-        // Apply translation
         btn.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-        
-        // Remove transition during movement for instant response
         btn.style.transition = 'none';
       });
 
       btn.addEventListener('mouseleave', function() {
-        // Reset position with transition
         btn.style.transform = 'translate(0, 0)';
         btn.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)';
       });
