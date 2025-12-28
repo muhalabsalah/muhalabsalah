@@ -198,7 +198,7 @@
       width: 100%;
       height: var(--nav-height);
       z-index: 100;
-      background: rgba(255,255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-color);
       display: flex;
@@ -523,7 +523,7 @@
       letter-spacing: 0.3px;
     }
 
-    /* --- Timeline (Centered Layout) --- */
+    /* --- UPDATED TIMELINE STYLES --- */
     .timeline {
       position: relative;
       max-width: 800px;
@@ -531,19 +531,44 @@
       text-align: left;
     }
 
+    /* --- NEW DOTTED LINE --- */
     .timeline::before {
       content: '';
       position: absolute;
       top: 0;
       width: 2px;
       height: 100%;
-      background: var(--border-color);
+      
+      /* Subtle dotted/dashed effect via gradient */
+      background: linear-gradient(to bottom, var(--primary-dark) 0%, var(--primary-dark) 4px, transparent 5px, transparent 100%);
+      background-size: 1px 15px; /* Dash height 4px, gap 11px */
+      background-repeat: repeat-y;
+      
+      /* Slight fade for the line so it's not too harsh */
+      opacity: 0.2;
     }
 
     .timeline-item {
       position: relative;
       margin-bottom: 40px;
+      
+      /* Base animation state for sequencing */
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
+
+    /* Sequential Animation via Nth-Child */
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .timeline-item:nth-child(1).visible { transition-delay: 0.1s; }
+    .timeline-item:nth-child(2).visible { transition-delay: 0.2s; }
+    .timeline-item:nth-child(3).visible { transition-delay: 0.3s; }
+    .timeline-item:nth-child(4).visible { transition-delay: 0.4s; }
+    .timeline-item:nth-child(5).visible { transition-delay: 0.5s; }
 
     .timeline-item::after {
       content: '';
@@ -555,16 +580,35 @@
       background: var(--card-bg);
       border: 2px solid var(--accent-gold);
       box-shadow: 0 0 0 4px rgba(255, 255, 255, 1);
+      transition: var(--transition);
     }
 
+    /* --- CURRENT ROLE HIGHLIGHT --- */
+    .timeline-item.current-role::after {
+      background: var(--accent-gold);
+      border-color: #fff;
+      box-shadow: 0 0 0 6px rgba(202, 138, 4, 0.3); /* Glowing effect */
+      transform: scale(1.1); /* Slightly larger */
+    }
+    
+    .timeline-item.current-role .timeline-date {
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+
+    .timeline-item.current-role .timeline-content h3 {
+      color: var(--accent-gold);
+    }
+    
     .timeline-date {
       font-size: 0.8rem;
       font-weight: 600;
-      color: var(--accent-gold);
+      color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 8px;
       display: block;
+      transition: color 0.3s;
     }
     
     .job-tagline {
@@ -584,6 +628,7 @@
       font-weight: 600;
       margin-bottom: 4px;
       color: var(--primary-dark);
+      transition: color 0.3s;
     }
 
     .timeline-content p.company-name {
@@ -1049,7 +1094,7 @@
       }
       .card-icon { margin-bottom: 24px; }
 
-      /* Timeline */
+      /* Timeline Mobile */
       .timeline { padding-left: 10px; margin-top: 30px; }
       .timeline::before { left: 10px; }
       .timeline-item { padding-left: 32px; }
@@ -1382,13 +1427,13 @@
     <!-- Experience Section -->
     <section id="experience">
       <div class="container">
-        <div class="fade-in-up">
-          <div style="text-align: center;">
+        <div>
+          <div style="text-align: center; margin-bottom: 48px;">
             <h2>Professional Journey</h2>
           </div>
           <div class="timeline">
-            <!-- Freelance Role -->
-            <div class="timeline-item">
+            <!-- Freelance Role (Current Role) -->
+            <div class="timeline-item current-role">
               <span class="timeline-date">Nov 2021 – Present</span>
               <div class="timeline-content">
                 <span class="job-tagline">Visual Storytelling & Brand Execution</span>
@@ -1720,7 +1765,13 @@
       });
     }, observerOptions);
 
+    // Apply observer to fade-in-up sections
     document.querySelectorAll('.fade-in-up').forEach(el => {
+      observer.observe(el);
+    });
+    
+    // Apply observer to timeline items specifically for sequential animation
+    document.querySelectorAll('.timeline-item').forEach(el => {
       observer.observe(el);
     });
 
