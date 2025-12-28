@@ -329,6 +329,52 @@
       justify-content: center; 
     }
 
+    /* --- NEW: Key Strengths Micro-Section --- */
+    .strengths-strip {
+      background-color: var(--bg-end);
+      padding: 32px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
+      z-index: 5;
+    }
+
+    .strengths-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .strength-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary-dark);
+      font-weight: 600;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .strength-item i {
+      color: var(--accent-gold);
+      font-size: 1.3rem;
+      background: #fff;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .strength-item:hover {
+      transform: translateY(-2px);
+      color: var(--accent-gold);
+    }
+
     /* --- About Section --- */
     .about-content-wrapper {
       display: flex;
@@ -942,7 +988,7 @@
         justify-content: center;
         cursor: pointer;
         transition: var(--transition);
-        z-index: 105; /* Ensure it's clickable */
+        z-index: 105;
       }
 
       .mobile-menu-overlay .close-btn:hover {
@@ -957,6 +1003,25 @@
       .hero-subtitle { margin-bottom: 16px; }
       .hero-intro-text { font-size: 0.95rem; margin-bottom: 32px; }
       .btn { width: 100%; max-width: 320px; }
+
+      /* Strengths Strip Mobile */
+      .strengths-strip { padding: 24px 0; }
+      .strengths-grid {
+        justify-content: center;
+        gap: 20px;
+      }
+      .strength-item {
+        width: 48%;
+        font-size: 0.9rem;
+        flex-direction: column; /* Stack icon and text on very small screens if needed, or just gap */
+        gap: 8px;
+        text-align: center;
+      }
+      .strength-item i {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+      }
 
       /* About */
       .stat-row { gap: 20px; flex-wrap: wrap; }
@@ -1138,6 +1203,30 @@
             <a href="#experience" class="btn btn-outline" style="border: none; padding-left: 0; justify-content: center; width: auto; max-width: none;">
                 View Experience <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem; margin-left: 8px;"></i>
             </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: Key Strengths -->
+    <section class="strengths-strip fade-in-up">
+      <div class="container">
+        <div class="strengths-grid">
+          <div class="strength-item">
+            <i class="fa-solid fa-box-open"></i>
+            <span>Brand Systems & FMCG Packaging</span>
+          </div>
+          <div class="strength-item">
+            <i class="fa-solid fa-film"></i>
+            <span>Motion Graphics for Marketing</span>
+          </div>
+          <div class="strength-item">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Executive Presentations</span>
+          </div>
+          <div class="strength-item">
+            <i class="fa-solid fa-globe"></i>
+            <span>Cross-Market Experience (GCC & Africa)</span>
           </div>
         </div>
       </div>
@@ -1688,7 +1777,8 @@
     }
     animateCursor();
 
-    const interactables = document.querySelectorAll('a, button, .card');
+    // Added .strengths-item to interactables list for cursor effect
+    const interactables = document.querySelectorAll('a, button, .card, .strengths-item');
     
     interactables.forEach(el => {
       el.addEventListener('mouseenter', () => {
