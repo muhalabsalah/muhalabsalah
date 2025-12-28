@@ -217,9 +217,10 @@
     }
 
     .logo img {
-      height: 45px; /* Adjust size to fit navbar */
+      height: 70px; /* Increased size for clarity */
       width: auto;
       object-fit: contain;
+      display: block;
     }
 
     .nav-links {
@@ -505,11 +506,25 @@
       margin-bottom: 8px;
       display: block;
     }
+    
+    /* New Tagline Style */
+    .job-tagline {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary-dark); /* Dark color for better contrast above title */
+      opacity: 0.7;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+      margin-top: 8px;
+    }
 
     .timeline-content h3 {
       font-size: 1.1rem;
       font-weight: 600;
       margin-bottom: 4px;
+      color: var(--primary-dark);
     }
 
     .timeline-content p.company-name {
@@ -581,19 +596,120 @@
 
     .cta-section h2 { color: #fff; }
     .cta-section h2::after { background: #fff; }
-    .cta-section p { color: #cbd5e1; margin: 0 auto 20px auto; }
+    .cta-section p { color: #cbd5e1; margin: 0 auto 20px auto; max-width: 600px; }
 
-    .email-link {
-      font-size: 1.1rem;
+    /* New Contact Methods Styling */
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      width: 100%;
+    }
+
+    .contact-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 24px;
+      border-radius: 16px;
+      text-decoration: none;
       color: #fff;
-      border-bottom: 1px solid var(--accent-gold);
-      padding-bottom: 2px;
-      margin-top: 16px;
-      display: inline-block;
-      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Space content and arrow */
+      gap: 16px;
+      transition: var(--transition);
+    }
+
+    .contact-item:hover {
+      background: var(--accent-gold);
+      border-color: var(--accent-gold);
+      color: var(--primary-dark);
+      transform: translateY(-5px);
     }
     
-    .email-link:hover { color: var(--accent-gold); }
+    .contact-item-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .contact-icon-box {
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .contact-item:hover .contact-icon-box {
+      background: rgba(255, 255, 255, 0.3);
+      color: var(--primary-dark);
+    }
+
+    .contact-info {
+      text-align: left;
+    }
+
+    .contact-label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.7;
+      margin-bottom: 4px;
+    }
+
+    .contact-value {
+      display: block;
+      font-weight: 600;
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+
+    .contact-hint {
+      font-size: 0.75rem;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: var(--transition);
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+    
+    .contact-item:hover .contact-hint {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .contact-socials {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .contact-social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .contact-social-link:hover {
+      background: #fff;
+      color: var(--primary-dark);
+    }
 
     /* --- Toast Notification --- */
     #toast {
@@ -691,6 +807,84 @@
     .fab-action-btn.linkedin:hover { background: #0077b5; color: #fff; }
     .fab-action-btn.behance:hover { background: #1769ff; color: #fff; }
 
+    /* --- Footer Styles --- */
+    footer {
+      background: var(--primary-dark);
+      color: #cbd5e1;
+      padding: 80px 0 30px 0;
+      margin-top: 80px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand h3 { color: #fff; margin-bottom: 16px; font-size: 1.4rem; }
+    .footer-brand p { font-size: 0.9rem; opacity: 0.8; line-height: 1.6; max-width: 300px; }
+    
+    .footer-brand img {
+      height: 80px;
+      margin-bottom: 20px;
+      display: block;
+      
+      /* Simple invert filter to turn black logo to white */
+      filter: invert(1); 
+      
+      /* Add a soft white glow/box-shadow for separation */
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    }
+
+    .footer-links h4 { color: #fff; font-size: 1.1rem; margin-bottom: 24px; }
+    .footer-links ul { list-style: none; }
+    .footer-links li { margin-bottom: 12px; }
+    .footer-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent-gold);
+      transform: translateX(5px);
+    }
+
+    .footer-social h4 { color: #fff; font-size: 1.1rem; margin-bottom: 24px; }
+    .social-icon-row { display: flex; gap: 16px; }
+    
+    .social-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-icon-btn:hover {
+      background: var(--accent-gold);
+      border-color: var(--accent-gold);
+      color: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 30px;
+      text-align: center;
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+
     /* --- Animation Classes --- */
     .fade-in-up {
       opacity: 0;
@@ -714,6 +908,7 @@
       /* Nav */
       .nav-links { display: none; }
       .mobile-toggle { display: block; }
+      .logo img { height: 55px; } /* Adjust for mobile */
 
       .mobile-menu-overlay {
         position: fixed;
@@ -758,9 +953,15 @@
 
       /* CTA */
       .cta-section { padding: 60px 20px; }
-      .email-link { font-size: 1rem; word-break: break-all; }
       
       .fab-wrapper { bottom: 20px; right: 20px; }
+
+      /* Footer Mobile */
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-brand { text-align: center; margin-bottom: 20px; }
+      .footer-brand p { margin: 0 auto; }
+      .footer-social { text-align: center; }
+      .social-icon-row { justify-content: center; }
     }
 
     @media (min-width: 769px) {
@@ -782,10 +983,10 @@
 
       .timeline-item {
         width: 50%; /* Occupy half width */
-        margin-left: 50%; /* Push to the right of the center line */
+        margin-left: 50%; /* Push to right of center line */
         padding-left: 40px;
         padding-right: 0;
-        text-align: left; /* Keep text left-aligned inside the box for readability */
+        text-align: left; /* Keep text left-aligned inside box for readability */
       }
 
       .timeline-item::after {
@@ -862,7 +1063,7 @@
           <p class="hero-subtitle">Muhalab Basheir — Creative Director & Senior Designer</p>
           
           <p class="hero-intro-text">
-            Senior Graphic & Motion Designer with 9+ years of professional experience delivering branding, FMCG packaging, motion graphics, and digital content — including 2 years in the GCC market.
+            Senior Graphic & Motion Designer with 9+ years of professional experience delivering branding, FMCG packaging, motion graphics, and digital content — including 2 years in GCC market.
           </p>
           
           <div class="hero-btns">
@@ -1005,11 +1206,12 @@
             <div class="timeline-item">
               <span class="timeline-date">Nov 2021 – Present</span>
               <div class="timeline-content">
+                <span class="job-tagline">Visual Storytelling & Brand Execution</span>
                 <h3>Freelance Graphic & Motion Designer</h3>
                 <ul>
-                  <li>Delivered branding, packaging, motion graphics, and marketing visuals for local and international clients.</li>
-                  <li>Managed projects independently from concept to final delivery across digital and print platforms.</li>
-                  <li>Built long-term client relationships through clear communication and consistent quality.</li>
+                  <li>Delivered branding, FMCG packaging, motion graphics, and marketing visuals for local and international clients.</li>
+                  <li>Led projects end-to-end — from concept development to final execution across digital and print.</li>
+                  <li>Built long-term client partnerships through clarity, consistency, and high-quality visual outcomes.</li>
                 </ul>
               </div>
             </div>
@@ -1018,10 +1220,11 @@
             <div class="timeline-item">
               <span class="timeline-date">Jun 2023 – Present</span>
               <div class="timeline-content">
+                <span class="job-tagline">Crises Communication & Field Coordination</span>
                 <h3>Volunteer Worker – Humanitarian Response</h3>
                 <ul>
-                  <li>Supported humanitarian relief operations during wartime displacement and public health crises in Sudan.</li>
-                  <li>Conducted on-ground assessments, registration, logistics support, and community coordination under high-pressure conditions.</li>
+                  <li>Supported humanitarian operations during wartime displacement and public health emergencies in Sudan.</li>
+                  <li>Conducted field assessments, registrations, logistics support, and community coordination under high-pressure conditions.</li>
                 </ul>
               </div>
             </div>
@@ -1030,12 +1233,13 @@
             <div class="timeline-item">
               <span class="timeline-date">Oct 2019 – Oct 2021</span>
               <div class="timeline-content">
+                <span class="job-tagline">FMCG Product Identity & Market Presence</span>
                 <h3>Senior Visual Designer – Branding & Packaging</h3>
-                <span class="company-name">Al Madina Food Industries LLC (Oman)</span>
+                <span class="company-name">Al Madina Food Industries LLC — Oman</span>
                 <ul>
                   <li>Led branding, packaging, and advertising design across FMCG product lines.</li>
-                  <li>Produced product-focused motion graphics and marketing visuals aligned with business goals.</li>
-                  <li>Collaborated with marketing teams and mentored junior designers.</li>
+                  <li>Produced product-focused motion graphics and marketing visuals aligned with commercial objectives.</li>
+                  <li>Collaborated with marketing teams and mentored junior designers to maintain brand consistency.</li>
                 </ul>
               </div>
             </div>
@@ -1044,10 +1248,12 @@
             <div class="timeline-item">
               <span class="timeline-date">Oct 2018 – May 2019</span>
               <div class="timeline-content">
+                <span class="job-tagline">Multi-Platform Creative Delivery</span>
                 <h3>Senior Graphic & Motion Designer</h3>
                 <span class="company-name">YNY Solutions</span>
                 <ul>
-                  <li>Executed multiple creative projects under tight deadlines, including branding, print, and motion graphics.</li>
+                  <li>Executed multiple branding, print, and motion design projects under tight deadlines.</li>
+                  <li>Delivered consistent, high-quality visuals across diverse client requirements.</li>
                 </ul>
               </div>
             </div>
@@ -1056,10 +1262,12 @@
             <div class="timeline-item">
               <span class="timeline-date">Nov 2015 – Sep 2018</span>
               <div class="timeline-content">
+                <span class="job-tagline">Integrated Design & Marketing Support</span>
                 <h3>Creative Designer & Digital Marketing Specialist</h3>
                 <span class="company-name">Leopard Multi Activities</span>
                 <ul>
-                  <li>Defined marketing visuals, supported sales strategies, and managed social media promotional content.</li>
+                  <li>Defined marketing visuals and supported sales-driven design initiatives.</li>
+                  <li>Managed social media promotional content aligned with brand and campaign goals.</li>
                 </ul>
               </div>
             </div>
@@ -1088,33 +1296,97 @@
       </div>
     </section>
 
-    <!-- Contact CTA -->
+    <!-- Updated Contact Section -->
     <section id="contact">
       <div class="container">
         <div class="cta-section fade-in-up">
-          <h2>Let’s Work Together</h2>
-          <p>Open to freelance, remote, or full-time opportunities.</p>
-          <a href="mailto:muhalabsalah@gmail.com" class="email-link" onclick="copyEmail(event)">
-            muhalabsalah@gmail.com
-          </a>
-          <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6;">(Tap email to copy)</p>
+          <h2>Let's Connect</h2>
+          <p>Ready to elevate your brand? I am available for freelance projects and remote collaborations.</p>
+          
+          <div class="contact-methods">
+            <!-- Email Contact Card -->
+            <a href="mailto:muhalabsalah@gmail.com" class="contact-item" onclick="copyEmail(event)">
+              <div class="contact-item-left">
+                <div class="contact-icon-box"><i class="fa-solid fa-envelope"></i></div>
+                <div class="contact-info">
+                  <span class="contact-label">Email Me</span>
+                  <span class="contact-value">muhalabsalah@gmail.com</span>
+                </div>
+              </div>
+              <span class="contact-hint">Copy</span>
+            </a>
+            
+            <!-- WhatsApp Contact Card -->
+            <a href="https://wa.me/249119005441" target="_blank" class="contact-item">
+              <div class="contact-item-left">
+                <div class="contact-icon-box"><i class="fa-brands fa-whatsapp"></i></div>
+                <div class="contact-info">
+                  <span class="contact-label">Chat</span>
+                  <span class="contact-value">+249 119 005 441</span>
+                </div>
+              </div>
+              <span class="contact-hint"><i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+          </div>
+
+          <!-- Additional Socials -->
+          <div class="contact-socials">
+            <a href="https://linkedin.com/in/muhalabsalah" target="_blank" class="contact-social-link" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://behance.net/MuhalabSalah" target="_blank" class="contact-social-link" aria-label="Behance">
+                <i class="fa-brands fa-behance"></i>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer style="text-align: center; padding: 40px 0; border-top: 1px solid var(--border-color); margin-top: 40px;">
-      <div class="container">
-        <div style="margin-bottom: 20px; font-size: 1.5rem; display: flex; justify-content: center; gap: 20px;">
-          <a href="#" style="color: var(--text-muted);"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="#" style="color: var(--text-muted);"><i class="fa-brands fa-behance"></i></a>
-          <a href="#" style="color: var(--text-muted);"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-        <p style="margin: 0; font-size: 0.85rem;">© 2023 Muhalab Basheir. All rights reserved.</p>
-      </div>
-    </footer>
-
   </main>
+
+  <!-- Updated Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Column 1: Branding -->
+        <div class="footer-brand">
+          <img src="https://i.ibb.co/k2WVbHn0/Vector-Smart-Object.png" alt="Muhalab Logo">
+          <h3>Muhalab Basheir</h3>
+          <p>Visual Storyteller & Motion Designer dedicated to crafting compelling brand narratives and digital experiences.</p>
+        </div>
+
+        <!-- Column 2: Navigation -->
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">My Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Socials -->
+        <div class="footer-social">
+          <h4>Connect</h4>
+          <div class="social-icon-row">
+            <a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
+            <a href="https://wa.me/249119005441" target="_blank" class="social-icon-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+          <p style="margin-top: 20px; font-size: 0.9rem;">
+            <i class="fa-solid fa-envelope" style="margin-right: 8px;"></i>
+            muhalabsalah@gmail.com
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2023 Muhalab Basheir. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
   <!-- Floating Action Button (FAB) -->
   <div class="fab-wrapper" id="fabWrapper">
