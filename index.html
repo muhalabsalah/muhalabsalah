@@ -954,6 +954,55 @@
       /* CTA */
       .cta-section { padding: 60px 20px; }
       
+      /* --- CONTACT SECTION MOBILE FIXES --- */
+      .contact-methods {
+        grid-template-columns: 1fr; /* Stack vertically */
+        gap: 16px;
+        margin: 0 auto 30px auto;
+      }
+
+      .contact-item {
+        padding: 20px;
+        flex-direction: column; /* Stack content vertically */
+        align-items: flex-start; /* Align left for text */
+        text-align: left;
+      }
+      
+      .contact-item-left {
+        width: 100%; /* Take full width to align icon and text */
+        justify-content: flex-start; /* Left align icon and text */
+        gap: 12px;
+        margin-bottom: 12px; /* Space between content and button */
+      }
+
+      .contact-icon-box {
+        width: 40px; /* Slightly smaller for mobile */
+        height: 40px;
+        font-size: 1.1rem;
+      }
+
+      .contact-info {
+        width: 100%;
+      }
+
+      .contact-value {
+        font-size: 1rem; /* Slightly smaller text */
+        word-break: break-all; /* Prevent long emails from overflowing */
+      }
+
+      /* Make hint button always visible on mobile (no hover) */
+      .contact-hint {
+        opacity: 1; 
+        transform: translateX(0);
+        align-self: flex-start; /* Align button with text start */
+        margin-top: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+      }
+      
       .fab-wrapper { bottom: 20px; right: 20px; }
 
       /* Footer Mobile */
@@ -1235,7 +1284,7 @@
               <div class="timeline-content">
                 <span class="job-tagline">FMCG Product Identity & Market Presence</span>
                 <h3>Senior Visual Designer – Branding & Packaging</h3>
-                <span class="company-name">Al Madina Food Industries LLC — Oman</span>
+                <span class="company-name">Al Madina Food Industries LLC (Oman)</span>
                 <ul>
                   <li>Led branding, packaging, and advertising design across FMCG product lines.</li>
                   <li>Produced product-focused motion graphics and marketing visuals aligned with commercial objectives.</li>
@@ -1313,6 +1362,7 @@
                   <span class="contact-value">muhalabsalah@gmail.com</span>
                 </div>
               </div>
+              <!-- On desktop, this is the "Copy" hover hint. On mobile, it is styled to always appear as a button -->
               <span class="contact-hint">Copy</span>
             </a>
             
