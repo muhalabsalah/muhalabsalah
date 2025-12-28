@@ -217,7 +217,7 @@
     }
 
     .logo img {
-      height: 70px; /* Increased size for clarity */
+      height: 70px; 
       width: auto;
       object-fit: contain;
       display: block;
@@ -507,12 +507,11 @@
       display: block;
     }
     
-    /* New Tagline Style */
     .job-tagline {
       display: block;
       font-size: 0.75rem;
       font-weight: 700;
-      color: var(--primary-dark); /* Dark color for better contrast above title */
+      color: var(--primary-dark);
       opacity: 0.7;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -535,7 +534,6 @@
       display: block;
     }
 
-    /* Styling for Lists inside Timeline */
     .timeline-content ul {
       list-style: disc;
       padding-left: 20px;
@@ -598,7 +596,7 @@
     .cta-section h2::after { background: #fff; }
     .cta-section p { color: #cbd5e1; margin: 0 auto 20px auto; max-width: 600px; }
 
-    /* New Contact Methods Styling */
+    /* Contact Methods Styling */
     .contact-methods {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -617,7 +615,7 @@
       color: #fff;
       display: flex;
       align-items: center;
-      justify-content: space-between; /* Space content and arrow */
+      justify-content: space-between; 
       gap: 16px;
       transition: var(--transition);
     }
@@ -827,14 +825,10 @@
     .footer-brand p { font-size: 0.9rem; opacity: 0.8; line-height: 1.6; max-width: 300px; }
     
     .footer-brand img {
-      height: 80px; /* Maintained large size */
+      height: 80px; 
       margin-bottom: 20px;
       display: block;
-      
-      /* FIX: Simple invert filter to turn black logo to white */
       filter: invert(1); 
-      
-      /* Add a soft white glow/box-shadow for separation */
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
     }
 
@@ -908,7 +902,7 @@
       /* Nav */
       .nav-links { display: none; }
       .mobile-toggle { display: block; }
-      .logo img { height: 55px; } /* Adjust for mobile */
+      .logo img { height: 55px; }
 
       .mobile-menu-overlay {
         position: fixed;
@@ -930,7 +924,32 @@
 
       .mobile-menu-overlay.active { transform: translateX(0); }
       .mobile-menu-overlay a { font-size: 1.5rem; font-weight: 600; color: var(--primary-dark); }
-      .mobile-menu-overlay .close-btn { position: absolute; top: 30px; right: 30px; font-size: 2rem; color: var(--primary-dark); background: none; border: none; }
+
+      /* --- ENHANCED CLOSE BUTTON --- */
+      .mobile-menu-overlay .close-btn {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        font-size: 1.5rem;
+        color: var(--primary-dark);
+        background: rgba(15, 23, 42, 0.05);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid rgba(15, 23, 42, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: var(--transition);
+        z-index: 105; /* Ensure it's clickable */
+      }
+
+      .mobile-menu-overlay .close-btn:hover {
+        background: var(--primary-dark);
+        color: #fff;
+        transform: rotate(90deg);
+      }
 
       /* Hero Adjustments */
       .hero { padding-top: 100px; align-items: flex-start; }
@@ -945,7 +964,7 @@
       /* Skills */
       .grid-3 { grid-template-columns: 1fr; }
 
-      /* Timeline - Keep Left aligned on mobile for readability */
+      /* Timeline */
       .timeline { padding-left: 10px; margin-top: 30px; }
       .timeline::before { left: 10px; }
       .timeline-item { padding-left: 32px; }
@@ -954,29 +973,29 @@
       /* CTA */
       .cta-section { padding: 60px 20px; }
       
-      /* --- CONTACT SECTION MOBILE FIXES --- */
+      /* CONTACT SECTION MOBILE FIXES */
       .contact-methods {
-        grid-template-columns: 1fr; /* Stack vertically */
+        grid-template-columns: 1fr; 
         gap: 16px;
         margin: 0 auto 30px auto;
       }
 
       .contact-item {
         padding: 20px;
-        flex-direction: column; /* Stack content vertically */
-        align-items: flex-start; /* Align left for text */
+        flex-direction: column; 
+        align-items: flex-start; 
         text-align: left;
       }
       
       .contact-item-left {
-        width: 100%; /* Take full width to align icon and text */
-        justify-content: flex-start; /* Left align icon and text */
+        width: 100%; 
+        justify-content: flex-start; 
         gap: 12px;
-        margin-bottom: 12px; /* Space between content and button */
+        margin-bottom: 12px; 
       }
 
       .contact-icon-box {
-        width: 40px; /* Slightly smaller for mobile */
+        width: 40px; 
         height: 40px;
         font-size: 1.1rem;
       }
@@ -986,15 +1005,14 @@
       }
 
       .contact-value {
-        font-size: 1rem; /* Slightly smaller text */
-        word-break: break-all; /* Prevent long emails from overflowing */
+        font-size: 1rem; 
+        word-break: break-all; 
       }
 
-      /* Make hint button always visible on mobile (no hover) */
       .contact-hint {
         opacity: 1; 
         transform: translateX(0);
-        align-self: flex-start; /* Align button with text start */
+        align-self: flex-start; 
         margin-top: 4px;
         background: rgba(255, 255, 255, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1019,28 +1037,18 @@
       /* =========================================
          DESKTOP CENTERING OVERRIDES
          ========================================= */
+      .hero-content { width: 100%; }
 
-      /* Hero: Already centered via base CSS, ensuring width */
-      .hero-content {
-        width: 100%;
-      }
-
-      /* Timeline Centered Layout for Desktop */
-      .timeline::before {
-        left: 50%; /* Move line to center */
-      }
-
+      .timeline::before { left: 50%; }
       .timeline-item {
-        width: 50%; /* Occupy half width */
-        margin-left: 50%; /* Push to right of center line */
+        width: 50%; 
+        margin-left: 50%; 
         padding-left: 40px;
         padding-right: 0;
-        text-align: left; /* Keep text left-aligned inside box for readability */
+        text-align: left; 
       }
 
-      .timeline-item::after {
-        left: -6px;
-      }
+      .timeline-item::after { left: -6px; }
     }
   </style>
 </head>
@@ -1084,7 +1092,11 @@
 
   <!-- Mobile Menu Overlay -->
   <div class="mobile-menu-overlay" id="mobileMenu">
-    <button class="close-btn" onclick="toggleMenu()">&times;</button>
+    <!-- Enhanced Close Button -->
+    <button class="close-btn" onclick="toggleMenu()" aria-label="Close Menu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    
     <a href="#" onclick="toggleMenu()">Home</a>
     <a href="#about" onclick="toggleMenu()">About</a>
     <a href="#skills" onclick="toggleMenu()">Skills</a>
@@ -1107,13 +1119,11 @@
             <i class="fa-solid fa-circle"></i> Available for Remote & GCC Roles
           </div>
           
-          <!-- Updated Name/Title -->
-          <h1 class="hero-title">Muhalab Basheir<br>Creative Director & Senior Designer</h1>
+          <!-- Updated Hero Title -->
+          <h1 class="hero-title">Visual Storyteller &<br>Motion Designer</h1>
           
-          <!-- Updated Subtitle/Role -->
           <p class="hero-subtitle">Senior Graphic & Motion Designer | Executive Presentation Design</p>
           
-          <!-- Updated Bio -->
           <p class="hero-intro-text">
             9+ years of experience in branding, FMCG packaging, motion graphics, and digital content creation — including 2 years in GCC.
           </p>
@@ -1548,7 +1558,7 @@
     initParticles();
     animate();
 
-    // --- 2. Mobile Menu Logic ---
+    // --- 2. Mobile Menu Logic (Enhanced) ---
     function toggleMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('active');
@@ -1571,6 +1581,26 @@
         toggleMenu();
       }
     }
+
+    // Requirement 3: Escape Key Support
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeMenu();
+      }
+    });
+
+    // Requirement 1: Click Outside to Close
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.querySelector('.mobile-toggle');
+      
+      // If menu is open AND click is NOT on the toggle button AND click is NOT inside the menu
+      if (menu.classList.contains('active') &&
+          !toggle.contains(e.target) && 
+          !menu.contains(e.target)) {
+        toggleMenu();
+      }
+    });
 
     // --- 3. Scroll Animation ---
     const observerOptions = {
