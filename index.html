@@ -433,6 +433,32 @@
       display: none; 
     }
 
+    /* --- Education Section Specifics --- */
+    .edu-title {
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      display: block;
+    }
+    
+    .edu-institution {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .date-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      color: var(--accent-gold);
+      background: var(--accent-gold-light);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
     /* --- Timeline (Centered Layout) --- */
     .timeline {
       position: relative;
@@ -805,6 +831,7 @@
     <button class="close-btn" onclick="toggleMenu()">&times;</button>
     <a href="#about" onclick="toggleMenu()">About</a>
     <a href="#skills" onclick="toggleMenu()">Skills</a>
+    <a href="#education" onclick="toggleMenu()">Education</a>
     <a href="#experience" onclick="toggleMenu()">Journey</a>
     <a href="#contact" onclick="toggleMenu()">Contact</a>
     
@@ -915,6 +942,38 @@
                 <li>E-commerce Assets</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certifications Section (NEW) -->
+    <section id="education" style="background-color: var(--bg-end);">
+      <div class="container">
+        <div class="fade-in-up">
+          <div style="text-align: center; margin-bottom: 48px;">
+            <h2>Education & Certifications</h2>
+          </div>
+          <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 800px; margin: 0 auto;">
+            
+            <!-- Degree -->
+            <div class="card">
+              <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+              <h3 style="margin-bottom: 8px;">Bachelor’s Degree</h3>
+              <span class="edu-title">Communication Science (Multimedia)</span>
+              <span class="edu-institution">Mashreq University — Sudan</span>
+              <span class="date-badge">Issued Sep 2011</span>
+            </div>
+
+            <!-- Certification -->
+            <div class="card">
+              <div class="card-icon"><i class="fa-solid fa-certificate"></i></div>
+              <h3 style="margin-bottom: 8px;">Digital Marketing</h3>
+              <span class="edu-title">Foundations of Digital Marketing and E-commerce</span>
+              <span class="edu-institution">Coursera</span>
+              <span class="date-badge">ID: H25S7GGUJKLW</span>
+            </div>
+
           </div>
         </div>
       </div>
