@@ -47,7 +47,8 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
+      /* UPDATED: Soft radial spotlight gradient for executive focus and depth */
+      background: radial-gradient(circle at 50% 0%, var(--bg-start) 0%, var(--bg-end) 60%, #f1f5f9 100%);
       background-attachment: fixed;
       color: var(--text-main);
       line-height: 1.6;
@@ -200,7 +201,8 @@
       width: 100%;
       height: var(--nav-height);
       z-index: 100;
-      background: rgba(255,255, 255, 0.85); /* Slightly more opaque for executive feel */
+      /* UPDATED: Subtle gradient for glass-like depth */
+      background: linear-gradient(180deg, rgba(255,255, 255, 0.9) 0%, rgba(255,255, 255, 0.8) 100%);
       backdrop-filter: blur(15px);
       border-bottom: 1px solid var(--border-color);
       display: flex;
@@ -210,9 +212,9 @@
 
     .nav-content {
       width: 100%;
-      max-width: 1400px; /* Wider max width for desktop */
+      max-width: 1400px; 
       margin: 0 auto;
-      padding: 0 40px; /* More breathing room */
+      padding: 0 40px; 
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -256,30 +258,26 @@
 
     /* --- EXECUTIVE TOGGLE BUTTON (Hamburger) --- */
     .exec-toggle {
-      /* Base Reset */
       appearance: none;
       background: none;
       border: none;
       outline: none;
       
-      /* Layout */
       display: flex; 
-      flex-direction: row; /* Row for desktop (Icon + Text) */
+      flex-direction: row; 
       align-items: center;
       justify-content: center;
       gap: 12px;
       
-      /* Dimensions */
       height: 48px;
       padding: 0 24px;
-      border-radius: 24px; /* Pill shape */
+      border-radius: 24px; 
       
-      /* Colors & Borders */
-      background-color: transparent;
+      /* UPDATED: Subtle gradient for button depth */
+      background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
       border: 1px solid rgba(15, 23, 42, 0.1);
       color: var(--primary-dark);
       
-      /* Typography for Label */
       font-family: 'Poppins', sans-serif;
       font-size: 0.8rem;
       font-weight: 600;
@@ -290,9 +288,9 @@
       transition: var(--transition);
       z-index: 1002;
       position: relative;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
     }
 
-    /* Hover State: Pill background fills slightly */
     .exec-toggle:hover {
       background-color: var(--primary-dark);
       border-color: var(--primary-dark);
@@ -300,10 +298,9 @@
     }
     
     .exec-toggle:hover span.menu-lines span {
-      background-color: #fff; /* Lines turn white on hover */
+      background-color: #fff; 
     }
 
-    /* The lines container */
     .menu-lines {
       display: flex;
       flex-direction: column;
@@ -313,7 +310,6 @@
       height: 14px;
     }
 
-    /* Individual Lines */
     .menu-lines span {
       display: block;
       height: 2px;
@@ -323,7 +319,6 @@
       transition: var(--transition);
     }
 
-    /* The "MENU" text label (Hidden on Mobile via CSS) */
     .menu-label {
       display: block;
       transition: opacity 0.3s ease;
@@ -333,12 +328,13 @@
     .exec-toggle.active {
       background-color: transparent;
       border-color: var(--accent-gold);
-      width: 48px; /* Shrink to circle/square */
-      padding: 0; /* Remove padding to center X */
+      width: 48px; 
+      padding: 0; 
+      box-shadow: none;
     }
 
     .exec-toggle.active .menu-label {
-      display: none; /* Hide Text */
+      display: none; 
     }
 
     .exec-toggle.active .menu-lines {
@@ -346,36 +342,13 @@
       gap: 0;
     }
     
-    .exec-toggle.active .menu-lines span:first-child {
-      transform: rotate(90deg) translate(0, 0);
-      margin-bottom: -2px; /* Center perfectly */
-    }
-    
-    .exec-toggle.active .menu-lines span:last-child {
-      opacity: 0; /* Hide second line, rely on first line + rotation */
-    }
-    
-    .exec-toggle.active .menu-lines::after {
-      /* Create second leg of X via pseudo or just keep it simple with 1 line rotation */
-      /* Let's use the 2 lines to form X */
-      content: '';
-      position: absolute;
-      width: 2px;
-      height: 20px;
-      background: var(--accent-gold);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-45deg); /* This might conflict, let's stick to CSS transforms on existing elements */
-    }
-
-    /* Better X implementation using existing spans */
     .exec-toggle.active .menu-lines span:nth-child(1) {
-       transform: translateY(3.5px) rotate(45deg);
+       transform: translateY(3.5px) rotate(0deg); 
        width: 20px;
     }
     
     .exec-toggle.active .menu-lines span:nth-child(2) {
-       transform: translateY(-3.5px) rotate(-45deg);
+       transform: translateY(-3.5px) rotate(90deg);
        width: 20px;
        opacity: 1;
     }
@@ -387,22 +360,18 @@
     /* =========================================
        MOBILE NAV OVERRIDES (Original Logic)
        ========================================= */
-    /* Desktop Default: Show Toggle, Hide Text Links */
     @media (min-width: 769px) {
       .nav-links { display: none !important; } 
       .exec-toggle { display: flex !important; }
       
-      /* Specific Desktop styling for Toggle */
       .menu-label { display: block; }
       
-      /* Wider Panel on Desktop */
       .executive-panel {
         width: 450px; 
         border-right: 1px solid var(--border-color);
       }
     }
 
-    /* Mobile Override: Show Toggle (Icon only), Hide Text Links */
     @media (max-width: 768px) {
       nav { height: var(--nav-height); }
       .nav-content { padding: 0 24px; }
@@ -417,20 +386,16 @@
         background: transparent;
       }
       
-      /* Hide label on mobile */
       .menu-label { display: none; }
       
-      /* Reset layout for mobile icon */
       .menu-lines {
         gap: 6px;
         width: 100%;
       }
       .menu-lines span { height: 3px; background-color: var(--accent-gold); }
       
-      /* Reset active state for mobile specific */
       .exec-toggle.active { width: 40px; height: 30px; background: transparent; }
       
-      /* Reset active X for mobile */
       .exec-toggle.active .menu-lines span:nth-child(1) {
          transform: translateY(5px) rotate(45deg);
          background-color: var(--primary-dark);
@@ -447,7 +412,8 @@
       top: 0;
       right: 0;
       height: 100vh;
-      background: #ffffff;
+      /* UPDATED: Gradient for panel depth */
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
       box-shadow: -5px 0 25px rgba(15, 23, 42, 0.15);
       z-index: 1000;
       transform: translateX(100%);
@@ -461,7 +427,6 @@
       transform: translateX(0);
     }
 
-    /* Backdrop */
     .executive-panel-backdrop {
       position: fixed;
       top: 0;
@@ -481,7 +446,6 @@
       pointer-events: auto;
     }
 
-    /* Panel Content Styling */
     .panel-header {
       padding: 32px 40px;
       border-bottom: 1px solid var(--border-color);
@@ -518,7 +482,6 @@
       background: var(--bg-end);
     }
 
-    /* Executive List */
     .exec-nav-list {
       list-style: none;
       padding: 0;
@@ -527,7 +490,6 @@
       overflow-y: auto;
     }
 
-    /* Scrollbar Styling for Panel */
     .exec-nav-list::-webkit-scrollbar {
       width: 6px;
     }
@@ -548,10 +510,10 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 24px 40px; /* More padding on desktop */
+      padding: 24px 40px; 
       color: var(--text-main);
       font-weight: 500;
-      font-size: 1.1rem; /* Larger on desktop */
+      font-size: 1.1rem; 
       text-decoration: none;
       transition: all 0.3s ease;
     }
@@ -572,7 +534,7 @@
       color: var(--accent-gold);
     }
 
-    /* --- Hero Section (Centered) --- */
+    /* --- Hero Section --- */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -589,7 +551,7 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      opacity: 0.4;
+      opacity: 0.3; /* Slightly lowered for better text contrast over gradient */
       pointer-events: none;
     }
 
@@ -615,6 +577,7 @@
       letter-spacing: 0.5px;
       text-transform: uppercase;
       margin-bottom: 32px; 
+      box-shadow: 0 2px 4px rgba(202, 138, 4, 0.1);
     }
     
     .badge-gcc i { font-size: 0.6rem; }
@@ -649,7 +612,8 @@
 
     /* --- Key Strengths Micro-Section --- */
     .strengths-strip {
-      background-color: var(--bg-end);
+      /* UPDATED: Subtle gradient transition */
+      background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.02) 100%);
       padding: 32px 0;
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
@@ -685,7 +649,7 @@
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
 
     .strength-item:hover {
@@ -734,16 +698,20 @@
       gap: 32px;
     }
 
-    /* --- PREMIUM CARD STYLES --- */
+    /* --- UPDATED PREMIUM CARD STYLES --- */
     .card {
-      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); 
+      /* UPDATED: Soft gradient for depth (3D lift) */
+      background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%); 
+      
       border-radius: 24px;
       padding: 40px 32px;
       transition: var(--transition);
       position: relative;
       overflow: hidden;
-      box-shadow: var(--shadow-soft);
+      /* Soft border to define edge without boxiness */
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
       border: 1px solid rgba(15, 23, 42, 0.03);
+      
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -763,7 +731,8 @@
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: var(--shadow-hover);
+      /* Deeper shadow on hover */
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06); 
     }
 
     .card:hover::before {
@@ -950,7 +919,7 @@
 
     /* --- Tools --- */
     .tools-container {
-      background: var(--card-bg);
+      background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
       padding: 40px 24px;
       border-radius: 16px;
       text-align: center;
@@ -985,13 +954,23 @@
 
     /* --- CTA / Contact --- */
     .cta-section {
-      background: var(--primary-dark);
+      /* UPDATED: Deep gradient for "Dark" section depth */
+      background: linear-gradient(180deg, var(--primary-dark) 0%, #0b1120 100%);
       padding: 80px 24px;
       text-align: center;
       border-radius: 24px;
       position: relative;
       overflow: hidden;
       box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+    }
+    
+    /* Subtle sheen overlay on CTA */
+    .cta-section::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 50%;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.03), transparent);
+        pointer-events: none;
     }
 
     .cta-section h2 { color: #fff; }
@@ -1009,7 +988,9 @@
     }
 
     .contact-item {
+      /* UPDATED: Glassmorphism gradient for dark section items */
       background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(5px);
       border: 1px solid rgba(255, 255, 255, 0.1);
       padding: 24px;
       border-radius: 16px;
@@ -1209,7 +1190,8 @@
 
     /* --- Footer Styles --- */
     footer {
-      background: var(--primary-dark);
+      /* UPDATED: Deep gradient for footer depth */
+      background: linear-gradient(180deg, var(--primary-dark) 0%, #020617 100%);
       color: #cbd5e1;
       padding: 80px 0 30px 0;
       margin-top: 80px;
