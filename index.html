@@ -211,13 +211,16 @@
     }
 
     .logo {
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: var(--primary-dark);
-      letter-spacing: -0.5px;
-      user-select: none;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
     }
-    .logo span { color: var(--accent-gold); }
+
+    .logo img {
+      height: 45px; /* Adjust size to fit navbar */
+      width: auto;
+      object-fit: contain;
+    }
 
     .nav-links {
       display: flex;
@@ -804,7 +807,10 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-content">
-      <div class="logo">Muhalab<span>.</span></div>
+      <!-- Updated Logo with Link and Image -->
+      <a href="#" onclick="closeMenu()" class="logo">
+        <img src="https://i.ibb.co/k2WVbHn0/Vector-Smart-Object.png" alt="Muhalab">
+      </a>
       
       <!-- Desktop Nav -->
       <div class="nav-links">
@@ -829,6 +835,7 @@
   <!-- Mobile Menu Overlay -->
   <div class="mobile-menu-overlay" id="mobileMenu">
     <button class="close-btn" onclick="toggleMenu()">&times;</button>
+    <a href="#" onclick="toggleMenu()">Home</a>
     <a href="#about" onclick="toggleMenu()">About</a>
     <a href="#skills" onclick="toggleMenu()">Skills</a>
     <a href="#education" onclick="toggleMenu()">Education</a>
@@ -900,7 +907,7 @@
             </div>
           </div>
 
-          <!-- New View Portfolio CTA -->
+          <!-- View Portfolio CTA -->
           <div style="margin-top: 40px;">
             <a href="https://drive.google.com/drive/folders/1v9F3-A6LxfW75P2UEdKV2l5bYvUYyYNq?usp=drive_link" target="_blank" class="btn btn-outline" data-magnetic="true">
                 View Portfolio <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
