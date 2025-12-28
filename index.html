@@ -69,23 +69,28 @@
       word-wrap: break-word;
     }
     
+    /* --- UPDATED SECTION HEADERS --- */
     h2 { 
-      font-size: clamp(1.5rem, 3vw, 2.5rem); 
-      margin-bottom: 24px; 
+      font-size: clamp(1.4rem, 2.5vw, 2rem); 
+      margin-bottom: 32px; 
       position: relative; 
       display: inline-block; 
-      font-weight: 600; 
+      font-weight: 700; /* Bolder for Uppercase */
       text-align: center;
+      text-transform: uppercase; /* Distinct Senior Look */
+      letter-spacing: 2px; /* Distinct Letter Spacing */
+      padding-bottom: 10px; /* Space for line */
+      color: var(--primary-dark);
     }
     
     h2::after {
       content: '';
       position: absolute;
-      bottom: -8px;
+      bottom: 0;
       left: 50%;
       transform: translateX(-50%); 
-      width: 50px;
-      height: 4px;
+      width: 60px;
+      height: 2px; /* Thinner, more elegant */
       background: var(--accent-gold);
       border-radius: 2px;
     }
@@ -1237,7 +1242,7 @@
       <div class="container">
         <div class="about-content-wrapper fade-in-up">
           <div>
-            <h2>Philosophy & <br>Approach</h2>
+            <h2>Philosophy &<br>Approach</h2>
             <p>
               I specialize in branding, FMCG packaging, marketing visuals, and motion graphics.
               My approach blends creativity with strategy, ensuring each design serves a clear purpose.
