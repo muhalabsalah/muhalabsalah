@@ -256,7 +256,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding-top: var(--nav-height);
+      padding-top: calc(var(--nav-height) + 20px); 
       overflow: hidden;
     }
 
@@ -274,8 +274,7 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 800px;
-      /* UPDATED: Center text alignment */
+      max-width: 900px;
       text-align: center;
       margin: 0 auto; 
     }
@@ -287,30 +286,38 @@
       background: var(--accent-gold-light);
       border: 1px solid var(--accent-gold);
       color: #854d0e;
-      padding: 8px 16px;
+      padding: 10px 20px;
       border-radius: 50px;
       font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.5px;
       text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 32px; 
     }
     
     .badge-gcc i { font-size: 0.6rem; }
 
     .hero-title {
       color: var(--primary-dark);
-      margin-bottom: 20px;
+      margin-bottom: 24px; 
     }
 
     .hero-subtitle {
-      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-size: clamp(1.1rem, 2vw, 1.35rem); 
       color: var(--text-muted);
-      font-weight: 300;
-      margin-bottom: 30px;
+      font-weight: 400; 
+      margin-bottom: 24px; 
     }
 
-    /* UPDATED: Center buttons */
+    .hero-intro-text {
+      font-size: 1.05rem;
+      color: var(--text-main); 
+      max-width: 750px;
+      margin: 0 auto 48px auto; 
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
     .hero-btns {
       display: flex;
       gap: 16px;
@@ -372,7 +379,6 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      /* UPDATED: Center card text */
       text-align: center; 
     }
 
@@ -398,7 +404,7 @@
     .card-icon {
       font-size: 1.8rem;
       color: var(--primary-dark);
-      margin: 0 auto 24px auto; /* Center icon */
+      margin: 0 auto 24px auto;
       background: var(--bg-end);
       width: 56px;
       height: 56px;
@@ -411,7 +417,6 @@
     .card ul {
       list-style: none;
       margin-top: 16px;
-      /* UPDATED: Center list items */
       display: inline-block; 
       text-align: center;
     }
@@ -424,7 +429,6 @@
       font-size: 0.9rem;
     }
 
-    /* UPDATED: Hide custom bullets for centered look */
     .card ul li::before {
       display: none; 
     }
@@ -434,7 +438,6 @@
       position: relative;
       max-width: 800px;
       margin-top: 48px;
-      /* UPDATED: Default text alignment left, overridden by desktop centered style below */
       text-align: left;
     }
 
@@ -472,6 +475,33 @@
       letter-spacing: 1px;
       margin-bottom: 8px;
       display: block;
+    }
+
+    .timeline-content h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .timeline-content p.company-name {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    /* Styling for Lists inside Timeline */
+    .timeline-content ul {
+      list-style: disc;
+      padding-left: 20px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .timeline-content li {
+      margin-bottom: 8px;
+      line-height: 1.5;
     }
 
     /* --- Tools --- */
@@ -678,8 +708,11 @@
       .mobile-menu-overlay a { font-size: 1.5rem; font-weight: 600; color: var(--primary-dark); }
       .mobile-menu-overlay .close-btn { position: absolute; top: 30px; right: 30px; font-size: 2rem; color: var(--primary-dark); background: none; border: none; }
 
-      /* Hero is already centered by default CSS changes, ensuring width fits */
+      /* Hero Adjustments */
       .hero { padding-top: 100px; align-items: flex-start; }
+      .hero-title { margin-bottom: 16px; }
+      .hero-subtitle { margin-bottom: 16px; }
+      .hero-intro-text { font-size: 0.95rem; margin-bottom: 32px; }
       .btn { width: 100%; max-width: 320px; }
 
       /* About */
@@ -727,10 +760,7 @@
       }
 
       .timeline-item::after {
-        left: -6px; /* Position dot on the center line relative to the item */
-        /* Actually, since item is 50% width and pushed right, left: -6px works nicely 
-           if we consider the parent center. Let's force dot to absolute center of container */
-        left: -6px; 
+        left: -6px;
       }
     }
   </style>
@@ -753,7 +783,7 @@
       <!-- Desktop Nav -->
       <div class="nav-links">
         <a href="#about" onclick="closeMenu()">About</a>
-        <a href="#skills" onclick="closeMenu()">Expertise</a>
+        <a href="#skills" onclick="closeMenu()">Skills</a>
         <a href="#experience" onclick="closeMenu()">Journey</a>
         <a href="#contact" onclick="closeMenu()">Contact</a>
         
@@ -774,7 +804,7 @@
   <div class="mobile-menu-overlay" id="mobileMenu">
     <button class="close-btn" onclick="toggleMenu()">&times;</button>
     <a href="#about" onclick="toggleMenu()">About</a>
-    <a href="#skills" onclick="toggleMenu()">Expertise</a>
+    <a href="#skills" onclick="toggleMenu()">Skills</a>
     <a href="#experience" onclick="toggleMenu()">Journey</a>
     <a href="#contact" onclick="toggleMenu()">Contact</a>
     
@@ -792,13 +822,15 @@
           <div class="badge-gcc">
             <i class="fa-solid fa-circle"></i> Available for Remote & GCC Roles
           </div>
+          
           <h1 class="hero-title">Visual Storyteller &<br>Motion Designer</h1>
+          
           <p class="hero-subtitle">Muhalab Basheir — Creative Director & Senior Designer</p>
-          <p>
-            8+ years of experience delivering branding, packaging, motion graphics,
-            and digital design solutions — including 2 years in the GCC market.
-            I create visual stories that communicate, engage, and elevate brands.
+          
+          <p class="hero-intro-text">
+            Senior Graphic & Motion Designer with 9+ years of professional experience delivering branding, FMCG packaging, motion graphics, and digital content — including 2 years in the GCC market.
           </p>
+          
           <div class="hero-btns">
             <a href="#contact" class="btn btn-primary" data-magnetic="true">Start a Project</a>
             
@@ -832,7 +864,7 @@
           
           <div class="stat-row">
             <div class="stat-item">
-              <h4>8+</h4>
+              <h4>9+</h4>
               <span>Years Experience</span>
             </div>
             <div class="stat-item">
@@ -849,18 +881,19 @@
       <div class="container">
         <div class="fade-in-up">
           <div style="text-align: center; margin-bottom: 48px;">
-            <h2>Core Expertise</h2>
+            <h2>Core Skills</h2>
           </div>
           <div class="grid-3">
             <div class="card">
               <div class="card-icon"><i class="fa-solid fa-pen-nib"></i></div>
-              <h3>Design & Branding</h3>
+              <h3>Branding & Design</h3>
               <ul>
                 <li>Graphic Design</li>
                 <li>Brand Identity</li>
                 <li>Logo Design</li>
                 <li>FMCG Packaging</li>
                 <li>Advertising Design</li>
+                <li>Layout</li>
               </ul>
             </div>
             <div class="card">
@@ -869,9 +902,7 @@
               <ul>
                 <li>Motion Graphics</li>
                 <li>Video Editing</li>
-                <li>Social Media Motion</li>
-                <li>2D Animation</li>
-                <li>Visual Effects</li>
+                <li>Social Media Motion Content</li>
               </ul>
             </div>
             <div class="card">
@@ -879,10 +910,9 @@
               <h3>Digital & Marketing</h3>
               <ul>
                 <li>Social Media Design</li>
-                <li>Digital Campaigns</li>
-                <li>E-commerce Visuals</li>
-                <li>UI/UX Basics</li>
-                <li>Content Strategy</li>
+                <li>Digital Campaign Visuals</li>
+                <li>Display Advertising</li>
+                <li>E-commerce Assets</li>
               </ul>
             </div>
           </div>
@@ -898,28 +928,66 @@
             <h2>Professional Journey</h2>
           </div>
           <div class="timeline">
+            <!-- Freelance Role -->
             <div class="timeline-item">
-              <span class="timeline-date">2021 – Present</span>
+              <span class="timeline-date">Nov 2021 – Present</span>
               <div class="timeline-content">
                 <h3>Freelance Graphic & Motion Designer</h3>
-                <p>Branding, Packaging, Motion, Campaigns.<br>
-                Delivering high-end visual solutions for international clients.</p>
+                <ul>
+                  <li>Delivered branding, packaging, motion graphics, and marketing visuals for local and international clients.</li>
+                  <li>Managed projects independently from concept to final delivery across digital and print platforms.</li>
+                  <li>Built long-term client relationships through clear communication and consistent quality.</li>
+                </ul>
               </div>
             </div>
+
+            <!-- Volunteer Role -->
             <div class="timeline-item">
-              <span class="timeline-date">Previous Role</span>
+              <span class="timeline-date">Jun 2023 – Present</span>
               <div class="timeline-content">
-                <h3>Senior Visual Designer – FMCG</h3>
-                <p>Al Madina Food Industries (Oman)<br>
-                Led packaging design and brand visuals for a major food manufacturer.</p>
+                <h3>Volunteer Worker – Humanitarian Response</h3>
+                <ul>
+                  <li>Supported humanitarian relief operations during wartime displacement and public health crises in Sudan.</li>
+                  <li>Conducted on-ground assessments, registration, logistics support, and community coordination under high-pressure conditions.</li>
+                </ul>
               </div>
             </div>
+
+            <!-- Al Madina Role -->
             <div class="timeline-item">
-              <span class="timeline-date">Previous Role</span>
+              <span class="timeline-date">Oct 2019 – Oct 2021</span>
+              <div class="timeline-content">
+                <h3>Senior Visual Designer – Branding & Packaging</h3>
+                <span class="company-name">Al Madina Food Industries LLC (Oman)</span>
+                <ul>
+                  <li>Led branding, packaging, and advertising design across FMCG product lines.</li>
+                  <li>Produced product-focused motion graphics and marketing visuals aligned with business goals.</li>
+                  <li>Collaborated with marketing teams and mentored junior designers.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- YNY Solutions Role -->
+            <div class="timeline-item">
+              <span class="timeline-date">Oct 2018 – May 2019</span>
               <div class="timeline-content">
                 <h3>Senior Graphic & Motion Designer</h3>
-                <p>YNY Solutions – Sudan<br>
-                Spearheaded creative campaigns and motion graphics for diverse sectors.</p>
+                <span class="company-name">YNY Solutions</span>
+                <ul>
+                  <li>Executed multiple creative projects under tight deadlines, including branding, print, and motion graphics.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Leopard Role -->
+            <div class="timeline-item">
+              <span class="timeline-date">Nov 2015 – Sep 2018</span>
+              <div class="timeline-content">
+                <h3>Creative Designer & Digital Marketing Specialist</h3>
+                <span class="company-name">Leopard Multi Activities</span>
+                <ul>
+                  <li>Defined marketing visuals, supported sales strategies, and managed social media promotional content.</li>
+                </ul>
               </div>
             </div>
           </div>
