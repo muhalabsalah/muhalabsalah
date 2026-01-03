@@ -148,6 +148,7 @@
       border: 1px solid transparent;
       position: relative;
       z-index: 1;
+      transition: var(--transition);
     }
 
     .btn-primary {
@@ -637,9 +638,11 @@
 
     .hero-btns {
       display: flex;
-      gap: 16px;
+      gap: 24px;
       flex-wrap: wrap;
-      justify-content: center; 
+      justify-content: center;
+      align-items: center; /* FIX: Ensures buttons align vertically */
+      margin-top: 8px;
     }
 
     /* --- Key Strengths Micro-Section --- */
@@ -1544,7 +1547,9 @@
           <div class="hero-btns">
             <a href="#contact" class="btn btn-primary" data-magnetic="true">Start a Project</a>
             
-            <a href="#experience" class="btn btn-outline" style="border: none; padding-left: 0; justify-content: center; width: auto; max-width: none;">
+            <!-- FIXED ALIGNMENT: Added explicit vertical padding to match primary button -->
+            <a href="#experience" class="btn btn-outline" 
+               style="border: none; padding: 14px 0; min-width: auto; width: auto; background: transparent; color: var(--primary-dark); box-shadow: none;">
                 View Experience <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem; margin-left: 8px;"></i>
             </a>
           </div>
