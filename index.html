@@ -127,13 +127,16 @@ Freelance Designer Portfolio
     body {
       font-family: 'Poppins', sans-serif;
       
-      /* IMPROVED: Cohesive, Soft Gradient Background for Header & Hero continuity */
-      background-color: #fdfdfd;
+      /* 
+         BACKGROUND DEPTH LAYER 1: Base Gradient & Noise 
+         Combining soft radial lighting with a top-to-bottom fade 
+      */
+      background-color: #ffffff;
       background-image: 
-        var(--noise-url),
-        radial-gradient(circle at 15% 15%, rgba(255,255,255,0.9) 0%, transparent 50%), /* Top-Left soft light */
-        radial-gradient(circle at 85% 85%, rgba(241, 245, 249,0.8) 0%, transparent 40%), /* Bottom-Right tone */
-        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        var(--noise-url), /* 1. Noise for richness */
+        radial-gradient(circle at 15% 15%, rgba(255,255,255,0.9) 0%, transparent 50%), /* 2. Top-Left Light */
+        radial-gradient(circle at 85% 85%, rgba(241, 245, 249,0.8) 0%, transparent 40%), /* 3. Bottom-Right Tone */
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); /* 4. Base fade */
       
       background-blend-mode: overlay, normal, normal, normal;
       background-attachment: fixed;
@@ -141,6 +144,46 @@ Freelance Designer Portfolio
       line-height: 1.6;
       overflow-x: hidden;
       min-height: 100vh;
+      position: relative;
+    }
+
+    /* =========================================
+       DECORATION: AMBIENT GLOWS (Abstract Depth)
+       ========================================= */
+    .ambient-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(100px); /* Ultra soft blur */
+      opacity: 0.04; /* Very low opacity to avoid distraction */
+      z-index: 0; /* Behind content, above background */
+      pointer-events: none; /* Ensure it doesn't block clicks */
+    }
+
+    .glow-1 {
+      background: var(--accent-gold); /* Brand Gold Tint */
+      top: -150px;
+      left: -150px;
+      animation: floatGlow1 25s infinite alternate ease-in-out;
+    }
+
+    .glow-2 {
+      background: var(--primary-dark); /* Deep Slate Tint */
+      bottom: -150px;
+      right: -150px;
+      animation: floatGlow2 30s infinite alternate-reverse ease-in-out;
+    }
+
+    /* Ultra slow, premium floating movement */
+    @keyframes floatGlow1 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(50px, 30px) scale(1.15); }
+    }
+
+    @keyframes floatGlow2 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-40px, 60px) scale(1.2); }
     }
 
     /* Typography */
@@ -189,7 +232,7 @@ Freelance Designer Portfolio
       margin: 0 auto;
       padding: 0 24px;
       position: relative;
-      z-index: 2;
+      z-index: 2; /* Ensures content is above glows */
     }
 
     .btn {
@@ -235,6 +278,7 @@ Freelance Designer Portfolio
     section {
       padding: 100px 0;
       position: relative;
+      z-index: 2;
     }
 
     /* --- Custom Cursor Styles --- */
@@ -287,7 +331,7 @@ Freelance Designer Portfolio
       left: 0;
       width: 100%;
       height: var(--nav-height);
-      z-index: 100;
+      z-index: 100; /* Above all background elements */
       
       /* IMPROVED: Stronger Glass Effect for better contrast & premium feel */
       background: rgba(255, 255, 255, 0.85);
@@ -640,7 +684,7 @@ Freelance Designer Portfolio
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 0;
+      z-index: 1; /* Above glows, below content */
       opacity: 0.3; 
       pointer-events: none;
     }
@@ -1526,8 +1570,12 @@ Freelance Designer Portfolio
     }
   </style>
 </head>
-
 <body>
+
+  <!-- ✅ DECORATION: Ambient Glows for Background Depth -->
+  <!-- These sit behind the canvas but add color atmosphere -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
 
   <!-- Custom Cursor DOM -->
   <div class="cursor-dot" data-cursor-dot></div>
