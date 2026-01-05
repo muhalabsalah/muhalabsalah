@@ -1445,21 +1445,25 @@ Freelance Designer Portfolio
       opacity: 0.6;
     }
 
-    /* --- Animation Classes for Scroll Trigger --- */
-    .fade-in-up {
+    /* =========================================
+       SCROLL REVEAL ANIMATION CLASSES
+       ========================================= */
+    
+    /* Base state: Hidden and moved down */
+    .reveal-item {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: opacity, transform;
     }
-    
-    .fade-in-up.visible {
+
+    /* Active state: Visible and in place */
+    .reveal-item.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* =========================================
-       MOBILE RESPONSIVE OVERRIDES (MAX 768px)
-       ========================================= */
+    /* Mobile Responsive OVERRIDES (MAX 768px) */
     @media (max-width: 768px) {
       
       section { padding: 60px 0; }
@@ -1505,9 +1509,7 @@ Freelance Designer Portfolio
       .timeline-item { padding-left: 32px; }
       .timeline-item::after { left: 5px; }
 
-      /* =========================================
-         CONTACT SECTION MOBILE LAYOUT
-         ========================================= */
+      /* CONTACT SECTION MOBILE LAYOUT */
       .contact-section { padding: 80px 20px; }
       
       .cta-wrapper {
@@ -1691,22 +1693,24 @@ Freelance Designer Portfolio
     </section>
 
     <!-- NEW SECTION: Key Strengths -->
-    <section class="strengths-strip fade-in-up">
+    <!-- Added 'reveal-group' class for the observer to target -->
+    <section class="strengths-strip reveal-group">
       <div class="container">
         <div class="strengths-grid">
-          <div class="strength-item">
+          <!-- Added 'reveal-item' class to children for staggering -->
+          <div class="strength-item reveal-item">
             <i class="fa-solid fa-box-open"></i>
             <span>Brand Systems & FMCG Packaging</span>
           </div>
-          <div class="strength-item">
+          <div class="strength-item reveal-item">
             <i class="fa-solid fa-film"></i>
             <span>Motion Graphics for Marketing</span>
           </div>
-          <div class="strength-item">
+          <div class="strength-item reveal-item">
             <i class="fa-solid fa-chart-pie"></i>
             <span>Executive Presentations</span>
           </div>
-          <div class="strength-item">
+          <div class="strength-item reveal-item">
             <i class="fa-solid fa-globe"></i>
             <span>Cross-Market Experience (GCC & Africa)</span>
           </div>
@@ -1715,10 +1719,11 @@ Freelance Designer Portfolio
     </section>
 
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="reveal-group">
       <div class="container">
-        <div class="about-content-wrapper fade-in-up">
-          <div>
+        <div class="about-content-wrapper">
+          <!-- Wrapper content fades in first -->
+          <div class="reveal-item" style="transition-delay: 0ms;">
             <h2>Philosophy &<br>Approach</h2>
             <p>
               I specialize in branding, FMCG packaging, marketing visuals, and motion graphics.
@@ -1730,19 +1735,20 @@ Freelance Designer Portfolio
             </p>
           </div>
           
+          <!-- Stats stagger slightly after text -->
           <div class="stat-row">
-            <div class="stat-item">
+            <div class="stat-item reveal-item">
               <h4>9+</h4>
               <span>Years Experience</span>
             </div>
-            <div class="stat-item">
+            <div class="stat-item reveal-item">
               <h4>2+</h4>
               <span>GCC Market</span>
             </div>
           </div>
 
           <!-- MOVED VIEW PORTFOLIO BUTTON (Now appears before Core Skills) -->
-          <div style="margin-top: 32px;">
+          <div style="margin-top: 32px;" class="reveal-item">
             <a href="https://drive.google.com/drive/folders/1v9F3-A6LxfW75P2UEdKV2l5bYvUYyYNq?usp=drive_link" target="_blank" class="btn btn-outline">
               View Portfolio <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem; margin-left: 8px;"></i>
             </a>
@@ -1753,15 +1759,15 @@ Freelance Designer Portfolio
     </section>
 
     <!-- Skills Section -->
-    <section id="skills">
+    <section id="skills" class="reveal-group">
       <div class="container">
-        <div class="fade-in-up">
-          <div style="text-align: center; margin-bottom: 48px;">
+        <div>
+          <div style="text-align: center; margin-bottom: 48px;" class="reveal-item">
             <h2>Core Skills</h2>
           </div>
           <div class="grid-3">
             <!-- Branding & Design Card -->
-            <div class="card">
+            <div class="card reveal-item">
               <div class="card-icon"><i class="fa-solid fa-pen-nib"></i></div>
               <h3>Branding & Design</h3>
               <ul>
@@ -1779,7 +1785,7 @@ Freelance Designer Portfolio
             </div>
 
             <!-- Motion & Video Card with NEW CTA -->
-            <div class="card">
+            <div class="card reveal-item">
               <div class="card-icon"><i class="fa-solid fa-film"></i></div>
               <h3>Motion & Video</h3>
               <ul>
@@ -1794,7 +1800,7 @@ Freelance Designer Portfolio
             </div>
 
             <!-- Digital & Marketing Card -->
-            <div class="card">
+            <div class="card reveal-item">
               <div class="card-icon"><i class="fa-solid fa-bullhorn"></i></div>
               <h3>Digital & Marketing</h3>
               <ul>
@@ -1814,32 +1820,32 @@ Freelance Designer Portfolio
     </section>
 
     <!-- Tools Section (Senior Focus) -->
-    <section id="tools">
+    <section id="tools" class="reveal-group">
       <div class="container">
-        <div class="fade-in-up tools-container">
+        <div class="tools-container reveal-item">
           <h3>Technical Proficiency</h3>
           <div class="tools-list">
-            <span class="tool-tag">Adobe Photoshop</span>
-            <span class="tool-tag">Illustrator</span>
-            <span class="tool-tag">InDesign</span>
-            <span class="tool-tag">After Effects</span>
-            <span class="tool-tag">Premiere Pro</span>
+            <span class="tool-tag reveal-item">Adobe Photoshop</span>
+            <span class="tool-tag reveal-item">Illustrator</span>
+            <span class="tool-tag reveal-item">InDesign</span>
+            <span class="tool-tag reveal-item">After Effects</span>
+            <span class="tool-tag reveal-item">Premiere Pro</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Education & Certifications Section -->
-    <section id="education" style="background-color: var(--bg-end);">
+    <section id="education" style="background-color: var(--bg-end);" class="reveal-group">
       <div class="container">
-        <div class="fade-in-up">
-          <div style="text-align: center; margin-bottom: 48px;">
+        <div>
+          <div style="text-align: center; margin-bottom: 48px;" class="reveal-item">
             <h2>Education & Certifications</h2>
           </div>
           <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 800px; margin: 0 auto;">
             
             <!-- Degree -->
-            <div class="card">
+            <div class="card reveal-item">
               <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
               <h3 style="margin-bottom: 8px;">Bachelor of Communication Science (Multimedia)</h3>
               <span class="edu-institution">Mashreq University — Sudan</span>
@@ -1847,7 +1853,7 @@ Freelance Designer Portfolio
             </div>
 
             <!-- Certification -->
-            <div class="card">
+            <div class="card reveal-item">
               <div class="card-icon"><i class="fa-solid fa-certificate"></i></div>
               <h3 style="margin-bottom: 8px;">Digital Marketing</h3>
               <span class="edu-institution">Coursera</span>
@@ -1862,8 +1868,8 @@ Freelance Designer Portfolio
     <!-- Experience Section -->
     <section id="experience">
       <div class="container">
-        <div class="fade-in-up">
-          <div style="text-align: center;">
+        <div>
+          <div style="text-align: center;" class="reveal-item">
             <h2>Professional Journey</h2>
           </div>
           <div class="timeline">
@@ -1944,18 +1950,18 @@ Freelance Designer Portfolio
     <!-- =========================================
          REDESIGNED CONTACT SECTION
          ========================================= -->
-    <section id="contact" class="contact-section fade-in-up">
+    <section id="contact" class="contact-section reveal-group">
       
       <div class="cta-wrapper">
         
         <!-- 1. Left: The Hook -->
-        <div class="cta-message">
+        <div class="cta-message reveal-item">
           <h2>Ready to elevate<br>your brand?</h2>
           <p>I am available for freelance projects and remote collaborations.</p>
         </div>
 
         <!-- 2. Center: The QR Code (Purposeful & Central) -->
-        <div class="qr-wrapper">
+        <div class="qr-wrapper reveal-item">
           <div class="qr-card">
             <!-- Using a real placeholder API for visual demonstration. Replace with actual vCard if needed -->
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=muhalabsalah@gmail.com&color=000000&bgcolor=ffffff" alt="Scan to Connect">
@@ -1965,7 +1971,7 @@ Freelance Designer Portfolio
 
         <!-- 3. Right: The Action -->
         <div class="cta-actions">
-          <a href="mailto:muhalabsalah@gmail.com" class="action-btn" onclick="copyEmail(event)">
+          <a href="mailto:muhalabsalah@gmail.com" class="action-btn reveal-item" onclick="copyEmail(event)">
             <div class="action-icon"><i class="fa-regular fa-envelope"></i></div>
             <div class="action-text">
               <span class="action-title">Email Me</span>
@@ -1973,7 +1979,7 @@ Freelance Designer Portfolio
             </div>
           </a>
           
-          <a href="https://wa.me/249119005441" target="_blank" class="action-btn">
+          <a href="https://wa.me/249119005441" target="_blank" class="action-btn reveal-item">
             <div class="action-icon"><i class="fa-brands fa-whatsapp"></i></div>
             <div class="action-text">
               <span class="action-title">WhatsApp</span>
@@ -2200,27 +2206,60 @@ Freelance Designer Portfolio
       }
     });
 
-    // --- 3. Scroll Animation ---
-    const observerOptions = {
+    // --- 3. SCROLL-BASED REVEAL LOGIC (Staggered) ---
+    const revealObserverOptions = {
       threshold: 0.1,
       rootMargin: "0px 0px -50px 0px"
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const group = entry.target;
+          
+          // Find all reveal-items within this group
+          const items = group.querySelectorAll('.reveal-item');
+          
+          items.forEach((item, index) => {
+            // Calculate stagger delay based on index
+            // 120ms gap provides a clear, readable rhythm
+            const delay = index * 120;
+            
+            // Apply the delay via inline style to ensure it works
+            item.style.transitionDelay = `${delay}ms`;
+            
+            // Add the visible class
+            item.classList.add('visible');
+          });
+          
+          // Unobserve this group so animation only happens once
+          revealObserver.unobserve(group);
+        }
+      });
+    }, revealObserverOptions);
+
+    // Observe all sections marked as reveal-groups
+    document.querySelectorAll('.reveal-group').forEach(section => {
+      revealObserver.observe(section);
+    });
+
+    // Separate observer for Timeline (Logic is slightly different)
+    const timelineObserverOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const timelineObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          timelineObserver.unobserve(entry.target);
         }
       });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-in-up').forEach(el => {
-      observer.observe(el);
-    });
+    }, timelineObserverOptions);
 
     document.querySelectorAll('.timeline-item').forEach(el => {
-      observer.observe(el);
+      timelineObserver.observe(el);
     });
 
     // --- 4. Interaction Logic ---
