@@ -127,16 +127,13 @@ Freelance Designer Portfolio
     body {
       font-family: 'Poppins', sans-serif;
       
-      /* 
-         BACKGROUND DEPTH LAYER 1: Base Gradient & Noise 
-         Combining soft radial lighting with a top-to-bottom fade 
-      */
-      background-color: #ffffff;
+      /* IMPROVED: Cohesive, Soft Gradient Background for Header & Hero continuity */
+      background-color: #fdfdfd;
       background-image: 
-        var(--noise-url), /* 1. Noise for richness */
-        radial-gradient(circle at 15% 15%, rgba(255,255,255,0.9) 0%, transparent 50%), /* 2. Top-Left Light */
-        radial-gradient(circle at 85% 85%, rgba(241, 245, 249,0.8) 0%, transparent 40%), /* 3. Bottom-Right Tone */
-        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); /* 4. Base fade */
+        var(--noise-url),
+        radial-gradient(circle at 15% 15%, rgba(255,255,255,0.9) 0%, transparent 50%), /* Top-Left soft light */
+        radial-gradient(circle at 85% 85%, rgba(241, 245, 249,0.8) 0%, transparent 40%), /* Bottom-Right tone */
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
       
       background-blend-mode: overlay, normal, normal, normal;
       background-attachment: fixed;
@@ -144,46 +141,6 @@ Freelance Designer Portfolio
       line-height: 1.6;
       overflow-x: hidden;
       min-height: 100vh;
-      position: relative;
-    }
-
-    /* =========================================
-       DECORATION: AMBIENT GLOWS (Abstract Depth)
-       ========================================= */
-    .ambient-glow {
-      position: fixed;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      filter: blur(100px); /* Ultra soft blur */
-      opacity: 0.04; /* Very low opacity to avoid distraction */
-      z-index: 0; /* Behind content, above background */
-      pointer-events: none; /* Ensure it doesn't block clicks */
-    }
-
-    .glow-1 {
-      background: var(--accent-gold); /* Brand Gold Tint */
-      top: -150px;
-      left: -150px;
-      animation: floatGlow1 25s infinite alternate ease-in-out;
-    }
-
-    .glow-2 {
-      background: var(--primary-dark); /* Deep Slate Tint */
-      bottom: -150px;
-      right: -150px;
-      animation: floatGlow2 30s infinite alternate-reverse ease-in-out;
-    }
-
-    /* Ultra slow, premium floating movement */
-    @keyframes floatGlow1 {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(50px, 30px) scale(1.15); }
-    }
-
-    @keyframes floatGlow2 {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(-40px, 60px) scale(1.2); }
     }
 
     /* Typography */
@@ -232,7 +189,7 @@ Freelance Designer Portfolio
       margin: 0 auto;
       padding: 0 24px;
       position: relative;
-      z-index: 2; /* Ensures content is above glows */
+      z-index: 2;
     }
 
     .btn {
@@ -248,18 +205,17 @@ Freelance Designer Portfolio
       border: 1px solid transparent;
       position: relative;
       z-index: 1;
-      transition: box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+      transition: var(--transition);
     }
 
     .btn-primary {
       background: var(--primary-dark);
       color: #fff;
       border-color: var(--primary-dark);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     .btn-primary:hover {
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2); /* Soft elevation */
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
       background: var(--accent-gold);
       border-color: var(--accent-gold);
     }
@@ -279,7 +235,6 @@ Freelance Designer Portfolio
     section {
       padding: 100px 0;
       position: relative;
-      z-index: 2;
     }
 
     /* --- Custom Cursor Styles --- */
@@ -332,7 +287,7 @@ Freelance Designer Portfolio
       left: 0;
       width: 100%;
       height: var(--nav-height);
-      z-index: 100; /* Above all background elements */
+      z-index: 100;
       
       /* IMPROVED: Stronger Glass Effect for better contrast & premium feel */
       background: rgba(255, 255, 255, 0.85);
@@ -376,12 +331,12 @@ Freelance Designer Portfolio
       width: auto;
       object-fit: contain;
       display: block;
-      transition: filter 0.3s ease;
+      transition: transform 0.3s ease;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
     }
     
     .logo:hover img {
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+      transform: scale(1.02);
     }
 
     .nav-links {
@@ -430,7 +385,7 @@ Freelance Designer Portfolio
       text-transform: uppercase;
       
       cursor: pointer;
-      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+      transition: var(--transition);
       z-index: 1002;
       position: relative;
       box-shadow: 0 2px 5px rgba(0,0,0,0.02);
@@ -460,8 +415,8 @@ Freelance Designer Portfolio
       height: 2px;
       width: 100%;
       background-color: var(--primary-dark);
-      border-radius:1px;
-      transition: background-color 0.3s ease;
+      border-radius: 1px;
+      transition: var(--transition);
     }
 
     .menu-label {
@@ -574,7 +529,7 @@ Freelance Designer Portfolio
     }
 
     .executive-panel-backdrop.active {
-      opacity:1;
+      opacity: 1;
       pointer-events: auto;
     }
 
@@ -600,7 +555,7 @@ Freelance Designer Portfolio
       font-size: 1.5rem;
       color: var(--text-muted);
       cursor: pointer;
-      transition: color 0.3s ease, background-color 0.3s ease;
+      transition: color 0.3s ease;
       width: 40px;
       height: 40px;
       display: flex;
@@ -618,7 +573,7 @@ Freelance Designer Portfolio
       list-style: none;
       padding: 0;
       margin: 0;
-      flex:1;
+      flex: 1;
       overflow-y: auto;
     }
 
@@ -640,7 +595,7 @@ Freelance Designer Portfolio
       font-weight: 500;
       font-size: 1.1rem; 
       text-decoration: none;
-      transition: color 0.3s ease, padding-left 0.3s ease, background-color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .exec-nav-link:hover {
@@ -685,7 +640,7 @@ Freelance Designer Portfolio
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 1; /* Above glows, below content */
+      z-index: 0;
       opacity: 0.3; 
       pointer-events: none;
     }
@@ -799,9 +754,7 @@ Freelance Designer Portfolio
       color: var(--primary-dark);
       font-weight: 600;
       font-size: 1rem;
-      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-      padding: 12px 16px; /* Add padding for touch target */
-      border-radius: 8px;
+      transition: var(--transition);
     }
 
     .strength-item i {
@@ -818,10 +771,8 @@ Freelance Designer Portfolio
     }
 
     .strength-item:hover {
-      background-color: rgba(255,255,255,0.8);
+      transform: translateY(-2px);
       color: var(--accent-gold);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      border: 1px solid rgba(15,23,42,0.05);
     }
 
     /* --- About Section --- */
@@ -874,12 +825,11 @@ Freelance Designer Portfolio
       background-blend-mode: normal, overlay, normal;
       border-radius: 24px;
       padding: 40px 32px;
-      /* CHANGED: Focus on shadow and border transition, no movement */
-      transition: box-shadow 0.4s ease, border-color 0.4s ease;
+      transition: var(--transition);
       position: relative;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.02); /* Very soft base */
-      border: 1px solid rgba(15, 23, 42, 0.04);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      border: 1px solid rgba(15, 23, 42, 0.03);
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -897,10 +847,9 @@ Freelance Designer Portfolio
       transition: transform 0.4s ease;
     }
 
-    /* CHANGED: Static Hover with Soft Elevation */
     .card:hover {
-      box-shadow: 0 15px 40px rgba(0,0,0,0.05); /* Soft lift via shadow */
-      border-color: rgba(202, 138, 4, 0.2); /* Border emphasis */
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06); 
     }
 
     .card:hover::before {
@@ -1113,17 +1062,13 @@ Freelance Designer Portfolio
       font-size: 0.9rem;
       font-weight: 500;
       border: 1px solid var(--border-color);
-      /* CHANGED: Removed scale transform */
-      transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: none; /* Flat by default */
+      transition: var(--transition);
     }
 
-    /* CHANGED: Static hover with refined shadow */
     .tool-tag:hover {
       border-color: var(--accent-gold);
       color: var(--accent-gold);
       background: #fff;
-      box-shadow: 0 4px 12px rgba(202, 138, 4, 0.15);
     }
 
     /* =========================================
@@ -1136,9 +1081,7 @@ Freelance Designer Portfolio
         linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-darker) 100%);
       background-blend-mode: overlay, normal;
       
-      /* EMHASIS: Significantly increased padding for background separation */
-      padding: 160px 0; 
-      
+      padding: 120px 0; /* Increased spacing */
       position: relative;
       overflow: hidden;
       text-align: center;
@@ -1165,14 +1108,6 @@ Freelance Designer Portfolio
       margin: 0 auto;
       position: relative;
       z-index: 2;
-      
-      /* EMHASIS: Glassmorphism wrapper to separate content from dark bg */
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 24px;
-      padding: 60px; /* Inner breathing room */
     }
 
     /* Left: The Message */
@@ -1214,15 +1149,13 @@ Freelance Designer Portfolio
       border-radius: 16px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.3);
       border: 2px solid rgba(255,255,255,0.1);
-      /* CHANGED: Remove scale/translate movement */
-      transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+      transition: var(--transition);
     }
     
-    /* CHANGED: Refined static hover with subtle lift */
     .qr-card:hover {
-        box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(202, 138, 4, 0.2);
         border-color: var(--accent-gold);
-        transform: translateY(-5px);
     }
 
     .qr-card img {
@@ -1262,31 +1195,23 @@ Freelance Designer Portfolio
       border: 1px solid rgba(255, 255, 255, 0.1);
       color: #fff;
       text-decoration: none;
-      /* CHANGED: Removed translateX, focus on shadow/bg */
-      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: var(--transition);
       min-width: 280px;
     }
 
-    /* CHANGED: Refined static hover */
     .action-btn:hover {
       background: var(--accent-gold);
       border-color: var(--accent-gold);
       color: var(--primary-dark);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transform: translateX(-10px);
     }
 
     .action-icon {
       font-size: 1.5rem;
       width: 40px;
       text-align: center;
-      transition: transform 0.3s ease;
     }
     
-    /* Micro-interaction: Icon bounce on success */
-    .action-icon i.fa-check {
-      color: var(--accent-gold);
-    }
-
     .action-text {
       display: flex;
       flex-direction: column;
@@ -1313,7 +1238,7 @@ Freelance Designer Portfolio
       border-radius: 8px;
       padding: 16px;
       position: fixed;
-      z-index: 1001; /* Ensure it's above everything */
+      z-index: 1000;
       left: 50%;
       bottom: 30px;
       transform: translateX(-50%) translateY(100px);
@@ -1435,12 +1360,13 @@ Freelance Designer Portfolio
     .footer-links a {
       color: #cbd5e1;
       text-decoration: none;
-      transition: color 0.3s ease;
+      transition: var(--transition);
       display: inline-block;
     }
     
     .footer-links a:hover {
       color: var(--accent-gold);
+      transform: translateX(5px);
     }
 
     .footer-social h4 { color: #fff; font-size: 1.1rem; margin-bottom: 24px; }
@@ -1457,16 +1383,14 @@ Freelance Designer Portfolio
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      /* CHANGED: Remove translateY, focus on bg/shadow */
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      transition: var(--transition);
     }
 
-    /* CHANGED: Refined static hover */
     .social-icon-btn:hover {
       background: var(--accent-gold);
       border-color: var(--accent-gold);
       color: var(--primary-dark);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      transform: translateY(-3px);
     }
 
     .footer-bottom {
@@ -1490,24 +1414,8 @@ Freelance Designer Portfolio
     }
 
     /* =========================================
-       SCROLL REVEAL ANIMATION CLASSES
+       MOBILE RESPONSIVE OVERRIDES (MAX 768px)
        ========================================= */
-    
-    /* Base state: Hidden and moved down */
-    .reveal-item {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-      will-change: opacity, transform;
-    }
-
-    /* Active state: Visible and in place */
-    .reveal-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Mobile Responsive OVERRIDES (MAX 768px) */
     @media (max-width: 768px) {
       
       section { padding: 60px 0; }
@@ -1553,13 +1461,14 @@ Freelance Designer Portfolio
       .timeline-item { padding-left: 32px; }
       .timeline-item::after { left: 5px; }
 
-      /* CONTACT SECTION MOBILE LAYOUT */
-      .contact-section { padding: 100px 20px; }
+      /* =========================================
+         CONTACT SECTION MOBILE LAYOUT
+         ========================================= */
+      .contact-section { padding: 80px 20px; }
       
       .cta-wrapper {
         grid-template-columns: 1fr; /* Stack everything */
         gap: 40px;
-        padding: 40px; /* Reduced padding for mobile */
         text-align: center;
       }
 
@@ -1617,12 +1526,8 @@ Freelance Designer Portfolio
     }
   </style>
 </head>
-<body>
 
-  <!-- ✅ DECORATION: Ambient Glows for Background Depth -->
-  <!-- These sit behind canvas but add color atmosphere -->
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
+<body>
 
   <!-- Custom Cursor DOM -->
   <div class="cursor-dot" data-cursor-dot></div>
@@ -1738,24 +1643,22 @@ Freelance Designer Portfolio
     </section>
 
     <!-- NEW SECTION: Key Strengths -->
-    <!-- Added 'reveal-group' class for observer to target -->
-    <section class="strengths-strip reveal-group">
+    <section class="strengths-strip fade-in-up">
       <div class="container">
         <div class="strengths-grid">
-          <!-- Added 'reveal-item' class to children for staggering -->
-          <div class="strength-item reveal-item">
+          <div class="strength-item">
             <i class="fa-solid fa-box-open"></i>
             <span>Brand Systems & FMCG Packaging</span>
           </div>
-          <div class="strength-item reveal-item">
+          <div class="strength-item">
             <i class="fa-solid fa-film"></i>
             <span>Motion Graphics for Marketing</span>
           </div>
-          <div class="strength-item reveal-item">
+          <div class="strength-item">
             <i class="fa-solid fa-chart-pie"></i>
             <span>Executive Presentations</span>
           </div>
-          <div class="strength-item reveal-item">
+          <div class="strength-item">
             <i class="fa-solid fa-globe"></i>
             <span>Cross-Market Experience (GCC & Africa)</span>
           </div>
@@ -1764,11 +1667,10 @@ Freelance Designer Portfolio
     </section>
 
     <!-- About Section -->
-    <section id="about" class="reveal-group">
+    <section id="about">
       <div class="container">
-        <div class="about-content-wrapper">
-          <!-- Wrapper content fades in first -->
-          <div class="reveal-item" style="transition-delay: 0ms;">
+        <div class="about-content-wrapper fade-in-up">
+          <div>
             <h2>Philosophy &<br>Approach</h2>
             <p>
               I specialize in branding, FMCG packaging, marketing visuals, and motion graphics.
@@ -1780,20 +1682,19 @@ Freelance Designer Portfolio
             </p>
           </div>
           
-          <!-- Stats stagger slightly after text -->
           <div class="stat-row">
-            <div class="stat-item reveal-item">
+            <div class="stat-item">
               <h4>9+</h4>
               <span>Years Experience</span>
             </div>
-            <div class="stat-item reveal-item">
+            <div class="stat-item">
               <h4>2+</h4>
               <span>GCC Market</span>
             </div>
           </div>
 
           <!-- MOVED VIEW PORTFOLIO BUTTON (Now appears before Core Skills) -->
-          <div style="margin-top: 32px;" class="reveal-item">
+          <div style="margin-top: 32px;">
             <a href="https://drive.google.com/drive/folders/1v9F3-A6LxfW75P2UEdKV2l5bYvUYyYNq?usp=drive_link" target="_blank" class="btn btn-outline">
               View Portfolio <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem; margin-left: 8px;"></i>
             </a>
@@ -1804,15 +1705,15 @@ Freelance Designer Portfolio
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="reveal-group">
+    <section id="skills">
       <div class="container">
-        <div>
-          <div style="text-align: center; margin-bottom: 48px;" class="reveal-item">
+        <div class="fade-in-up">
+          <div style="text-align: center; margin-bottom: 48px;">
             <h2>Core Skills</h2>
           </div>
           <div class="grid-3">
             <!-- Branding & Design Card -->
-            <div class="card reveal-item">
+            <div class="card">
               <div class="card-icon"><i class="fa-solid fa-pen-nib"></i></div>
               <h3>Branding & Design</h3>
               <ul>
@@ -1830,7 +1731,7 @@ Freelance Designer Portfolio
             </div>
 
             <!-- Motion & Video Card with NEW CTA -->
-            <div class="card reveal-item">
+            <div class="card">
               <div class="card-icon"><i class="fa-solid fa-film"></i></div>
               <h3>Motion & Video</h3>
               <ul>
@@ -1845,7 +1746,7 @@ Freelance Designer Portfolio
             </div>
 
             <!-- Digital & Marketing Card -->
-            <div class="card reveal-item">
+            <div class="card">
               <div class="card-icon"><i class="fa-solid fa-bullhorn"></i></div>
               <h3>Digital & Marketing</h3>
               <ul>
@@ -1865,32 +1766,32 @@ Freelance Designer Portfolio
     </section>
 
     <!-- Tools Section (Senior Focus) -->
-    <section id="tools" class="reveal-group">
+    <section id="tools">
       <div class="container">
-        <div class="tools-container reveal-item">
+        <div class="fade-in-up tools-container">
           <h3>Technical Proficiency</h3>
           <div class="tools-list">
-            <span class="tool-tag reveal-item">Adobe Photoshop</span>
-            <span class="tool-tag reveal-item">Illustrator</span>
-            <span class="tool-tag reveal-item">InDesign</span>
-            <span class="tool-tag reveal-item">After Effects</span>
-            <span class="tool-tag reveal-item">Premiere Pro</span>
+            <span class="tool-tag">Adobe Photoshop</span>
+            <span class="tool-tag">Illustrator</span>
+            <span class="tool-tag">InDesign</span>
+            <span class="tool-tag">After Effects</span>
+            <span class="tool-tag">Premiere Pro</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Education & Certifications Section -->
-    <section id="education" style="background-color: var(--bg-end);" class="reveal-group">
+    <section id="education" style="background-color: var(--bg-end);">
       <div class="container">
-        <div>
-          <div style="text-align: center; margin-bottom: 48px;" class="reveal-item">
+        <div class="fade-in-up">
+          <div style="text-align: center; margin-bottom: 48px;">
             <h2>Education & Certifications</h2>
           </div>
           <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 800px; margin: 0 auto;">
             
             <!-- Degree -->
-            <div class="card reveal-item">
+            <div class="card">
               <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
               <h3 style="margin-bottom: 8px;">Bachelor of Communication Science (Multimedia)</h3>
               <span class="edu-institution">Mashreq University — Sudan</span>
@@ -1898,7 +1799,7 @@ Freelance Designer Portfolio
             </div>
 
             <!-- Certification -->
-            <div class="card reveal-item">
+            <div class="card">
               <div class="card-icon"><i class="fa-solid fa-certificate"></i></div>
               <h3 style="margin-bottom: 8px;">Digital Marketing</h3>
               <span class="edu-institution">Coursera</span>
@@ -1911,11 +1812,10 @@ Freelance Designer Portfolio
     </section>
 
     <!-- Experience Section -->
-    <!-- FIX ADDED: Added class="reveal-group" to ensure animation triggers -->
-    <section id="experience" class="reveal-group">
+    <section id="experience">
       <div class="container">
-        <div>
-          <div style="text-align: center;" class="reveal-item">
+        <div class="fade-in-up">
+          <div style="text-align: center;">
             <h2>Professional Journey</h2>
           </div>
           <div class="timeline">
@@ -1996,18 +1896,18 @@ Freelance Designer Portfolio
     <!-- =========================================
          REDESIGNED CONTACT SECTION
          ========================================= -->
-    <section id="contact" class="contact-section reveal-group">
+    <section id="contact" class="contact-section fade-in-up">
       
       <div class="cta-wrapper">
         
         <!-- 1. Left: The Hook -->
-        <div class="cta-message reveal-item">
+        <div class="cta-message">
           <h2>Ready to elevate<br>your brand?</h2>
           <p>I am available for freelance projects and remote collaborations.</p>
         </div>
 
         <!-- 2. Center: The QR Code (Purposeful & Central) -->
-        <div class="qr-wrapper reveal-item">
+        <div class="qr-wrapper">
           <div class="qr-card">
             <!-- Using a real placeholder API for visual demonstration. Replace with actual vCard if needed -->
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=muhalabsalah@gmail.com&color=000000&bgcolor=ffffff" alt="Scan to Connect">
@@ -2017,7 +1917,7 @@ Freelance Designer Portfolio
 
         <!-- 3. Right: The Action -->
         <div class="cta-actions">
-          <a href="mailto:muhalabsalah@gmail.com" class="action-btn reveal-item" onclick="copyEmail(event)">
+          <a href="mailto:muhalabsalah@gmail.com" class="action-btn" onclick="copyEmail(event)">
             <div class="action-icon"><i class="fa-regular fa-envelope"></i></div>
             <div class="action-text">
               <span class="action-title">Email Me</span>
@@ -2025,7 +1925,7 @@ Freelance Designer Portfolio
             </div>
           </a>
           
-          <a href="https://wa.me/249119005441" target="_blank" class="action-btn reveal-item">
+          <a href="https://wa.me/249119005441" target="_blank" class="action-btn">
             <div class="action-icon"><i class="fa-brands fa-whatsapp"></i></div>
             <div class="action-text">
               <span class="action-title">WhatsApp</span>
@@ -2252,88 +2152,35 @@ Freelance Designer Portfolio
       }
     });
 
-    // --- 3. SCROLL-BASED REVEAL LOGIC (Staggered) ---
-    const revealObserverOptions = {
+    // --- 3. Scroll Animation ---
+    const observerOptions = {
       threshold: 0.1,
       rootMargin: "0px 0px -50px 0px"
     };
 
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const group = entry.target;
-          
-          // Find all reveal-items within this group
-          const items = group.querySelectorAll('.reveal-item');
-          
-          items.forEach((item, index) => {
-            // Calculate stagger delay based on index
-            // 120ms gap provides a clear, readable rhythm
-            const delay = index * 120;
-            
-            // Apply to delay via inline style to ensure it works
-            item.style.transitionDelay = `${delay}ms`;
-            
-            // Add visible class
-            item.classList.add('visible');
-          });
-          
-          // Unobserve this group so animation only happens once
-          revealObserver.unobserve(group);
-        }
-      });
-    }, revealObserverOptions);
-
-    // Observe all sections marked as reveal-groups
-    document.querySelectorAll('.reveal-group').forEach(section => {
-      revealObserver.observe(section);
-    });
-
-    // Separate observer for Timeline (Logic is slightly different)
-    const timelineObserverOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
-    };
-
-    const timelineObserver = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          timelineObserver.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
-    }, timelineObserverOptions);
+    }, observerOptions);
 
-    document.querySelectorAll('.timeline-item').forEach(el => {
-      timelineObserver.observe(el);
+    document.querySelectorAll('.fade-in-up').forEach(el => {
+      observer.observe(el);
     });
 
-    // --- 4. Interaction Logic (Copy to Clipboard Feedback) ---
+    document.querySelectorAll('.timeline-item').forEach(el => {
+      observer.observe(el);
+    });
+
+    // --- 4. Interaction Logic ---
     function copyEmail(e) {
       e.preventDefault();
       const email = "muhalabsalah@gmail.com";
-      const btn = e.currentTarget;
-      const icon = btn.querySelector('.action-icon');
-      const title = btn.querySelector('.action-title');
-
-      // Save original state
-      const originalIcon = icon.innerHTML;
-      const originalTitle = title.innerText;
-
-      // Copy text
       navigator.clipboard.writeText(email).then(() => {
-        // Immediate Feedback: Change Icon & Text
-        icon.innerHTML = '<i class="fa-solid fa-check"></i>';
-        title.innerText = "Copied";
-        
-        // Show Toast
         showToast();
-
-        // Revert after 3 seconds
-        setTimeout(() => {
-          icon.innerHTML = originalIcon;
-          title.innerText = originalTitle;
-        }, 3000);
       }).catch(err => {
         console.error('Failed to copy: ', err);
         window.location.href = "mailto:" + email;
