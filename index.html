@@ -248,17 +248,18 @@ Freelance Designer Portfolio
       border: 1px solid transparent;
       position: relative;
       z-index: 1;
-      transition: var(--transition);
+      transition: box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
     }
 
     .btn-primary {
       background: var(--primary-dark);
       color: #fff;
       border-color: var(--primary-dark);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     .btn-primary:hover {
-      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2); /* Soft elevation */
       background: var(--accent-gold);
       border-color: var(--accent-gold);
     }
@@ -375,12 +376,12 @@ Freelance Designer Portfolio
       width: auto;
       object-fit: contain;
       display: block;
-      transition: transform 0.3s ease;
+      transition: filter 0.3s ease;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
     }
     
     .logo:hover img {
-      transform: scale(1.02);
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
     }
 
     .nav-links {
@@ -429,7 +430,7 @@ Freelance Designer Portfolio
       text-transform: uppercase;
       
       cursor: pointer;
-      transition: var(--transition);
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
       z-index: 1002;
       position: relative;
       box-shadow: 0 2px 5px rgba(0,0,0,0.02);
@@ -459,8 +460,8 @@ Freelance Designer Portfolio
       height: 2px;
       width: 100%;
       background-color: var(--primary-dark);
-      border-radius: 1px;
-      transition: var(--transition);
+      border-radius:1px;
+      transition: background-color 0.3s ease;
     }
 
     .menu-label {
@@ -573,7 +574,7 @@ Freelance Designer Portfolio
     }
 
     .executive-panel-backdrop.active {
-      opacity: 1;
+      opacity:1;
       pointer-events: auto;
     }
 
@@ -599,7 +600,7 @@ Freelance Designer Portfolio
       font-size: 1.5rem;
       color: var(--text-muted);
       cursor: pointer;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, background-color 0.3s ease;
       width: 40px;
       height: 40px;
       display: flex;
@@ -617,7 +618,7 @@ Freelance Designer Portfolio
       list-style: none;
       padding: 0;
       margin: 0;
-      flex: 1;
+      flex:1;
       overflow-y: auto;
     }
 
@@ -639,7 +640,7 @@ Freelance Designer Portfolio
       font-weight: 500;
       font-size: 1.1rem; 
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: color 0.3s ease, padding-left 0.3s ease, background-color 0.3s ease;
     }
 
     .exec-nav-link:hover {
@@ -798,7 +799,9 @@ Freelance Designer Portfolio
       color: var(--primary-dark);
       font-weight: 600;
       font-size: 1rem;
-      transition: var(--transition);
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      padding: 12px 16px; /* Add padding for touch target */
+      border-radius: 8px;
     }
 
     .strength-item i {
@@ -815,8 +818,10 @@ Freelance Designer Portfolio
     }
 
     .strength-item:hover {
-      transform: translateY(-2px);
+      background-color: rgba(255,255,255,0.8);
       color: var(--accent-gold);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border: 1px solid rgba(15,23,42,0.05);
     }
 
     /* --- About Section --- */
@@ -869,11 +874,12 @@ Freelance Designer Portfolio
       background-blend-mode: normal, overlay, normal;
       border-radius: 24px;
       padding: 40px 32px;
-      transition: var(--transition);
+      /* CHANGED: Focus on shadow and border transition, no movement */
+      transition: box-shadow 0.4s ease, border-color 0.4s ease;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-      border: 1px solid rgba(15, 23, 42, 0.03);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02); /* Very soft base */
+      border: 1px solid rgba(15, 23, 42, 0.04);
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -891,9 +897,10 @@ Freelance Designer Portfolio
       transition: transform 0.4s ease;
     }
 
+    /* CHANGED: Static Hover with Soft Elevation */
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.06); 
+      box-shadow: 0 15px 40px rgba(0,0,0,0.05); /* Soft lift via shadow */
+      border-color: rgba(202, 138, 4, 0.2); /* Border emphasis */
     }
 
     .card:hover::before {
@@ -1106,13 +1113,17 @@ Freelance Designer Portfolio
       font-size: 0.9rem;
       font-weight: 500;
       border: 1px solid var(--border-color);
-      transition: var(--transition);
+      /* CHANGED: Removed scale transform */
+      transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: none; /* Flat by default */
     }
 
+    /* CHANGED: Static hover with refined shadow */
     .tool-tag:hover {
       border-color: var(--accent-gold);
       color: var(--accent-gold);
       background: #fff;
+      box-shadow: 0 4px 12px rgba(202, 138, 4, 0.15);
     }
 
     /* =========================================
@@ -1125,7 +1136,9 @@ Freelance Designer Portfolio
         linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-darker) 100%);
       background-blend-mode: overlay, normal;
       
-      padding: 120px 0; /* Increased spacing */
+      /* EMHASIS: Significantly increased padding for background separation */
+      padding: 160px 0; 
+      
       position: relative;
       overflow: hidden;
       text-align: center;
@@ -1152,6 +1165,14 @@ Freelance Designer Portfolio
       margin: 0 auto;
       position: relative;
       z-index: 2;
+      
+      /* EMHASIS: Glassmorphism wrapper to separate content from dark bg */
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 60px; /* Inner breathing room */
     }
 
     /* Left: The Message */
@@ -1193,13 +1214,15 @@ Freelance Designer Portfolio
       border-radius: 16px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.3);
       border: 2px solid rgba(255,255,255,0.1);
-      transition: var(--transition);
+      /* CHANGED: Remove scale/translate movement */
+      transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
     }
     
+    /* CHANGED: Refined static hover with subtle lift */
     .qr-card:hover {
-        transform: translateY(-5px) scale(1.02);
-        box-shadow: 0 25px 50px rgba(202, 138, 4, 0.2);
+        box-shadow: 0 25px 50px rgba(0,0,0,0.4);
         border-color: var(--accent-gold);
+        transform: translateY(-5px);
     }
 
     .qr-card img {
@@ -1239,23 +1262,31 @@ Freelance Designer Portfolio
       border: 1px solid rgba(255, 255, 255, 0.1);
       color: #fff;
       text-decoration: none;
-      transition: var(--transition);
+      /* CHANGED: Removed translateX, focus on shadow/bg */
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       min-width: 280px;
     }
 
+    /* CHANGED: Refined static hover */
     .action-btn:hover {
       background: var(--accent-gold);
       border-color: var(--accent-gold);
       color: var(--primary-dark);
-      transform: translateX(-10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
     .action-icon {
       font-size: 1.5rem;
       width: 40px;
       text-align: center;
+      transition: transform 0.3s ease;
     }
     
+    /* Micro-interaction: Icon bounce on success */
+    .action-icon i.fa-check {
+      color: var(--accent-gold);
+    }
+
     .action-text {
       display: flex;
       flex-direction: column;
@@ -1282,7 +1313,7 @@ Freelance Designer Portfolio
       border-radius: 8px;
       padding: 16px;
       position: fixed;
-      z-index: 1000;
+      z-index: 1001; /* Ensure it's above everything */
       left: 50%;
       bottom: 30px;
       transform: translateX(-50%) translateY(100px);
@@ -1404,13 +1435,12 @@ Freelance Designer Portfolio
     .footer-links a {
       color: #cbd5e1;
       text-decoration: none;
-      transition: var(--transition);
+      transition: color 0.3s ease;
       display: inline-block;
     }
     
     .footer-links a:hover {
       color: var(--accent-gold);
-      transform: translateX(5px);
     }
 
     .footer-social h4 { color: #fff; font-size: 1.1rem; margin-bottom: 24px; }
@@ -1427,14 +1457,16 @@ Freelance Designer Portfolio
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      transition: var(--transition);
+      /* CHANGED: Remove translateY, focus on bg/shadow */
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
+    /* CHANGED: Refined static hover */
     .social-icon-btn:hover {
       background: var(--accent-gold);
       border-color: var(--accent-gold);
       color: var(--primary-dark);
-      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
     }
 
     .footer-bottom {
@@ -1443,6 +1475,18 @@ Freelance Designer Portfolio
       text-align: center;
       font-size: 0.85rem;
       opacity: 0.6;
+    }
+
+    /* --- Animation Classes for Scroll Trigger --- */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* =========================================
@@ -1510,11 +1554,12 @@ Freelance Designer Portfolio
       .timeline-item::after { left: 5px; }
 
       /* CONTACT SECTION MOBILE LAYOUT */
-      .contact-section { padding: 80px 20px; }
+      .contact-section { padding: 100px 20px; }
       
       .cta-wrapper {
         grid-template-columns: 1fr; /* Stack everything */
         gap: 40px;
+        padding: 40px; /* Reduced padding for mobile */
         text-align: center;
       }
 
@@ -1575,7 +1620,7 @@ Freelance Designer Portfolio
 <body>
 
   <!-- ✅ DECORATION: Ambient Glows for Background Depth -->
-  <!-- These sit behind the canvas but add color atmosphere -->
+  <!-- These sit behind canvas but add color atmosphere -->
   <div class="ambient-glow glow-1"></div>
   <div class="ambient-glow glow-2"></div>
 
@@ -1693,7 +1738,7 @@ Freelance Designer Portfolio
     </section>
 
     <!-- NEW SECTION: Key Strengths -->
-    <!-- Added 'reveal-group' class for the observer to target -->
+    <!-- Added 'reveal-group' class for observer to target -->
     <section class="strengths-strip reveal-group">
       <div class="container">
         <div class="strengths-grid">
@@ -1866,7 +1911,8 @@ Freelance Designer Portfolio
     </section>
 
     <!-- Experience Section -->
-    <section id="experience">
+    <!-- FIX ADDED: Added class="reveal-group" to ensure animation triggers -->
+    <section id="experience" class="reveal-group">
       <div class="container">
         <div>
           <div style="text-align: center;" class="reveal-item">
@@ -2225,10 +2271,10 @@ Freelance Designer Portfolio
             // 120ms gap provides a clear, readable rhythm
             const delay = index * 120;
             
-            // Apply the delay via inline style to ensure it works
+            // Apply to delay via inline style to ensure it works
             item.style.transitionDelay = `${delay}ms`;
             
-            // Add the visible class
+            // Add visible class
             item.classList.add('visible');
           });
           
@@ -2262,12 +2308,32 @@ Freelance Designer Portfolio
       timelineObserver.observe(el);
     });
 
-    // --- 4. Interaction Logic ---
+    // --- 4. Interaction Logic (Copy to Clipboard Feedback) ---
     function copyEmail(e) {
       e.preventDefault();
       const email = "muhalabsalah@gmail.com";
+      const btn = e.currentTarget;
+      const icon = btn.querySelector('.action-icon');
+      const title = btn.querySelector('.action-title');
+
+      // Save original state
+      const originalIcon = icon.innerHTML;
+      const originalTitle = title.innerText;
+
+      // Copy text
       navigator.clipboard.writeText(email).then(() => {
+        // Immediate Feedback: Change Icon & Text
+        icon.innerHTML = '<i class="fa-solid fa-check"></i>';
+        title.innerText = "Copied";
+        
+        // Show Toast
         showToast();
+
+        // Revert after 3 seconds
+        setTimeout(() => {
+          icon.innerHTML = originalIcon;
+          title.innerText = originalTitle;
+        }, 3000);
       }).catch(err => {
         console.error('Failed to copy: ', err);
         window.location.href = "mailto:" + email;
