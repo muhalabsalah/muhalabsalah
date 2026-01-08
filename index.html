@@ -117,7 +117,8 @@ Freelance Designer Portfolio
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      cursor: none; /* Hide default cursor */
+      /* Standard cursor restored */
+      cursor: auto;
     }
 
     html {
@@ -250,47 +251,6 @@ Freelance Designer Portfolio
     section {
       padding: 100px 0;
       position: relative;
-    }
-
-    /* --- Custom Cursor Styles --- */
-    .cursor-dot,
-    .cursor-outline {
-      position: fixed;
-      top: 0;
-      left: 0;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      z-index: 9999;
-      pointer-events: none;
-    }
-
-    .cursor-dot {
-      width: 8px;
-      height: 8px;
-      background-color: var(--primary-dark);
-    }
-
-    .cursor-outline {
-      width: 40px;
-      height: 40px;
-      border: 1px solid rgba(15, 23, 42, 0.5);
-      transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
-    }
-
-    body.hovering .cursor-outline {
-      width: 60px;
-      height: 60px;
-      border-color: var(--accent-gold);
-      background-color: rgba(202, 138, 4, 0.1);
-    }
-    
-    body.hovering .cursor-dot {
-      background-color: var(--accent-gold);
-    }
-
-    @media (hover: none) and (pointer: coarse) {
-      .cursor-dot, .cursor-outline { display: none; }
-      * { cursor: auto; }
     }
 
     /* =========================================
@@ -1704,10 +1664,6 @@ Freelance Designer Portfolio
 
 <body>
 
-  <!-- Custom Cursor DOM -->
-  <div class="cursor-dot" data-cursor-dot></div>
-  <div class="cursor-outline" data-cursor-outline></div>
-
   <!-- Background Animation Canvas -->
   <canvas id="hero-canvas"></canvas>
 
@@ -2474,50 +2430,8 @@ Freelance Designer Portfolio
     }
 
     // ==========================================
-    // 7. MICRO-INTERACTIONS: Custom Cursor & Magnetic Buttons
+    // 7. MICRO-INTERACTIONS: Magnetic Buttons ONLY
     // ==========================================
-
-    const cursorDot = document.querySelector('[data-cursor-dot]');
-    const cursorOutline = document.querySelector('[data-cursor-outline]');
-    
-    let mouseX = 0;
-    let mouseY = 0;
-    let cursorX = 0;
-    let cursorY = 0;
-
-    document.addEventListener('mousemove', function(e) {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-
-      cursorDot.style.left = `${mouseX}px`;
-      cursorDot.style.top = `${mouseY}px`;
-    });
-
-    function animateCursor() {
-      let distX = mouseX - cursorX;
-      let distY = mouseY - cursorY;
-      
-      cursorX += distX * 0.15; 
-      cursorY += distY * 0.15;
-      
-      cursorOutline.style.left = `${cursorX}px`;
-      cursorOutline.style.top = `${cursorY}px`;
-      
-      requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
-
-    const interactables = document.querySelectorAll('a, button, .card, .strengths-item, .exec-nav-link, .profile-card');
-    
-    interactables.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        document.body.classList.add('hovering');
-      });
-      el.addEventListener('mouseleave', () => {
-        document.body.classList.remove('hovering');
-      });
-    });
-
     const magneticBtns = document.querySelectorAll('[data-magnetic="true"]');
     
     magneticBtns.forEach(btn => {
