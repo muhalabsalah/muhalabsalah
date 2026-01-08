@@ -775,40 +775,6 @@ Freelance Designer Portfolio
       color: var(--accent-gold);
     }
 
-    /* --- About Section --- */
-    .about-content-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      max-width: 850px;
-      margin: 0 auto;
-    }
-
-    .stat-row {
-      display: flex;
-      gap: 40px;
-      justify-content: center;
-      margin-top: 40px;
-    }
-
-    .stat-item h4 {
-      color: var(--accent-gold);
-      font-size: 2.5rem;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .stat-item span {
-      display: block;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
     /* --- Cards & Grid --- */
     .grid-3 {
       display: grid;
@@ -886,6 +852,79 @@ Freelance Designer Portfolio
     }
 
     .card ul li::before { display: none; }
+
+    /* --- Tools --- */
+    .tools-container {
+      background: 
+        radial-gradient(circle at top left, rgba(255,255,255,0.8) 0%, transparent 50%),
+        var(--noise-url),
+        linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+      background-blend-mode: normal, overlay, normal;
+      padding: 40px 24px;
+      border-radius: 16px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-soft);
+    }
+    
+    .tools-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .tool-tag {
+      background: var(--bg-end);
+      padding: 10px 20px;
+      border-radius: 8px;
+      color: var(--primary-dark);
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .tool-tag:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      background: #fff;
+    }
+
+    /* --- About Section --- */
+    .about-content-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .stat-row {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .stat-item h4 {
+      color: var(--accent-gold);
+      font-size: 2.5rem;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-item span {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
 
     /* --- Education Section Specifics --- */
     .edu-title {
@@ -1030,45 +1069,6 @@ Freelance Designer Portfolio
     .timeline-content li {
       margin-bottom: 8px;
       line-height: 1.5;
-    }
-
-    /* --- Tools --- */
-    .tools-container {
-      background: 
-        radial-gradient(circle at top left, rgba(255,255,255,0.8) 0%, transparent 50%),
-        var(--noise-url),
-        linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-      background-blend-mode: normal, overlay, normal;
-      padding: 40px 24px;
-      border-radius: 16px;
-      text-align: center;
-      border: 1px solid var(--border-color);
-      box-shadow: var(--shadow-soft);
-    }
-    
-    .tools-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .tool-tag {
-      background: var(--bg-end);
-      padding: 10px 20px;
-      border-radius: 8px;
-      color: var(--primary-dark);
-      font-size: 0.9rem;
-      font-weight: 500;
-      border: 1px solid var(--border-color);
-      transition: var(--transition);
-    }
-
-    .tool-tag:hover {
-      border-color: var(--accent-gold);
-      color: var(--accent-gold);
-      background: #fff;
     }
 
     /* =========================================
@@ -1544,11 +1544,13 @@ Freelance Designer Portfolio
         <img src="https://i.ibb.co/DHWLM6KX/Vector-Smart-Object.png" alt="Muhalab">
       </a>
       
-      <!-- Desktop Nav Links (Hidden) -->
+      <!-- Desktop Nav Links (Hidden on mobile) -->
+      <!-- RESORTED TO MATCH NEW SECTION ORDER: Skills -> Experience -> Education -> About -> Contact -->
       <div class="nav-links">
-        <a href="#about">About</a>
         <a href="#skills">Skills</a>
-        <a href="#experience">Journey</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </div>
 
@@ -1576,28 +1578,29 @@ Freelance Designer Portfolio
     </div>
 
     <!-- Executive List -->
+    <!-- RESORTED TO MATCH NEW SECTION ORDER -->
     <ul class="exec-nav-list">
       <li>
-        <a href="#about" class="exec-nav-link" onclick="toggleExecutiveMenu()">
-          About
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </li>
-      <li>
         <a href="#skills" class="exec-nav-link" onclick="toggleExecutiveMenu()">
-          Skills
+          Core Skills
           <i class="fa-solid fa-arrow-right"></i>
         </a>
       </li>
       <li>
         <a href="#experience" class="exec-nav-link" onclick="toggleExecutiveMenu()">
-          Experience
+          Professional Journey
           <i class="fa-solid fa-arrow-right"></i>
         </a>
       </li>
       <li>
         <a href="#education" class="exec-nav-link" onclick="toggleExecutiveMenu()">
           Education
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#about" class="exec-nav-link" onclick="toggleExecutiveMenu()">
+          Philosophy
           <i class="fa-solid fa-arrow-right"></i>
         </a>
       </li>
@@ -1662,44 +1665,6 @@ Freelance Designer Portfolio
             <i class="fa-solid fa-globe"></i>
             <span>Cross-Market Experience (GCC & Africa)</span>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-      <div class="container">
-        <div class="about-content-wrapper fade-in-up">
-          <div>
-            <h2>Philosophy &<br>Approach</h2>
-            <p>
-              I specialize in branding, FMCG packaging, marketing visuals, and motion graphics.
-              My approach blends creativity with strategy, ensuring each design serves a clear purpose.
-            </p>
-            <p>
-              Alongside commercial work, I’ve contributed to humanitarian initiatives during wartime
-              and public health crises — strengthening my adaptability, empathy, and problem-solving mindset.
-            </p>
-          </div>
-          
-          <div class="stat-row">
-            <div class="stat-item">
-              <h4>9+</h4>
-              <span>Years Experience</span>
-            </div>
-            <div class="stat-item">
-              <h4>2+</h4>
-              <span>GCC Market</span>
-            </div>
-          </div>
-
-          <!-- MOVED VIEW PORTFOLIO BUTTON (Now appears before Core Skills) -->
-          <div style="margin-top: 32px;">
-            <a href="https://drive.google.com/drive/folders/1v9F3-A6LxfW75P2UEdKV2l5bYvUYyYNq?usp=drive_link" target="_blank" class="btn btn-outline">
-              View Portfolio <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem; margin-left: 8px;"></i>
-            </a>
-          </div>
-
         </div>
       </div>
     </section>
@@ -1776,36 +1741,6 @@ Freelance Designer Portfolio
             <span class="tool-tag">InDesign</span>
             <span class="tool-tag">After Effects</span>
             <span class="tool-tag">Premiere Pro</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Education & Certifications Section -->
-    <section id="education" style="background-color: var(--bg-end);">
-      <div class="container">
-        <div class="fade-in-up">
-          <div style="text-align: center; margin-bottom: 48px;">
-            <h2>Education & Certifications</h2>
-          </div>
-          <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 800px; margin: 0 auto;">
-            
-            <!-- Degree -->
-            <div class="card">
-              <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-              <h3 style="margin-bottom: 8px;">Bachelor of Communication Science (Multimedia)</h3>
-              <span class="edu-institution">Mashreq University — Sudan</span>
-              <span class="date-badge">Issued Sep 2011</span>
-            </div>
-
-            <!-- Certification -->
-            <div class="card">
-              <div class="card-icon"><i class="fa-solid fa-certificate"></i></div>
-              <h3 style="margin-bottom: 8px;">Digital Marketing</h3>
-              <span class="edu-institution">Coursera</span>
-              <span class="date-badge">ID: H25S7GGUJKLW</span>
-            </div>
-
           </div>
         </div>
       </div>
@@ -1894,6 +1829,78 @@ Freelance Designer Portfolio
     </section>
 
     <!-- =========================================
+         MOVED SECTION: Education (Now Above About)
+         ========================================= -->
+    <section id="education" style="background-color: var(--bg-end);">
+      <div class="container">
+        <div class="fade-in-up">
+          <div style="text-align: center; margin-bottom: 48px;">
+            <h2>Education & Certifications</h2>
+          </div>
+          <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 800px; margin: 0 auto;">
+            
+            <!-- Degree -->
+            <div class="card">
+              <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+              <h3 style="margin-bottom: 8px;">Bachelor of Communication Science (Multimedia)</h3>
+              <span class="edu-institution">Mashreq University — Sudan</span>
+              <span class="date-badge">Issued Sep 2011</span>
+            </div>
+
+            <!-- Certification -->
+            <div class="card">
+              <div class="card-icon"><i class="fa-solid fa-certificate"></i></div>
+              <h3 style="margin-bottom: 8px;">Digital Marketing</h3>
+              <span class="edu-institution">Coursera</span>
+              <span class="date-badge">ID: H25S7GGUJKLW</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         ABOUT SECTION (Now Below Education)
+         ========================================= -->
+    <section id="about">
+      <div class="container">
+        <div class="about-content-wrapper fade-in-up">
+          <div>
+            <h2>Philosophy &<br>Approach</h2>
+            <p>
+              I specialize in branding, FMCG packaging, marketing visuals, and motion graphics.
+              My approach blends creativity with strategy, ensuring each design serves a clear purpose.
+            </p>
+            <p>
+              Alongside commercial work, I’ve contributed to humanitarian initiatives during wartime
+              and public health crises — strengthening my adaptability, empathy, and problem-solving mindset.
+            </p>
+          </div>
+          
+          <div class="stat-row">
+            <div class="stat-item">
+              <h4>9+</h4>
+              <span>Years Experience</span>
+            </div>
+            <div class="stat-item">
+              <h4>2+</h4>
+              <span>GCC Market</span>
+            </div>
+          </div>
+
+          <!-- MOVED VIEW PORTFOLIO BUTTON (Now appears after About text) -->
+          <div style="margin-top: 32px;">
+            <a href="https://drive.google.com/drive/folders/1v9F3-A6LxfW75P2UEdKV2l5bYvUYyYNq?usp=drive_link" target="_blank" class="btn btn-outline">
+              View Portfolio <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem; margin-left: 8px;"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
          REDESIGNED CONTACT SECTION
          ========================================= -->
     <section id="contact" class="contact-section fade-in-up">
@@ -1955,10 +1962,10 @@ Freelance Designer Portfolio
         <div class="footer-links">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="#about">About Me</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">My Skills</a></li>
             <li><a href="#education">Education</a></li>
-            <li><a href="#experience">Experience</a></li>
+            <li><a href="#about">Philosophy</a></li>
             <li><a href="#contact">Get in Touch</a></li>
           </ul>
         </div>
@@ -2144,7 +2151,7 @@ Freelance Designer Portfolio
       const backdrop = document.getElementById('execBackdrop');
       const toggle = document.querySelector('.exec-toggle');
       
-      // If menu is open AND click is NOT on the toggle button AND click is NOT inside the panel
+      // If menu is open AND click is NOT on toggle button AND click is NOT inside panel
       if (panel.classList.contains('active') &&
           !toggle.contains(e.target) && 
           !panel.contains(e.target)) {
