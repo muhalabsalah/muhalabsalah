@@ -232,6 +232,21 @@ Freelance Designer Portfolio
       background: rgba(15, 23, 42, 0.05);
     }
 
+    .btn-secondary-executive {
+        /* Cleaner executive style for secondary actions */
+        background: transparent;
+        color: var(--text-muted);
+        border: 1px solid var(--border-color);
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .btn-secondary-executive:hover {
+        color: var(--primary-dark);
+        border-color: var(--primary-dark);
+        background: rgba(255,255,255,0.8);
+    }
+
     section {
       padding: 100px 0;
       position: relative;
@@ -1072,6 +1087,134 @@ Freelance Designer Portfolio
     }
 
     /* =========================================
+       NEW: PROFESSIONAL PROFILES SECTION
+       ========================================= */
+    
+    .profiles-cta-container {
+        text-align: center;
+        margin-top: 48px;
+    }
+
+    /* The Overlay View */
+    #profiles-view {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #fdfdfd; /* Match body */
+        z-index: 9000; /* Above nav, below cursor */
+        overflow-y: auto;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(50px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        padding-top: 120px; /* Space for header/back btn */
+        padding-bottom: 80px;
+    }
+
+    #profiles-view.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .profiles-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 48px;
+    }
+
+    .profiles-title-group {
+        max-width: 800px;
+    }
+
+    .profiles-intro {
+        color: var(--text-muted);
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-top: 16px;
+    }
+
+    .profiles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 48px;
+    }
+
+    /* Profile Card Style */
+    .profile-card {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profile-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        border-color: rgba(15, 23, 42, 0.1);
+    }
+
+    .profile-img-wrapper {
+        width: 100%;
+        height: 240px;
+        background-color: #f1f5f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .profile-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    .profile-card:hover .profile-img-wrapper img {
+        transform: scale(1.05);
+    }
+
+    .profile-content {
+        padding: 32px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profile-field {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--accent-gold);
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .profile-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 16px;
+    }
+
+    .profile-desc {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 24px;
+        flex: 1;
+    }
+
+    /* =========================================
        REDESIGNED STRONG CTA / CONTACT SECTION
        ========================================= */
     .contact-section {
@@ -1462,6 +1605,22 @@ Freelance Designer Portfolio
       .timeline-item::after { left: 5px; }
 
       /* =========================================
+         PROFILES VIEW MOBILE
+         ========================================= */
+      .profiles-grid {
+          grid-template-columns: 1fr;
+      }
+      
+      .profiles-header {
+          flex-direction: column;
+          gap: 24px;
+      }
+
+      .profiles-intro {
+          font-size: 1rem;
+      }
+
+      /* =========================================
          CONTACT SECTION MOBILE LAYOUT
          ========================================= */
       .contact-section { padding: 80px 20px; }
@@ -1613,6 +1772,62 @@ Freelance Designer Portfolio
     </ul>
   </div>
 
+  <!-- =========================================
+       INTERNAL VIEW: PROFESSIONAL PROFILES
+       ========================================= -->
+  <div id="profiles-view">
+    <div class="container">
+        <div class="profiles-header">
+            <div class="profiles-title-group">
+                <h2>Selected Professional Profiles</h2>
+                <p class="profiles-intro">
+                    A curated selection of professional platforms showcasing my work in branding, packaging, motion design, and digital strategy across multiple industries.
+                </p>
+            </div>
+            <!-- Close / Back Button -->
+            <button class="btn btn-secondary-executive" onclick="closeProfiles()">
+                <i class="fa-solid fa-arrow-left"></i> Back to Skills
+            </button>
+        </div>
+
+        <div class="profiles-grid">
+            <!-- Profile Card 01 -->
+            <div class="profile-card">
+                <div class="profile-img-wrapper">
+                    <img src="https://i.ibb.co/KzcBfJ7c/logo.png" alt="Mashhor Foodstuff LLC">
+                </div>
+                <div class="profile-content">
+                    <span class="profile-field">Foodstuff · FMCG · Branding & Packaging</span>
+                    <h3 class="profile-name">Mashhor Foodstuff LLC</h3>
+                    <p class="profile-desc">
+                        A complete corporate and product-focused digital presence for a foodstuff trading company, showcasing branding, FMCG packaging, product presentation, and marketing visuals. Reflects market-ready brand execution for regional and commercial audiences.
+                    </p>
+                    <a href="https://mashhorfoods.github.io/mashhor-demo/" target="_blank" class="btn btn-primary">
+                        Visit Project Website <i class="fa-solid fa-external-link-alt" style="font-size: 0.8rem;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Card 02 -->
+            <div class="profile-card">
+                <div class="profile-img-wrapper">
+                    <img src="https://i.ibb.co/b5Gd97kR/IMG-20250726-130018.png" alt="Quantum Link">
+                </div>
+                <div class="profile-content">
+                    <span class="profile-field">Digital Agency · Branding · UX/UI · Digital Strategy</span>
+                    <h3 class="profile-name">Quantum Link</h3>
+                    <p class="profile-desc">
+                        A digital agency platform presenting a strategy-driven creative company. Highlights branding systems, service structure, visual identity, and storytelling designed for clients, investors, and partners.
+                    </p>
+                    <a href="https://quantumlinkagency.github.io/qda/" target="_blank" class="btn btn-primary">
+                        Explore Agency Website <i class="fa-solid fa-external-link-alt" style="font-size: 0.8rem;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
   <main>
     <!-- Hero Section -->
     <section class="hero">
@@ -1725,6 +1940,13 @@ Freelance Designer Portfolio
                  View Projects <i class="fa-solid fa-arrow-right" style="font-size: 0.7rem; margin-left: 6px;"></i>
               </a>
             </div>
+          </div>
+          
+          <!-- NEW CTA FOR PROFILES -->
+          <div class="profiles-cta-container">
+              <button class="btn btn-primary" onclick="openProfiles()">
+                  View Professional Profiles
+              </button>
           </div>
         </div>
       </div>
@@ -2142,6 +2364,11 @@ Freelance Designer Portfolio
         if (panel.classList.contains('active')) {
           toggleExecutiveMenu();
         }
+        // Also close Profiles View if open
+        const profilesView = document.getElementById('profiles-view');
+        if (profilesView.classList.contains('active')) {
+          closeProfiles();
+        }
       }
     });
 
@@ -2216,7 +2443,22 @@ Freelance Designer Portfolio
     });
 
     // ==========================================
-    // 6. MICRO-INTERACTIONS: Custom Cursor & Magnetic Buttons
+    // 6. NEW: PROFILES VIEW LOGIC
+    // ==========================================
+    function openProfiles() {
+        const profilesView = document.getElementById('profiles-view');
+        profilesView.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Lock body scroll
+    }
+
+    function closeProfiles() {
+        const profilesView = document.getElementById('profiles-view');
+        profilesView.classList.remove('active');
+        document.body.style.overflow = ''; // Restore body scroll
+    }
+
+    // ==========================================
+    // 7. MICRO-INTERACTIONS: Custom Cursor & Magnetic Buttons
     // ==========================================
 
     const cursorDot = document.querySelector('[data-cursor-dot]');
@@ -2249,7 +2491,7 @@ Freelance Designer Portfolio
     }
     animateCursor();
 
-    const interactables = document.querySelectorAll('a, button, .card, .strengths-item, .exec-nav-link');
+    const interactables = document.querySelectorAll('a, button, .card, .strengths-item, .exec-nav-link, .profile-card');
     
     interactables.forEach(el => {
       el.addEventListener('mouseenter', () => {
