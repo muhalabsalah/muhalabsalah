@@ -1083,6 +1083,30 @@ Freelance Designer Portfolio
       line-height: 1.5;
     }
 
+    /* --- VOLUNTEER REDUCED WEIGHT STYLES --- */
+    .timeline-item.volunteer-role {
+        opacity: 0.7; /* Muted opacity */
+    }
+    
+    .timeline-item.volunteer-role::after {
+        border-color: var(--text-muted); /* Grey dot instead of gold */
+        background: #f1f5f9;
+    }
+
+    .timeline-item.volunteer-role .timeline-content h3 {
+        color: var(--text-muted); /* Muted title */
+        font-weight: 500;
+    }
+    
+    .timeline-item.volunteer-role:hover {
+        opacity: 1; /* Fully readable on hover */
+    }
+    
+    .timeline-item.volunteer-role:hover::after {
+        border-color: var(--primary-dark);
+        background: #fff;
+    }
+
     /* PROFESSIONAL PROFILES SECTION */
     .profiles-cta-container {
         text-align: center;
@@ -2030,19 +2054,6 @@ Freelance Designer Portfolio
               </div>
             </div>
 
-            <!-- Volunteer Role -->
-            <div class="timeline-item">
-              <span class="timeline-date">Jun 2023 – Present</span>
-              <div class="timeline-content">
-                <span class="job-tagline">Crises Communication & Field Coordination</span>
-                <h3>Volunteer Worker – Humanitarian Response</h3>
-                <ul>
-                  <li>Supported humanitarian operations during wartime displacement and public health emergencies in Sudan.</li>
-                  <li>Conducted field assessments, registrations, logistics support, and community coordination under high-pressure conditions.</li>
-                </ul>
-              </div>
-            </div>
-
             <!-- Al Madina Role -->
             <div class="timeline-item">
               <span class="timeline-date">Oct 2019 – Oct 2021</span>
@@ -2082,6 +2093,20 @@ Freelance Designer Portfolio
                 <ul>
                   <li>Defined marketing visuals and supported sales-driven design initiatives.</li>
                   <li>Managed social media promotional content aligned with brand and campaign goals.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Volunteer Role (Moved to bottom with reduced weight) -->
+            <div class="timeline-item volunteer-role">
+              <span class="timeline-date">Jun 2023 – Present</span>
+              <div class="timeline-content">
+                <span class="job-tagline">Community & Crisis Response</span>
+                <h3>Volunteer Worker – Humanitarian Response</h3>
+                <span class="company-name">Sudan Humanitarian Aid</span>
+                <ul>
+                  <li>Supported humanitarian operations during wartime displacement and public health emergencies in Sudan.</li>
+                  <li>Conducted field assessments, registrations, logistics support, and community coordination under high-pressure conditions.</li>
                 </ul>
               </div>
             </div>
