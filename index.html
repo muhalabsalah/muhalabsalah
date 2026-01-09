@@ -265,9 +265,10 @@ Freelance Designer Portfolio
       z-index: 100;
       
       /* IMPROVED: Stronger Glass Effect for better contrast & premium feel */
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      /* Increased transparency and blur for better cohesion with Hero */
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
       
       border-bottom: 1px solid rgba(255, 255, 255, 0.3);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
@@ -595,10 +596,17 @@ Freelance Designer Portfolio
       align-items: center;
       padding-top: calc(var(--nav-height) + 20px); 
       overflow: hidden;
-      /* IMPROVED: Subtle soft gradient to ensure text contrast against canvas */
-      background: radial-gradient(circle at 50% 40%, rgba(255,255,255,0.8) 0%, transparent 70%);
+      
+      /* IMPROVED: Cohesive Spotlight Gradient for Contrast & Flow */
+      /* Creates a bright "wash" at the top connecting with the header, fading to transparent */
+      background: 
+        var(--noise-url),
+        radial-gradient(circle at 50% 20%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 40%, transparent 80%);
+      
+      background-blend-mode: normal;
     }
 
+    /* Gold ambient glow for subtle depth */
     .hero::before {
         content: '';
         position: absolute;
@@ -659,22 +667,13 @@ Freelance Designer Portfolio
       margin-bottom: 24px; 
     }
 
-    .hero-intro-text {
-      font-size: 1.05rem;
-      color: var(--text-main); 
-      max-width: 750px;
-      margin: 0 auto 48px auto; 
-      line-height: 1.7;
-      font-weight: 400;
-    }
-
     .hero-btns {
       display: flex;
       gap: 24px;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center; 
-      margin-top: 8px;
+      margin-top: 32px; /* Increased spacing slightly after removal of text */
     }
 
     /* --- ENTRANCE ANIMATION (Premium Fade Up) --- */
@@ -1836,11 +1835,9 @@ Freelance Designer Portfolio
         
         <p class="hero-subtitle hero-anim delay-300">Senior Graphic & Motion Designer | Executive Presentation Design</p>
         
-        <p class="hero-intro-text hero-anim delay-400">
-          9+ years of experience in branding, FMCG packaging, motion graphics, and digital content creation — including 2 years in GCC.
-        </p>
+        <!-- REMOVED: Intro text about 9+ years as per request -->
         
-        <div class="hero-btns hero-anim delay-500">
+        <div class="hero-btns hero-anim delay-400">
           <a href="#contact" class="btn btn-primary" data-magnetic="true">Start a Project</a>
           
           <!-- FIXED ALIGNMENT: Added explicit vertical padding to match primary button -->
