@@ -797,18 +797,30 @@ Freelance Designer Portfolio
       transform: scaleX(1);
     }
 
-    .card-icon {
-      font-size: 1.8rem;
-      color: var(--primary-dark);
-      margin: 0 auto 32px auto; 
-      background: #fff;
-      width: 56px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    /* ==========================================
+       NEW: CARD THUMBNAIL STYLES
+       ========================================== */
+    .card-thumbnail {
+      width: calc(100% + 64px); /* Compensate for padding (32px * 2) */
+      height: 220px;
+      margin: -40px -32px 24px -32px; /* Pull to edges, give bottom spacing */
+      border-radius: 24px 24px 0 0; /* Match card radius */
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+      background-color: #f1f5f9;
+    }
+
+    .card-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures perfect fit without distortion */
+      transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Hover Zoom Effect */
+    .card:hover .card-thumbnail img {
+      transform: scale(1.05);
     }
 
     .card ul {
@@ -1566,7 +1578,16 @@ Freelance Designer Portfolio
 
       /* Cards Mobile Adjustment */
       .card { padding: 28px 24px; }
-      .card-icon { margin-bottom: 24px; }
+
+      /* =========================================
+         MOBILE THUMBNAIL ADJUSTMENT
+         ========================================= */
+      .card-thumbnail {
+          width: calc(100% + 40px); /* Compensate for 20px padding * 2 */
+          height: 180px;
+          margin: -28px -20px 20px -20px; /* Adjust margins for smaller padding */
+          border-radius: 20px 20px 0 0;
+      }
 
       /* Timeline Mobile */
       .timeline { padding-left: 10px; margin-top: 30px; }
@@ -1864,9 +1885,11 @@ Freelance Designer Portfolio
             <h2>Core Skills</h2>
           </div>
           <div class="grid-3">
-            <!-- Branding & Design Card -->
+            <!-- Branding & Design Card with Thumbnail -->
             <div class="card">
-              <div class="card-icon"><i class="fa-solid fa-pen-nib"></i></div>
+              <div class="card-thumbnail">
+                  <img src="https://i.ibb.co/60hxyw93/Image-kfo9rvkfo9rvkfo9.png" alt="Branding Work">
+              </div>
               <h3>Branding & Design</h3>
               <ul>
                 <li>Graphic Design</li>
@@ -1882,9 +1905,11 @@ Freelance Designer Portfolio
               </a>
             </div>
 
-            <!-- Motion & Video Card with NEW CTA -->
+            <!-- Motion & Video Card with Thumbnail -->
             <div class="card">
-              <div class="card-icon"><i class="fa-solid fa-film"></i></div>
+              <div class="card-thumbnail">
+                  <img src="https://i.ibb.co/4RjPXTN5/Image-udjxludjxludjxlu.webp" alt="Motion Work">
+              </div>
               <h3>Motion & Video</h3>
               <ul>
                 <li>Motion Graphics</li>
@@ -1897,9 +1922,11 @@ Freelance Designer Portfolio
               </a>
             </div>
 
-            <!-- Digital & Marketing Card -->
+            <!-- Digital & Marketing Card with Thumbnail -->
             <div class="card">
-              <div class="card-icon"><i class="fa-solid fa-bullhorn"></i></div>
+              <div class="card-thumbnail">
+                  <img src="https://i.ibb.co/TMptgWKL/Image-n0p405n0p405n0p4.webp" alt="Digital Work">
+              </div>
               <h3>Digital & Marketing</h3>
               <ul>
                 <li>Social Media Design</li>
