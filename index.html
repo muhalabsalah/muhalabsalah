@@ -1525,16 +1525,63 @@ Freelance Designer Portfolio
       opacity: 0.6;
     }
 
-    /* --- Animation Classes for Scroll Trigger --- */
+    /* =========================================
+       SCROLL REVEAL ANIMATION CLASSES (UPDATED)
+       ========================================= */
+    
+    /* Base State: Hidden & Offset */
     .fade-in-up {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: opacity, transform;
     }
     
+    /* Active State: Visible */
     .fade-in-up.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* --- STAGGERING RULES (Subtle Rhythm) --- */
+    
+    /* Strengths Strip Stagger */
+    .strengths-grid .strength-item:nth-child(1) { transition-delay: 0.1s; }
+    .strengths-grid .strength-item:nth-child(2) { transition-delay: 0.2s; }
+    .strengths-grid .strength-item:nth-child(3) { transition-delay: 0.3s; }
+    .strengths-grid .strength-item:nth-child(4) { transition-delay: 0.4s; }
+
+    /* Skills Grid Stagger */
+    .grid-3 .card:nth-child(1) { transition-delay: 0.1s; }
+    .grid-3 .card:nth-child(2) { transition-delay: 0.2s; }
+    .grid-3 .card:nth-child(3) { transition-delay: 0.3s; }
+
+    /* Education Grid Stagger */
+    #education .grid-3 .card:nth-child(1) { transition-delay: 0.1s; }
+    #education .grid-3 .card:nth-child(2) { transition-delay: 0.2s; }
+
+    /* Contact CTA Stagger (Left -> Center -> Right) */
+    .cta-message { transition-delay: 0.1s; }
+    .qr-wrapper { transition-delay: 0.2s; }
+    .cta-actions { transition-delay: 0.3s; }
+
+    /* Timeline Stagger (Handled in JS for unique logic, but default CSS fallback here) */
+    .timeline-item:nth-child(1) { transition-delay: 0.1s; }
+    .timeline-item:nth-child(2) { transition-delay: 0.2s; }
+    .timeline-item:nth-child(3) { transition-delay: 0.3s; }
+    .timeline-item:nth-child(4) { transition-delay: 0.4s; }
+    .timeline-item:nth-child(5) { transition-delay: 0.5s; }
+
+    /* --- Accessibility: Reduced Motion --- */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in-up {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      html {
+        scroll-behavior: auto;
+      }
     }
 
     /* =========================================
@@ -2382,28 +2429,44 @@ Freelance Designer Portfolio
       }
     });
 
-    // --- 3. Scroll Animation ---
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
-    };
+    // --- 3. Scroll Reveal Logic (Enhanced) ---
+    
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+    if (!prefersReducedMotion) {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            // Trigger once per section
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-in-up').forEach(el => {
+        observer.observe(el);
       });
-    }, observerOptions);
 
-    document.querySelectorAll('.fade-in-up').forEach(el => {
-      observer.observe(el);
-    });
-
-    document.querySelectorAll('.timeline-item').forEach(el => {
-      observer.observe(el);
-    });
+      // Timeline Items use specific delays handled in CSS, 
+      // but we still need the observer to trigger the 'visible' class
+      document.querySelectorAll('.timeline-item').forEach(el => {
+        observer.observe(el);
+      });
+    } else {
+      // If reduced motion, just show everything immediately
+      document.querySelectorAll('.fade-in-up, .timeline-item').forEach(el => {
+        el.classList.add('visible');
+        el.style.opacity = 1;
+        el.style.transform = 'none';
+      });
+    }
 
     // --- 4. Interaction Logic ---
     function copyEmail(e) {
