@@ -2456,6 +2456,49 @@ Freelance Designer Portfolio
       });
     });
 
+    // ==========================================
+    // 8. SMOOTH KEYBOARD SCROLLING
+    // ==========================================
+    // Implements smooth scroll for Arrow keys, Page Up/Down, and W/S keys.
+    // Ignores input when user is typing in forms or modals are open.
+    document.addEventListener('keydown', function(e) {
+        // 1. Don't hijack scrolling if user is inside an input field
+        const tag = document.activeElement.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement.isContentEditable) {
+            return;
+        }
+
+        // 2. Disable custom scroll if Profiles Overlay is active (it has its own scroll)
+        const profilesView = document.getElementById('profiles-view');
+        if (profilesView.classList.contains('active')) {
+            return;
+        }
+
+        // 3. Define key sets
+        const keysDown = ['ArrowDown', 'PageDown', 's', 'S'];
+        const keysUp = ['ArrowUp', 'PageUp', 'w', 'W'];
+
+        // 4. Check if pressed key matches our navigation set
+        if (keysDown.includes(e.key) || keysUp.includes(e.key)) {
+            e.preventDefault(); // Stop default jerky browser scroll
+
+            // 5. Calculate scroll distance
+            const viewHeight = window.innerHeight;
+            
+            // Page keys scroll further (1.5x viewport) than Arrow/W keys (0.9x viewport)
+            const isPageKey = e.key.includes('Page');
+            const scrollDistance = isPageKey ? viewHeight * 1.5 : viewHeight * 0.9;
+
+            // Determine direction
+            const direction = keysDown.includes(e.key) ? 1 : -1;
+
+            // 6. Execute smooth scroll using native browser API
+            window.scrollBy({
+                top: scrollDistance * direction,
+                behavior: 'smooth'
+            });
+        }
+    });
   </script>
 </body>
 </html>
