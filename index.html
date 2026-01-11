@@ -750,13 +750,14 @@ Freelance Designer Portfolio
       overflow: hidden;
       position: relative;
       flex-shrink: 0;
-      background-color: #f1f5f9;
+      background-color: transparent; /* Remove background color to ensure full image visibility */
     }
 
     .card-thumbnail img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* DESKTOP: Cover for photographic thumbnails */
+      object-fit: cover; /* Ensures full fill without distortion */
+      object-position: center; /* Centers the image focal point */
       transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
@@ -784,7 +785,7 @@ Freelance Designer Portfolio
     .profile-img-wrapper {
         width: 100%;
         height: 200px; /* DESKTOP: Fixed height within 200-240px range */
-        padding: 24px; /* DESKTOP: Reduced padding for better logo fit */
+        padding: 0; /* Removed padding to allow image to fill full width */
         background-color: #ffffff;
         display: flex;
         align-items: center;
@@ -794,9 +795,10 @@ Freelance Designer Portfolio
     }
 
     .profile-img-wrapper img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* DESKTOP: Contain for logos */
+        width: 100%; /* Changed from auto to 100% */
+        height: 100%; /* Keeps 100% height */
+        object-fit: cover; /* Changed from contain to cover to remove whitespace */
+        object-position: center; /* Ensures center crop/fill */
         transition: transform 0.5s ease;
     }
     
@@ -1462,7 +1464,7 @@ Freelance Designer Portfolio
       }
       
       .card-thumbnail img {
-          object-fit: cover; /* Maintain cover for photos */
+          object-fit: cover; /* Ensure mobile uses cover */
       }
 
       /* ==========================================
@@ -1483,11 +1485,11 @@ Freelance Designer Portfolio
 
       .profile-img-wrapper {
           height: 160px; /* MOBILE: Fixed height within 160-180px */
-          padding: 16px;   /* Reduced padding for mobile */
+          padding: 0; /* Keep padding 0 for full fill */
       }
       
       .profile-img-wrapper img {
-          object-fit: contain; /* Maintain contain for logos */
+          object-fit: cover; /* Ensure mobile uses cover */
       }
 
       /* Timeline Mobile */
