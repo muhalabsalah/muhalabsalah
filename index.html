@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <!-- TRACKING CODES -->
+  <!-- UPDATED TRACKING CODES -->
   
   <!-- Google Tag Manager -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DCQ93RDL9"></script>
@@ -46,16 +46,12 @@ Freelance Designer Portfolio
   <meta property="og:title" content="Muhalab Basheir | Senior Graphic & Motion Designer">
   <meta property="og:description" content="Branding, FMCG packaging, motion graphics & executive presentations. 9+ years experience. Available for freelance, remote & full-time roles.">
   <meta property="og:url" content="https://muhalabsalah.github.io/muhalabsalah/">
-  
-  <!-- UPDATED: og:image -->
   <meta property="og:image" content="https://i.ibb.co/XrLByCT3/Vector-Smart-Object.webp">
 
   <!-- Twitter / X Preview -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Muhalab Basheir | Senior Graphic & Motion Designer">
   <meta name="twitter:description" content="Branding, FMCG packaging, motion graphics & executive presentations.">
-  
-  <!-- UPDATED: twitter:image -->
   <meta name="twitter:image" content="https://i.ibb.co/XrLByCT3/Vector-Smart-Object.webp">
 
   <!-- Google Rich Results (Schema.org) -->
@@ -100,7 +96,7 @@ Freelance Designer Portfolio
       --text-main: #1e293b;
       --text-muted: #64748b;
       --border-color: rgba(15, 23, 42, 0.08);
-      --card-bg: rgba(255, 255, 255, 0.7);
+      --card-bg: #ffffff;
       --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
       --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -109,25 +105,15 @@ Freelance Designer Portfolio
       /* Magnetic Config */
       --magnetic-strength: 0.4;
 
-      /* 
-         DEPTH ASSETS: "Depth Without Noise"
-         1. Minimal Noise Texture (Opacity 3%)
-         2. Abstract Glow Blobs
-      */
-      --noise-url: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3e%3cfilter id='noise'%3e%3cfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3e%3c/filter%3e%3crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3e%3c/svg%3e");
-      
-      /* Orb 1: Gold/Warm (Top Right) */
-      --orb-gold: radial-gradient(circle at 85% 15%, rgba(202, 138, 4, 0.08) 0%, transparent 50%);
-      /* Orb 2: Slate/Cool (Bottom Left) */
-      --orb-slate: radial-gradient(circle at 15% 85%, rgba(15, 23, 42, 0.05) 0%, transparent 50%);
+      /* DEPTH ASSETS: Minimal Noise Texture */
+      --noise-url: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3e%3cfilter id='noise'%3e%3cfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3e%3c/filter%3e%3crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3e%3c/svg%3e");
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      /* Standard cursor restored */
-      cursor: auto;
+      /* Custom cursor styling removed to restore global standard behavior */
     }
 
     html {
@@ -136,37 +122,19 @@ Freelance Designer Portfolio
 
     body {
       font-family: 'Poppins', sans-serif;
-      
-      /* 
-         REFINED DEPTH BACKGROUND 
-         Layered: 
-         1. Base Gradient
-         2. Static Orbs (Depth)
-         3. Slow Shift Animation (Breathing effect)
-         4. Noise (Texture) 
-      */
-      background: 
+      background-color: #fdfdfd;
+      background-image: 
         var(--noise-url),
-        var(--orb-gold),
-        var(--orb-slate),
-        linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
-      
-      background-size: 100% 100%, 100% 100%, 100% 100%, 200% 200%;
-      
-      /* Ultra-Slow Micro Motion (60s duration) */
-      animation: slowBreathe 60s ease-in-out infinite alternate;
+        radial-gradient(circle at 15% 15%, rgba(255,255,255,0.9) 0%, transparent 50%), 
+        radial-gradient(circle at 85% 85%, rgba(241, 245, 249,0.8) 0%, transparent 40%), 
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
       
       background-blend-mode: overlay, normal, normal, normal;
-      background-attachment: fixed, fixed, fixed, fixed; /* Fix gradients for performance */
+      background-attachment: fixed;
       color: var(--text-main);
       line-height: 1.6;
       overflow-x: hidden;
       min-height: 100vh;
-    }
-
-    @keyframes slowBreathe {
-      0% { background-position: 0% 50%, 0% 0%, 0% 0%, 0% 50%; }
-      100% { background-position: 0% 50%, 2% 2%, -2% -2%, 0% 50%; }
     }
 
     /* Typography */
@@ -259,7 +227,6 @@ Freelance Designer Portfolio
     }
 
     .btn-secondary-executive {
-        /* Cleaner executive style for secondary actions */
         background: transparent;
         color: var(--text-muted);
         border: 1px solid var(--border-color);
@@ -288,15 +255,11 @@ Freelance Designer Portfolio
       width: 100%;
       height: var(--nav-height);
       z-index: 100;
-      
-      /* Strong Glass Effect */
       background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(25px) saturate(180%);
       -webkit-backdrop-filter: blur(25px) saturate(180%);
-      
       border-bottom: 1px solid rgba(255, 255, 255, 0.3);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-      
       display: flex;
       align-items: center;
       transition: height 0.3s ease;
@@ -362,29 +325,23 @@ Freelance Designer Portfolio
       background: none;
       border: none;
       outline: none;
-      
       display: flex; 
       flex-direction: row; 
       align-items: center;
       justify-content: center;
       gap: 12px;
-      
       height: 48px;
       padding: 0 24px;
       border-radius: 24px; 
-      
       background: rgba(255, 255, 255, 0.6);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(15, 23, 42, 0.1);
       color: var(--primary-dark);
-      
       font-family: 'Poppins', sans-serif;
       font-size: 0.8rem;
       font-weight: 600;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      
-      cursor: pointer;
       transition: var(--transition);
       z-index: 1002;
       position: relative;
@@ -433,43 +390,22 @@ Freelance Designer Portfolio
     }
 
     .exec-toggle.active .menu-label { display: none; }
-
-    .exec-toggle.active .menu-lines {
-      transform: rotate(45deg);
-      gap: 0;
-    }
-    
-    .exec-toggle.active .menu-lines span:nth-child(1) {
-       transform: translateY(3.5px) rotate(0deg); 
-       width: 20px;
-    }
-    
-    .exec-toggle.active .menu-lines span:nth-child(2) {
-       transform: translateY(-3.5px) rotate(90deg);
-       width: 20px;
-       opacity: 1;
-    }
-    
+    .exec-toggle.active .menu-lines { transform: rotate(45deg); gap: 0; }
+    .exec-toggle.active .menu-lines span:nth-child(1) { transform: translateY(3.5px) rotate(0deg); width: 20px; }
+    .exec-toggle.active .menu-lines span:nth-child(2) { transform: translateY(-3.5px) rotate(90deg); width: 20px; opacity: 1; }
     .exec-toggle.active .menu-lines { gap: 0; }
 
-    /* =========================================
-       MOBILE NAV OVERRIDES
-       ========================================= */
+    /* --- MOBILE NAV OVERRIDES --- */
     @media (min-width: 769px) {
       .nav-links { display: none !important; } 
       .exec-toggle { display: flex !important; }
       .menu-label { display: block; }
       .executive-panel { width: 450px; border-right: 1px solid var(--border-color); }
-      
       .hero .container { padding: 0 40px; }
     }
 
     @media (max-width: 768px) {
-      nav { 
-        height: var(--nav-height);
-        background: rgba(255,255,255,0.9);
-      }
-      
+      nav { height: var(--nav-height); background: rgba(255,255,255,0.9); }
       .nav-content { padding: 0 24px; }
       .nav-links { display: none !important; }
       .exec-toggle { 
@@ -480,20 +416,12 @@ Freelance Designer Portfolio
         height: 30px;
         background: transparent;
       }
-      
       .menu-label { display: none; }
       .menu-lines { gap: 6px; width: 100%; }
       .menu-lines span { height: 3px; background-color: var(--accent-gold); }
-      
       .exec-toggle.active { width: 40px; height: 30px; background: transparent; }
-      .exec-toggle.active .menu-lines span:nth-child(1) {
-         transform: translateY(5px) rotate(45deg);
-         background-color: var(--primary-dark);
-      }
-      .exec-toggle.active .menu-lines span:nth-child(2) {
-         transform: translateY(-5px) rotate(-45deg);
-         background-color: var(--primary-dark);
-      }
+      .exec-toggle.active .menu-lines span:nth-child(1) { transform: translateY(5px) rotate(45deg); background-color: var(--primary-dark); }
+      .exec-toggle.active .menu-lines span:nth-child(2) { transform: translateY(-5px) rotate(-45deg); background-color: var(--primary-dark); }
     }
 
     /* --- EXECUTIVE SIDE PANEL --- */
@@ -502,8 +430,7 @@ Freelance Designer Portfolio
       top: 0;
       right: 0;
       height: 100vh;
-      background: rgba(255, 255, 255, 0.95); /* Slightly more solid to hide bg motion */
-      backdrop-filter: blur(20px);
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
       box-shadow: -5px 0 25px rgba(15, 23, 42, 0.15);
       z-index: 1000;
       transform: translateX(100%);
@@ -555,7 +482,6 @@ Freelance Designer Portfolio
       border: none;
       font-size: 1.5rem;
       color: var(--text-muted);
-      cursor: pointer;
       transition: color 0.3s ease;
       width: 40px;
       height: 40px;
@@ -621,20 +547,12 @@ Freelance Designer Portfolio
       align-items: center;
       padding-top: calc(var(--nav-height) + 20px); 
       overflow: hidden;
-      
-      /* 
-         Hero Specific Background:
-         Uses the same variables but adds a bright wash at the top 
-         to blend with the fixed header.
-      */
       background: 
         var(--noise-url),
-        radial-gradient(circle at 50% 20%, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%);
-      
+        radial-gradient(circle at 50% 20%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 40%, transparent 80%);
       background-blend-mode: normal;
     }
 
-    /* Gold ambient glow for subtle depth (Matches body orb) */
     .hero::before {
         content: '';
         position: absolute;
@@ -652,7 +570,7 @@ Freelance Designer Portfolio
       width: 100%;
       height: 100%;
       z-index: 0;
-      opacity: 0.4; /* Slightly higher opacity for contrast against soft bg */
+      opacity: 0.3; 
       pointer-events: none;
     }
 
@@ -680,7 +598,6 @@ Freelance Designer Portfolio
       margin-bottom: 32px; 
       box-shadow: 0 2px 4px rgba(202, 138, 4, 0.1);
     }
-    
     .badge-gcc i { font-size: 0.6rem; }
 
     .hero-title {
@@ -701,26 +618,19 @@ Freelance Designer Portfolio
       flex-wrap: wrap;
       justify-content: center;
       align-items: center; 
-      margin-top: 32px; 
+      margin-top: 32px;
     }
 
-    /* --- ENTRANCE ANIMATION (Premium Fade Up) --- */
     @keyframes premiumFadeUp {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     .hero-anim {
       opacity: 0; 
       animation-name: premiumFadeUp;
       animation-duration: 0.8s;
-      animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1); 
+      animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
       animation-fill-mode: forwards;
     }
 
@@ -732,8 +642,7 @@ Freelance Designer Portfolio
 
     /* --- Key Strengths Micro-Section --- */
     .strengths-strip {
-      background: 
-        linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.02) 100%);
+      background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.02) 100%);
       padding: 32px 0;
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
@@ -772,19 +681,15 @@ Freelance Designer Portfolio
       box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
 
-    .strength-item:hover {
-      transform: translateY(-2px);
-      color: var(--accent-gold);
-    }
+    .strength-item:hover { transform: translateY(-2px); color: var(--accent-gold); }
 
-    /* --- Cards & Grid --- */
+    /* --- Grid & Base Cards --- */
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 32px;
     }
 
-    /* --- DEPTH ENHANCED PREMIUM CARD STYLES --- */
     .card {
       background: 
         radial-gradient(circle at 0% 0%, rgba(255,255,255,0.9) 0%, transparent 60%),
@@ -792,7 +697,7 @@ Freelance Designer Portfolio
         linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
       background-blend-mode: normal, overlay, normal;
       border-radius: 24px;
-      padding: 40px 32px;
+      padding: 40px 32px; /* Desktop Padding */
       transition: var(--transition);
       position: relative;
       overflow: hidden;
@@ -815,38 +720,8 @@ Freelance Designer Portfolio
       transition: transform 0.4s ease;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.06); 
-    }
-
-    .card:hover::before {
-      transform: scaleX(1);
-    }
-
-    /* CARD THUMBNAIL STYLES */
-    .card-thumbnail {
-      width: calc(100% + 64px); 
-      height: 220px;
-      margin: -40px -32px 24px -32px; 
-      border-radius: 24px 24px 0 0; 
-      overflow: hidden;
-      position: relative;
-      flex-shrink: 0;
-      background-color: #f1f5f9;
-    }
-
-    .card-thumbnail img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; 
-      transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-
-    /* Hover Zoom Effect */
-    .card:hover .card-thumbnail img {
-      transform: scale(1.05);
-    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+    .card:hover::before { transform: scaleX(1); }
 
     .card ul {
       list-style: none;
@@ -862,8 +737,102 @@ Freelance Designer Portfolio
       color: var(--text-muted);
       font-size: 0.9rem;
     }
-
     .card ul li::before { display: none; }
+
+    /* ==========================================
+       REFINED THUMBNAIL STYLES (SKILLS SECTION)
+       ========================================== */
+    .card-thumbnail {
+      width: calc(100% + 64px); /* Desktop: 32px padding * 2 = 64px */
+      height: 220px; /* DESKTOP: Fixed height within 200-240px */
+      margin: -40px -32px 24px -32px; /* Pull to edges using card padding */
+      border-radius: 24px 24px 0 0;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+      background-color: #f1f5f9;
+    }
+
+    .card-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* DESKTOP: Cover for photographic thumbnails */
+      transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .card:hover .card-thumbnail img { transform: scale(1.05); }
+
+    /* ==========================================
+       REFINED PROFILE IMAGE STYLES (INTERNAL VIEWS)
+       ========================================== */
+    .profile-card {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profile-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        border-color: rgba(15, 23, 42, 0.1);
+    }
+
+    .profile-img-wrapper {
+        width: 100%;
+        height: 200px; /* DESKTOP: Fixed height within 200-240px range */
+        padding: 24px; /* DESKTOP: Reduced padding for better logo fit */
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .profile-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* DESKTOP: Contain for logos */
+        transition: transform 0.5s ease;
+    }
+    
+    .profile-card:hover .profile-img-wrapper img { transform: scale(1.05); }
+
+    .profile-content {
+        padding: 32px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profile-field {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--accent-gold);
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .profile-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 16px;
+    }
+
+    .profile-desc {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 24px;
+        flex: 1;
+    }
 
     /* --- Tools --- */
     .tools-container {
@@ -945,14 +914,12 @@ Freelance Designer Portfolio
       margin-bottom: 4px;
       display: block;
     }
-    
     .edu-institution {
       font-size: 0.9rem;
       color: var(--text-muted);
       margin-bottom: 16px;
       display: block;
     }
-
     .date-badge {
       display: inline-block;
       font-size: 0.75rem;
@@ -996,7 +963,6 @@ Freelance Designer Portfolio
       opacity: 1;
       transform: translateY(0);
     }
-    
     .timeline-item:nth-child(1).visible { transition-delay: 0.1s; }
     .timeline-item:nth-child(2).visible { transition-delay: 0.2s; }
     .timeline-item:nth-child(3).visible { transition-delay: 0.3s; }
@@ -1022,15 +988,11 @@ Freelance Designer Portfolio
       box-shadow: 0 0 0 6px rgba(202, 138, 4, 0.3); 
       transform: scale(1.1); 
     }
-    
     .timeline-item.current-role .timeline-date {
       color: var(--accent-gold);
       font-weight: 700;
     }
-
-    .timeline-item.current-role .timeline-content h3 {
-      color: var(--accent-gold);
-    }
+    .timeline-item.current-role .timeline-content h3 { color: var(--accent-gold); }
     
     .timeline-date {
       font-size: 0.8rem;
@@ -1042,7 +1004,6 @@ Freelance Designer Portfolio
       display: block;
       transition: color 0.3s;
     }
-    
     .job-tagline {
       display: block;
       font-size: 0.75rem;
@@ -1083,174 +1044,78 @@ Freelance Designer Portfolio
       line-height: 1.5;
     }
 
-    /* --- VOLUNTEER REDUCED WEIGHT STYLES --- */
-    .timeline-item.volunteer-role {
-        opacity: 0.7; /* Muted opacity */
-    }
+    /* =========================================
+       INTERNAL VIEW STYLES (PROFILES & BRANDING)
+       ========================================= */
     
-    .timeline-item.volunteer-role::after {
-        border-color: var(--text-muted); /* Grey dot instead of gold */
-        background: #f1f5f9;
-    }
-
-    .timeline-item.volunteer-role .timeline-content h3 {
-        color: var(--text-muted); /* Muted title */
-        font-weight: 500;
-    }
-    
-    .timeline-item.volunteer-role:hover {
-        opacity: 1; /* Fully readable on hover */
-    }
-    
-    .timeline-item.volunteer-role:hover::after {
-        border-color: var(--primary-dark);
-        background: #fff;
-    }
-
-    /* PROFESSIONAL PROFILES SECTION */
-    .profiles-cta-container {
-        text-align: center;
-        margin-top: 48px;
-    }
-
-    /* The Overlay View */
-    #profiles-view {
+    /* Generic Styles for Internal Overlays */
+    .internal-view {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100vh;
         background: #fdfdfd; /* Match body */
-        z-index: 9000; 
+        z-index: 9000; /* Above nav, below cursor */
         overflow-y: auto;
         opacity: 0;
         visibility: hidden;
         transform: translateY(50px);
         transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-        padding-top: 120px;
+        padding-top: 120px; /* Space for header/back btn */
         padding-bottom: 80px;
     }
 
-    #profiles-view.active {
+    .internal-view.active {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
     }
 
-    .profiles-header {
+    .internal-header {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
         margin-bottom: 48px;
     }
 
-    .profiles-title-group {
+    .internal-title-group {
         max-width: 800px;
     }
 
-    .profiles-intro {
+    .internal-intro {
         color: var(--text-muted);
         font-size: 1.1rem;
         line-height: 1.7;
         margin-top: 16px;
     }
 
-    .profiles-grid {
+    .internal-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         gap: 48px;
     }
 
-    /* Profile Card Style */
-    .profile-card {
-        background: #ffffff;
-        border: 1px solid var(--border-color);
-        border-radius: 16px;
-        overflow: hidden;
-        transition: var(--transition);
-        display: flex;
-        flex-direction: column;
-    }
+    /* Specific ID Styles to ensure distinctness if needed later */
+    #profiles-view { /* Inherits from .internal-view */ }
+    #branding-view { /* Inherits from .internal-view */ }
+    #motion-view { /* Inherits from .internal-view */ }
 
-    .profile-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-        border-color: rgba(15, 23, 42, 0.1);
-    }
-
-    /* Image Container */
-    .profile-img-wrapper {
-        width: 100%;
-        height: 200px;
-        padding: 30px; 
-        background-color: #ffffff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .profile-img-wrapper img {
-        object-fit: contain; 
-        width: auto;
-        height: 100%;
-        max-width: 100%;
-        transition: transform 0.5s ease;
-    }
-    
-    .profile-card:hover .profile-img-wrapper img {
-        transform: scale(1.05);
-    }
-
-    .profile-content {
-        padding: 32px;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .profile-field {
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: var(--accent-gold);
-        margin-bottom: 8px;
-        display: block;
-    }
-
-    .profile-name {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--primary-dark);
-        margin-bottom: 16px;
-    }
-
-    .profile-desc {
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        line-height: 1.6;
-        margin-bottom: 24px;
-        flex: 1;
-    }
-
-    /* CONTACT SECTION */
+    /* =========================================
+       REDESIGNED STRONG CTA / CONTACT SECTION
+       ========================================= */
     .contact-section {
-      /* High Contrast Dark Background */
       background: 
         var(--noise-url),
         linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-darker) 100%);
       background-blend-mode: overlay, normal;
-      
-      padding: 120px 0; 
+      padding: 120px 0; /* Increased spacing */
       position: relative;
       overflow: hidden;
       text-align: center;
       color: #fff;
     }
 
-    /* Subtle spotlight for depth */
     .contact-section::before {
       content: '';
       position: absolute;
@@ -1262,17 +1127,15 @@ Freelance Designer Portfolio
 
     .cta-wrapper {
       display: grid;
-      /* Grid Layout: Left (Message) - Center (QR) - Right (Actions) */
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      gap: 60px; 
+      gap: 60px; /* Generous spacing between elements */
       max-width: 1200px;
       margin: 0 auto;
       position: relative;
       z-index: 2;
     }
 
-    /* Left: The Message */
     .cta-message {
       text-align: right;
       padding-right: 20px;
@@ -1284,20 +1147,18 @@ Freelance Designer Portfolio
       color: #fff;
       margin-bottom: 16px;
       line-height: 1.1;
-      text-transform: none; 
+      text-transform: none; /* Override default H2 */
       letter-spacing: -0.02em;
     }
-    
     .cta-message h2::after { display: none; }
 
     .cta-message p {
       font-size: 1.1rem;
       color: rgba(255,255,255,0.7);
       max-width: 400px;
-      margin-left: auto; 
+      margin-left: auto;
     }
 
-    /* Center: The QR Code Anchor */
     .qr-wrapper {
       display: flex;
       flex-direction: column;
@@ -1336,7 +1197,6 @@ Freelance Designer Portfolio
       font-weight: 600;
     }
 
-    /* Right: The Actions */
     .cta-actions {
       text-align: left;
       padding-left: 20px;
@@ -1368,27 +1228,11 @@ Freelance Designer Portfolio
       transform: translateX(-10px);
     }
 
-    .action-icon {
-      font-size: 1.5rem;
-      width: 40px;
-      text-align: center;
-    }
+    .action-icon { font-size: 1.5rem; width: 40px; text-align: center; }
     
-    .action-text {
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .action-title {
-        font-weight: 700;
-        font-size: 1rem;
-        line-height: 1.2;
-    }
-    
-    .action-sub {
-        font-size: 0.8rem;
-        opacity: 0.7;
-    }
+    .action-text { display: flex; flex-direction: column; }
+    .action-title { font-weight: 700; font-size: 1rem; line-height: 1.2; }
+    .action-sub { font-size: 0.8rem; opacity: 0.7; }
 
     /* --- Toast Notification --- */
     #toast {
@@ -1441,9 +1285,7 @@ Freelance Designer Portfolio
       justify-content: center;
     }
     
-    .fab-wrapper.active .fab-main i {
-      transform: rotate(45deg);
-    }
+    .fab-wrapper.active .fab-main i { transform: rotate(45deg); }
 
     .fab-actions {
       display: flex;
@@ -1465,7 +1307,6 @@ Freelance Designer Portfolio
       justify-content: center;
       font-size: 1.2rem;
       text-decoration: none;
-      
       opacity: 0;
       transform: translateY(20px) scale(0.8);
       pointer-events: none;
@@ -1507,7 +1348,6 @@ Freelance Designer Portfolio
 
     .footer-brand h3 { color: #fff; margin-bottom: 16px; font-size: 1.4rem; }
     .footer-brand p { font-size: 0.9rem; opacity: 0.8; line-height: 1.6; max-width: 300px; }
-    
     .footer-brand img {
       height: 80px; 
       margin-bottom: 20px;
@@ -1525,7 +1365,6 @@ Freelance Designer Portfolio
       transition: var(--transition);
       display: inline-block;
     }
-    
     .footer-links a:hover {
       color: var(--accent-gold);
       transform: translateX(5px);
@@ -1563,67 +1402,19 @@ Freelance Designer Portfolio
       opacity: 0.6;
     }
 
-    /* SCROLL REVEAL ANIMATION CLASSES */
-    
-    /* Base State: Hidden & Offset */
     .fade-in-up {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-      will-change: opacity, transform;
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
-    
-    /* Active State: Visible */
     .fade-in-up.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* STAGGERING RULES */
-    
-    /* Strengths Strip Stagger */
-    .strengths-grid .strength-item:nth-child(1) { transition-delay: 0.1s; }
-    .strengths-grid .strength-item:nth-child(2) { transition-delay: 0.2s; }
-    .strengths-grid .strength-item:nth-child(3) { transition-delay: 0.3s; }
-    .strengths-grid .strength-item:nth-child(4) { transition-delay: 0.4s; }
-
-    /* Skills Grid Stagger */
-    .grid-3 .card:nth-child(1) { transition-delay: 0.1s; }
-    .grid-3 .card:nth-child(2) { transition-delay: 0.2s; }
-    .grid-3 .card:nth-child(3) { transition-delay: 0.3s; }
-
-    /* Education Grid Stagger */
-    #education .grid-3 .card:nth-child(1) { transition-delay: 0.1s; }
-    #education .grid-3 .card:nth-child(2) { transition-delay: 0.2s; }
-
-    /* Contact CTA Stagger (Left -> Center -> Right) */
-    .cta-message { transition-delay: 0.1s; }
-    .qr-wrapper { transition-delay: 0.2s; }
-    .cta-actions { transition-delay: 0.3s; }
-
-    /* Timeline Stagger */
-    .timeline-item:nth-child(1) { transition-delay: 0.1s; }
-    .timeline-item:nth-child(2) { transition-delay: 0.2s; }
-    .timeline-item:nth-child(3) { transition-delay: 0.3s; }
-    .timeline-item:nth-child(4) { transition-delay: 0.4s; }
-    .timeline-item:nth-child(5) { transition-delay: 0.5s; }
-
-    /* Accessibility: Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
-      .fade-in-up {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-      html {
-        scroll-behavior: auto;
-      }
-      body {
-        animation: none; /* Stop breathing effect */
-      }
-    }
-
-    /* MOBILE RESPONSIVE OVERRIDES (MAX 768px) */
+    /* =========================================
+       MOBILE RESPONSIVE OVERRIDES (MAX 768px)
+       ========================================= */
     @media (max-width: 768px) {
       
       section { padding: 60px 0; }
@@ -1658,16 +1449,45 @@ Freelance Designer Portfolio
       
       /* Skills */
       .grid-3 { grid-template-columns: 1fr; }
+      .card { padding: 28px 24px; } /* Mobile Card Padding */
 
-      /* Cards Mobile Adjustment */
-      .card { padding: 28px 24px; }
-
-      /* MOBILE THUMBNAIL ADJUSTMENT */
+      /* ==========================================
+         MOBILE THUMBNAIL ADJUSTMENT (SKILLS)
+         ========================================== */
       .card-thumbnail {
-          width: calc(100% + 40px); 
-          height: 180px;
-          margin: -28px -20px 20px -20px; 
+          width: calc(100% + 40px); /* Mobile: 20px padding * 2 = 40px */
+          height: 170px; /* MOBILE: Fixed height within 160-180px */
+          margin: -28px -20px 20px -20px; /* Match new card padding */
           border-radius: 20px 20px 0 0;
+      }
+      
+      .card-thumbnail img {
+          object-fit: cover; /* Maintain cover for photos */
+      }
+
+      /* ==========================================
+         MOBILE THUMBNAIL ADJUSTMENT (INTERNAL VIEWS)
+         ========================================== */
+      .internal-grid {
+          grid-template-columns: 1fr;
+      }
+      
+      .internal-header {
+          flex-direction: column;
+          gap: 24px;
+      }
+
+      .internal-intro {
+          font-size: 1rem;
+      }
+
+      .profile-img-wrapper {
+          height: 160px; /* MOBILE: Fixed height within 160-180px */
+          padding: 16px;   /* Reduced padding for mobile */
+      }
+      
+      .profile-img-wrapper img {
+          object-fit: contain; /* Maintain contain for logos */
       }
 
       /* Timeline Mobile */
@@ -1676,31 +1496,13 @@ Freelance Designer Portfolio
       .timeline-item { padding-left: 32px; }
       .timeline-item::after { left: 5px; }
 
-      /* PROFILES VIEW MOBILE */
-      .profiles-grid {
-          grid-template-columns: 1fr;
-      }
-      
-      .profiles-header {
-          flex-direction: column;
-          gap: 24px;
-      }
-
-      .profiles-intro {
-          font-size: 1rem;
-      }
-
-      /* Profile Image Mobile */
-      .profile-img-wrapper {
-          height: 160px; 
-          padding: 20px;   
-      }
-
-      /* CONTACT SECTION MOBILE LAYOUT */
+      /* ==========================================
+         CONTACT SECTION MOBILE LAYOUT
+         ========================================= */
       .contact-section { padding: 80px 20px; }
       
       .cta-wrapper {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
         gap: 40px;
         text-align: center;
       }
@@ -1712,7 +1514,6 @@ Freelance Designer Portfolio
         border-bottom: 1px solid rgba(255,255,255,0.1);
         padding-bottom: 30px;
       }
-      
       .cta-message p { margin-left: auto; margin-right: auto; }
 
       .qr-wrapper { margin: 20px 0; }
@@ -1774,6 +1575,7 @@ Freelance Designer Portfolio
       </a>
       
       <!-- Desktop Nav Links (Hidden on mobile) -->
+      <!-- RESORTED TO MATCH NEW SECTION ORDER: Skills -> Experience -> Education -> About -> Contact -->
       <div class="nav-links">
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
@@ -1806,6 +1608,7 @@ Freelance Designer Portfolio
     </div>
 
     <!-- Executive List -->
+    <!-- RESORTED TO MATCH NEW SECTION ORDER -->
     <ul class="exec-nav-list">
       <li>
         <a href="#skills" class="exec-nav-link" onclick="toggleExecutiveMenu()">
@@ -1840,13 +1643,15 @@ Freelance Designer Portfolio
     </ul>
   </div>
 
-  <!-- INTERNAL VIEW: PROFESSIONAL PROFILES -->
-  <div id="profiles-view">
+  <!-- =========================================
+       INTERNAL VIEW: PROFESSIONAL PROFILES
+       ========================================= -->
+  <div id="profiles-view" class="internal-view">
     <div class="container">
-        <div class="profiles-header">
-            <div class="profiles-title-group">
+        <div class="internal-header">
+            <div class="internal-title-group">
                 <h2>Selected Professional Profiles</h2>
-                <p class="profiles-intro">
+                <p class="internal-intro">
                     A curated selection of professional platforms showcasing my work in branding, packaging, motion design, and digital strategy across multiple industries.
                 </p>
             </div>
@@ -1856,11 +1661,11 @@ Freelance Designer Portfolio
             </button>
         </div>
 
-        <div class="profiles-grid">
+        <div class="internal-grid">
             <!-- Profile Card 01 -->
             <div class="profile-card">
                 <div class="profile-img-wrapper">
-                    <img src="https://i.ibb.co/KzcBfJ7c/logo.png" alt="Mashhor Foodstuff LLC">
+                    <img src="https://i.ibb.co/Z6gHB6Yr/1.webp" alt="Mashhor Foodstuff LLC">
                 </div>
                 <div class="profile-content">
                     <span class="profile-field">Foodstuff · FMCG · Branding & Packaging</span>
@@ -1877,7 +1682,7 @@ Freelance Designer Portfolio
             <!-- Profile Card 02 -->
             <div class="profile-card">
                 <div class="profile-img-wrapper">
-                    <img src="https://i.ibb.co/b5Gd97kR/IMG-20250726-130018.png" alt="Quantum Link">
+                    <img src="https://i.ibb.co/Zz0bFHty/Untitled.webp" alt="Quantum Link">
                 </div>
                 <div class="profile-content">
                     <span class="profile-field">Digital Agency · Branding · UX/UI · Digital Strategy</span>
@@ -1890,6 +1695,144 @@ Freelance Designer Portfolio
                     </a>
                 </div>
             </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- =========================================
+       INTERNAL VIEW: BRANDING & DESIGN
+       ========================================= -->
+  <div id="branding-view" class="internal-view">
+    <div class="container">
+        <div class="internal-header">
+            <div class="internal-title-group">
+                <h2>Branding & Design</h2>
+                <p class="internal-intro">
+                    A focused selection of branding, identity, illustration, and product-related graphic design work developed for commercial and creative applications.
+                </p>
+            </div>
+            <!-- Close / Back Button -->
+            <button class="btn btn-secondary-executive" onclick="closeBranding()">
+                <i class="fa-solid fa-arrow-left"></i> Back to Skills
+            </button>
+        </div>
+
+        <div class="internal-grid">
+            
+            <!-- Branding Card 01: Logo & Brand ID -->
+            <div class="profile-card">
+                <div class="profile-img-wrapper">
+                    <!-- UPDATED IMAGE -->
+                    <img src="https://i.ibb.co/HDqfPcyY/Logo-Brand-ID.webp" alt="Logo & Brand ID Placeholder">
+                </div>
+                <div class="profile-content">
+                    <span class="profile-field">Identity System</span>
+                    <h3 class="profile-name">Logo & Brand ID</h3>
+                    <p class="profile-desc">
+                        Comprehensive visual identity systems, logo design, and brand guidelines tailored to establish strong market presence and recognition.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1kQ8fR4DeubcQG5tWMO_XuG6j37A7-EBQ?usp=drive_link" target="_blank" class="btn btn-primary">
+                        View Projects <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Branding Card 02: Illustration -->
+            <div class="profile-card">
+                <div class="profile-img-wrapper">
+                    <!-- UPDATED IMAGE -->
+                    <img src="https://i.ibb.co/HT8VMH3t/Illustration.webp" alt="Illustration Placeholder">
+                </div>
+                <div class="profile-content">
+                    <span class="profile-field">Digital Art</span>
+                    <h3 class="profile-name">Illustration</h3>
+                    <p class="profile-desc">
+                        Creative digital illustrations ranging from conceptual art to commercial graphics, adding unique artistic value to storytelling.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1zGJO_5WslFeQAuz51rnB1uCSvi3JqOFA?usp=drive_link" target="_blank" class="btn btn-primary">
+                        View Projects <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Branding Card 03: Graphic Design – Products -->
+            <div class="profile-card">
+                <div class="profile-img-wrapper">
+                    <!-- UPDATED IMAGE -->
+                    <img src="https://i.ibb.co/R4s4hL57/Graphic-Design-Products.webp" alt="Product Design Placeholder">
+                </div>
+                <div class="profile-content">
+                    <span class="profile-field">Packaging & Print</span>
+                    <h3 class="profile-name">Graphic Design – Products</h3>
+                    <p class="profile-desc">
+                        Strategic graphic design for products, packaging, and print materials, ensuring visual coherence and shelf appeal.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1kcMEgo14Y-d4oCZOA7O2dguqih8waWl6?usp=drive_link" target="_blank" class="btn btn-primary">
+                        View Projects <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem;"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </div>
+
+  <!-- =========================================
+       INTERNAL VIEW: MOTION & VIDEO (NEW)
+       ========================================= -->
+  <div id="motion-view" class="internal-view">
+    <div class="container">
+        <div class="internal-header">
+            <div class="internal-title-group">
+                <h2>Motion & Video</h2>
+                <p class="internal-intro">
+                    A curated selection of motion graphics, video editing, and social media animation work designed to enhance digital storytelling and audience engagement.
+                </p>
+            </div>
+            <!-- Close / Back Button -->
+            <button class="btn btn-secondary-executive" onclick="closeMotion()">
+                <i class="fa-solid fa-arrow-left"></i> Back to Skills
+            </button>
+        </div>
+
+        <div class="internal-grid">
+            
+            <!-- Motion Card 01: Social Media Motion Content -->
+            <div class="profile-card">
+                <div class="profile-img-wrapper">
+                    <!-- UPDATED IMAGE -->
+                    <img src="https://i.ibb.co/MkKD8pg1/Social-Media-Motion-Content.webp" alt="Social Media Motion Content Placeholder">
+                </div>
+                <div class="profile-content">
+                    <span class="profile-field">Short-form & Animation</span>
+                    <h3 class="profile-name">Social Media Motion Content</h3>
+                    <p class="profile-desc">
+                        Engaging motion graphics and animations tailored for social platforms, focusing on attention retention and clear communication in short-form formats.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1jKlT3EP3SlFhmPWeEeb9aHNGnEOJ_zid?usp=drive_link" target="_blank" class="btn btn-primary">
+                        View Projects <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Motion Card 02: Motion Graphics & Video Editing -->
+            <div class="profile-card">
+                <div class="profile-img-wrapper">
+                    <!-- UPDATED IMAGE -->
+                    <img src="https://i.ibb.co/qLR2txWw/Motion-Graphics-Video-Editing.webp" alt="Motion Graphics & Video Editing Placeholder">
+                </div>
+                <div class="profile-content">
+                    <span class="profile-field">Post-Production</span>
+                    <h3 class="profile-name">Motion Graphics & Video Editing</h3>
+                    <p class="profile-desc">
+                        Comprehensive video editing and motion graphics projects that combine narrative pacing with dynamic visuals for advertisements and explainers.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1LQ7BjdAChqE_kAQPnsIyeZqOqEy_w_Em?usp=drive_link" target="_blank" class="btn btn-primary">
+                        View Projects <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem;"></i>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
   </div>
@@ -1912,6 +1855,7 @@ Freelance Designer Portfolio
         <div class="hero-btns hero-anim delay-400">
           <a href="#contact" class="btn btn-primary" data-magnetic="true">Start a Project</a>
           
+          <!-- FIXED ALIGNMENT: Added explicit vertical padding to match primary button -->
           <a href="#experience" class="btn btn-outline" 
              style="border: none; padding: 14px 0; min-width: auto; width: auto; background: transparent; color: var(--primary-dark); box-shadow: none;">
               View Experience <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem; margin-left: 8px;"></i>
@@ -1953,45 +1897,54 @@ Freelance Designer Portfolio
             <h2>Core Skills</h2>
           </div>
           <div class="grid-3">
-            <!-- Branding & Design Card with Thumbnail -->
+            
+            <!-- UPDATED: Branding & Design Card -->
             <div class="card">
               <div class="card-thumbnail">
-                  <img src="https://i.ibb.co/60hxyw93/Image-kfo9rvkfo9rvkfo9.png" alt="Branding Work">
+                  <!-- UPDATED IMAGE -->
+                  <img src="https://i.ibb.co/svRY7Y0j/Branding-Design.png" alt="Branding Work">
               </div>
               <h3>Branding & Design</h3>
+              <!-- Preserved List Structure -->
               <ul>
                 <li>Graphic Design</li>
                 <li>Brand Identity</li>
                 <li>Logo Design</li>
                 <li>FMCG Packaging</li>
                 <li>Advertising Design</li>
-                <li>Layout</li>
               </ul>
-              <a href="https://drive.google.com/drive/folders/15JNILGoHNFvOcQOvW7uS7B4aE7MPmmgc?usp=drive_link" target="_blank" class="btn btn-outline" style="margin-top: auto; font-size: 0.85rem; padding: 10px 20px;">
+              
+              <!-- UPDATED CTA: Calls openBranding() instead of external link -->
+              <a href="javascript:void(0)" onclick="openBranding()" class="btn btn-outline" style="margin-top: auto; font-size: 0.85rem; padding: 10px 20px;">
                  View Projects <i class="fa-solid fa-arrow-right" style="font-size: 0.7rem; margin-left: 6px;"></i>
               </a>
             </div>
 
-            <!-- Motion & Video Card with Thumbnail -->
+            <!-- UPDATED: Motion & Video Card -->
             <div class="card">
               <div class="card-thumbnail">
-                  <img src="https://i.ibb.co/4RjPXTN5/Image-udjxludjxludjxlu.webp" alt="Motion Work">
+                  <!-- UPDATED IMAGE -->
+                  <img src="https://i.ibb.co/1GXrrB53/Motion-Video.webp" alt="Motion Work">
               </div>
               <h3>Motion & Video</h3>
+              <!-- Preserved List Structure -->
               <ul>
                 <li>Motion Graphics</li>
                 <li>Video Editing</li>
                 <li>Social Media Motion Content</li>
               </ul>
-              <a href="https://drive.google.com/drive/folders/1_Bfy2EmzhF4hJXzTmY6BSN8vFupm1HAM?usp=drive_link" target="_blank" class="btn btn-outline" style="margin-top: auto; font-size: 0.85rem; padding: 10px 20px;">
+              
+              <!-- UPDATED CTA: Calls openMotion() instead of external link -->
+              <a href="javascript:void(0)" onclick="openMotion()" class="btn btn-outline" style="margin-top: auto; font-size: 0.85rem; padding: 10px 20px;">
                  View Projects <i class="fa-solid fa-arrow-right" style="font-size: 0.7rem; margin-left: 6px;"></i>
               </a>
             </div>
 
-            <!-- Digital & Marketing Card with Thumbnail -->
+            <!-- Digital & Marketing Card -->
             <div class="card">
               <div class="card-thumbnail">
-                  <img src="https://i.ibb.co/TMptgWKL/Image-n0p405n0p405n0p4.webp" alt="Digital Work">
+                  <!-- UPDATED IMAGE -->
+                  <img src="https://i.ibb.co/FbdbWdRj/Digital-Marketing.webp" alt="Digital Work">
               </div>
               <h3>Digital & Marketing</h3>
               <ul>
@@ -2000,18 +1953,35 @@ Freelance Designer Portfolio
                 <li>Display Advertising</li>
                 <li>E-commerce Assets</li>
               </ul>
+              <!-- CTA Button -->
               <a href="https://drive.google.com/drive/folders/1rWpHpGQO2X0eHlpD8J3S0KnRpjU_5ISq?usp=drive_link" target="_blank" class="btn btn-outline" style="margin-top: auto; font-size: 0.85rem; padding: 10px 20px;">
                  View Projects <i class="fa-solid fa-arrow-right" style="font-size: 0.7rem; margin-left: 6px;"></i>
               </a>
             </div>
+
+            <!-- ==========================================
+                 NEW: DIGITAL PROFILES CARD
+                 ========================================== -->
+            <div class="card">
+              <div class="card-thumbnail">
+                  <!-- UPDATED IMAGE -->
+                  <img src="https://i.ibb.co/hF4zCYsv/Digital-Profiles.webp" alt="Digital Profiles">
+              </div>
+              <h3>Digital Profiles</h3>
+              <!-- Subtle supporting text -->
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px;">
+                  Selected professional platforms and agency case studies.
+              </p>
+              
+              <!-- UPDATED CTA: Calls openProfiles() -->
+              <a href="javascript:void(0)" onclick="openProfiles()" class="btn btn-outline" style="margin-top: auto; font-size: 0.85rem; padding: 10px 20px;">
+                 View Professional Profiles <i class="fa-solid fa-arrow-right" style="font-size: 0.7rem; margin-left: 6px;"></i>
+              </a>
+            </div>
+
           </div>
           
-          <!-- NEW CTA FOR PROFILES -->
-          <div class="profiles-cta-container">
-              <button class="btn btn-primary" onclick="openProfiles()">
-                  View Professional Profiles
-              </button>
-          </div>
+          <!-- REMOVED: The standalone 'profiles-cta-container' button below grid is now redundant -->
         </div>
       </div>
     </section>
@@ -2050,6 +2020,19 @@ Freelance Designer Portfolio
                   <li>Delivered branding, packaging, motion graphics, and marketing visuals for local and international clients.</li>
                   <li>Led projects end-to-end — from concept development to final execution across digital and print.</li>
                   <li>Built long-term client partnerships through clarity, consistency, and high-quality visual outcomes.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Volunteer Role -->
+            <div class="timeline-item">
+              <span class="timeline-date">Jun 2023 – Present</span>
+              <div class="timeline-content">
+                <span class="job-tagline">Crises Communication & Field Coordination</span>
+                <h3>Volunteer Worker – Humanitarian Response</h3>
+                <ul>
+                  <li>Supported humanitarian operations during wartime displacement and public health emergencies in Sudan.</li>
+                  <li>Conducted field assessments, registrations, logistics support, and community coordination under high-pressure conditions.</li>
                 </ul>
               </div>
             </div>
@@ -2096,26 +2079,14 @@ Freelance Designer Portfolio
                 </ul>
               </div>
             </div>
-
-            <!-- Volunteer Role (Moved to bottom with reduced weight) -->
-            <div class="timeline-item volunteer-role">
-              <span class="timeline-date">Jun 2023 – Present</span>
-              <div class="timeline-content">
-                <span class="job-tagline">Community & Crisis Response</span>
-                <h3>Volunteer Worker – Humanitarian Response</h3>
-                <span class="company-name">Sudan Humanitarian Aid</span>
-                <ul>
-                  <li>Supported humanitarian operations during wartime displacement and public health emergencies in Sudan.</li>
-                  <li>Conducted field assessments, registrations, logistics support, and community coordination under high-pressure conditions.</li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- MOVED SECTION: Education (Now Above About) -->
+    <!-- =========================================
+         MOVED SECTION: Education (Now Above About)
+         ========================================= -->
     <section id="education" style="background-color: var(--bg-end);">
       <div class="container">
         <div class="fade-in-up">
@@ -2145,7 +2116,9 @@ Freelance Designer Portfolio
       </div>
     </section>
 
-    <!-- ABOUT SECTION (Now Below Education) -->
+    <!-- =========================================
+         ABOUT SECTION (Now Below Education)
+         ========================================= -->
     <section id="about">
       <div class="container">
         <div class="about-content-wrapper fade-in-up">
@@ -2183,7 +2156,9 @@ Freelance Designer Portfolio
       </div>
     </section>
 
-    <!-- REDESIGNED CONTACT SECTION -->
+    <!-- =========================================
+         REDESIGNED CONTACT SECTION
+         ========================================= -->
     <section id="contact" class="contact-section fade-in-up">
       
       <div class="cta-wrapper">
@@ -2270,7 +2245,7 @@ Freelance Designer Portfolio
         <p>&copy; 2025 Muhalab Basheir. All rights reserved.</p>
       </div>
 
-      <!-- 5️⃣ Footer SEO Booster (Safe & Clean) -->
+      <!-- ✅ 5️⃣ Footer SEO Booster (Safe & Clean) -->
       <section style="display:none;">
         Senior Graphic Designer,
         Motion Designer,
@@ -2310,14 +2285,14 @@ Freelance Designer Portfolio
   <div id="toast">Email copied to clipboard!</div>
 
   <script>
-    // --- 1. Canvas Animation (Subtle Particles) ---
+    // --- 1. Canvas Animation ---
     const canvas = document.getElementById('hero-canvas');
     const ctx = canvas.getContext('2d');
     
     let width, height;
     let particles = [];
     
-    const particleColor = 'rgba(15, 23, 42, '; // Slate
+    const particleColor = 'rgba(15, 23, 42, ';
     const lineColor = 'rgba(15, 23, 42, '; 
     const particleCount = window.innerWidth < 768 ? 30 : 50; 
     const connectionDistance = 150;
@@ -2331,8 +2306,8 @@ Freelance Designer Portfolio
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.3; // Very slow movement
-        this.vy = (Math.random() - 0.5) * 0.3;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
         this.size = Math.random() * 2 + 1;
       }
 
@@ -2347,7 +2322,7 @@ Freelance Designer Portfolio
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = particleColor + '0.3)'; // Low opacity
+        ctx.fillStyle = particleColor + '0.4)';
         ctx.fill();
       }
     }
@@ -2373,7 +2348,7 @@ Freelance Designer Portfolio
 
           if (distance < connectionDistance) {
             ctx.beginPath();
-            ctx.strokeStyle = lineColor + (1 - distance / connectionDistance) * 0.1 + ')'; // Very faint lines
+            ctx.strokeStyle = lineColor + (1 - distance / connectionDistance) * 0.15 + ')';
             ctx.lineWidth = 1;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -2428,6 +2403,16 @@ Freelance Designer Portfolio
         if (profilesView.classList.contains('active')) {
           closeProfiles();
         }
+        // Also close Branding View if open
+        const brandingView = document.getElementById('branding-view');
+        if (brandingView.classList.contains('active')) {
+          closeBranding();
+        }
+        // Also close Motion View if open
+        const motionView = document.getElementById('motion-view');
+        if (motionView.classList.contains('active')) {
+          closeMotion();
+        }
       }
     });
 
@@ -2445,44 +2430,28 @@ Freelance Designer Portfolio
       }
     });
 
-    // --- 3. Scroll Reveal Logic ---
-    
-    // Check for reduced motion preference
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // --- 3. Scroll Animation ---
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
 
-    if (!prefersReducedMotion) {
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            // Trigger once per section
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll('.fade-in-up').forEach(el => {
-        observer.observe(el);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
       });
+    }, observerOptions);
 
-      // Timeline Items use specific delays handled in CSS, 
-      // but we still need the observer to trigger the 'visible' class
-      document.querySelectorAll('.timeline-item').forEach(el => {
-        observer.observe(el);
-      });
-    } else {
-      // If reduced motion, just show everything immediately
-      document.querySelectorAll('.fade-in-up, .timeline-item').forEach(el => {
-        el.classList.add('visible');
-        el.style.opacity = 1;
-        el.style.transform = 'none';
-      });
-    }
+    document.querySelectorAll('.fade-in-up').forEach(el => {
+      observer.observe(el);
+    });
+
+    document.querySelectorAll('.timeline-item').forEach(el => {
+      observer.observe(el);
+    });
 
     // --- 4. Interaction Logic ---
     function copyEmail(e) {
@@ -2518,7 +2487,7 @@ Freelance Designer Portfolio
     });
 
     // ==========================================
-    // 6. NEW: PROFILES VIEW LOGIC
+    // 6. PROFILES VIEW LOGIC
     // ==========================================
     function openProfiles() {
         const profilesView = document.getElementById('profiles-view');
@@ -2533,7 +2502,37 @@ Freelance Designer Portfolio
     }
 
     // ==========================================
-    // 7. MICRO-INTERACTIONS: Magnetic Buttons ONLY
+    // 7. BRANDING VIEW LOGIC
+    // ==========================================
+    function openBranding() {
+        const brandingView = document.getElementById('branding-view');
+        brandingView.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Lock body scroll
+    }
+
+    function closeBranding() {
+        const brandingView = document.getElementById('branding-view');
+        brandingView.classList.remove('active');
+        document.body.style.overflow = ''; // Restore body scroll
+    }
+
+    // ==========================================
+    // 8. MOTION VIEW LOGIC (NEW)
+    // ==========================================
+    function openMotion() {
+        const motionView = document.getElementById('motion-view');
+        motionView.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Lock body scroll
+    }
+
+    function closeMotion() {
+        const motionView = document.getElementById('motion-view');
+        motionView.classList.remove('active');
+        document.body.style.overflow = ''; // Restore body scroll
+    }
+
+    // ==========================================
+    // 9. MICRO-INTERACTIONS: Magnetic Buttons ONLY
     // ==========================================
     const magneticBtns = document.querySelectorAll('[data-magnetic="true"]');
     
@@ -2560,42 +2559,33 @@ Freelance Designer Portfolio
     });
 
     // ==========================================
-    // 8. SMOOTH KEYBOARD SCROLLING
+    // 10. SMOOTH KEYBOARD SCROLLING
     // ==========================================
-    // Implements smooth scroll for Arrow keys, Page Up/Down, and W/S keys.
-    // Ignores input when user is typing in forms or modals are open.
     document.addEventListener('keydown', function(e) {
-        // 1. Don't hijack scrolling if user is inside an input field
         const tag = document.activeElement.tagName;
         if (tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement.isContentEditable) {
             return;
         }
 
-        // 2. Disable custom scroll if Profiles Overlay is active (it has its own scroll)
         const profilesView = document.getElementById('profiles-view');
-        if (profilesView.classList.contains('active')) {
+        const brandingView = document.getElementById('branding-view');
+        const motionView = document.getElementById('motion-view');
+        if (profilesView.classList.contains('active') || brandingView.classList.contains('active') || motionView.classList.contains('active')) {
             return;
         }
 
-        // 3. Define key sets
         const keysDown = ['ArrowDown', 'PageDown', 's', 'S'];
         const keysUp = ['ArrowUp', 'PageUp', 'w', 'W'];
 
-        // 4. Check if pressed key matches our navigation set
         if (keysDown.includes(e.key) || keysUp.includes(e.key)) {
-            e.preventDefault(); // Stop default jerky browser scroll
+            e.preventDefault();
 
-            // 5. Calculate scroll distance
             const viewHeight = window.innerHeight;
-            
-            // Page keys scroll further (1.5x viewport) than Arrow/W keys (0.9x viewport)
             const isPageKey = e.key.includes('Page');
             const scrollDistance = isPageKey ? viewHeight * 1.5 : viewHeight * 0.9;
 
-            // Determine direction
             const direction = keysDown.includes(e.key) ? 1 : -1;
 
-            // 6. Execute smooth scroll using native browser API
             window.scrollBy({
                 top: scrollDistance * direction,
                 behavior: 'smooth'
