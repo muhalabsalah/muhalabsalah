@@ -334,8 +334,6 @@
     footer { background: #020617; color: #cbd5e1; padding: 60px 0 30px; border-top: 1px solid rgba(255,255,255,0.05); }
     .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
     .footer-brand h3 { color: #fff; margin-bottom: 16px; }
-    /* Footer img styles kept for safety, but img element removed below */
-    .footer-brand img { height: 80px; margin-bottom: 16px; filter: invert(1); opacity: 0.9; } 
     .footer-links a { display: block; margin-bottom: 12px; color: #94a3b8; }
     .footer-links a:hover { color: var(--accent-gold); padding-left: 5px; }
     .social-icon-row { display: flex; gap: 12px; }
@@ -400,10 +398,52 @@
 
     @media (max-width: 768px) {
       .nav-content { padding: 0 24px; }
-      .hero-title { font-size: 2.5rem; }
-      .cta-wrapper { grid-template-columns: 1fr; gap: 30px; }
-      .cta-message, .cta-actions { text-align: center; border: none; padding: 0; }
-      .action-btn { width: 100%; justify-content: center; }
+
+      /* --- HERO SECTION MOBILE FIX --- */
+      .hero-title { font-size: 2rem; } /* Smaller font for better fit */
+      .hero-content p { margin-bottom: 24px; } /* Better vertical spacing */
+      .hero-btns { 
+        flex-direction: column; 
+        width: 100%; 
+        gap: 16px; 
+      }
+      .hero-btns .btn { 
+        width: 100%; /* Full width buttons */
+        text-align: center; 
+      }
+      
+      /* --- CONTACT SECTION MOBILE FIX --- */
+      .cta-wrapper { 
+        grid-template-columns: 1fr; /* Vertical stack */
+        gap: 40px; /* Comfortable gap */
+        justify-items: center; /* Center alignment for stack items */
+        padding: 0 16px; /* Ensure no edge touch */
+      }
+      .cta-message { 
+        text-align: center !important; /* FORCE center alignment overriding inline style */
+        width: 100%; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .qr-wrapper { 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+      }
+      .cta-actions { 
+        width: 100%; 
+        display: flex; 
+        flex-direction: column; 
+        gap: 16px; 
+      }
+      .action-btn { 
+        width: 100%; /* Full width tappable buttons */
+        justify-content: center; 
+        text-align: center; 
+      }
+
+      /* --- OTHER MOBILE STYLES --- */
       .footer-grid { grid-template-columns: 1fr; text-align: center; }
       .social-icon-row { justify-content: center; }
       .internal-grid { grid-template-columns: 1fr; }
@@ -809,7 +849,6 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <!-- LOGO REMOVED HERE -->
           <h3>Muhalab Basheir</h3>
           <p style="opacity: 0.7; font-size: 0.9rem;">Visual Storyteller & Motion Designer dedicated to crafting compelling brand narratives and digital experiences.</p>
         </div>
