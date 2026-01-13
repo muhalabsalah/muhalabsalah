@@ -307,6 +307,32 @@
     .timeline-item.current-role::after { background: var(--accent-gold); box-shadow: 0 0 0 4px rgba(202, 138, 4, 0.2); }
     .timeline-item.current-role h3 { color: var(--accent-gold); }
 
+    /* --- VOLUNTEER EXPERIENCE ADJUSTMENTS --- */
+    /* Creating a distinct class for volunteer items to reduce visual weight */
+    .timeline-item.volunteer {
+        margin-top: 50px; /* Extra space above */
+        padding-top: 40px;
+        border-top: 1px dashed var(--border-color); /* Subtle divider */
+    }
+    
+    /* Neutralize the dot color */
+    .timeline-item.volunteer::after {
+        border-color: var(--text-muted);
+        background: #f8fafc;
+        box-shadow: none;
+    }
+
+    /* Mute the heading color for reduced weight */
+    .timeline-item.volunteer h3 {
+        color: var(--text-muted);
+        font-weight: 500; /* Slightly lighter than standard 700 */
+    }
+    
+    .timeline-item.volunteer .timeline-date {
+        color: var(--text-muted);
+        opacity: 0.8;
+    }
+
     .timeline-date { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 4px; }
     .timeline-content ul { list-style: disc; padding-left: 20px; color: var(--text-muted); margin-top: 12px; }
     .timeline-content li { margin-bottom: 6px; }
@@ -400,27 +426,27 @@
       .nav-content { padding: 0 24px; }
 
       /* --- HERO SECTION MOBILE FIX --- */
-      .hero-title { font-size: 2rem; } /* Smaller font for better fit */
-      .hero-content p { margin-bottom: 24px; } /* Better vertical spacing */
+      .hero-title { font-size: 2rem; }
+      .hero-content p { margin-bottom: 24px; }
       .hero-btns { 
         flex-direction: column; 
         width: 100%; 
         gap: 16px; 
       }
       .hero-btns .btn { 
-        width: 100%; /* Full width buttons */
+        width: 100%; 
         text-align: center; 
       }
       
       /* --- CONTACT SECTION MOBILE FIX --- */
       .cta-wrapper { 
-        grid-template-columns: 1fr; /* Vertical stack */
-        gap: 40px; /* Comfortable gap */
-        justify-items: center; /* Center alignment for stack items */
-        padding: 0 16px; /* Ensure no edge touch */
+        grid-template-columns: 1fr; 
+        gap: 40px; 
+        justify-items: center; 
+        padding: 0 16px; 
       }
       .cta-message { 
-        text-align: center !important; /* FORCE center alignment overriding inline style */
+        text-align: center !important; 
         width: 100%; 
         display: flex;
         flex-direction: column;
@@ -438,7 +464,7 @@
         gap: 16px; 
       }
       .action-btn { 
-        width: 100%; /* Full width tappable buttons */
+        width: 100%; 
         justify-content: center; 
         text-align: center; 
       }
@@ -728,6 +754,8 @@
           <h2>Professional Journey</h2>
         </div>
         <div class="timeline">
+          
+          <!-- Role 1 -->
           <div class="timeline-item current-role">
             <span class="timeline-date">Nov 2021 – Present</span>
             <div class="timeline-content">
@@ -739,17 +767,8 @@
               </ul>
             </div>
           </div>
-          <div class="timeline-item">
-            <span class="timeline-date">Jun 2023 – Present</span>
-            <div class="timeline-content">
-              <h3>Volunteer Worker – Humanitarian Response</h3>
-              <p>Crises Communication & Field Coordination</p>
-              <ul>
-                <li>Supported humanitarian operations during public health emergencies.</li>
-                <li>Conducted field assessments and logistics support under high-pressure conditions.</li>
-              </ul>
-            </div>
-          </div>
+
+          <!-- Role 2 -->
           <div class="timeline-item">
             <span class="timeline-date">Oct 2019 – Oct 2021</span>
             <div class="timeline-content">
@@ -761,6 +780,8 @@
               </ul>
             </div>
           </div>
+
+          <!-- Role 3 -->
           <div class="timeline-item">
             <span class="timeline-date">Oct 2018 – May 2019</span>
             <div class="timeline-content">
@@ -771,6 +792,20 @@
               </ul>
             </div>
           </div>
+
+          <!-- Role 4: VOLUNTEER (Moved to bottom) -->
+          <div class="timeline-item volunteer">
+            <span class="timeline-date">Jun 2023 – Present</span>
+            <div class="timeline-content">
+              <h3>Volunteer Worker – Humanitarian Response</h3>
+              <p>Crisis Communication & Field Coordination</p>
+              <ul>
+                <li>Orchestrated crisis communication strategies and field coordination in high-pressure environments.</li>
+                <li>Demonstrated leadership and rapid adaptability during public health emergency responses.</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1079,6 +1114,56 @@
         
         btn.style.transform = `translate3d(${deltaX}px, ${deltaY}px, 0)`;
       });
+    });
+
+    // --- 6. Smooth Keyboard Navigation Logic ---
+    document.addEventListener('keydown', (e) => {
+      // EXCLUSION LOGIC:
+      // 1. Do not hijack scroll if user is typing in an input field
+      const activeTag = document.activeElement.tagName;
+      if (activeTag === 'INPUT' || activeTag === 'TEXTAREA' || document.activeElement.isContentEditable) {
+        return; 
+      }
+
+      // 2. Do not hijack scroll if specific internal views are active
+      const profilesView = document.getElementById('profiles-view');
+      const brandingView = document.getElementById('branding-view');
+      
+      const isProfilesActive = profilesView && profilesView.classList.contains('active');
+      const isBrandingActive = brandingView && brandingView.classList.contains('active');
+
+      if (isProfilesActive || isBrandingActive) {
+        return; // Allow default behavior inside these views
+      }
+
+      // TARGET KEYS DEFINITION
+      const scrollDownKeys = ['ArrowDown', 'PageDown', 's', 'S'];
+      const scrollUpKeys = ['ArrowUp', 'PageUp', 'w', 'W'];
+
+      // CHECK IF PRESSED KEY MATCHES
+      if (scrollDownKeys.includes(e.key) || scrollUpKeys.includes(e.key)) {
+        
+        // PREVENT DEFAULT BROWSER JUMP
+        e.preventDefault();
+
+        // DISTANCE CALCULATION
+        const viewportHeight = window.innerHeight;
+        
+        // Check if 'Page' is in the key name (e.g., "PageDown") for 1.5x multiplier
+        const isPageKey = e.key.toLowerCase().includes('page');
+        
+        const multiplier = isPageKey ? 1.5 : 0.9;
+        const distance = viewportHeight * multiplier;
+
+        // DETERMINE DIRECTION (1 for down, -1 for up)
+        const direction = scrollDownKeys.includes(e.key) ? 1 : -1;
+
+        // EXECUTE SMOOTH SCROLL
+        window.scrollBy({
+          top: distance * direction,
+          behavior: 'smooth'
+        });
+      }
     });
   </script>
 </body>
