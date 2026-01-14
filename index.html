@@ -5,29 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   
   <!-- FAVICON & ICON CONFIGURATION -->
-  <!-- Standard Favicons -->
   <link rel="icon" type="image/png" href="https://i.ibb.co/svtsbH9n/icon-muhalab.png" sizes="32x32">
   <link rel="icon" type="image/png" href="https://i.ibb.co/svtsbH9n/icon-muhalab.png" sizes="16x16">
   <link rel="icon" type="image/x-icon" href="https://i.ibb.co/svtsbH9n/icon-muhalab.png">
-  
-  <!-- Apple Touch Icons -->
   <link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/svtsbH9n/icon-muhalab.png">
   <link rel="apple-touch-icon" href="https://i.ibb.co/svtsbH9n/icon-muhalab.png">
-  
-  <!-- Android/Chrome Icons -->
   <link rel="icon" type="image/png" sizes="192x192" href="https://i.ibb.co/svtsbH9n/icon-muhalab.png">
   <link rel="icon" type="image/png" sizes="512x512" href="https://i.ibb.co/svtsbH9n/icon-muhalab.png">
-  
-  <!-- Microsoft Tiles -->
   <meta name="msapplication-TileImage" content="https://i.ibb.co/svtsbH9n/icon-muhalab.png">
   <meta name="msapplication-TileColor" content="#0f172a">
-  
-  <!-- Theme Color -->
   <meta name="theme-color" content="#0f172a">
   <meta name="msapplication-navbutton-color" content="#0f172a">
   <meta name="apple-mobile-web-app-status-bar-style" content="#0f172a">
   
-  <!-- Web App Manifest (for PWA support) -->
+  <!-- Web App Manifest -->
   <link rel="manifest" href="data:application/manifest+json,{
     \"name\": \"Muhalab Basheir | Senior Graphic & Motion Designer\",
     \"short_name\": \"Muhalab Basheir\",
@@ -56,26 +47,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Tajawal font for Arabic -->
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
   <!-- SEO & ANALYTICS -->
-  <title>Muhalab Basheir | Senior Graphic & Motion Designer | Branding & FMCG Packaging</title>
-  <meta name="description" content="Senior Graphic & Motion Designer with 9+ years of experience in branding, FMCG packaging, motion graphics, and executive presentations. Open to freelance, remote, and full-time opportunities." />
+  <title id="metaTitle">Muhalab Basheir | Senior Graphic & Motion Designer | Branding & FMCG Packaging</title>
+  <meta id="metaDesc" name="description" content="Senior Graphic & Motion Designer with 9+ years of experience in branding, FMCG packaging, motion graphics, and executive presentations. Open to freelance, remote, and full-time opportunities." />
   <meta name="keywords" content="Muhalab Basheir, Senior Graphic Designer, Motion Designer, Branding Designer, FMCG Packaging, Executive Presentation, GCC Designer">
   <meta name="author" content="Muhalab Basheir">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Muhalab Basheir | Senior Graphic & Motion Designer">
-  <meta property="og:description" content="Branding, FMCG packaging, motion graphics & executive presentations. 9+ years experience.">
+  <meta property="og:title" id="ogTitle" content="Muhalab Basheir | Senior Graphic & Motion Designer">
+  <meta property="og:description" id="ogDesc" content="Branding, FMCG packaging, motion graphics & executive presentations. 9+ years experience.">
   <meta property="og:image" content="https://i.ibb.co/XrLByCT3/Vector-Smart-Object.webp">
-  <meta property="og:image:alt" content="Muhalab Basheir - Visual Storyteller & Motion Designer">
+  <meta property="og:image:alt" id="ogImgAlt" content="Muhalab Basheir - Visual Storyteller & Motion Designer">
   <meta property="og:url" content="https://muhalabsalah.github.io/muhalabsalah/">
-  
-  <!-- Additional Open Graph for better social previews -->
   <meta property="og:site_name" content="Muhalab Basheir Portfolio">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ar_SA">
@@ -87,7 +75,6 @@
   <meta name="twitter:image" content="https://i.ibb.co/XrLByCT3/Vector-Smart-Object.webp">
   <meta name="twitter:image:alt" content="Muhalab Basheir - Visual Storyteller & Motion Designer">
   
-  <!-- Additional SEO Meta -->
   <meta name="application-name" content="Muhalab Basheir">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -119,7 +106,6 @@
   <!-- Clarity -->
   <script type="text/javascript"> (function(c,l,a,r,i,t,y){ c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)}; t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i; y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y); })(window, document, "clarity", "script", "t71o27k63s"); </script>
 
-  <!-- REST OF STYLES CONTINUE BELOW... -->
   <style>
     :root {
       /* Palette */
@@ -596,71 +582,24 @@
 
     @media (max-width: 768px) {
       .nav-content { padding: 0 24px; }
-
-      /* --- HERO SECTION MOBILE FIX --- */
       .hero-title { font-size: 2rem; }
       .hero-content p { margin-bottom: 24px; }
-      .hero-btns { 
-        flex-direction: column; 
-        width: 100%; 
-        gap: 16px; 
-      }
-      .hero-btns .btn { 
-        width: 100%; 
-        text-align: center; 
-      }
+      .hero-btns { flex-direction: column; width: 100%; gap: 16px; }
+      .hero-btns .btn { width: 100%; text-align: center; }
       
-      /* --- CONTACT SECTION MOBILE FIX --- */
-      .cta-wrapper { 
-        grid-template-columns: 1fr; 
-        gap: 40px; 
-        justify-items: center; 
-        padding: 0 16px; 
-      }
-      .cta-message { 
-        text-align: center !important; 
-        width: 100%; 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .qr-wrapper { 
-        display: flex; 
-        flex-direction: column; 
-        align-items: center; 
-      }
-      .cta-actions { 
-        width: 100%; 
-        display: flex; 
-        flex-direction: column; 
-        gap: 16px; 
-      }
-      .action-btn { 
-        width: 100%; 
-        justify-content: center; 
-        text-align: center; 
-      }
+      .cta-wrapper { grid-template-columns: 1fr; gap: 40px; justify-items: center; padding: 0 16px; }
+      .cta-message { text-align: center !important; width: 100%; display: flex; flex-direction: column; align-items: center; }
+      .qr-wrapper { display: flex; flex-direction: column; align-items: center; }
+      .cta-actions { width: 100%; display: flex; flex-direction: column; gap: 16px; }
+      .action-btn { width: 100%; justify-content: center; text-align: center; }
 
-      /* RTL Mobile Adjustments */
       [dir="rtl"] .hero-btns,
       [dir="rtl"] .cta-message,
-      [dir="rtl"] .strengths-grid {
-        text-align: center;
-      }
-      
-      [dir="rtl"] .timeline {
-        padding-right: 10px;
-      }
-      
-      [dir="rtl"] .timeline::before {
-        right: 10px;
-      }
-      
-      [dir="rtl"] .timeline-item::after {
-        right: 5px;
-      }
+      [dir="rtl"] .strengths-grid { text-align: center; }
+      [dir="rtl"] .timeline { padding-right: 10px; }
+      [dir="rtl"] .timeline::before { right: 10px; }
+      [dir="rtl"] .timeline-item::after { right: 5px; }
 
-      /* --- OTHER MOBILE STYLES --- */
       .footer-grid { grid-template-columns: 1fr; text-align: center; }
       .social-icon-row { justify-content: center; }
       .internal-grid { grid-template-columns: 1fr; }
@@ -688,24 +627,24 @@
   <nav>
     <div class="nav-content">
       <a href="#" class="logo">
-        <img src="https://i.ibb.co/DHWLM6KX/Vector-Smart-Object.png" alt="Muhalab Logo" width="260" height="65" fetchpriority="high">
+        <img id="imgLogo" src="https://i.ibb.co/DHWLM6KX/Vector-Smart-Object.png" alt="Muhalab Logo" width="260" height="65" fetchpriority="high">
       </a>
       
       <div class="nav-links">
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#skills" id="navSkillsLink">Skills</a>
+        <a href="#experience" id="navExpLink">Experience</a>
+        <a href="#education" id="navEduLink">Education</a>
+        <a href="#about" id="navAboutLink">About</a>
+        <a href="#contact" id="navContactLink">Contact</a>
         <button class="lang-toggle" id="langToggle" aria-label="Switch language">
           <span class="lang-text">EN</span>
           <i class="fa-solid fa-globe"></i>
         </button>
       </div>
 
-      <button class="exec-toggle" onclick="toggleExecutiveMenu()" aria-label="Open Menu">
+      <button class="exec-toggle" onclick="toggleExecutiveMenu()" id="execToggleBtn" aria-label="Open Menu">
         <div class="menu-lines"><span></span><span></span></div>
-        <span class="menu-label">MENU</span>
+        <span class="menu-label" id="menuLabel">MENU</span>
       </button>
     </div>
   </nav>
@@ -715,7 +654,7 @@
   <div class="executive-panel" id="execPanel" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="panel-header">
       <span style="font-weight: 600; letter-spacing: 1px;" id="panelTitle">NAVIGATION</span>
-      <button class="panel-close" onclick="toggleExecutiveMenu()" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
+      <button class="panel-close" id="closeMenuBtn" onclick="toggleExecutiveMenu()" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <ul class="exec-nav-list">
       <li><a href="#skills" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navSkills">Core Skills</span> <i class="fa-solid fa-arrow-right"></i></a></li>
@@ -740,22 +679,22 @@
       <div class="internal-grid">
         <article class="profile-card">
           <div class="profile-img-wrapper">
-            <img src="https://i.ibb.co/Z6gHB6Yr/1.webp" alt="Mashhor Foodstuff LLC" loading="lazy" width="600" height="400">
+            <img id="imgProfile1" src="https://i.ibb.co/Z6gHB6Yr/1.webp" alt="Mashhor Foodstuff LLC" loading="lazy" width="600" height="400">
           </div>
           <div class="profile-content">
-            <span class="profile-field">FMCG · Packaging</span>
-            <h3 class="profile-name">Mashhor Foodstuff LLC</h3>
+            <span class="profile-field" id="profileField1">FMCG · Packaging</span>
+            <h3 class="profile-name" id="profileName1">Mashhor Foodstuff LLC</h3>
             <p class="profile-desc" id="profileDesc1">Complete corporate and product-focused digital presence for a foodstuff trading company, showcasing branding and FMCG packaging.</p>
             <a href="https://mashhorfoods.github.io/mashhor-demo/" target="_blank" class="btn btn-primary"><span id="visitWebsite1">Visit Website</span> <i class="fa-solid fa-external-link-alt" style="font-size: 0.8rem;"></i></a>
           </div>
         </article>
         <article class="profile-card">
           <div class="profile-img-wrapper">
-            <img src="https://i.ibb.co/Zz0bFHty/Untitled.webp" alt="Quantum Link Agency" loading="lazy" width="600" height="400">
+            <img id="imgProfile2" src="https://i.ibb.co/Zz0bFHty/Untitled.webp" alt="Quantum Link Agency" loading="lazy" width="600" height="400">
           </div>
           <div class="profile-content">
-            <span class="profile-field">Agency · Branding</span>
-            <h3 class="profile-name">Quantum Link</h3>
+            <span class="profile-field" id="profileField2">Agency · Branding</span>
+            <h3 class="profile-name" id="profileName2">Quantum Link</h3>
             <p class="profile-desc" id="profileDesc2">A digital agency platform presenting strategy-driven creative services, highlighting branding systems and visual identity.</p>
             <a href="https://quantumlinkagency.github.io/qda/" target="_blank" class="btn btn-primary"><span id="exploreAgency1">Explore Agency</span> <i class="fa-solid fa-external-link-alt" style="font-size: 0.8rem;"></i></a>
           </div>
@@ -774,33 +713,33 @@
       <div class="internal-grid">
         <article class="profile-card">
           <div class="profile-img-wrapper">
-            <img src="https://i.ibb.co/HDqfPcyY/Logo-Brand-ID.webp" alt="Logo & Brand ID" loading="lazy" width="600" height="400">
+            <img id="imgBrand1" src="https://i.ibb.co/HDqfPcyY/Logo-Brand-ID.webp" alt="Logo & Brand ID" loading="lazy" width="600" height="400">
           </div>
           <div class="profile-content">
-            <span class="profile-field">Identity System</span>
-            <h3 class="profile-name">Logo & Brand ID</h3>
+            <span class="profile-field" id="brandingField1">Identity System</span>
+            <h3 class="profile-name" id="brandingName1">Logo & Brand ID</h3>
             <p class="profile-desc" id="brandingDesc1">Comprehensive visual identity systems, logo design, and brand guidelines.</p>
             <a href="https://drive.google.com/drive/folders/1kQ8fR4DeubcQG5tWMO_XuG6j37A7-EBQ?usp=drive_link" target="_blank" class="btn btn-primary"><span id="viewProjects1">View Projects</span></a>
           </div>
         </article>
         <article class="profile-card">
           <div class="profile-img-wrapper">
-            <img src="https://i.ibb.co/HT8VMH3t/Illustration.webp" alt="Illustration" loading="lazy" width="600" height="400">
+            <img id="imgBrand2" src="https://i.ibb.co/HT8VMH3t/Illustration.webp" alt="Illustration" loading="lazy" width="600" height="400">
           </div>
           <div class="profile-content">
-            <span class="profile-field">Digital Art</span>
-            <h3 class="profile-name">Illustration</h3>
+            <span class="profile-field" id="brandingField2">Digital Art</span>
+            <h3 class="profile-name" id="brandingName2">Illustration</h3>
             <p class="profile-desc" id="brandingDesc2">Creative digital illustrations ranging from conceptual art to commercial graphics.</p>
             <a href="https://drive.google.com/drive/folders/1zGJO_5WslFeQAuz51rnB1uCSvi3JqOFA?usp=drive_link" target="_blank" class="btn btn-primary"><span id="viewProjects2">View Projects</span></a>
           </div>
         </article>
         <article class="profile-card">
           <div class="profile-img-wrapper">
-            <img src="https://i.ibb.co/R4s4hL57/Graphic-Design-Products.webp" alt="Product Design" loading="lazy" width="600" height="400">
+            <img id="imgBrand3" src="https://i.ibb.co/R4s4hL57/Graphic-Design-Products.webp" alt="Product Design" loading="lazy" width="600" height="400">
           </div>
           <div class="profile-content">
-            <span class="profile-field">Packaging & Print</span>
-            <h3 class="profile-name">Graphic Design – Products</h3>
+            <span class="profile-field" id="brandingField3">Packaging & Print</span>
+            <h3 class="profile-name" id="brandingName3">Graphic Design – Products</h3>
             <p class="profile-desc" id="brandingDesc3">Strategic graphic design for products, packaging, and print materials.</p>
             <a href="https://drive.google.com/drive/folders/1kcMEgo14Y-d4oCZOA7O2dguqih8waWl6?usp=drive_link" target="_blank" class="btn btn-primary"><span id="viewProjects3">View Projects</span></a>
           </div>
@@ -819,22 +758,22 @@
       <div class="internal-grid">
         <article class="profile-card">
           <div class="profile-img-wrapper">
-            <img src="https://i.ibb.co/MkKD8pg1/Social-Media-Motion-Content.webp" alt="Social Media Motion" loading="lazy" width="600" height="400">
+            <img id="imgMotion1" src="https://i.ibb.co/MkKD8pg1/Social-Media-Motion-Content.webp" alt="Social Media Motion" loading="lazy" width="600" height="400">
           </div>
           <div class="profile-content">
-            <span class="profile-field">Short-form</span>
-            <h3 class="profile-name">Social Media Motion</h3>
+            <span class="profile-field" id="motionField1">Short-form</span>
+            <h3 class="profile-name" id="motionName1">Social Media Motion</h3>
             <p class="profile-desc" id="motionDesc1">Engaging motion graphics tailored for social platforms and attention retention.</p>
             <a href="https://drive.google.com/drive/folders/1jKlT3EP3SlFhmPWeEeb9aHNGnEOJ_zid?usp=drive_link" target="_blank" class="btn btn-primary"><span id="viewProjects4">View Projects</span></a>
           </div>
         </article>
         <article class="profile-card">
           <div class="profile-img-wrapper">
-            <img src="https://i.ibb.co/qLR2txWw/Motion-Graphics-Video-Editing.webp" alt="Video Editing" loading="lazy" width="600" height="400">
+            <img id="imgMotion2" src="https://i.ibb.co/qLR2txWw/Motion-Graphics-Video-Editing.webp" alt="Video Editing" loading="lazy" width="600" height="400">
           </div>
           <div class="profile-content">
-            <span class="profile-field">Post-Production</span>
-            <h3 class="profile-name">Motion & Editing</h3>
+            <span class="profile-field" id="motionField2">Post-Production</span>
+            <h3 class="profile-name" id="motionName2">Motion & Editing</h3>
             <p class="profile-desc" id="motionDesc2">Video editing and motion graphics combining narrative pacing with dynamic visuals.</p>
             <a href="https://drive.google.com/drive/folders/1LQ7BjdAChqE_kAQPnsIyeZqOqEy_w_Em?usp=drive_link" target="_blank" class="btn btn-primary"><span id="viewProjects5">View Projects</span></a>
           </div>
@@ -851,7 +790,7 @@
         <h1 class="hero-title hero-anim delay-200" id="heroTitle">Visual Storyteller &<br>Motion Designer</h1>
         <p class="hero-anim delay-300" style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 32px;" id="heroSubtitle">Senior Graphic & Motion Designer | Executive Presentation Design</p>
         <div class="hero-btns hero-anim delay-400">
-          <a href="#contact" class="btn btn-primary" data-magnetic="true" id="heroBtn1">Start a Project</a>
+          <a href="#contact" class="btn btn-primary" id="heroBtn1" data-magnetic="true">Start a Project</a>
           <a href="#experience" class="btn btn-outline" style="background: transparent; border: none; box-shadow: none; padding-left: 0;" id="heroBtn2">View Experience <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
@@ -879,7 +818,7 @@
           <!-- Branding Card -->
           <div class="card">
             <div class="card-thumbnail">
-              <img src="https://i.ibb.co/svRY7Y0j/Branding-Design.png" alt="Branding Work" loading="lazy" width="600" height="330">
+              <img id="imgCard1" src="https://i.ibb.co/svRY7Y0j/Branding-Design.png" alt="Branding Work" loading="lazy" width="600" height="330">
             </div>
             <h3 id="cardTitle1">Branding & Design</h3>
             <ul>
@@ -894,7 +833,7 @@
           <!-- Motion Card -->
           <div class="card">
             <div class="card-thumbnail">
-              <img src="https://i.ibb.co/1GXrrB53/Motion-Video.webp" alt="Motion Work" loading="lazy" width="600" height="330">
+              <img id="imgCard2" src="https://i.ibb.co/1GXrrB53/Motion-Video.webp" alt="Motion Work" loading="lazy" width="600" height="330">
             </div>
             <h3 id="cardTitle2">Motion & Video</h3>
             <ul>
@@ -908,7 +847,7 @@
           <!-- Digital Card -->
           <div class="card">
             <div class="card-thumbnail">
-              <img src="https://i.ibb.co/FbdbWdRj/Digital-Marketing.webp" alt="Digital Work" loading="lazy" width="600" height="330">
+              <img id="imgCard3" src="https://i.ibb.co/FbdbWdRj/Digital-Marketing.webp" alt="Digital Work" loading="lazy" width="600" height="330">
             </div>
             <h3 id="cardTitle3">Digital & Marketing</h3>
             <ul>
@@ -922,7 +861,7 @@
           <!-- Profiles Card -->
           <div class="card">
             <div class="card-thumbnail">
-              <img src="https://i.ibb.co/hF4zCYsv/Digital-Profiles.webp" alt="Digital Profiles" loading="lazy" width="600" height="330">
+              <img id="imgCard4" src="https://i.ibb.co/hF4zCYsv/Digital-Profiles.webp" alt="Digital Profiles" loading="lazy" width="600" height="330">
             </div>
             <h3 id="cardTitle4">Digital Profiles</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px;" id="cardDesc1">Selected professional platforms and agency case studies.</p>
@@ -937,11 +876,11 @@
       <div class="container" style="text-align: center; padding: 60px 20px;">
         <h3 style="margin-bottom: 24px;" id="toolsTitle">Technical Proficiency</h3>
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
-          <span class="btn-outline" style="padding: 8px 16px; border-radius: 8px; font-size: 0.9rem;">Adobe Photoshop</span>
-          <span class="btn-outline" style="padding: 8px 16px; border-radius: 8px; font-size: 0.9rem;">Illustrator</span>
-          <span class="btn-outline" style="padding: 8px 16px; border-radius: 8px; font-size: 0.9rem;">InDesign</span>
-          <span class="btn-outline" style="padding: 8px 16px; border-radius: 8px; font-size: 0.9rem;">After Effects</span>
-          <span class="btn-outline" style="padding: 8px 16px; border-radius: 8px; font-size: 0.9rem;">Premiere Pro</span>
+          <span class="btn-outline" id="tool1" style="padding: 8px 16px; border-radius: 8px; font-size: 0.9rem;">Adobe Photoshop</span>
+          <span class="btn-outline" id="tool2" style="padding: 8px 16px; border-radius: 8px; font-size: 0.9rem;">Illustrator</span>
+          <span class="btn-outline" id="tool3" style="padding: 8px 16px; border-radius: 8px; font-size: 0.9rem;">InDesign</span>
+          <span class="btn-outline" id="tool4" style="padding: 8px 16px; border-radius: 8px; font-size: 0.9rem;">After Effects</span>
+          <span class="btn-outline" id="tool5" style="padding: 8px 16px; border-radius: 8px; font-size: 0.9rem;">Premiere Pro</span>
         </div>
       </div>
     </section>
@@ -956,7 +895,7 @@
           
           <!-- Role 1 -->
           <div class="timeline-item current-role">
-            <span class="timeline-date">Nov 2021 – Present</span>
+            <span class="timeline-date" id="roleDate1">Nov 2021 – Present</span>
             <div class="timeline-content">
               <h3 id="roleTitle1">Freelance Graphic & Motion Designer</h3>
               <p id="roleSubtitle1">Visual Storytelling & Brand Execution</p>
@@ -969,7 +908,7 @@
 
           <!-- Role 2 -->
           <div class="timeline-item">
-            <span class="timeline-date">Oct 2019 – Oct 2021</span>
+            <span class="timeline-date" id="roleDate2">Oct 2019 – Oct 2021</span>
             <div class="timeline-content">
               <h3 id="roleTitle2">Senior Visual Designer</h3>
               <p id="roleSubtitle2">Al Madina Food Industries LLC (Oman)</p>
@@ -982,7 +921,7 @@
 
           <!-- Role 3 -->
           <div class="timeline-item">
-            <span class="timeline-date">Oct 2018 – May 2019</span>
+            <span class="timeline-date" id="roleDate3">Oct 2018 – May 2019</span>
             <div class="timeline-content">
               <h3 id="roleTitle3">Senior Graphic & Motion Designer</h3>
               <p id="roleSubtitle3">YNY Solutions</p>
@@ -992,9 +931,9 @@
             </div>
           </div>
 
-          <!-- Role 4: VOLUNTEER (Moved to bottom) -->
+          <!-- Role 4: VOLUNTEER -->
           <div class="timeline-item volunteer">
-            <span class="timeline-date">Jun 2023 – Present</span>
+            <span class="timeline-date" id="roleDate4">Jun 2023 – Present</span>
             <div class="timeline-content">
               <h3 id="roleTitle4">Volunteer Worker – Humanitarian Response</h3>
               <p id="roleSubtitle4">Crisis Communication & Field Coordination</p>
@@ -1055,7 +994,7 @@
         </div>
         <div class="qr-wrapper">
           <div class="qr-card">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=muhalabsalah@gmail.com&color=000000&bgcolor=ffffff" alt="Scan to Connect" loading="lazy" width="150" height="150">
+            <img id="imgQr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=muhalabsalah@gmail.com&color=000000&bgcolor=ffffff" alt="Scan to Connect" loading="lazy" width="150" height="150">
           </div>
           <span style="margin-top: 12px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-gold);" id="qrText">Scan to Connect</span>
         </div>
@@ -1110,7 +1049,7 @@
 
   <!-- FAB -->
   <div class="fab-wrapper" id="fabWrapper">
-    <button class="fab-main" onclick="toggleFab()" aria-label="Contact Menu"><i class="fa-solid fa-plus"></i></button>
+    <button class="fab-main" id="fabMainBtn" onclick="toggleFab()" aria-label="Contact Menu"><i class="fa-solid fa-plus"></i></button>
     <a href="https://wa.me/249119005441" target="_blank" class="fab-action-btn whatsapp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
     <a href="https://www.linkedin.com/in/muhalabsalah/" target="_blank" class="fab-action-btn linkedin" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
     <a href="https://behance.net/MuhalabSalah" target="_blank" class="fab-action-btn behance" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
@@ -1123,7 +1062,20 @@
     // --- LANGUAGE SYSTEM ---
     const translations = {
       en: {
-        // Navigation
+        // Meta
+        metaTitle: "Muhalab Basheir | Senior Graphic & Motion Designer | Branding & FMCG Packaging",
+        metaDesc: "Senior Graphic & Motion Designer with 9+ years of experience in branding, FMCG packaging, motion graphics, and executive presentations. Open to freelance, remote, and full-time opportunities.",
+        
+        // Navigation & Header
+        navSkillsLink: "Skills",
+        navExpLink: "Experience",
+        navEduLink: "Education",
+        navAboutLink: "About",
+        navContactLink: "Contact",
+        menuLabel: "MENU",
+        ariaExecToggle: "Open Menu",
+        ariaCloseMenu: "Close Menu",
+        
         panelTitle: "NAVIGATION",
         navSkills: "Core Skills",
         navExperience: "Experience",
@@ -1137,7 +1089,7 @@
         heroTitle: "Visual Storyteller &<br>Motion Designer",
         heroSubtitle: "Senior Graphic & Motion Designer | Executive Presentation Design",
         heroBtn1: "Start a Project",
-        heroBtn2: "View Experience",
+        heroBtn2: "View Experience <i class='fa-solid fa-arrow-right'></i>",
         
         // Strengths
         strength1: "FMCG Packaging",
@@ -1172,23 +1124,32 @@
         
         // Tools
         toolsTitle: "Technical Proficiency",
+        tool1: "Adobe Photoshop",
+        tool2: "Adobe Illustrator",
+        tool3: "Adobe InDesign",
+        tool4: "Adobe After Effects",
+        tool5: "Adobe Premiere Pro",
         
         // Experience
         experienceTitle: "Professional Journey",
+        roleDate1: "Nov 2021 – Present",
         roleTitle1: "Freelance Graphic & Motion Designer",
         roleSubtitle1: "Visual Storytelling & Brand Execution",
         roleDesc1_1: "Delivered branding, packaging, and motion graphics for international clients.",
         roleDesc1_2: "Led projects end-to-end, from concept to final execution.",
         
+        roleDate2: "Oct 2019 – Oct 2021",
         roleTitle2: "Senior Visual Designer",
         roleSubtitle2: "Al Madina Food Industries LLC (Oman)",
         roleDesc2_1: "Led branding and packaging design across FMCG product lines.",
         roleDesc2_2: "Produced product-focused motion graphics for marketing.",
         
+        roleDate3: "Oct 2018 – May 2019",
         roleTitle3: "Senior Graphic & Motion Designer",
         roleSubtitle3: "YNY Solutions",
         roleDesc3_1: "Executed multiple branding and motion design projects under tight deadlines.",
         
+        roleDate4: "Jun 2023 – Present",
         roleTitle4: "Volunteer Worker – Humanitarian Response",
         roleSubtitle4: "Crisis Communication & Field Coordination",
         roleDesc4_1: "Orchestrated crisis communication strategies and field coordination in high-pressure environments.",
@@ -1232,38 +1193,85 @@
         // Internal Views
         profilesTitle: "Selected Professional Profiles",
         backProfiles: "Back",
+        profileField1: "FMCG · Packaging",
+        profileName1: "Mashhor Foodstuff LLC",
         profileDesc1: "Complete corporate and product-focused digital presence for a foodstuff trading company, showcasing branding and FMCG packaging.",
         visitWebsite1: "Visit Website",
+        
+        profileField2: "Agency · Branding",
+        profileName2: "Quantum Link",
         profileDesc2: "A digital agency platform presenting strategy-driven creative services, highlighting branding systems and visual identity.",
         exploreAgency1: "Explore Agency",
         
         brandingTitle: "Branding & Design",
         backBranding: "Back",
+        brandingField1: "Identity System",
+        brandingName1: "Logo & Brand ID",
         brandingDesc1: "Comprehensive visual identity systems, logo design, and brand guidelines.",
         viewProjects1: "View Projects",
+        
+        brandingField2: "Digital Art",
+        brandingName2: "Illustration",
         brandingDesc2: "Creative digital illustrations ranging from conceptual art to commercial graphics.",
         viewProjects2: "View Projects",
+        
+        brandingField3: "Packaging & Print",
+        brandingName3: "Graphic Design – Products",
         brandingDesc3: "Strategic graphic design for products, packaging, and print materials.",
         viewProjects3: "View Projects",
         
         motionTitle: "Motion & Video",
         backMotion: "Back",
+        motionField1: "Short-form",
+        motionName1: "Social Media Motion",
         motionDesc1: "Engaging motion graphics tailored for social platforms and attention retention.",
         viewProjects4: "View Projects",
+        
+        motionField2: "Post-Production",
+        motionName2: "Motion & Editing",
         motionDesc2: "Video editing and motion graphics combining narrative pacing with dynamic visuals.",
         viewProjects5: "View Projects",
+        
+        // Alt Text
+        altLogo: "Muhalab Logo",
+        altProfile1: "Mashhor Foodstuff Project",
+        altProfile2: "Quantum Link Agency",
+        altBrand1: "Logo and Brand Identity",
+        altBrand2: "Digital Illustration",
+        altBrand3: "Product Packaging Design",
+        altMotion1: "Social Media Motion",
+        altMotion2: "Video Editing Project",
+        altCard1: "Branding Work Showcase",
+        altCard2: "Motion Graphics Showcase",
+        altCard3: "Digital Marketing Work",
+        altCard4: "Digital Profiles Showcase",
+        altQr: "QR Code to Connect",
+        altFab: "Contact Menu Toggle",
         
         // Toast
         toastText: "Email copied to clipboard!"
       },
       ar: {
-        // Navigation
+        // Meta
+        metaTitle: "مهلب بشير | مصمم جرافيك ورسوم متحركة أول | العلامة التجارية وتغليف السلع الاستهلاكية",
+        metaDesc: "مصمم جرافيك ورسوم متحركة أول بخبرة تزيد عن 9 سنوات في الهوية البصرية، تغليف السلع الاستهلاكية، والرسوم المتحركة. متاح للمشاريع المستقلة والعمل عن بعد.",
+        
+        // Navigation & Header
+        navSkillsLink: "المهارات",
+        navExpLink: "الخبرة",
+        navEduLink: "التعليم",
+        navAboutLink: "عني",
+        navContactLink: "تواصل معي",
+        menuLabel: "القائمة",
+        ariaExecToggle: "فتح القائمة",
+        ariaCloseMenu: "إغلاق القائمة",
+        
         panelTitle: "التنقل",
         navSkills: "المهارات الأساسية",
         navExperience: "الخبرة",
         navEducation: "التعليم",
         navAbout: "الفلسفة",
-        navContact: "الاتصال",
+        navContact: "تواصل معي",
         navLanguage: "التبديل إلى الإنجليزية",
         
         // Hero
@@ -1271,7 +1279,7 @@
         heroTitle: "راوي قصص بصري<br>ومصمم رسوم متحركة",
         heroSubtitle: "مصمم جرافيك ورسوم متحركة أول | تصميم عروض تنفيذية",
         heroBtn1: "ابدأ مشروع",
-        heroBtn2: "عرض الخبرة",
+        heroBtn2: "عرض الخبرة <i class='fa-solid fa-arrow-left'></i>",
         
         // Strengths
         strength1: "تصميم تغليف السلع الاستهلاكية",
@@ -1306,23 +1314,32 @@
         
         // Tools
         toolsTitle: "الكفاءة التقنية",
+        tool1: "أدوبي فوتوشوب",
+        tool2: "أدوبي إليستريتور",
+        tool3: "أدوبي إن ديزاين",
+        tool4: "أدوبي أفتر إفيكتس",
+        tool5: "أدوبي بريمير برو",
         
         // Experience
         experienceTitle: "الرحلة المهنية",
+        roleDate1: "نوفمبر 2021 – الحاضر",
         roleTitle1: "مصمم جرافيك ورسوم متحركة مستقل",
         roleSubtitle1: "رواية القصص البصرية وتنفيذ العلامات التجارية",
         roleDesc1_1: "تقديم حلول للهوية البصرية، التغليف، والرسوم المتحركة لعملاء دوليين.",
         roleDesc1_2: "إدارة المشاريع من البداية إلى النهاية، من المفهوم إلى التنفيذ النهائي.",
         
+        roleDate2: "أكتوبر 2019 – أكتوبر 2021",
         roleTitle2: "مصمم مرئي أول",
         roleSubtitle2: "الشركة المدينة للصناعات الغذائية (عمان)",
         roleDesc2_1: "قيادة تصميم الهوية البصرية والتغليف عبر خطوط منتجات السلع الاستهلاكية.",
         roleDesc2_2: "إنتاج رسوم متحركة تركز على المنتجات للتسويق.",
         
+        roleDate3: "أكتوبر 2018 – مايو 2019",
         roleTitle3: "مصمم جرافيك ورسوم متحركة أول",
         roleSubtitle3: "حلول YNY",
         roleDesc3_1: "تنفيذ مشاريع متعددة للهوية البصرية والرسوم المتحركة تحت ضغط الوقت.",
         
+        roleDate4: "يونيو 2023 – الحاضر",
         roleTitle4: "متطوع – الاستجابة الإنسانية",
         roleSubtitle4: "التواصل في الأزمات وتنسيق الميدان",
         roleDesc4_1: "تنسيق استراتيجيات التواصل في الأزمات والتنسيق الميداني في بيئات عالية الضغط.",
@@ -1359,33 +1376,67 @@
         footerLink1: "الخبرة",
         footerLink2: "مهاراتي",
         footerLink3: "التعليم",
-        footerLink4: "اتصل بي",
+        footerLink4: "تواصل معي",
         footerConnectTitle: "تواصل",
         footerRights: "جميع الحقوق محفوظة.",
         
         // Internal Views
         profilesTitle: "ملفات مهنية مختارة",
         backProfiles: "رجوع",
+        profileField1: "السلع الاستهلاكية · التغليف",
+        profileName1: "شركة مشهور للمواد الغذائية",
         profileDesc1: "حضور رقمي كامل يركز على الشركة والمنتجات لشركة تجارية للمواد الغذائية، يعرض العلامات التجارية وتصميم التغليف للسلع الاستهلاكية.",
         visitWebsite1: "زيارة الموقع",
+        
+        profileField2: "وكالة · هوية بصرية",
+        profileName2: "الرابط الكمي (Quantum Link)",
         profileDesc2: "منصة وكالة رقمية تقدم خدمات إبداعية مدفوعة بالاستراتيجية، مع تسليط الضوء على أنظمة العلامات التجارية والهوية البصرية.",
         exploreAgency1: "استكشاف الوكالة",
         
         brandingTitle: "الهوية البصرية والتصميم",
         backBranding: "رجوع",
+        brandingField1: "نظام الهوية",
+        brandingName1: "الشعار والهوية البصرية",
         brandingDesc1: "أنظمة هوية بصرية شاملة، تصميم الشعارات، وإرشادات العلامة التجارية.",
         viewProjects1: "عرض المشاريع",
+        
+        brandingField2: "الفن الرقمي",
+        brandingName2: "الرسم التوضيحي",
         brandingDesc2: "رسوم رقمية إبداعية تتراوح من الفن المفاهيمي إلى الرسوم التجارية.",
         viewProjects2: "عرض المشاريع",
+        
+        brandingField3: "التغليف والطباعة",
+        brandingName3: "التصميم الجرافيكي – المنتجات",
         brandingDesc3: "تصميم جرافيكي استراتيجي للمنتجات، التغليف، والمواد المطبوعة.",
         viewProjects3: "عرض المشاريع",
         
         motionTitle: "الرسوم المتحركة والفيديو",
         backMotion: "رجوع",
+        motionField1: "قصير",
+        motionName1: "الرسوم المتحركة لوسائل التواصل",
         motionDesc1: "رسوم متحركة جذابة مصممة خصيصًا لمنصات التواصل الاجتماعي والاحتفاظ بالانتباه.",
         viewProjects4: "عرض المشاريع",
+        
+        motionField2: "ما بعد الإنتاج",
+        motionName2: "الرسوم المتحركة والمونتاج",
         motionDesc2: "مونتاج الفيديو والرسوم المتحركة التي تجمع بين إيقاع السرد والمرئيات الديناميكية.",
         viewProjects5: "عرض المشاريع",
+        
+        // Alt Text
+        altLogo: "شعار مهلب",
+        altProfile1: "مشروع شركة مشهور",
+        altProfile2: "وكالة الرابط الكمي",
+        altBrand1: "الشعار والهوية البصرية",
+        altBrand2: "الرسم الرقمي",
+        altBrand3: "تصميم تغليف المنتجات",
+        altMotion1: "الرسوم المتحركة لوسائل التواصل",
+        altMotion2: "مشروع مونتاج فيديو",
+        altCard1: "معرض أعمال الهوية البصرية",
+        altCard2: "معرض الرسوم المتحركة",
+        altCard3: "أعمال التسويق الرقمي",
+        altCard4: "معرض الملفات الرقمية",
+        altQr: "رمز استجابة سريعة للتواصل",
+        altFab: "زر قائمة الاتصال",
         
         // Toast
         toastText: "تم نسخ البريد الإلكتروني!"
@@ -1420,34 +1471,50 @@
     // Apply language and direction
     function applyLanguage(lang) {
       currentLang = lang;
+      const t = translations[lang];
       
       // Update HTML dir attribute
       document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
       document.documentElement.lang = lang;
       
-      // Update all translatable elements
-      const t = translations[lang];
+      // Update Meta Tags
+      document.title = t.metaTitle;
+      document.getElementById('metaDesc').content = t.metaDesc;
+      document.getElementById('ogTitle').content = t.metaTitle;
+      document.getElementById('ogDesc').content = t.metaDesc;
+      document.getElementById('ogImgAlt').content = t.altProfile1; // Using alt as proxy for generic og alt
+
+      // Update all translatable elements via ID
       for (const key in t) {
+        // Skip meta keys if handled manually above, but we can also loop them if they had IDs
+        // The loop below handles standard DOM elements
+        
         const elements = document.querySelectorAll(`[id="${key}"]`);
         elements.forEach(el => {
           if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
             el.value = t[key];
+          } else if (el.tagName === 'IMG') {
+            el.alt = t[key];
           } else {
             el.innerHTML = t[key];
           }
         });
       }
       
-      // Update language toggle text
+      // Update specific ARIA labels that might not contain innerText
+      document.getElementById('execToggleBtn').setAttribute('aria-label', t.ariaExecToggle);
+      document.getElementById('closeMenuBtn').setAttribute('aria-label', t.ariaCloseMenu);
+      document.getElementById('fabMainBtn').setAttribute('aria-label', t.altFab);
+      
+      // Update language toggle text (handled by loop if id="langToggle" was on text span, 
+      // but here we ensure it updates correctly)
       const langToggle = document.getElementById('langToggle');
       const langText = langToggle.querySelector('.lang-text');
       langText.textContent = lang === 'en' ? 'EN' : 'AR';
+      langToggle.setAttribute('aria-label', lang === 'en' ? 'Switch to Arabic' : 'التبديل إلى الإنجليزية');
       
       // Save preference
       localStorage.setItem('preferredLang', lang);
-      
-      // Update ARIA label
-      langToggle.setAttribute('aria-label', lang === 'en' ? 'Switch to Arabic' : 'التبديل إلى الإنجليزية');
     }
 
     // Toggle language
@@ -1657,11 +1724,13 @@
 
       const profilesView = document.getElementById('profiles-view');
       const brandingView = document.getElementById('branding-view');
+      const motionView = document.getElementById('motion-view');
       
       const isProfilesActive = profilesView && profilesView.classList.contains('active');
       const isBrandingActive = brandingView && brandingView.classList.contains('active');
+      const isMotionActive = motionView && motionView.classList.contains('active');
 
-      if (isProfilesActive || isBrandingActive) {
+      if (isProfilesActive || isBrandingActive || isMotionActive) {
         return;
       }
 
