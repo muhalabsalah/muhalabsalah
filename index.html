@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tajawal font for Arabic -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
   <!-- SEO & ANALYTICS -->
@@ -88,6 +90,11 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
+    /* Arabic Typography */
+    [dir="rtl"] body {
+      font-family: 'Tajawal', 'Poppins', sans-serif;
+    }
+
     /* Typography */
     h1, h2, h3, h4 { color: var(--primary-dark); line-height: 1.2; letter-spacing: -0.02em; }
     
@@ -121,6 +128,66 @@
     ul { list-style: none; }
 
     img { max-width: 100%; height: auto; display: block; }
+
+    /* RTL Adjustments */
+    [dir="rtl"] {
+      text-align: right;
+    }
+    
+    [dir="rtl"] .nav-links {
+      gap: 24px;
+    }
+    
+    [dir="rtl"] .exec-nav-link i {
+      transform: rotate(180deg);
+    }
+    
+    [dir="rtl"] .timeline {
+      padding-left: 0;
+      padding-right: 20px;
+    }
+    
+    [dir="rtl"] .timeline::before {
+      left: auto;
+      right: 0;
+    }
+    
+    [dir="rtl"] .timeline-item {
+      padding-left: 0;
+      padding-right: 32px;
+    }
+    
+    [dir="rtl"] .timeline-item::after {
+      left: auto;
+      right: -5px;
+    }
+    
+    [dir="rtl"] .card li::before {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+    
+    [dir="rtl"] .strengths-grid,
+    [dir="rtl"] .hero-btns,
+    [dir="rtl"] .social-icon-row,
+    [dir="rtl"] .footer-links a {
+      text-align: right;
+    }
+    
+    [dir="rtl"] .cta-message {
+      text-align: left !important;
+    }
+    
+    [dir="rtl"] .exec-nav-link:hover {
+      padding-left: 40px;
+      padding-right: 50px;
+      background: linear-gradient(270deg, transparent, rgba(202, 138, 4, 0.05));
+    }
+    
+    [dir="rtl"] .footer-links a:hover {
+      padding-left: 0;
+      padding-right: 5px;
+    }
 
     /* Layout Utilities */
     .container {
@@ -178,6 +245,22 @@
     .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); }
     .nav-links a:hover, .nav-links a.active { color: var(--primary-dark); }
 
+    /* Language Toggle */
+    .lang-toggle {
+      background: transparent; border: 1px solid var(--border-color); color: var(--text-muted);
+      font-family: 'Poppins', sans-serif; font-size: 0.8rem; font-weight: 600;
+      height: 36px; padding: 0 16px; border-radius: 18px;
+      cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 6px;
+    }
+    
+    [dir="rtl"] .lang-toggle {
+      font-family: 'Tajawal', 'Poppins', sans-serif;
+    }
+    
+    .lang-toggle:hover {
+      border-color: var(--accent-gold); color: var(--accent-gold);
+    }
+
     /* Executive Toggle */
     .exec-toggle {
       background: rgba(255, 255, 255, 0.6); border: 1px solid rgba(15, 23, 42, 0.1);
@@ -186,6 +269,11 @@
       height: 48px; padding: 0 24px; border-radius: 24px;
       cursor: pointer; transition: all 0.3s ease; z-index: 1002; position: relative;
     }
+    
+    [dir="rtl"] .exec-toggle {
+      font-family: 'Tajawal', 'Poppins', sans-serif;
+    }
+    
     .exec-toggle:hover { background: var(--primary-dark); color: #fff; border-color: var(--primary-dark); }
     
     .menu-lines { display: flex; flex-direction: column; gap: 5px; width: 20px; }
@@ -204,7 +292,18 @@
       transform: translate3d(100%, 0, 0); transition: transform 0.5s var(--ease-out-expo);
       display: flex; flex-direction: column; border-left: 1px solid var(--border-color);
     }
+    
+    [dir="rtl"] .executive-panel {
+      right: auto;
+      left: 0;
+      transform: translate3d(-100%, 0, 0);
+      border-left: none;
+      border-right: 1px solid var(--border-color);
+      box-shadow: 10px 0 40px rgba(0,0,0,0.1);
+    }
+    
     .executive-panel.active { transform: translate3d(0, 0, 0); }
+    [dir="rtl"] .executive-panel.active { transform: translate3d(0, 0, 0); }
     
     .panel-header { padding: 32px 40px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; }
     .panel-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); transition: 0.2s; }
@@ -308,24 +407,21 @@
     .timeline-item.current-role h3 { color: var(--accent-gold); }
 
     /* --- VOLUNTEER EXPERIENCE ADJUSTMENTS --- */
-    /* Creating a distinct class for volunteer items to reduce visual weight */
     .timeline-item.volunteer {
-        margin-top: 50px; /* Extra space above */
+        margin-top: 50px;
         padding-top: 40px;
-        border-top: 1px dashed var(--border-color); /* Subtle divider */
+        border-top: 1px dashed var(--border-color);
     }
     
-    /* Neutralize the dot color */
     .timeline-item.volunteer::after {
         border-color: var(--text-muted);
         background: #f8fafc;
         box-shadow: none;
     }
 
-    /* Mute the heading color for reduced weight */
     .timeline-item.volunteer h3 {
         color: var(--text-muted);
-        font-weight: 500; /* Slightly lighter than standard 700 */
+        font-weight: 500;
     }
     
     .timeline-item.volunteer .timeline-date {
@@ -396,6 +492,12 @@
 
     /* --- Floating UI --- */
     .fab-wrapper { position: fixed; bottom: 30px; right: 30px; z-index: 95; display: flex; flex-direction: column-reverse; align-items: center; gap: 12px; }
+    
+    [dir="rtl"] .fab-wrapper {
+      right: auto;
+      left: 30px;
+    }
+    
     .fab-main { width: 56px; height: 56px; border-radius: 50%; background: var(--primary-dark); color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s ease; }
     .fab-wrapper.active .fab-main { transform: rotate(45deg); background: var(--accent-gold); }
     
@@ -469,6 +571,25 @@
         text-align: center; 
       }
 
+      /* RTL Mobile Adjustments */
+      [dir="rtl"] .hero-btns,
+      [dir="rtl"] .cta-message,
+      [dir="rtl"] .strengths-grid {
+        text-align: center;
+      }
+      
+      [dir="rtl"] .timeline {
+        padding-right: 10px;
+      }
+      
+      [dir="rtl"] .timeline::before {
+        right: 10px;
+      }
+      
+      [dir="rtl"] .timeline-item::after {
+        right: 5px;
+      }
+
       /* --- OTHER MOBILE STYLES --- */
       .footer-grid { grid-template-columns: 1fr; text-align: center; }
       .social-icon-row { justify-content: center; }
@@ -506,6 +627,10 @@
         <a href="#education">Education</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
+        <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+          <span class="lang-text">EN</span>
+          <i class="fa-solid fa-globe"></i>
+        </button>
       </div>
 
       <button class="exec-toggle" onclick="toggleExecutiveMenu()" aria-label="Open Menu">
@@ -519,15 +644,19 @@
   <div class="executive-panel-backdrop" id="execBackdrop" onclick="toggleExecutiveMenu()"></div>
   <div class="executive-panel" id="execPanel" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="panel-header">
-      <span style="font-weight: 600; letter-spacing: 1px;">NAVIGATION</span>
+      <span style="font-weight: 600; letter-spacing: 1px;" id="panelTitle">NAVIGATION</span>
       <button class="panel-close" onclick="toggleExecutiveMenu()" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <ul class="exec-nav-list">
-      <li><a href="#skills" class="exec-nav-link" onclick="toggleExecutiveMenu()">Core Skills <i class="fa-solid fa-arrow-right"></i></a></li>
-      <li><a href="#experience" class="exec-nav-link" onclick="toggleExecutiveMenu()">Experience <i class="fa-solid fa-arrow-right"></i></a></li>
-      <li><a href="#education" class="exec-nav-link" onclick="toggleExecutiveMenu()">Education <i class="fa-solid fa-arrow-right"></i></a></li>
-      <li><a href="#about" class="exec-nav-link" onclick="toggleExecutiveMenu()">Philosophy <i class="fa-solid fa-arrow-right"></i></a></li>
-      <li><a href="#contact" class="exec-nav-link" onclick="toggleExecutiveMenu()">Contact <i class="fa-solid fa-arrow-right"></i></a></li>
+      <li><a href="#skills" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navSkills">Core Skills</span> <i class="fa-solid fa-arrow-right"></i></a></li>
+      <li><a href="#experience" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navExperience">Experience</span> <i class="fa-solid fa-arrow-right"></i></a></li>
+      <li><a href="#education" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navEducation">Education</span> <i class="fa-solid fa-arrow-right"></i></a></li>
+      <li><a href="#about" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navAbout">Philosophy</span> <i class="fa-solid fa-arrow-right"></i></a></li>
+      <li><a href="#contact" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navContact">Contact</span> <i class="fa-solid fa-arrow-right"></i></a></li>
+      <li><a href="#" class="exec-nav-link" onclick="toggleLanguage(); toggleExecutiveMenu();">
+        <span id="navLanguage">Switch to Arabic</span> 
+        <i class="fa-solid fa-language"></i>
+      </a></li>
     </ul>
   </div>
 
@@ -535,8 +664,8 @@
   <div id="profiles-view" class="internal-view" aria-hidden="true">
     <div class="container">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
-        <h2>Selected Professional Profiles</h2>
-        <button class="btn btn-secondary-executive" onclick="closeProfiles()"><i class="fa-solid fa-arrow-left"></i> Back</button>
+        <h2 id="profilesTitle">Selected Professional Profiles</h2>
+        <button class="btn btn-secondary-executive" onclick="closeProfiles()"><i class="fa-solid fa-arrow-left"></i> <span id="backProfiles">Back</span></button>
       </div>
       <div class="internal-grid">
         <article class="profile-card">
@@ -546,8 +675,8 @@
           <div class="profile-content">
             <span class="profile-field">FMCG · Packaging</span>
             <h3 class="profile-name">Mashhor Foodstuff LLC</h3>
-            <p class="profile-desc">Complete corporate and product-focused digital presence for a foodstuff trading company, showcasing branding and FMCG packaging.</p>
-            <a href="https://mashhorfoods.github.io/mashhor-demo/" target="_blank" class="btn btn-primary">Visit Website <i class="fa-solid fa-external-link-alt" style="font-size: 0.8rem;"></i></a>
+            <p class="profile-desc" id="profileDesc1">Complete corporate and product-focused digital presence for a foodstuff trading company, showcasing branding and FMCG packaging.</p>
+            <a href="https://mashhorfoods.github.io/mashhor-demo/" target="_blank" class="btn btn-primary"><span id="visitWebsite1">Visit Website</span> <i class="fa-solid fa-external-link-alt" style="font-size: 0.8rem;"></i></a>
           </div>
         </article>
         <article class="profile-card">
@@ -557,8 +686,8 @@
           <div class="profile-content">
             <span class="profile-field">Agency · Branding</span>
             <h3 class="profile-name">Quantum Link</h3>
-            <p class="profile-desc">A digital agency platform presenting strategy-driven creative services, highlighting branding systems and visual identity.</p>
-            <a href="https://quantumlinkagency.github.io/qda/" target="_blank" class="btn btn-primary">Explore Agency <i class="fa-solid fa-external-link-alt" style="font-size: 0.8rem;"></i></a>
+            <p class="profile-desc" id="profileDesc2">A digital agency platform presenting strategy-driven creative services, highlighting branding systems and visual identity.</p>
+            <a href="https://quantumlinkagency.github.io/qda/" target="_blank" class="btn btn-primary"><span id="exploreAgency1">Explore Agency</span> <i class="fa-solid fa-external-link-alt" style="font-size: 0.8rem;"></i></a>
           </div>
         </article>
       </div>
@@ -569,8 +698,8 @@
   <div id="branding-view" class="internal-view" aria-hidden="true">
     <div class="container">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
-        <h2>Branding & Design</h2>
-        <button class="btn btn-secondary-executive" onclick="closeBranding()"><i class="fa-solid fa-arrow-left"></i> Back</button>
+        <h2 id="brandingTitle">Branding & Design</h2>
+        <button class="btn btn-secondary-executive" onclick="closeBranding()"><i class="fa-solid fa-arrow-left"></i> <span id="backBranding">Back</span></button>
       </div>
       <div class="internal-grid">
         <article class="profile-card">
@@ -580,8 +709,8 @@
           <div class="profile-content">
             <span class="profile-field">Identity System</span>
             <h3 class="profile-name">Logo & Brand ID</h3>
-            <p class="profile-desc">Comprehensive visual identity systems, logo design, and brand guidelines.</p>
-            <a href="https://drive.google.com/drive/folders/1kQ8fR4DeubcQG5tWMO_XuG6j37A7-EBQ?usp=drive_link" target="_blank" class="btn btn-primary">View Projects</a>
+            <p class="profile-desc" id="brandingDesc1">Comprehensive visual identity systems, logo design, and brand guidelines.</p>
+            <a href="https://drive.google.com/drive/folders/1kQ8fR4DeubcQG5tWMO_XuG6j37A7-EBQ?usp=drive_link" target="_blank" class="btn btn-primary"><span id="viewProjects1">View Projects</span></a>
           </div>
         </article>
         <article class="profile-card">
@@ -591,8 +720,8 @@
           <div class="profile-content">
             <span class="profile-field">Digital Art</span>
             <h3 class="profile-name">Illustration</h3>
-            <p class="profile-desc">Creative digital illustrations ranging from conceptual art to commercial graphics.</p>
-            <a href="https://drive.google.com/drive/folders/1zGJO_5WslFeQAuz51rnB1uCSvi3JqOFA?usp=drive_link" target="_blank" class="btn btn-primary">View Projects</a>
+            <p class="profile-desc" id="brandingDesc2">Creative digital illustrations ranging from conceptual art to commercial graphics.</p>
+            <a href="https://drive.google.com/drive/folders/1zGJO_5WslFeQAuz51rnB1uCSvi3JqOFA?usp=drive_link" target="_blank" class="btn btn-primary"><span id="viewProjects2">View Projects</span></a>
           </div>
         </article>
         <article class="profile-card">
@@ -602,8 +731,8 @@
           <div class="profile-content">
             <span class="profile-field">Packaging & Print</span>
             <h3 class="profile-name">Graphic Design – Products</h3>
-            <p class="profile-desc">Strategic graphic design for products, packaging, and print materials.</p>
-            <a href="https://drive.google.com/drive/folders/1kcMEgo14Y-d4oCZOA7O2dguqih8waWl6?usp=drive_link" target="_blank" class="btn btn-primary">View Projects</a>
+            <p class="profile-desc" id="brandingDesc3">Strategic graphic design for products, packaging, and print materials.</p>
+            <a href="https://drive.google.com/drive/folders/1kcMEgo14Y-d4oCZOA7O2dguqih8waWl6?usp=drive_link" target="_blank" class="btn btn-primary"><span id="viewProjects3">View Projects</span></a>
           </div>
         </article>
       </div>
@@ -614,8 +743,8 @@
   <div id="motion-view" class="internal-view" aria-hidden="true">
     <div class="container">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
-        <h2>Motion & Video</h2>
-        <button class="btn btn-secondary-executive" onclick="closeMotion()"><i class="fa-solid fa-arrow-left"></i> Back</button>
+        <h2 id="motionTitle">Motion & Video</h2>
+        <button class="btn btn-secondary-executive" onclick="closeMotion()"><i class="fa-solid fa-arrow-left"></i> <span id="backMotion">Back</span></button>
       </div>
       <div class="internal-grid">
         <article class="profile-card">
@@ -625,8 +754,8 @@
           <div class="profile-content">
             <span class="profile-field">Short-form</span>
             <h3 class="profile-name">Social Media Motion</h3>
-            <p class="profile-desc">Engaging motion graphics tailored for social platforms and attention retention.</p>
-            <a href="https://drive.google.com/drive/folders/1jKlT3EP3SlFhmPWeEeb9aHNGnEOJ_zid?usp=drive_link" target="_blank" class="btn btn-primary">View Projects</a>
+            <p class="profile-desc" id="motionDesc1">Engaging motion graphics tailored for social platforms and attention retention.</p>
+            <a href="https://drive.google.com/drive/folders/1jKlT3EP3SlFhmPWeEeb9aHNGnEOJ_zid?usp=drive_link" target="_blank" class="btn btn-primary"><span id="viewProjects4">View Projects</span></a>
           </div>
         </article>
         <article class="profile-card">
@@ -636,8 +765,8 @@
           <div class="profile-content">
             <span class="profile-field">Post-Production</span>
             <h3 class="profile-name">Motion & Editing</h3>
-            <p class="profile-desc">Video editing and motion graphics combining narrative pacing with dynamic visuals.</p>
-            <a href="https://drive.google.com/drive/folders/1LQ7BjdAChqE_kAQPnsIyeZqOqEy_w_Em?usp=drive_link" target="_blank" class="btn btn-primary">View Projects</a>
+            <p class="profile-desc" id="motionDesc2">Video editing and motion graphics combining narrative pacing with dynamic visuals.</p>
+            <a href="https://drive.google.com/drive/folders/1LQ7BjdAChqE_kAQPnsIyeZqOqEy_w_Em?usp=drive_link" target="_blank" class="btn btn-primary"><span id="viewProjects5">View Projects</span></a>
           </div>
         </article>
       </div>
@@ -648,12 +777,12 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="container hero-content">
-        <div class="badge-gcc hero-anim delay-100"><i class="fa-solid fa-circle"></i> Available for Remote & GCC Roles</div>
-        <h1 class="hero-title hero-anim delay-200">Visual Storyteller &<br>Motion Designer</h1>
-        <p class="hero-anim delay-300" style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 32px;">Senior Graphic & Motion Designer | Executive Presentation Design</p>
+        <div class="badge-gcc hero-anim delay-100"><i class="fa-solid fa-circle"></i> <span id="badgeText">Available for Remote & GCC Roles</span></div>
+        <h1 class="hero-title hero-anim delay-200" id="heroTitle">Visual Storyteller &<br>Motion Designer</h1>
+        <p class="hero-anim delay-300" style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 32px;" id="heroSubtitle">Senior Graphic & Motion Designer | Executive Presentation Design</p>
         <div class="hero-btns hero-anim delay-400">
-          <a href="#contact" class="btn btn-primary" data-magnetic="true">Start a Project</a>
-          <a href="#experience" class="btn btn-outline" style="background: transparent; border: none; box-shadow: none; padding-left: 0;">View Experience <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#contact" class="btn btn-primary" data-magnetic="true" id="heroBtn1">Start a Project</a>
+          <a href="#experience" class="btn btn-outline" style="background: transparent; border: none; box-shadow: none; padding-left: 0;" id="heroBtn2">View Experience <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </section>
@@ -662,10 +791,10 @@
     <section class="strengths-strip fade-in-up">
       <div class="container">
         <div class="strengths-grid">
-          <div class="strength-item"><i class="fa-solid fa-box-open"></i> FMCG Packaging</div>
-          <div class="strength-item"><i class="fa-solid fa-film"></i> Motion Graphics</div>
-          <div class="strength-item"><i class="fa-solid fa-chart-pie"></i> Executive Presentations</div>
-          <div class="strength-item"><i class="fa-solid fa-globe"></i> GCC & Africa Markets</div>
+          <div class="strength-item"><i class="fa-solid fa-box-open"></i> <span id="strength1">FMCG Packaging</span></div>
+          <div class="strength-item"><i class="fa-solid fa-film"></i> <span id="strength2">Motion Graphics</span></div>
+          <div class="strength-item"><i class="fa-solid fa-chart-pie"></i> <span id="strength3">Executive Presentations</span></div>
+          <div class="strength-item"><i class="fa-solid fa-globe"></i> <span id="strength4">GCC & Africa Markets</span></div>
         </div>
       </div>
     </section>
@@ -674,7 +803,7 @@
     <section id="skills">
       <div class="container">
         <div class="fade-in-up" style="text-align: center; margin-bottom: 48px;">
-          <h2>Core Skills</h2>
+          <h2 id="skillsTitle">Core Skills</h2>
         </div>
         <div class="grid-3">
           <!-- Branding Card -->
@@ -682,14 +811,14 @@
             <div class="card-thumbnail">
               <img src="https://i.ibb.co/svRY7Y0j/Branding-Design.png" alt="Branding Work" loading="lazy" width="600" height="330">
             </div>
-            <h3>Branding & Design</h3>
+            <h3 id="cardTitle1">Branding & Design</h3>
             <ul>
-              <li>Graphic Design</li>
-              <li>Brand Identity</li>
-              <li>Logo Design</li>
-              <li>FMCG Packaging</li>
+              <li id="cardSkill1">Graphic Design</li>
+              <li id="cardSkill2">Brand Identity</li>
+              <li id="cardSkill3">Logo Design</li>
+              <li id="cardSkill4">FMCG Packaging</li>
             </ul>
-            <button class="btn btn-outline" onclick="openBranding()" style="margin-top: auto;">View Projects</button>
+            <button class="btn btn-outline" onclick="openBranding()" style="margin-top: auto;" id="cardBtn1">View Projects</button>
           </div>
 
           <!-- Motion Card -->
@@ -697,13 +826,13 @@
             <div class="card-thumbnail">
               <img src="https://i.ibb.co/1GXrrB53/Motion-Video.webp" alt="Motion Work" loading="lazy" width="600" height="330">
             </div>
-            <h3>Motion & Video</h3>
+            <h3 id="cardTitle2">Motion & Video</h3>
             <ul>
-              <li>Motion Graphics</li>
-              <li>Video Editing</li>
-              <li>Social Media Content</li>
+              <li id="cardSkill5">Motion Graphics</li>
+              <li id="cardSkill6">Video Editing</li>
+              <li id="cardSkill7">Social Media Content</li>
             </ul>
-            <button class="btn btn-outline" onclick="openMotion()" style="margin-top: auto;">View Projects</button>
+            <button class="btn btn-outline" onclick="openMotion()" style="margin-top: auto;" id="cardBtn2">View Projects</button>
           </div>
 
           <!-- Digital Card -->
@@ -711,13 +840,13 @@
             <div class="card-thumbnail">
               <img src="https://i.ibb.co/FbdbWdRj/Digital-Marketing.webp" alt="Digital Work" loading="lazy" width="600" height="330">
             </div>
-            <h3>Digital & Marketing</h3>
+            <h3 id="cardTitle3">Digital & Marketing</h3>
             <ul>
-              <li>Social Media Design</li>
-              <li>Digital Campaigns</li>
-              <li>E-commerce Assets</li>
+              <li id="cardSkill8">Social Media Design</li>
+              <li id="cardSkill9">Digital Campaigns</li>
+              <li id="cardSkill10">E-commerce Assets</li>
             </ul>
-            <a href="https://drive.google.com/drive/folders/1rWpHpGQO2X0eHlpD8J3S0KnRpjU_5ISq?usp=drive_link" target="_blank" class="btn btn-outline" style="margin-top: auto;">View Projects</a>
+            <a href="https://drive.google.com/drive/folders/1rWpHpGQO2X0eHlpD8J3S0KnRpjU_5ISq?usp=drive_link" target="_blank" class="btn btn-outline" style="margin-top: auto;" id="cardBtn3">View Projects</a>
           </div>
 
           <!-- Profiles Card -->
@@ -725,9 +854,9 @@
             <div class="card-thumbnail">
               <img src="https://i.ibb.co/hF4zCYsv/Digital-Profiles.webp" alt="Digital Profiles" loading="lazy" width="600" height="330">
             </div>
-            <h3>Digital Profiles</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px;">Selected professional platforms and agency case studies.</p>
-            <button class="btn btn-outline" onclick="openProfiles()" style="margin-top: auto;">View Profiles</button>
+            <h3 id="cardTitle4">Digital Profiles</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px;" id="cardDesc1">Selected professional platforms and agency case studies.</p>
+            <button class="btn btn-outline" onclick="openProfiles()" style="margin-top: auto;" id="cardBtn4">View Profiles</button>
           </div>
         </div>
       </div>
@@ -736,7 +865,7 @@
     <!-- Tools -->
     <section id="tools" style="background: #f8fafc;">
       <div class="container" style="text-align: center; padding: 60px 20px;">
-        <h3 style="margin-bottom: 24px;">Technical Proficiency</h3>
+        <h3 style="margin-bottom: 24px;" id="toolsTitle">Technical Proficiency</h3>
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
           <span class="btn-outline" style="padding: 8px 16px; border-radius: 8px; font-size: 0.9rem;">Adobe Photoshop</span>
           <span class="btn-outline" style="padding: 8px 16px; border-radius: 8px; font-size: 0.9rem;">Illustrator</span>
@@ -751,7 +880,7 @@
     <section id="experience">
       <div class="container">
         <div class="fade-in-up" style="text-align: center; margin-bottom: 48px;">
-          <h2>Professional Journey</h2>
+          <h2 id="experienceTitle">Professional Journey</h2>
         </div>
         <div class="timeline">
           
@@ -759,11 +888,11 @@
           <div class="timeline-item current-role">
             <span class="timeline-date">Nov 2021 – Present</span>
             <div class="timeline-content">
-              <h3>Freelance Graphic & Motion Designer</h3>
-              <p>Visual Storytelling & Brand Execution</p>
+              <h3 id="roleTitle1">Freelance Graphic & Motion Designer</h3>
+              <p id="roleSubtitle1">Visual Storytelling & Brand Execution</p>
               <ul>
-                <li>Delivered branding, packaging, and motion graphics for international clients.</li>
-                <li>Led projects end-to-end, from concept to final execution.</li>
+                <li id="roleDesc1_1">Delivered branding, packaging, and motion graphics for international clients.</li>
+                <li id="roleDesc1_2">Led projects end-to-end, from concept to final execution.</li>
               </ul>
             </div>
           </div>
@@ -772,11 +901,11 @@
           <div class="timeline-item">
             <span class="timeline-date">Oct 2019 – Oct 2021</span>
             <div class="timeline-content">
-              <h3>Senior Visual Designer</h3>
-              <p>Al Madina Food Industries LLC (Oman)</p>
+              <h3 id="roleTitle2">Senior Visual Designer</h3>
+              <p id="roleSubtitle2">Al Madina Food Industries LLC (Oman)</p>
               <ul>
-                <li>Led branding and packaging design across FMCG product lines.</li>
-                <li>Produced product-focused motion graphics for marketing.</li>
+                <li id="roleDesc2_1">Led branding and packaging design across FMCG product lines.</li>
+                <li id="roleDesc2_2">Produced product-focused motion graphics for marketing.</li>
               </ul>
             </div>
           </div>
@@ -785,10 +914,10 @@
           <div class="timeline-item">
             <span class="timeline-date">Oct 2018 – May 2019</span>
             <div class="timeline-content">
-              <h3>Senior Graphic & Motion Designer</h3>
-              <p>YNY Solutions</p>
+              <h3 id="roleTitle3">Senior Graphic & Motion Designer</h3>
+              <p id="roleSubtitle3">YNY Solutions</p>
               <ul>
-                <li>Executed multiple branding and motion design projects under tight deadlines.</li>
+                <li id="roleDesc3_1">Executed multiple branding and motion design projects under tight deadlines.</li>
               </ul>
             </div>
           </div>
@@ -797,11 +926,11 @@
           <div class="timeline-item volunteer">
             <span class="timeline-date">Jun 2023 – Present</span>
             <div class="timeline-content">
-              <h3>Volunteer Worker – Humanitarian Response</h3>
-              <p>Crisis Communication & Field Coordination</p>
+              <h3 id="roleTitle4">Volunteer Worker – Humanitarian Response</h3>
+              <p id="roleSubtitle4">Crisis Communication & Field Coordination</p>
               <ul>
-                <li>Orchestrated crisis communication strategies and field coordination in high-pressure environments.</li>
-                <li>Demonstrated leadership and rapid adaptability during public health emergency responses.</li>
+                <li id="roleDesc4_1">Orchestrated crisis communication strategies and field coordination in high-pressure environments.</li>
+                <li id="roleDesc4_2">Demonstrated leadership and rapid adaptability during public health emergency responses.</li>
               </ul>
             </div>
           </div>
@@ -814,18 +943,18 @@
     <section id="education" style="background-color: var(--bg-end);">
       <div class="container">
         <div class="fade-in-up" style="text-align: center; margin-bottom: 48px;">
-          <h2>Education</h2>
+          <h2 id="educationTitle">Education</h2>
         </div>
         <div class="grid-3" style="max-width: 800px; margin: 0 auto;">
           <div class="card" style="text-align: left;">
-            <h3 style="font-size: 1.1rem;">B.Sc. Communication Science (Multimedia)</h3>
-            <span style="font-size: 0.9rem; color: var(--text-muted);">Mashreq University — Sudan</span>
-            <span style="display: block; margin-top: 8px; font-size: 0.8rem; font-weight: 700; color: var(--accent-gold);">Issued Sep 2011</span>
+            <h3 style="font-size: 1.1rem;" id="eduTitle1">B.Sc. Communication Science (Multimedia)</h3>
+            <span style="font-size: 0.9rem; color: var(--text-muted);" id="eduSubtitle1">Mashreq University — Sudan</span>
+            <span style="display: block; margin-top: 8px; font-size: 0.8rem; font-weight: 700; color: var(--accent-gold);" id="eduDate1">Issued Sep 2011</span>
           </div>
           <div class="card" style="text-align: left;">
-            <h3 style="font-size: 1.1rem;">Digital Marketing Certification</h3>
-            <span style="font-size: 0.9rem; color: var(--text-muted);">Coursera</span>
-            <span style="display: block; margin-top: 8px; font-size: 0.8rem; font-weight: 700; color: var(--accent-gold);">ID: H25S7GGUJKLW</span>
+            <h3 style="font-size: 1.1rem;" id="eduTitle2">Digital Marketing Certification</h3>
+            <span style="font-size: 0.9rem; color: var(--text-muted);" id="eduSubtitle2">Coursera</span>
+            <span style="display: block; margin-top: 8px; font-size: 0.8rem; font-weight: 700; color: var(--accent-gold);" id="eduDate2">ID: H25S7GGUJKLW</span>
           </div>
         </div>
       </div>
@@ -835,14 +964,14 @@
     <section id="about">
       <div class="container">
         <div class="fade-in-up" style="max-width: 800px; margin: 0 auto; text-align: center;">
-          <h2>Philosophy & Approach</h2>
-          <p>I specialize in branding, FMCG packaging, marketing visuals, and motion graphics. My approach blends creativity with strategy, ensuring each design serves a clear purpose.</p>
-          <p>I’ve contributed to humanitarian initiatives during crises, strengthening my adaptability, empathy, and problem-solving mindset.</p>
+          <h2 id="aboutTitle">Philosophy & Approach</h2>
+          <p id="aboutDesc1">I specialize in branding, FMCG packaging, marketing visuals, and motion graphics. My approach blends creativity with strategy, ensuring each design serves a clear purpose.</p>
+          <p id="aboutDesc2">I’ve contributed to humanitarian initiatives during crises, strengthening my adaptability, empathy, and problem-solving mindset.</p>
           <div style="display: flex; gap: 40px; justify-content: center; margin: 32px 0;">
-            <div><h4 style="color: var(--accent-gold); font-size: 2rem; margin: 0;">9+</h4><span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);">Years Exp</span></div>
-            <div><h4 style="color: var(--accent-gold); font-size: 2rem; margin: 0;">2+</h4><span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);">GCC Markets</span></div>
+            <div><h4 style="color: var(--accent-gold); font-size: 2rem; margin: 0;">9+</h4><span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);" id="stat1">Years Exp</span></div>
+            <div><h4 style="color: var(--accent-gold); font-size: 2rem; margin: 0;">2+</h4><span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);" id="stat2">GCC Markets</span></div>
           </div>
-          <a href="https://drive.google.com/drive/folders/1v9F3-A6LxfW75P2UEdKV2l5bYvUYyYNq?usp=drive_link" target="_blank" class="btn btn-outline">View Full Portfolio</a>
+          <a href="https://drive.google.com/drive/folders/1v9F3-A6LxfW75P2UEdKV2l5bYvUYyYNq?usp=drive_link" target="_blank" class="btn btn-outline" id="aboutBtn">View Full Portfolio</a>
         </div>
       </div>
     </section>
@@ -851,27 +980,27 @@
     <section id="contact" class="contact-section fade-in-up">
       <div class="cta-wrapper">
         <div class="cta-message" style="text-align: right;">
-          <h2 style="color: #fff;">Ready to elevate<br>your brand?</h2>
-          <p style="opacity: 0.8; margin-top: 16px;">Available for freelance projects and remote collaborations.</p>
+          <h2 style="color: #fff;" id="contactTitle">Ready to elevate<br>your brand?</h2>
+          <p style="opacity: 0.8; margin-top: 16px;" id="contactSubtitle">Available for freelance projects and remote collaborations.</p>
         </div>
         <div class="qr-wrapper">
           <div class="qr-card">
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=muhalabsalah@gmail.com&color=000000&bgcolor=ffffff" alt="Scan to Connect" loading="lazy" width="150" height="150">
           </div>
-          <span style="margin-top: 12px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-gold);">Scan to Connect</span>
+          <span style="margin-top: 12px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-gold);" id="qrText">Scan to Connect</span>
         </div>
         <div class="cta-actions">
           <a href="mailto:muhalabsalah@gmail.com" class="action-btn" onclick="copyEmail(event)">
             <i class="fa-regular fa-envelope" style="font-size: 1.2rem;"></i>
             <div>
-              <span style="display: block; font-weight: 700;">Email Me</span>
+              <span style="display: block; font-weight: 700;" id="contactEmailLabel">Email Me</span>
               <span style="font-size: 0.85rem; opacity: 0.7;">muhalabsalah@gmail.com</span>
             </div>
           </a>
           <a href="https://wa.me/249119005441" target="_blank" class="action-btn">
             <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i>
             <div>
-              <span style="display: block; font-weight: 700;">WhatsApp</span>
+              <span style="display: block; font-weight: 700;" id="contactWhatsappLabel">WhatsApp</span>
               <span style="font-size: 0.85rem; opacity: 0.7;">+249 119 005 441</span>
             </div>
           </a>
@@ -885,17 +1014,17 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3>Muhalab Basheir</h3>
-          <p style="opacity: 0.7; font-size: 0.9rem;">Visual Storyteller & Motion Designer dedicated to crafting compelling brand narratives and digital experiences.</p>
+          <p style="opacity: 0.7; font-size: 0.9rem;" id="footerDesc">Visual Storyteller & Motion Designer dedicated to crafting compelling brand narratives and digital experiences.</p>
         </div>
         <div class="footer-links">
-          <h4 style="color: #fff;">Quick Links</h4>
-          <a href="#experience">Experience</a>
-          <a href="#skills">My Skills</a>
-          <a href="#education">Education</a>
-          <a href="#contact">Get in Touch</a>
+          <h4 style="color: #fff;" id="footerLinksTitle">Quick Links</h4>
+          <a href="#experience" id="footerLink1">Experience</a>
+          <a href="#skills" id="footerLink2">My Skills</a>
+          <a href="#education" id="footerLink3">Education</a>
+          <a href="#contact" id="footerLink4">Get in Touch</a>
         </div>
         <div class="footer-social">
-          <h4 style="color: #fff;">Connect</h4>
+          <h4 style="color: #fff;" id="footerConnectTitle">Connect</h4>
           <div class="social-icon-row">
             <a href="https://www.linkedin.com/in/muhalabsalah/" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="https://www.youtube.com/@muhalabsalah4362" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
@@ -904,7 +1033,7 @@
         </div>
       </div>
       <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; text-align: center; font-size: 0.85rem; opacity: 0.5;">
-        &copy; 2026 Muhalab Basheir. All rights reserved.
+        &copy; 2026 Muhalab Basheir. <span id="footerRights">All rights reserved.</span>
       </div>
     </div>
   </footer>
@@ -918,17 +1047,352 @@
   </div>
 
   <!-- Toast -->
-  <div id="toast">Email copied to clipboard!</div>
+  <div id="toast"></div>
 
   <script>
+    // --- LANGUAGE SYSTEM ---
+    const translations = {
+      en: {
+        // Navigation
+        panelTitle: "NAVIGATION",
+        navSkills: "Core Skills",
+        navExperience: "Experience",
+        navEducation: "Education",
+        navAbout: "Philosophy",
+        navContact: "Contact",
+        navLanguage: "Switch to Arabic",
+        
+        // Hero
+        badgeText: "Available for Remote & GCC Roles",
+        heroTitle: "Visual Storyteller &<br>Motion Designer",
+        heroSubtitle: "Senior Graphic & Motion Designer | Executive Presentation Design",
+        heroBtn1: "Start a Project",
+        heroBtn2: "View Experience",
+        
+        // Strengths
+        strength1: "FMCG Packaging",
+        strength2: "Motion Graphics",
+        strength3: "Executive Presentations",
+        strength4: "GCC & Africa Markets",
+        
+        // Skills
+        skillsTitle: "Core Skills",
+        cardTitle1: "Branding & Design",
+        cardSkill1: "Graphic Design",
+        cardSkill2: "Brand Identity",
+        cardSkill3: "Logo Design",
+        cardSkill4: "FMCG Packaging",
+        cardBtn1: "View Projects",
+        
+        cardTitle2: "Motion & Video",
+        cardSkill5: "Motion Graphics",
+        cardSkill6: "Video Editing",
+        cardSkill7: "Social Media Content",
+        cardBtn2: "View Projects",
+        
+        cardTitle3: "Digital & Marketing",
+        cardSkill8: "Social Media Design",
+        cardSkill9: "Digital Campaigns",
+        cardSkill10: "E-commerce Assets",
+        cardBtn3: "View Projects",
+        
+        cardTitle4: "Digital Profiles",
+        cardDesc1: "Selected professional platforms and agency case studies.",
+        cardBtn4: "View Profiles",
+        
+        // Tools
+        toolsTitle: "Technical Proficiency",
+        
+        // Experience
+        experienceTitle: "Professional Journey",
+        roleTitle1: "Freelance Graphic & Motion Designer",
+        roleSubtitle1: "Visual Storytelling & Brand Execution",
+        roleDesc1_1: "Delivered branding, packaging, and motion graphics for international clients.",
+        roleDesc1_2: "Led projects end-to-end, from concept to final execution.",
+        
+        roleTitle2: "Senior Visual Designer",
+        roleSubtitle2: "Al Madina Food Industries LLC (Oman)",
+        roleDesc2_1: "Led branding and packaging design across FMCG product lines.",
+        roleDesc2_2: "Produced product-focused motion graphics for marketing.",
+        
+        roleTitle3: "Senior Graphic & Motion Designer",
+        roleSubtitle3: "YNY Solutions",
+        roleDesc3_1: "Executed multiple branding and motion design projects under tight deadlines.",
+        
+        roleTitle4: "Volunteer Worker – Humanitarian Response",
+        roleSubtitle4: "Crisis Communication & Field Coordination",
+        roleDesc4_1: "Orchestrated crisis communication strategies and field coordination in high-pressure environments.",
+        roleDesc4_2: "Demonstrated leadership and rapid adaptability during public health emergency responses.",
+        
+        // Education
+        educationTitle: "Education",
+        eduTitle1: "B.Sc. Communication Science (Multimedia)",
+        eduSubtitle1: "Mashreq University — Sudan",
+        eduDate1: "Issued Sep 2011",
+        
+        eduTitle2: "Digital Marketing Certification",
+        eduSubtitle2: "Coursera",
+        eduDate2: "ID: H25S7GGUJKLW",
+        
+        // About
+        aboutTitle: "Philosophy & Approach",
+        aboutDesc1: "I specialize in branding, FMCG packaging, marketing visuals, and motion graphics. My approach blends creativity with strategy, ensuring each design serves a clear purpose.",
+        aboutDesc2: "I've contributed to humanitarian initiatives during crises, strengthening my adaptability, empathy, and problem-solving mindset.",
+        stat1: "Years Exp",
+        stat2: "GCC Markets",
+        aboutBtn: "View Full Portfolio",
+        
+        // Contact
+        contactTitle: "Ready to elevate<br>your brand?",
+        contactSubtitle: "Available for freelance projects and remote collaborations.",
+        qrText: "Scan to Connect",
+        contactEmailLabel: "Email Me",
+        contactWhatsappLabel: "WhatsApp",
+        
+        // Footer
+        footerDesc: "Visual Storyteller & Motion Designer dedicated to crafting compelling brand narratives and digital experiences.",
+        footerLinksTitle: "Quick Links",
+        footerLink1: "Experience",
+        footerLink2: "My Skills",
+        footerLink3: "Education",
+        footerLink4: "Get in Touch",
+        footerConnectTitle: "Connect",
+        footerRights: "All rights reserved.",
+        
+        // Internal Views
+        profilesTitle: "Selected Professional Profiles",
+        backProfiles: "Back",
+        profileDesc1: "Complete corporate and product-focused digital presence for a foodstuff trading company, showcasing branding and FMCG packaging.",
+        visitWebsite1: "Visit Website",
+        profileDesc2: "A digital agency platform presenting strategy-driven creative services, highlighting branding systems and visual identity.",
+        exploreAgency1: "Explore Agency",
+        
+        brandingTitle: "Branding & Design",
+        backBranding: "Back",
+        brandingDesc1: "Comprehensive visual identity systems, logo design, and brand guidelines.",
+        viewProjects1: "View Projects",
+        brandingDesc2: "Creative digital illustrations ranging from conceptual art to commercial graphics.",
+        viewProjects2: "View Projects",
+        brandingDesc3: "Strategic graphic design for products, packaging, and print materials.",
+        viewProjects3: "View Projects",
+        
+        motionTitle: "Motion & Video",
+        backMotion: "Back",
+        motionDesc1: "Engaging motion graphics tailored for social platforms and attention retention.",
+        viewProjects4: "View Projects",
+        motionDesc2: "Video editing and motion graphics combining narrative pacing with dynamic visuals.",
+        viewProjects5: "View Projects",
+        
+        // Toast
+        toastText: "Email copied to clipboard!"
+      },
+      ar: {
+        // Navigation
+        panelTitle: "التنقل",
+        navSkills: "المهارات الأساسية",
+        navExperience: "الخبرة",
+        navEducation: "التعليم",
+        navAbout: "الفلسفة",
+        navContact: "الاتصال",
+        navLanguage: "التبديل إلى الإنجليزية",
+        
+        // Hero
+        badgeText: "متاح للعمل عن بعد ومناصب في دول الخليج",
+        heroTitle: "راوي قصص بصري<br>ومصمم رسوم متحركة",
+        heroSubtitle: "مصمم جرافيك ورسوم متحركة أول | تصميم عروض تنفيذية",
+        heroBtn1: "ابدأ مشروع",
+        heroBtn2: "عرض الخبرة",
+        
+        // Strengths
+        strength1: "تصميم تغليف السلع الاستهلاكية",
+        strength2: "الرسوم المتحركة",
+        strength3: "العروض التقديمية التنفيذية",
+        strength4: "أسواق الخليج وأفريقيا",
+        
+        // Skills
+        skillsTitle: "المهارات الأساسية",
+        cardTitle1: "الهوية البصرية والتصميم",
+        cardSkill1: "التصميم الجرافيكي",
+        cardSkill2: "الهوية البصرية",
+        cardSkill3: "تصميم الشعارات",
+        cardSkill4: "تصميم تغليف السلع الاستهلاكية",
+        cardBtn1: "عرض المشاريع",
+        
+        cardTitle2: "الرسوم المتحركة والفيديو",
+        cardSkill5: "الرسوم المتحركة",
+        cardSkill6: "مونتاج الفيديو",
+        cardSkill7: "محتوى وسائل التواصل الاجتماعي",
+        cardBtn2: "عرض المشاريع",
+        
+        cardTitle3: "التسويق الرقمي",
+        cardSkill8: "تصميم وسائل التواصل الاجتماعي",
+        cardSkill9: "الحملات الرقمية",
+        cardSkill10: "أصول التجارة الإلكترونية",
+        cardBtn3: "عرض المشاريع",
+        
+        cardTitle4: "الملفات الرقمية",
+        cardDesc1: "منصات مهنية مختارة ودراسات حالة للوكالات.",
+        cardBtn4: "عرض الملفات",
+        
+        // Tools
+        toolsTitle: "الكفاءة التقنية",
+        
+        // Experience
+        experienceTitle: "الرحلة المهنية",
+        roleTitle1: "مصمم جرافيك ورسوم متحركة مستقل",
+        roleSubtitle1: "رواية القصص البصرية وتنفيذ العلامات التجارية",
+        roleDesc1_1: "تقديم حلول للهوية البصرية، التغليف، والرسوم المتحركة لعملاء دوليين.",
+        roleDesc1_2: "إدارة المشاريع من البداية إلى النهاية، من المفهوم إلى التنفيذ النهائي.",
+        
+        roleTitle2: "مصمم مرئي أول",
+        roleSubtitle2: "الشركة المدينة للصناعات الغذائية (عمان)",
+        roleDesc2_1: "قيادة تصميم الهوية البصرية والتغليف عبر خطوط منتجات السلع الاستهلاكية.",
+        roleDesc2_2: "إنتاج رسوم متحركة تركز على المنتجات للتسويق.",
+        
+        roleTitle3: "مصمم جرافيك ورسوم متحركة أول",
+        roleSubtitle3: "حلول YNY",
+        roleDesc3_1: "تنفيذ مشاريع متعددة للهوية البصرية والرسوم المتحركة تحت ضغط الوقت.",
+        
+        roleTitle4: "متطوع – الاستجابة الإنسانية",
+        roleSubtitle4: "التواصل في الأزمات وتنسيق الميدان",
+        roleDesc4_1: "تنسيق استراتيجيات التواصل في الأزمات والتنسيق الميداني في بيئات عالية الضغط.",
+        roleDesc4_2: "إظهار القيادة والقدرة على التكيف السريع خلال الاستجابات لحالات الطوارئ الصحية العامة.",
+        
+        // Education
+        educationTitle: "التعليم",
+        eduTitle1: "بكالوريوس علوم الاتصال (وسائط متعددة)",
+        eduSubtitle1: "جامعة المشروع — السودان",
+        eduDate1: "صادر في سبتمبر 2011",
+        
+        eduTitle2: "شهادة التسويق الرقمي",
+        eduSubtitle2: "كورسيرا",
+        eduDate2: "الرقم: H25S7GGUJKLW",
+        
+        // About
+        aboutTitle: "الفلسفة والنهج",
+        aboutDesc1: "أتخصص في الهوية البصرية، تصميم تغليف السلع الاستهلاكية، المرئيات التسويقية، والرسوم المتحركة. يجمع نهجي بين الإبداع والاستراتيجية، مما يضمن أن كل تصميم يخدم غرضًا واضحًا.",
+        aboutDesc2: "ساهمت في المبادرات الإنسانية خلال الأزمات، مما عزز قدرتي على التكيف والتعاطف وعقلية حل المشكلات.",
+        stat1: "سنوات خبرة",
+        stat2: "أسواق الخليج",
+        aboutBtn: "عرض الحافظة الكاملة",
+        
+        // Contact
+        contactTitle: "مستعد لرفع<br>علامتك التجارية؟",
+        contactSubtitle: "متاح لمشاريع العمل الحر والتعاون عن بعد.",
+        qrText: "امسح للتواصل",
+        contactEmailLabel: "راسلني",
+        contactWhatsappLabel: "واتساب",
+        
+        // Footer
+        footerDesc: "راوي قصص بصري ومصمم رسوم متحركة مكرس لصنع سرديات علامات تجارية مؤثرة وتجارب رقمية.",
+        footerLinksTitle: "روابط سريعة",
+        footerLink1: "الخبرة",
+        footerLink2: "مهاراتي",
+        footerLink3: "التعليم",
+        footerLink4: "اتصل بي",
+        footerConnectTitle: "تواصل",
+        footerRights: "جميع الحقوق محفوظة.",
+        
+        // Internal Views
+        profilesTitle: "ملفات مهنية مختارة",
+        backProfiles: "رجوع",
+        profileDesc1: "حضور رقمي كامل يركز على الشركة والمنتجات لشركة تجارية للمواد الغذائية، يعرض العلامات التجارية وتصميم التغليف للسلع الاستهلاكية.",
+        visitWebsite1: "زيارة الموقع",
+        profileDesc2: "منصة وكالة رقمية تقدم خدمات إبداعية مدفوعة بالاستراتيجية، مع تسليط الضوء على أنظمة العلامات التجارية والهوية البصرية.",
+        exploreAgency1: "استكشاف الوكالة",
+        
+        brandingTitle: "الهوية البصرية والتصميم",
+        backBranding: "رجوع",
+        brandingDesc1: "أنظمة هوية بصرية شاملة، تصميم الشعارات، وإرشادات العلامة التجارية.",
+        viewProjects1: "عرض المشاريع",
+        brandingDesc2: "رسوم رقمية إبداعية تتراوح من الفن المفاهيمي إلى الرسوم التجارية.",
+        viewProjects2: "عرض المشاريع",
+        brandingDesc3: "تصميم جرافيكي استراتيجي للمنتجات، التغليف، والمواد المطبوعة.",
+        viewProjects3: "عرض المشاريع",
+        
+        motionTitle: "الرسوم المتحركة والفيديو",
+        backMotion: "رجوع",
+        motionDesc1: "رسوم متحركة جذابة مصممة خصيصًا لمنصات التواصل الاجتماعي والاحتفاظ بالانتباه.",
+        viewProjects4: "عرض المشاريع",
+        motionDesc2: "مونتاج الفيديو والرسوم المتحركة التي تجمع بين إيقاع السرد والمرئيات الديناميكية.",
+        viewProjects5: "عرض المشاريع",
+        
+        // Toast
+        toastText: "تم نسخ البريد الإلكتروني!"
+      }
+    };
+
+    // Current language state
+    let currentLang = 'en';
+
+    // Initialize language
+    function initLanguage() {
+      // Check localStorage first
+      const savedLang = localStorage.getItem('preferredLang');
+      
+      // Then check browser language
+      const browserLang = navigator.language || navigator.userLanguage;
+      const browserLangCode = browserLang.split('-')[0];
+      
+      // Determine initial language
+      if (savedLang && (savedLang === 'en' || savedLang === 'ar')) {
+        currentLang = savedLang;
+      } else if (browserLangCode === 'ar') {
+        currentLang = 'ar';
+      } else {
+        currentLang = 'en';
+      }
+      
+      // Apply language
+      applyLanguage(currentLang);
+    }
+
+    // Apply language and direction
+    function applyLanguage(lang) {
+      currentLang = lang;
+      
+      // Update HTML dir attribute
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.documentElement.lang = lang;
+      
+      // Update all translatable elements
+      const t = translations[lang];
+      for (const key in t) {
+        const elements = document.querySelectorAll(`[id="${key}"]`);
+        elements.forEach(el => {
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.value = t[key];
+          } else {
+            el.innerHTML = t[key];
+          }
+        });
+      }
+      
+      // Update language toggle text
+      const langToggle = document.getElementById('langToggle');
+      const langText = langToggle.querySelector('.lang-text');
+      langText.textContent = lang === 'en' ? 'EN' : 'AR';
+      
+      // Save preference
+      localStorage.setItem('preferredLang', lang);
+      
+      // Update ARIA label
+      langToggle.setAttribute('aria-label', lang === 'en' ? 'Switch to Arabic' : 'التبديل إلى الإنجليزية');
+    }
+
+    // Toggle language
+    function toggleLanguage() {
+      const newLang = currentLang === 'en' ? 'ar' : 'en';
+      applyLanguage(newLang);
+    }
+
     // --- 1. Canvas Performance Optimization ---
     const canvas = document.getElementById('hero-canvas');
     const ctx = canvas.getContext('2d');
     let width, height, particles = [];
-    const particleCount = window.innerWidth < 768 ? 25 : 45; // Reduce load on mobile
+    const particleCount = window.innerWidth < 768 ? 25 : 45;
     const connectionDistance = 150;
     
-    // Respect reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     if (!prefersReducedMotion) {
@@ -986,25 +1450,24 @@
       window.addEventListener('resize', () => { resize(); initParticles(); });
       resize(); initParticles(); animate();
       
-      // Stop animation when tab is hidden
       document.addEventListener('visibilitychange', () => {
         document.hidden ? cancelAnimationFrame(animationId) : animate();
       });
     }
 
-    // --- 2. Intersection Observer (Lazy Animation) ---
+    // --- 2. Intersection Observer ---
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target); // Only animate once
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 
     document.querySelectorAll('.fade-in-up, .timeline-item').forEach(el => observer.observe(el));
 
-    // --- 3. UI Interaction (Performance Optimized) ---
+    // --- 3. UI Interaction ---
     
     // Panel Logic
     function toggleExecutiveMenu() {
@@ -1060,6 +1523,7 @@
       e.preventDefault();
       navigator.clipboard.writeText("muhalabsalah@gmail.com").then(() => {
         const toast = document.getElementById("toast");
+        toast.textContent = translations[currentLang].toastText;
         toast.classList.add("show");
         setTimeout(() => toast.classList.remove("show"), 3000);
       });
@@ -1075,11 +1539,9 @@
 
     // Click Outside (Delegated)
     document.addEventListener('click', (e) => {
-      // Close FAB
       const fab = document.getElementById('fabWrapper');
       if (!fab.contains(e.target) && fab.classList.contains('active')) fab.classList.remove('active');
       
-      // Close Panel
       const panel = document.getElementById('execPanel');
       const toggle = document.querySelector('.exec-toggle');
       if (panel.classList.contains('active') && !panel.contains(e.target) && !toggle.contains(e.target)) {
@@ -1087,7 +1549,7 @@
       }
     });
 
-    // --- 5. Magnetic Buttons (Optimized with RAF) ---
+    // --- 5. Magnetic Buttons ---
     const magneticBtns = document.querySelectorAll('[data-magnetic="true"]');
     
     magneticBtns.forEach(btn => {
@@ -1118,14 +1580,11 @@
 
     // --- 6. Smooth Keyboard Navigation Logic ---
     document.addEventListener('keydown', (e) => {
-      // EXCLUSION LOGIC:
-      // 1. Do not hijack scroll if user is typing in an input field
       const activeTag = document.activeElement.tagName;
       if (activeTag === 'INPUT' || activeTag === 'TEXTAREA' || document.activeElement.isContentEditable) {
         return; 
       }
 
-      // 2. Do not hijack scroll if specific internal views are active
       const profilesView = document.getElementById('profiles-view');
       const brandingView = document.getElementById('branding-view');
       
@@ -1133,38 +1592,34 @@
       const isBrandingActive = brandingView && brandingView.classList.contains('active');
 
       if (isProfilesActive || isBrandingActive) {
-        return; // Allow default behavior inside these views
+        return;
       }
 
-      // TARGET KEYS DEFINITION
       const scrollDownKeys = ['ArrowDown', 'PageDown', 's', 'S'];
       const scrollUpKeys = ['ArrowUp', 'PageUp', 'w', 'W'];
 
-      // CHECK IF PRESSED KEY MATCHES
       if (scrollDownKeys.includes(e.key) || scrollUpKeys.includes(e.key)) {
-        
-        // PREVENT DEFAULT BROWSER JUMP
         e.preventDefault();
 
-        // DISTANCE CALCULATION
         const viewportHeight = window.innerHeight;
-        
-        // Check if 'Page' is in the key name (e.g., "PageDown") for 1.5x multiplier
         const isPageKey = e.key.toLowerCase().includes('page');
-        
         const multiplier = isPageKey ? 1.5 : 0.9;
         const distance = viewportHeight * multiplier;
 
-        // DETERMINE DIRECTION (1 for down, -1 for up)
         const direction = scrollDownKeys.includes(e.key) ? 1 : -1;
 
-        // EXECUTE SMOOTH SCROLL
         window.scrollBy({
           top: distance * direction,
           behavior: 'smooth'
         });
       }
     });
+
+    // --- Initialize Language ---
+    document.addEventListener('DOMContentLoaded', initLanguage);
+    
+    // Add language toggle event listener
+    document.getElementById('langToggle').addEventListener('click', toggleLanguage);
   </script>
 </body>
 </html>
