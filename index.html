@@ -138,12 +138,21 @@
       font-family: 'Poppins', sans-serif;
       background-color: #fdfdfd;
       background-image: var(--noise-url), linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-      background-attachment: fixed;
+      background-attachment: fixed; /* Optimized in media query below */
       color: var(--text-main);
       line-height: 1.6;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* PERFORMANCE FIX: Mobile Background Attachment */
+    /* Background-attachment: fixed causes repaint on mobile scroll/zoom. 
+       Switching to scroll for mobile devices prevents the freeze. */
+    @media (max-width: 1024px) {
+      body {
+        background-attachment: scroll;
+      }
     }
 
     /* Arabic Typography */
@@ -289,6 +298,16 @@
       transition: transform 0.3s ease;
     }
 
+    /* PERFORMANCE FIX: Backdrop Filter Removal on Mobile */
+    /* Backdrop-filter causes significant GPU lag during pinch-zoom. 
+       We disable it on mobile while keeping the semi-transparent background. */
+    @media (max-width: 1024px) {
+      nav {
+        backdrop-filter: none;
+        background: rgba(255, 255, 255, 0.95);
+      }
+    }
+
     .nav-content {
       width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 40px;
       display: flex; justify-content: space-between; align-items: center;
@@ -377,6 +396,15 @@
       position: fixed; inset: 0; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(4px);
       z-index: 999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
     }
+    
+    /* PERFORMANCE FIX: Disable backdrop blur on mobile backdrop */
+    @media (max-width: 1024px) {
+      .executive-panel-backdrop {
+        backdrop-filter: none;
+        background: rgba(15, 23, 42, 0.6);
+      }
+    }
+    
     .executive-panel-backdrop.active { opacity: 1; pointer-events: auto; }
 
     /* --- Hero Section --- */
@@ -1564,6 +1592,15 @@
       
       let animationId;
       function animate() {
+        // PERFORMANCE FIX: Detect Pinch-Zoom
+        // If the user is zooming (scale != 1), pause the animation loop.
+        // This prevents the JS physics from fighting with the browser's GPU zoom transform.
+        if (window.visualViewport && window.visualViewport.scale !== 1) {
+           // Just keep the loop alive but don't calculate/draw
+           animationId = requestAnimationFrame(animate);
+           return;
+        }
+
         ctx.clearRect(0, 0, width, height);
         for (let i = 0; i < particles.length; i++) {
           particles[i].update(); particles[i].draw();
