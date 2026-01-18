@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"/>
+   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   
   <!-- FAVICON & ICON CONFIGURATION -->
   <link rel="icon" type="image/png" href="https://i.ibb.co/wNGs1Y2K/icon-muhalab.png" sizes="32x32">
@@ -137,22 +137,13 @@
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #fdfdfd;
-      /* REMOVED background-attachment: fixed - Major performance issue on mobile */
       background-image: var(--noise-url), linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      background-attachment: fixed;
       color: var(--text-main);
       line-height: 1.6;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* PERFORMANCE ENHANCEMENT: Mobile Background */
-    /* On mobile, use simpler background to prevent repaint during zoom */
-    @media (max-width: 1024px) {
-      body {
-        background-image: none;
-        background-color: #f8fafc;
-      }
     }
 
     /* Arabic Typography */
@@ -293,16 +284,9 @@
     /* --- Navigation --- */
     nav {
       position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height); z-index: 100;
-      background: rgba(255, 255, 255, 0.95); /* Increased opacity for mobile */
+      background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.3);
       transition: transform 0.3s ease;
-    }
-
-    /* PERFORMANCE ENHANCEMENT: Remove backdrop-filter on mobile */
-    @media (max-width: 1024px) {
-      nav {
-        backdrop-filter: none;
-      }
     }
 
     .nav-content {
@@ -390,9 +374,10 @@
     .exec-nav-link:hover { color: var(--accent-gold); padding-left: 50px; background: linear-gradient(90deg, transparent, rgba(202, 138, 4, 0.05)); }
 
     .executive-panel-backdrop {
-      position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); /* Solid color instead of backdrop-filter */
+      position: fixed; inset: 0; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(4px);
       z-index: 999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
     }
+    .executive-panel-backdrop.active { opacity: 1; pointer-events: auto; }
 
     /* --- Hero Section --- */
     .hero {
@@ -990,7 +975,7 @@
         <div class="fade-in-up" style="max-width: 800px; margin: 0 auto; text-align: center;">
           <h2 id="aboutTitle">Philosophy & Approach</h2>
           <p id="aboutDesc1">I specialize in branding, FMCG packaging, marketing visuals, and motion graphics. My approach blends creativity with strategy, ensuring each design serves a clear purpose.</p>
-          <p id="aboutDesc2">I've contributed to humanitarian initiatives during crises, strengthening my adaptability, empathy, and problem-solving mindset.</p>
+          <p id="aboutDesc2">I’ve contributed to humanitarian initiatives during crises, strengthening my adaptability, empathy, and problem-solving mindset.</p>
           <div style="display: flex; gap: 40px; justify-content: center; margin: 32px 0;">
             <div><h4 style="color: var(--accent-gold); font-size: 2rem; margin: 0;">9+</h4><span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);" id="stat1">Years Exp</span></div>
             <div><h4 style="color: var(--accent-gold); font-size: 2rem; margin: 0;">2+</h4><span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);" id="stat2">GCC Markets</span></div>
@@ -1429,7 +1414,7 @@
         backMotion: "رجوع",
         motionField1: "قصير",
         motionName1: "الرسوم المتحركة لوسائل التواصل",
-        motionDesc1: "رسوم متحركة جذابة مصممة خصيصًا لمنصات التواصل الاجتماعي والاحتفظ بالانتباه.",
+        motionDesc1: "رسوم متحركة جذابة مصممة خصيصًا لمنصات التواصل الاجتماعي والاحتفاظ بالانتباه.",
         viewProjects4: "عرض المشاريع",
         
         motionField2: "ما بعد الإنتاج",
@@ -1542,15 +1527,12 @@
     const canvas = document.getElementById('hero-canvas');
     const ctx = canvas.getContext('2d');
     let width, height, particles = [];
-    const particleCount = window.innerWidth < 768 ? 15 : 25; // Reduced particle count for performance
+    const particleCount = window.innerWidth < 768 ? 25 : 45;
     const connectionDistance = 150;
     
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
-    // PERFORMANCE ENHANCEMENT: Detect mobile and disable canvas completely
-    const isMobile = window.innerWidth <= 768;
-    
-    if (!prefersReducedMotion && !isMobile) {
+    if (!prefersReducedMotion) {
       function resize() {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
@@ -1560,9 +1542,9 @@
         constructor() {
           this.x = Math.random() * width;
           this.y = Math.random() * height;
-          this.vx = (Math.random() - 0.5) * 0.2; // Reduced speed
-          this.vy = (Math.random() - 0.5) * 0.2;
-          this.size = Math.random() * 1.5 + 0.5; // Smaller particles
+          this.vx = (Math.random() - 0.5) * 0.4;
+          this.vy = (Math.random() - 0.5) * 0.4;
+          this.size = Math.random() * 2 + 1;
         }
         update() {
           this.x += this.vx; this.y += this.vy;
@@ -1571,7 +1553,7 @@
         }
         draw() {
           ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(15, 23, 42, 0.2)'; ctx.fill(); // Reduced opacity
+          ctx.fillStyle = 'rgba(15, 23, 42, 0.3)'; ctx.fill();
         }
       }
       
@@ -1581,70 +1563,33 @@
       }
       
       let animationId;
-      let lastTime = 0;
-      const frameInterval = 1000 / 30; // Target 30 FPS instead of 60
-      
-      function animate(timestamp) {
-        // PERFORMANCE FIX: Throttle animation during zoom
-        if (window.visualViewport && window.visualViewport.scale !== 1) {
-           // Skip animation completely during zoom
-           animationId = requestAnimationFrame(animate);
-           return;
-        }
-        
-        // Throttle to 30 FPS
-        if (timestamp - lastTime < frameInterval) {
-          animationId = requestAnimationFrame(animate);
-          return;
-        }
-        lastTime = timestamp;
-        
+      function animate() {
         ctx.clearRect(0, 0, width, height);
         for (let i = 0; i < particles.length; i++) {
           particles[i].update(); particles[i].draw();
-          // Reduced connection checks for performance
-          if (i % 2 === 0) { // Only check every other particle
-            for (let j = i + 1; j < particles.length; j++) {
-              const dx = particles[i].x - particles[j].x;
-              const dy = particles[i].y - particles[j].y;
-              const dist = Math.sqrt(dx * dx + dy * dy);
-              if (dist < connectionDistance) {
-                ctx.beginPath();
-                ctx.strokeStyle = `rgba(15, 23, 42, ${0.05 - dist/connectionDistance * 0.05})`;
-                ctx.lineWidth = 0.5;
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.stroke();
-              }
+          for (let j = i; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < connectionDistance) {
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(15, 23, 42, ${0.1 - dist/connectionDistance * 0.1})`;
+              ctx.lineWidth = 1;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
             }
           }
         }
         animationId = requestAnimationFrame(animate);
       }
       
-      // PERFORMANCE ENHANCEMENT: Debounced resize
-      let resizeTimeout;
-      function handleResize() {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-          resize();
-          initParticles();
-        }, 250); // Increased debounce time
-      }
-      
-      window.addEventListener('resize', handleResize);
+      window.addEventListener('resize', () => { resize(); initParticles(); });
       resize(); initParticles(); animate();
       
       document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-          cancelAnimationFrame(animationId);
-        } else {
-          animate();
-        }
+        document.hidden ? cancelAnimationFrame(animationId) : animate();
       });
-    } else if (isMobile) {
-      // Hide canvas on mobile for performance
-      canvas.style.display = 'none';
     }
 
     // --- 2. Intersection Observer ---
@@ -1671,11 +1616,9 @@
       if (!isActive) {
         panel.classList.add('active'); backdrop.classList.add('active'); toggle.classList.add('active');
         document.body.style.overflow = 'hidden';
-        panel.setAttribute('aria-hidden', 'false');
       } else {
         panel.classList.remove('active'); backdrop.classList.remove('active'); toggle.classList.remove('active');
         document.body.style.overflow = '';
-        panel.setAttribute('aria-hidden', 'true');
       }
     }
 
@@ -1743,36 +1686,34 @@
       }
     });
 
-    // --- 5. Magnetic Buttons - Disabled on mobile for performance ---
-    if (!isMobile) {
-      const magneticBtns = document.querySelectorAll('[data-magnetic="true"]');
+    // --- 5. Magnetic Buttons ---
+    const magneticBtns = document.querySelectorAll('[data-magnetic="true"]');
+    
+    magneticBtns.forEach(btn => {
+      let isHovering = false;
       
-      magneticBtns.forEach(btn => {
-        let isHovering = false;
-        
-        btn.addEventListener('mouseenter', () => isHovering = true);
-        btn.addEventListener('mouseleave', () => {
-          isHovering = false;
-          btn.style.transform = 'translate3d(0, 0, 0)';
-        });
-
-        btn.addEventListener('mousemove', (e) => {
-          if (!isHovering || prefersReducedMotion) return;
-          
-          const rect = btn.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          
-          const deltaX = (x - centerX) * 0.2; // Reduced magnetic effect
-          const deltaY = (y - centerY) * 0.2;
-          
-          btn.style.transform = `translate3d(${deltaX}px, ${deltaY}px, 0)`;
-        });
+      btn.addEventListener('mouseenter', () => isHovering = true);
+      btn.addEventListener('mouseleave', () => {
+        isHovering = false;
+        btn.style.transform = 'translate3d(0, 0, 0)';
       });
-    }
+
+      btn.addEventListener('mousemove', (e) => {
+        if (!isHovering || prefersReducedMotion) return;
+        
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const deltaX = (x - centerX) * 0.4;
+        const deltaY = (y - centerY) * 0.4;
+        
+        btn.style.transform = `translate3d(${deltaX}px, ${deltaY}px, 0)`;
+      });
+    });
 
     // --- 6. Smooth Keyboard Navigation Logic ---
     document.addEventListener('keydown', (e) => {
@@ -1811,34 +1752,6 @@
           behavior: 'smooth'
         });
       }
-    });
-
-    // --- 7. PERFORMANCE ENHANCEMENT: Disable heavy animations during zoom ---
-    let zoomCheckInterval;
-    let isZooming = false;
-    
-    function checkZoomState() {
-      if (window.visualViewport) {
-        const scale = window.visualViewport.scale;
-        if (scale !== 1 && !isZooming) {
-          isZooming = true;
-          // Reduce animations during zoom
-          document.body.classList.add('zooming');
-        } else if (scale === 1 && isZooming) {
-          isZooming = false;
-          document.body.classList.remove('zooming');
-        }
-      }
-    }
-    
-    if (window.visualViewport) {
-      zoomCheckInterval = setInterval(checkZoomState, 100);
-      window.visualViewport.addEventListener('resize', checkZoomState);
-    }
-
-    // Cleanup on page unload
-    window.addEventListener('beforeunload', () => {
-      if (zoomCheckInterval) clearInterval(zoomCheckInterval);
     });
 
     // --- Initialize Language ---
