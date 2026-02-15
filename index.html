@@ -292,9 +292,22 @@
     .nav-content {
       width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 40px;
       display: flex; justify-content: space-between; align-items: center;
+      height: 100%;
     }
 
-    .logo img { height: 65px; width: auto; transition: transform 0.3s ease; }
+    /* LOGO FIXES */
+    .logo {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .logo img { 
+      height: 65px; 
+      width: auto; 
+      object-fit: contain;
+      transition: transform 0.3s ease; 
+    }
     .logo:hover img { transform: scale(1.02); }
 
     .nav-links { display: none; gap: 30px; align-items: center; }
@@ -582,6 +595,10 @@
 
     @media (max-width: 768px) {
       .nav-content { padding: 0 24px; }
+      
+      /* MOBILE LOGO FIX: Reduce height */
+      .logo img { height: 45px; }
+
       .hero-title { font-size: 2rem; }
       .hero-content p { margin-bottom: 24px; }
       .hero-btns { flex-direction: column; width: 100%; gap: 16px; }
