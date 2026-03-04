@@ -61,13 +61,8 @@
   <meta property="og:type" content="website">
   <meta property="og:title" id="ogTitle" content="Muhalab Basheir | Senior Graphic & Motion Designer">
   <meta property="og:description" id="ogDesc" content="Branding, FMCG packaging, motion graphics & executive presentations. 9+ years experience.">
-  
-  <!-- UPDATED OG IMAGE -->
   <meta property="og:image" content="https://i.ibb.co/sJDs0SJP/icon-muhalab-1.webp">
-  
-  <!-- UPDATED OG IMAGE ALT -->
   <meta property="og:image:alt" id="ogImgAlt" content="Muhalab Basheir Logo">
-  
   <meta property="og:url" content="https://muhalabsalah.github.io/muhalabsalah/">
   <meta property="og:site_name" content="Muhalab Basheir Portfolio">
   <meta property="og:locale" content="en_US">
@@ -77,10 +72,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Muhalab Basheir | Senior Graphic & Motion Designer">
   <meta name="twitter:description" content="Branding, FMCG packaging, motion graphics & executive presentations. 9+ years experience.">
-  
-  <!-- UPDATED TWITTER IMAGE -->
   <meta name="twitter:image" content="https://i.ibb.co/sJDs0SJP/icon-muhalab-1.webp">
-  
   <meta name="twitter:image:alt" content="Muhalab Basheir Logo">
   
   <meta name="application-name" content="Muhalab Basheir">
@@ -408,7 +400,6 @@
       padding-top: var(--nav-height); 
       position: relative; 
       overflow: hidden;
-      /* Background blend */
       background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
     }
     
@@ -416,7 +407,7 @@
     
     .hero-layout {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr; /* Asymmetrical grid */
+      grid-template-columns: 1.2fr 0.8fr;
       gap: 4rem;
       align-items: center;
       position: relative;
@@ -424,13 +415,12 @@
       width: 100%;
     }
 
-    /* Text Side */
     .hero-content-wrapper {
       display: flex;
       flex-direction: column;
-      align-items: flex-start; /* Logical start for RTL */
+      align-items: flex-start;
       justify-content: center;
-      text-align: start; /* Logical start */
+      text-align: start;
     }
 
     .badge-gcc {
@@ -463,7 +453,6 @@
       display: inline-block;
     }
     
-    /* Subtle underline for highlight */
     .hero-highlight::after {
       content: '';
       position: absolute;
@@ -492,7 +481,6 @@
 
     .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
 
-    /* Visual Side (Abstract Composition) */
     .hero-visual-wrapper {
       position: relative;
       width: 100%;
@@ -503,7 +491,6 @@
       perspective: 1000px;
     }
 
-    /* Abstract Card 1 - Main Image/Stat Card */
     .visual-card-main {
       position: absolute;
       width: 280px;
@@ -523,7 +510,6 @@
       text-align: center;
     }
 
-    /* Abstract Card 2 - Accent Shape */
     .visual-card-accent {
       position: absolute;
       width: 220px;
@@ -532,7 +518,7 @@
       border-radius: 20px;
       z-index: 1;
       bottom: 40px;
-      right: 20px; /* RTL will flip via CSS logic or specific override */
+      right: 20px;
       opacity: 0.9;
       animation: float 7s ease-in-out infinite reverse;
       box-shadow: 0 20px 40px rgba(202, 138, 4, 0.3);
@@ -542,7 +528,6 @@
       color: white;
     }
 
-    /* Abstract Shape 3 - Geometric */
     .visual-circle {
       position: absolute;
       top: 20px;
@@ -556,7 +541,6 @@
       animation: spin 20s linear infinite;
     }
 
-    /* Content inside Visual Cards */
     .vc-number {
       font-size: 3.5rem;
       font-weight: 800;
@@ -636,7 +620,7 @@
     .card li { padding: 4px 0; color: var(--text-muted); font-size: 0.9rem; display: flex; align-items: center; }
     .card li::before { content: '•'; color: var(--accent-gold); margin-right: 8px; font-size: 1.2rem; line-height: 0; }
 
-    /* --- TIMELINE (REDESIGNED) --- */
+    /* --- TIMELINE --- */
     .timeline { 
       position: relative; 
       max-width: 900px; 
@@ -644,7 +628,6 @@
       padding-left: 30px; 
     }
     
-    /* The vertical line */
     .timeline::before {
       content: ''; 
       position: absolute; 
@@ -652,29 +635,26 @@
       width: 2px;
       background: linear-gradient(to bottom, var(--primary-dark) 2px, transparent 2px);
       background-size: 1px 12px;
-      /* Dotted effect */
       background-image: linear-gradient(var(--border-color) 50%, transparent 50%);
       background-size: 1px 10px;
       background-repeat: repeat-y;
     }
 
-    /* Timeline Item Container */
     .timeline-item {
       position: relative; 
       margin-bottom: 32px; 
-      padding-left: 32px; /* Space for the line */
+      padding-left: 32px; 
       opacity: 0; 
       transform: translateY(20px); 
       transition: 0.5s ease;
     }
     .timeline-item.visible { opacity: 1; transform: translateY(0); }
 
-    /* The Dot on the line */
     .timeline-item::after {
       content: ''; 
       position: absolute; 
-      left: -6px; /* Centered on line */
-      top: 24px; /* Aligned with top of card padding */
+      left: -6px; 
+      top: 24px; 
       width: 14px; 
       height: 14px; 
       border-radius: 50%; 
@@ -684,7 +664,6 @@
       transition: 0.3s ease;
     }
 
-    /* The Content Card */
     .timeline-content {
       background: #fff;
       padding: 24px 28px;
@@ -694,7 +673,6 @@
       transition: all 0.3s var(--ease-out-expo);
     }
 
-    /* Card Hover Effects */
     .timeline-item:hover .timeline-content {
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(15, 23, 42, 0.06);
@@ -705,9 +683,8 @@
       transform: scale(1.2);
     }
 
-    /* Current Role Styling */
     .timeline-item.current-role .timeline-content {
-      border-left: 4px solid var(--accent-gold); /* Brand ID Accent */
+      border-left: 4px solid var(--accent-gold);
     }
     .timeline-item.current-role h3 { color: var(--primary-dark); font-weight: 700; }
     .timeline-item.current-role::after {
@@ -715,10 +692,9 @@
       border-color: var(--accent-gold);
     }
 
-    /* Date Badge */
     .timeline-date { 
       display: inline-block;
-      background: rgba(202, 138, 4, 0.08); /* Gold tint background */
+      background: rgba(202, 138, 4, 0.08); 
       color: var(--accent-gold); 
       padding: 4px 12px; 
       border-radius: 4px; 
@@ -729,7 +705,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* Typography inside Card */
     .timeline-content h3 {
       font-size: 1.15rem;
       margin: 0 0 4px 0;
@@ -738,13 +713,12 @@
     
     .timeline-content p {
       margin: 0 0 16px 0;
-      color: var(--accent-gold); /* Brand Accent for Company/Location */
+      color: var(--accent-gold); 
       font-size: 0.95rem;
       font-weight: 500;
       line-height: 1.4;
     }
 
-    /* List Styling inside Card */
     .timeline-content ul {
       margin: 0; 
       padding: 0; 
@@ -760,7 +734,6 @@
       line-height: 1.6;
     }
     
-    /* Custom Bullet */
     .timeline-content li::before {
       content: ''; 
       position: absolute; 
@@ -771,17 +744,16 @@
       opacity: 0.6;
     }
 
-    /* --- VOLUNTEER SEPARATOR STYLING --- */
+    /* VOLUNTEER SEPARATOR */
     .timeline-item.volunteer {
       margin-top: 50px;
       padding-top: 40px;
       border-top: 1px dashed var(--border-color);
     }
     
-    /* Override Card styling for volunteer */
     .timeline-item.volunteer .timeline-content {
-        background: #fafafa; /* Slightly gray background */
-        border: 1px dashed var(--text-muted); /* Dashed border */
+        background: #fafafa; 
+        border: 1px dashed var(--text-muted); 
         box-shadow: none;
     }
     
@@ -796,10 +768,10 @@
     }
     
     .timeline-item.volunteer .timeline-content li::before {
-        background-color: var(--text-muted); /* Gray bullet */
+        background-color: var(--text-muted); 
     }
 
-    /* --- RTL LOGIC FOR NEW TIMELINE --- */
+    /* RTL TIMELINE */
     [dir="rtl"] .timeline { 
       padding-left: 0; 
       padding-right: 30px; 
@@ -830,13 +802,12 @@
       right: 0; 
     }
     
-    /* Flip the accent bar for RTL */
     [dir="rtl"] .timeline-item.current-role .timeline-content {
       border-left: 1px solid var(--border-color);
       border-right: 4px solid var(--accent-gold);
     }
 
-    /* --- Technical Proficiency (REDESIGNED) --- */
+    /* --- Technical Proficiency --- */
     .tools-section {
       background-color: #f8fafc;
       padding: 100px 0;
@@ -848,7 +819,6 @@
       margin-bottom: 16px;
     }
     
-    /* Subtle decorative background for tools */
     .tools-section::before {
       content: '';
       position: absolute;
@@ -910,7 +880,7 @@
       transform: scale(1.1);
     }
 
-    /* --- Education Section (REDESIGNED) --- */
+    /* --- Education Section --- */
     .education-section {
       background-color: var(--bg-end);
       padding: 100px 0;
@@ -930,7 +900,7 @@
       gap: 24px;
       padding: 32px;
       background: #fff;
-      border-left: 4px solid var(--accent-gold); /* Brand ID Accent Border */
+      border-left: 4px solid var(--accent-gold);
       box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
       border-top: 1px solid var(--border-color);
       border-right: 1px solid var(--border-color);
@@ -947,7 +917,7 @@
     .edu-icon {
       flex-shrink: 0;
       font-size: 2.5rem;
-      color: var(--accent-gold); /* Brand ID Icon */
+      color: var(--accent-gold);
       margin-top: 5px;
     }
 
@@ -970,18 +940,18 @@
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      color: var(--accent-gold); /* Brand ID Text */
+      color: var(--accent-gold);
       margin-bottom: 8px;
       letter-spacing: 0.5px;
     }
 
-    /* RTL for Education */
+    /* RTL Education */
     [dir="rtl"] .edu-card {
       border-left: 1px solid var(--border-color);
-      border-right: 4px solid var(--accent-gold); /* Flip Accent Border */
+      border-right: 4px solid var(--accent-gold);
     }
 
-    /* --- Contact Section (REDESIGNED) --- */
+    /* --- Contact Section --- */
     .contact-section {
       background: var(--primary-dark); 
       color: #fff; 
@@ -991,7 +961,6 @@
       overflow: hidden;
     }
     
-    /* Subtle background texture for contact */
     .contact-section::before {
       content: '';
       position: absolute;
@@ -1004,30 +973,27 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr; /* Text | Actions | QR */
+      grid-template-columns: 1.5fr 1fr 1fr; 
       gap: 40px;
       align-items: center;
       max-width: 1100px;
       margin: 0 auto;
-      text-align: left; /* Default LTR */
+      text-align: left; 
     }
     
-    /* RTL Grid Alignment */
     [dir="rtl"] .contact-grid {
       text-align: right;
     }
 
-    /* 1. Text Section */
     .contact-text-wrapper {
       align-self: center;
       margin-bottom: 20px;
     }
     
     .contact-title span {
-      color: var(--accent-gold); /* Brand ID Highlight */
+      color: var(--accent-gold); 
     }
 
-    /* 2. Actions (Email/WA) */
     .contact-actions-wrapper {
       display: flex;
       flex-direction: column;
@@ -1037,7 +1003,7 @@
     .contact-btn {
       display: flex;
       align-items: center;
-      justify-content: flex-start; /* Logical start for icon placement */
+      justify-content: flex-start; 
       gap: 16px;
       width: 100%;
       padding: 20px 24px;
@@ -1050,14 +1016,13 @@
     }
     
     .contact-btn:hover {
-      background: var(--accent-gold); /* Brand ID Hover BG */
+      background: var(--accent-gold); 
       border-color: var(--accent-gold);
       color: var(--primary-dark);
       transform: translateX(5px);
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
     
-    /* Icon styling */
     .contact-btn i {
       font-size: 1.5rem;
       color: var(--accent-gold);
@@ -1078,7 +1043,6 @@
       opacity: 0.7;
     }
 
-    /* 3. QR Card */
     .qr-card-wrapper {
       display: flex;
       flex-direction: column;
@@ -1089,10 +1053,10 @@
 
     .qr-card {
       background: rgba(255, 255, 255, 0.05);
-      border: 2px solid var(--accent-gold); /* Strong Brand ID Border */
+      border: 2px solid var(--accent-gold); 
       padding: 12px;
       border-radius: 16px;
-      box-shadow: 0 0 20px rgba(202, 0, 0, 0.1); /* Subtle Gold Glow */
+      box-shadow: 0 0 20px rgba(202, 0, 0, 0.1); 
       transition: transform 0.3s ease;
       text-decoration: none;
       color: #fff;
@@ -1119,18 +1083,212 @@
       font-weight: 600;
     }
 
-    /* --- Footer --- */
-    footer { background: #020617; color: #cbd5e1; padding: 60px 0 30px; border-top: 1px solid rgba(255,255,255,0.05); }
-    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-    .footer-brand h3 { color: #fff; margin-bottom: 16px; }
-    .footer-links a { display: block; margin-bottom: 12px; color: #94a3b8; }
-    .footer-links a:hover { color: var(--accent-gold); padding-left: 5px; }
-    .social-icon-row { display: flex; gap: 12px; }
-    .social-icon-btn {
-      width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05);
-      display: flex; align-items: center; justify-content: center; transition: 0.3s ease;
+    /* --- REDESIGNED FOOTER --- */
+    footer { 
+      background: #020617; 
+      color: #cbd5e1; 
+      padding: 80px 0 30px; 
+      border-top: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
     }
-    .social-icon-btn:hover { background: var(--accent-gold); color: var(--primary-dark); transform: translateY(-3px); }
+
+    /* Decorative Glow */
+    footer::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+      opacity: 0.3;
+    }
+
+    .footer-container {
+      width: 100%; 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      padding: 0 24px;
+    }
+
+    .footer-grid { 
+      display: grid; 
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 48px; 
+      margin-bottom: 60px;
+      text-align: start; 
+    }
+
+    .footer-brand-col {
+      grid-column: 1 / -1; 
+      margin-bottom: 20px;
+    }
+
+    @media (min-width: 992px) {
+      .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr;
+        align-items: start;
+      }
+      .footer-brand-col {
+        grid-column: span 1; 
+        margin-bottom: 0;
+      }
+    }
+
+    .footer-logo-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+    
+    .footer-logo-link:hover {
+      transform: scale(1.05);
+    }
+
+    #footerLogo {
+      width: auto;
+      height: 40px;
+      filter: brightness(0) invert(1); 
+    }
+
+    .footer-bio {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #94a3b8;
+      max-width: 300px;
+      margin-bottom: 24px;
+    }
+
+    .footer-heading { 
+      color: #fff; 
+      margin-bottom: 24px; 
+      font-size: 1.1rem; 
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-link-list { list-style: none; padding: 0; margin: 0; }
+    .footer-link-list li { margin-bottom: 12px; }
+    
+    .footer-link-list a { 
+      display: inline-block;
+      color: #94a3b8; 
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .footer-link-list a:hover { 
+      color: var(--accent-gold); 
+      transform: translateX(5px); 
+    }
+
+    [dir="rtl"] .footer-link-list a:hover {
+      transform: translateX(-5px);
+    }
+
+    .social-icon-footer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.3s ease, transform 0.2s ease;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .social-icon-footer:hover {
+      color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+    
+    .footer-socials-mobile {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    
+    .footer-socials-mobile .social-icon-footer span {
+      display: none; 
+    }
+    
+    .footer-socials-mobile .social-icon-footer {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
+
+    .footer-socials-desktop { display: none; }
+    .footer-socials-mobile { display: flex; }
+
+    @media (min-width: 768px) {
+      .footer-socials-desktop { display: block; }
+      .footer-socials-mobile { display: none; }
+    }
+
+    .footer-email {
+      display: block;
+      margin-top: 24px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 4px;
+      transition: border-color 0.3s ease;
+    }
+    
+    .footer-email:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .footer-legal a {
+      color: #64748b;
+      margin-left: 20px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    [dir="rtl"] .footer-legal a {
+      margin-left: 0;
+      margin-right: 20px;
+    }
+
+    .footer-legal a:hover {
+      color: var(--accent-gold);
+    }
+
+    @media (max-width: 600px) {
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+      
+      .footer-legal a {
+        margin: 0 10px;
+      }
+      
+      [dir="rtl"] .footer-legal a {
+        margin: 0 10px;
+      }
+    }
 
     /* --- Internal Views (Modals) --- */
     .internal-view {
@@ -1200,7 +1358,7 @@
       
       .hero-content-wrapper {
         align-items: center;
-        order: 2; /* Move text below visual on tablet/mobile for visual impact */
+        order: 2; 
       }
 
       .hero-visual-wrapper {
@@ -1219,17 +1377,14 @@
 
     @media (max-width: 768px) {
       .nav-content { padding: 0 24px; }
-      
-      /* MOBILE LOGO FIX: Reduce height */
       .logo img { height: 45px; }
-
       .hero-title { font-size: 2.2rem; }
       .hero-content p { margin-bottom: 24px; }
       .hero-btns { flex-direction: column; width: 100%; gap: 16px; }
       .hero-btns .btn { width: 100%; text-align: center; }
       
       .tools-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+        grid-template-columns: repeat(2, 1fr); 
         gap: 12px;
       }
       
@@ -1241,9 +1396,8 @@
         font-size: 2rem;
       }
       
-      /* Contact Mobile Responsive */
       .contact-grid {
-        grid-template-columns: 1fr; /* Stack vertically */
+        grid-template-columns: 1fr; 
         text-align: center;
         gap: 32px;
       }
@@ -1260,11 +1414,9 @@
       }
       
       .qr-card-wrapper {
-        display: none; /* Hide QR on very small screens if needed, or keep below */
+        display: none; 
       }
 
-      .footer-grid { grid-template-columns: 1fr; text-align: center; }
-      .social-icon-row { justify-content: center; }
       .internal-grid { grid-template-columns: 1fr; }
       .card-thumbnail { height: 180px; }
       .profile-img-wrapper { height: 200px; }
@@ -1285,13 +1437,13 @@
         grid-template-columns: 1fr;
       }
       .edu-card {
-        flex-direction: row; /* Keep side by side but adjust padding */
+        flex-direction: row; 
         padding: 20px;
       }
       
       /* RTL Fixes for Grid on Mobile */
       [dir="rtl"] .hero-content-wrapper {
-        align-items: center; /* Ensure centering */
+        align-items: center; 
       }
     }
 
@@ -1582,7 +1734,7 @@
       </div>
     </section>
 
-    <!-- Technical Proficiency (REDESIGNED) -->
+    <!-- Technical Proficiency -->
     <section id="tools" class="tools-section fade-in-up">
       <div class="container">
         <div style="text-align: center;">
@@ -1590,43 +1742,30 @@
         </div>
         
         <div class="tools-grid">
-          <!-- Photoshop -->
           <div class="tool-card">
             <i class="fa-solid fa-image"></i>
             <span id="tool1">Adobe Photoshop</span>
           </div>
-          
-          <!-- Illustrator -->
           <div class="tool-card">
             <i class="fa-solid fa-pen-nib"></i>
             <span id="tool2">Adobe Illustrator</span>
           </div>
-          
-          <!-- InDesign -->
           <div class="tool-card">
             <i class="fa-solid fa-newspaper"></i>
             <span id="tool3">Adobe InDesign</span>
           </div>
-          
-          <!-- After Effects -->
           <div class="tool-card">
             <i class="fa-solid fa-clapperboard"></i>
             <span id="tool4">Adobe After Effects</span>
           </div>
-          
-          <!-- Premiere Pro -->
           <div class="tool-card">
             <i class="fa-solid fa-video"></i>
             <span id="tool5">Adobe Premiere Pro</span>
           </div>
-
-          <!-- Canva -->
           <div class="tool-card">
             <i class="fa-solid fa-palette"></i>
             <span id="tool6">Canva</span>
           </div>
-          
-          <!-- MS Office -->
           <div class="tool-card">
             <i class="fa-solid fa-file-word"></i>
             <span id="tool7">Microsoft Office Suite</span>
@@ -1657,7 +1796,7 @@
             </div>
           </div>
 
-          <!-- Role 2: Al Madina Food Industries (Previous) -->
+          <!-- Role 2: Al Madina Food Industries -->
           <div class="timeline-item">
             <div class="timeline-content">
               <span class="timeline-date" id="roleDate2">Oct 2019 – Oct 2021</span>
@@ -1672,7 +1811,7 @@
             </div>
           </div>
 
-          <!-- Role 3: YNY Solutions (Previous) -->
+          <!-- Role 3: YNY Solutions -->
           <div class="timeline-item">
             <div class="timeline-content">
               <span class="timeline-date" id="roleDate3">Oct 2018 – May 2019</span>
@@ -1685,7 +1824,7 @@
             </div>
           </div>
 
-          <!-- Role 4: Leopard Multi Activities (Previous) -->
+          <!-- Role 4: Leopard Multi Activities -->
           <div class="timeline-item">
             <div class="timeline-content">
               <span class="timeline-date" id="roleDate4">Nov 2015 – Sept 2018</span>
@@ -1699,7 +1838,7 @@
             </div>
           </div>
 
-          <!-- Role 5: Alaietidal Organization (Contract/Project) -->
+          <!-- Role 5: Alaietidal Organization -->
           <div class="timeline-item">
             <div class="timeline-content">
               <span class="timeline-date" id="roleDate5">Aug 2022 – June 2023</span>
@@ -1714,7 +1853,7 @@
             </div>
           </div>
 
-          <!-- Role 6: NGOs (Volunteer) -->
+          <!-- Role 6: NGOs -->
           <div class="timeline-item volunteer">
             <div class="timeline-content">
               <span class="timeline-date" id="roleDate6">Present | Sudan</span>
@@ -1818,32 +1957,75 @@
     </section>
   </main>
 
-  <footer>
-    <div class="container">
+  <!-- Footer Section (Redesigned) -->
+  <footer id="main-footer">
+    <div class="footer-container">
+      
       <div class="footer-grid">
-        <div class="footer-brand">
-          <h3>Muhalab Basheir</h3>
-          <p style="opacity: 0.7; font-size: 0.9rem;" id="footerDesc">Visual Storyteller & Motion Designer dedicated to crafting compelling brand narratives and digital experiences.</p>
-        </div>
-        <div class="footer-links">
-          <h4 style="color: #fff;" id="footerLinksTitle">Quick Links</h4>
-          <a href="#experience" id="footerLink1">Experience</a>
-          <a href="#skills" id="footerLink2">My Skills</a>
-          <a href="#education" id="footerLink3">Education</a>
-          <a href="#contact" id="footerLink4">Get in Touch</a>
-        </div>
-        <div class="footer-social">
-          <h4 style="color: #fff;" id="footerConnectTitle">Connect</h4>
-          <div class="social-icon-row">
-            <a href="https://www.linkedin.com/in/muhalabsalah/" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://www.youtube.com/@muhalabsalah4362" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://wa.me/249962672192" class="social-icon-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        
+        <!-- Column 1: Brand Identity -->
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo-link">
+            <img id="footerLogo" src="https://i.ibb.co/sJDs0SJP/icon-muhalab-1.webp" alt="Muhalab Logo" width="120" height="40" loading="lazy">
+          </a>
+          <p class="footer-bio" id="footerDesc">
+            Visual Storyteller & Motion Designer dedicated to crafting compelling brand narratives and digital experiences.
+          </p>
+          
+          <!-- Mobile Socials (Visible on small screens) -->
+          <div class="footer-socials-mobile">
+            <a href="https://www.linkedin.com/in/muhalabsalah/" class="social-icon-footer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@muhalabsalah4362" class="social-icon-footer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://wa.me/249962672192" class="social-icon-footer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
           </div>
         </div>
+
+        <!-- Column 2: Quick Navigation -->
+        <div class="footer-nav-col">
+          <h4 class="footer-heading" id="footerLinksTitle">Quick Links</h4>
+          <ul class="footer-link-list">
+            <li><a href="#experience" id="footerLink1">Experience</a></li>
+            <li><a href="#skills" id="footerLink2">My Skills</a></li>
+            <li><a href="#education" id="footerLink3">Education</a></li>
+            <li><a href="#about" id="footerLinkAbout">Philosophy</a></li>
+            <li><a href="#contact" id="footerLink4">Get in Touch</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact & Connect -->
+        <div class="footer-contact-col">
+          <h4 class="footer-heading" id="footerConnectTitle">Connect</h4>
+          
+          <!-- Desktop Socials -->
+          <div class="footer-socials-desktop">
+            <a href="https://www.linkedin.com/in/muhalabsalah/" class="social-icon-footer" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i> <span>LinkedIn</span>
+            </a>
+            <a href="https://www.youtube.com/@muhalabsalah4362" class="social-icon-footer" aria-label="YouTube">
+              <i class="fa-brands fa-youtube"></i> <span>YouTube</span>
+            </a>
+            <a href="https://wa.me/249962672192" class="social-icon-footer" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span>
+            </a>
+          </div>
+
+          <div class="footer-contact-info">
+            <a href="mailto:muhalabsalah@gmail.com" class="footer-email">muhalabsalah@gmail.com</a>
+          </div>
+        </div>
+
+      </div> 
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <div class="copyright">
+          &copy; <span id="year"></span> Muhalab Basheir. <span id="footerRights">All rights reserved.</span>
+        </div>
+        <div class="footer-legal">
+           <a href="#">Privacy Policy</a>
+        </div>
       </div>
-      <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; text-align: center; font-size: 0.85rem; opacity: 0.5;">
-        &copy; 2026 Muhalab Basheir. <span id="footerRights">All rights reserved.</span>
-      </div>
+
     </div>
   </footer>
 
@@ -1937,7 +2119,6 @@
         // Experience
         experienceTitle: "Professional Journey",
         
-        // Freelance
         roleDate1: "Nov 2021 – Present",
         roleTitle1: "Freelance Graphic & Motion Designer",
         roleSubtitle1: "Sudan",
@@ -1945,7 +2126,6 @@
         roleDesc1_2: "<strong>Project Management & Client Relations:</strong> Lead the full project lifecycle—from initial briefing to final delivery—managing timelines, clarifying strategic requirements, and ensuring deliverables align with client objectives.",
         roleDesc1_3: "<strong>Quality Assurance & Brand Consistency:</strong> Oversee the independent management of documentation and revisions, ensuring rigorous quality control and consistency across all visual and editorial outputs.",
         
-        // Al Madina
         roleDate2: "Oct 2019 – Oct 2021",
         roleTitle2: "Senior Visual Designer - Branding & Packaging",
         roleSubtitle2: "Al Madina Food Industries LLC | Saham, Sultanate of Oman",
@@ -1954,14 +2134,12 @@
         roleDesc2_3: "<strong>Inventory Management:</strong> Conducted monthly stock counts and collaborated with warehouse management to reconcile data, supporting accurate reporting and resource allocation.",
         roleDesc2_4: "<strong>Strategic Branding:</strong> Delivered comprehensive branding, packaging, and visual solutions aligned with FMCG marketing requirements and company objectives.",
         
-        // YNY
         roleDate3: "Oct 2018 – May 2019",
         roleTitle3: "Graphic Designer",
         roleSubtitle3: "YNY SOLUTIONS | Khartoum, Sudan",
         roleDesc3_1: "<strong>Visual Communication Strategy:</strong> Executed the design of communication materials, presentation decks, and visual assets, ensuring brand consistency and alignment with client messaging.",
         roleDesc3_2: "<strong>Collaborative Execution:</strong> Coordinated closely with internal teams under tight timelines to deliver high-quality outputs that met specific project goals and stakeholder requirements.",
         
-        // Leopard
         roleDate4: "Nov 2015 – Sept 2018",
         roleTitle4: "Creative Designer & Digital Marketing Specialist",
         roleSubtitle4: "LEOPARD MULTI ACTIVITIES | Khartoum, Sudan",
@@ -1969,7 +2147,6 @@
         roleDesc4_2: "<strong>Operational Support:</strong> Streamlined business operations by coordinating with management, sales, and marketing teams to ensure alignment between administrative processes and commercial goals.",
         roleDesc4_3: "<strong>Documentation & Presentation:</strong> Edited, formatted, and prepared professional documents using Microsoft Office Suite, producing high-quality PDFs and layout designs for internal and external use.",
         
-        // Alaietidal
         roleDate5: "Aug 2022 – June 2023",
         roleTitle5: "Communications & Promotional Support",
         roleSubtitle5: "Alaietidal Organization | Khartoum, Sudan",
@@ -1978,7 +2155,6 @@
         roleDesc5_3: "<strong>Reporting & Documentation:</strong> Drafted, formatted, and prepared high-level reports and written materials, ensuring clarity, professional presentation, and alignment with donor requirements.",
         roleDesc5_4: "<strong>Cross-Functional Collaboration:</strong> Coordinated with internal teams to harmonize visual and written content with project objectives, maintaining accurate and up-to-date public communication across web platforms and outreach campaigns.",
         
-        // NGOs
         roleDate6: "Present | Sudan",
         roleTitle6: "Volunteer Worker",
         roleSubtitle6: "NGOs & Civil Society Organizations",
@@ -2018,6 +2194,7 @@
         footerLink1: "Experience",
         footerLink2: "My Skills",
         footerLink3: "Education",
+        footerLinkAbout: "Philosophy",
         footerLink4: "Get in Touch",
         footerConnectTitle: "Connect",
         footerRights: "All rights reserved.",
@@ -2159,15 +2336,13 @@
         // Experience
         experienceTitle: "الرحلة المهنية",
         
-        // Freelance
         roleDate1: "نوفمبر 2021 – الحاضر",
         roleTitle1: "مصمم جرافيك ورسوم متحركة مستقل",
         roleSubtitle1: "السودان",
-        roleDesc1_1: "<strong>دعمليات الاتصال الاستراتيجي:</strong> توفير حلول بصرية واتصالية شاملة للعملاء المحليين والدوليين، ترجمة المفاهيم المعقدة إلى مواد عروض تقديمية وتقارير وأصول رقمية عالية التأثير.",
+        roleDesc1_1: "<strong>دعم الاتصال الاستراتيجي:</strong> توفير حلول بصرية واتصالية شاملة للعملاء المحليين والدوليين، ترجمة المفاهيم المعقدة إلى مواد عروض تقديمية وتقارير وأصول رقمية عالية التأثير.",
         roleDesc1_2: "<strong>إدارة المشاريع وعلاقات العملاء:</strong> قيادة دورة حياة المشروع بالكامل—from التوجيه الأولي حتى التسليم النهائي—إدارة الجداول الزمنية، توضيح المتطلبات الاستراتيجية، وضمان توافق المخرجات مع أهداف العميل.",
         roleDesc1_3: "<strong>ضمان الجودة واتساق العلامة التجارية:</strong> الإشراف على الإدارة المستقلة للتوثيق والمراجعات، مما يضمن مراقبة جودة صارمة واتساق عبر جميع المخرجات البصرية والتحريرية.",
         
-        // Al Madina
         roleDate2: "أكتوبر 2019 – أكتوبر 2021",
         roleTitle2: "مصمم مرئي أول - العلامة التجارية والتغليف",
         roleSubtitle2: "الشركة المدينة للصناعات الغذائية | صحاء، سلطنة عمان",
@@ -2176,14 +2351,12 @@
         roleDesc2_3: "<strong>إدارة المخزون:</strong> إجراء جرد شهري للمخزون والتعاون مع إدارة المستودعات لمطابقة البيانات، ودعم التقارير الدقيقة وتخصيص الموارد.",
         roleDesc2_4: "<strong>العلامة التجارية الاستراتيجية:</strong> تقديم حلول شاملة للعلامة التجارية والتغليف والمرئيات متوافقة مع متطلبات التسويق للسلع الاستهلاكية السريعة وأهداف الشركة.",
         
-        // YNY
         roleDate3: "أكتوبر 2018 – مايو 2019",
         roleTitle3: "مصمم جرافيك",
         roleSubtitle3: "حلول YNY | الخرطوم، السودان",
         roleDesc3_1: "<strong>استراتيجية الاتصال البصري:</strong> تنفيذ تصميم مواد الاتصال، وعروض التقديم، والأصول المرئية، وضمان اتساق العلامة التجارية وتوافقها مع رسائل العميل.",
         roleDesc3_2: "<strong>التنفيذ التعاوني:</strong> التنسيق عن كثب مع الفرق الداخلية تحت ضغط الوقت لتسليم مخرجات عالية الجودة تلبي أهداف المشروع المحددة ومتطلبات أصحاب المصلحة.",
         
-        // Leopard
         roleDate4: "نوفمبر 2015 – سبتمبر 2018",
         roleTitle4: "مصمم مبدع وأخصائي تسويق رقمي",
         roleSubtitle4: "شركة ليوبارد للأنشطة المتعددة | الخرطوم، السودان",
@@ -2191,22 +2364,20 @@
         roleDesc4_2: "<strong>الدعم التشغيلي:</strong> تبسيط عمليات الأعمال من خلال التنسيق مع الإدارة والمبيعات وفريق التسويق لضمان التوافق بين العمليات الإدارية والأهداف التجارية.",
         roleDesc4_3: "<strong>التوثيق والعروض التقديمية:</strong> تحرير وتنسيق وإعداد مستندات احترافية باستخدام Microsoft Office Suite، وإنتاج ملفات PDF وتصميمات تخطيطية للاستخدام الداخلي والخارجي.",
         
-        // Alaietidal
         roleDate5: "أغسطس 2022 – يونيو 2023",
         roleTitle5: "دعم الاتصالات والترويج",
         roleSubtitle5: "منظمة العيتidal | الخرطوم، السودان",
         roleDesc5_1: "<strong>استراتيجية العلامة التجارية والأنظمة:</strong> تطوير قوالب وتصميمات مرئية قياسية متوافقة مع إرشادات العلامة التجارية للمنظمة، مما يضمن الاتساق عبر جميع تقارير المواد الترويجية.",
-        roleDesc5_2: "<strong>التنسيق الإنساني:</strong> التعاون مع المنظمات غير الحكومية والفرق المجتمعية في بيئات عالية الضغط لدعمود أنشطة الاستجابة الإنسانية خلال النزوح المرتبط بالنزاع.",
+        roleDesc5_2: "<strong>التنسيق الإنساني:</strong> التعاون مع المنظمات غير الحكومية والفرق المجتمعية في بيئات عالية الضغط لدعم أنشطة الاستجابة الإنسانية خلال النزوح المرتبط بالنزاع.",
         roleDesc5_3: "<strong>إعداد التقارير والتوثيق:</strong> صياغة وتنسيق وإعداد تقارير ومواد مكتوبة رفيعة المستوى، مما يضمن الوضوح، والعرض الاحترافي، والتوافق مع متطلبات المانحين.",
         roleDesc5_4: "<strong>التعاون متعدد الوظائف:</strong> التنسيق مع الفرق الداخلية لتنسيق المحتوى البصري والمكتوب مع أهداف المشروع، والحفاظ على اتصال عام دقيق ومحدث عبر المنصات الإلكترونية وحملات التوعية.",
         
-        // NGOs
         roleDate6: "الحاضر | السودان",
         roleTitle6: "عامل متطوع",
         roleSubtitle6: "المنظمات غير الحكومية ومنظمات المجتمع المدني",
         roleDesc6_1: "<strong>تصور البيانات وإدارة المعلومات:</strong> تصميم رسوم بيانية شاملة وتقارير بصرية وتحليلية للعملاء الإنسانيين والمؤسسيين، ترجمة مجموعات البيانات المعقدة إلى رؤى واضحة وقابلة للتنفيذ لأصحاب المصلحة المختلفين.",
         roleDesc6_2: "<strong>عمليات الميدان الطارئة:</strong> إجراء تقييمات للاحتياجات الميدانية وتسجيل العائلات النازحة في مراكز الإيواء (بورتسودان والجزيرة)، مما يضمن سلامة البيانات للتوزيع العادل والكفء للغذاء والمساعدات الأساسية.",
-        roleDesc6_3: "<strong>الاستجابة للأزمات والتنسيق:</strong> دعمود العمليات الصحية الطارئة في مراكز الحجر والعزل أثناء فاشيات الأمراض (قضارف وكلاكل)، إدارة تنظيم الحالات وسلاسل التوريد وحملامات التوعية العامة.",
+        roleDesc6_3: "<strong>الاستجابة للأزمات والتنسيق:</strong> دعم العمليات الصحية الطارئة في مراكز الحجر والعزل أثناء فاشيات الأمراض (قضارف وكلاكل)، إدارة تنظيم الحالات وسلاسل التوريد وحملات التوعية العامة.",
         roleDesc6_4: "<strong>المرونة التشغيلية:</strong> تسليم مخرجات اتصالية عالية الجودة تحت مواعيد نهائية ضيقة في مناطق نزاع سريعة التغير، مما يظهر التكيف ومهارات تنظيمية قوية خلال النزوح في الحرب وحالات الطوارئ الصحية العامة.",
         
         // Education
@@ -2230,7 +2401,7 @@
         // Contact
         contactTitle: "مستعد لرفع",
         contactSubtitle: "متاح لمشاريع العمل الحر والتعاون عن بعد.",
-        qrText: "امسحح للتواصل",
+        qrText: "امسح للتواصل",
         contactEmailLabel: "راسلني",
         contactWhatsappLabel: "واتساب",
         
@@ -2240,6 +2411,7 @@
         footerLink1: "الخبرة",
         footerLink2: "مهاراتي",
         footerLink3: "التعليم",
+        footerLinkAbout: "الفلسفة",
         footerLink4: "تواصل معي",
         footerConnectTitle: "تواصل",
         footerRights: "جميع الحقوق محفوظة.",
@@ -2278,7 +2450,7 @@
         backMotion: "رجوع",
         motionField1: "قصير",
         motionName1: "الرسوم المتحركة لوسائل التواصل",
-        motionDesc1: "رسوم متحركة جذابة مصممة خصيصًا لمنصات التواصل الاجتماعي والاحتفاظ بالانتباهة.",
+        motionDesc1: "رسوم متحركة جذابة مصممة خصيصًا لمنصات التواصل الاجتماعي والاحتفاظ بالانتباه.",
         viewProjects4: "عرض المشاريع",
         
         motionField2: "ما بعد الإنتاج",
@@ -2307,19 +2479,13 @@
       }
     };
 
-    // Current language state
     let currentLang = 'en';
 
-    // Initialize language
     function initLanguage() {
-      // Check localStorage first
       const savedLang = localStorage.getItem('preferredLang');
-      
-      // Then check browser language
       const browserLang = navigator.language || navigator.userLanguage;
       const browserLangCode = browserLang.split('-')[0];
       
-      // Determine initial language
       if (savedLang && (savedLang === 'en' || savedLang === 'ar')) {
         currentLang = savedLang;
       } else if (browserLangCode === 'ar') {
@@ -2328,31 +2494,23 @@
         currentLang = 'en';
       }
       
-      // Apply language
       applyLanguage(currentLang);
     }
 
-    // Apply language and direction
     function applyLanguage(lang) {
       currentLang = lang;
       const t = translations[lang];
       
-      // Update HTML dir attribute
       document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
       document.documentElement.lang = lang;
       
-      // Update Meta Tags
       document.title = t.metaTitle;
       document.getElementById('metaDesc').content = t.metaDesc;
       document.getElementById('ogTitle').content = t.metaTitle;
       document.getElementById('ogDesc').content = t.metaDesc;
       document.getElementById('ogImgAlt').content = t.altLogo;
 
-      // Update all translatable elements via ID
       for (const key in t) {
-        // Skip meta keys if handled manually above, but we can also loop them if they had IDs
-        // The loop below handles standard DOM elements
-        
         const elements = document.querySelectorAll(`[id="${key}"]`);
         elements.forEach(el => {
           if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
@@ -2365,29 +2523,24 @@
         });
       }
       
-      // Update specific ARIA labels that might not contain innerText
       document.getElementById('execToggleBtn').setAttribute('aria-label', t.ariaExecToggle);
       document.getElementById('closeMenuBtn').setAttribute('aria-label', t.ariaCloseMenu);
       document.getElementById('fabMainBtn').setAttribute('aria-label', t.altFab);
       
-      // Update language toggle text (handled by loop if id="langToggle" was on text span, 
-      // but here we ensure it updates correctly)
       const langToggle = document.getElementById('langToggle');
       const langText = langToggle.querySelector('.lang-text');
       langText.textContent = lang === 'en' ? 'EN' : 'AR';
       langToggle.setAttribute('aria-label', lang === 'en' ? 'Switch to Arabic' : 'التبديل إلى الإنجليزية');
       
-      // Save preference
       localStorage.setItem('preferredLang', lang);
     }
 
-    // Toggle language
     function toggleLanguage() {
       const newLang = currentLang === 'en' ? 'ar' : 'en';
       applyLanguage(newLang);
     }
 
-    // --- 1. Canvas Performance Optimization ---
+    // --- 1. Canvas Performance ---
     const canvas = document.getElementById('hero-canvas');
     const ctx = canvas.getContext('2d');
     let width, height, particles = [];
@@ -2470,7 +2623,6 @@
 
     // --- 3. UI Interaction ---
     
-    // Panel Logic
     function toggleExecutiveMenu() {
       const panel = document.getElementById('execPanel');
       const backdrop = document.getElementById('execBackdrop');
@@ -2486,7 +2638,6 @@
       }
     }
 
-    // Internal Views Logic
     const views = {
       'profiles-view': { open: openProfiles, close: closeProfiles },
       'branding-view': { open: openBranding, close: closeBranding },
@@ -2514,12 +2665,10 @@
     function openMotion() { openView('motion-view'); }
     function closeMotion() { closeView('motion-view'); }
 
-    // FAB Logic
     function toggleFab() {
       document.getElementById('fabWrapper').classList.toggle('active');
     }
 
-    // Copy Email
     function copyEmail(e) {
       e.preventDefault();
       navigator.clipboard.writeText("muhalabsalah@gmail.com").then(() => {
@@ -2538,7 +2687,6 @@
       }
     });
 
-    // Click Outside (Delegated)
     document.addEventListener('click', (e) => {
       const fab = document.getElementById('fabWrapper');
       if (!fab.contains(e.target) && fab.classList.contains('active')) fab.classList.remove('active');
@@ -2623,6 +2771,9 @@
     
     // Add language toggle event listener
     document.getElementById('langToggle').addEventListener('click', toggleLanguage);
+    
+    // Dynamic Year
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
