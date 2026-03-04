@@ -628,54 +628,205 @@
     .card li { padding: 4px 0; color: var(--text-muted); font-size: 0.9rem; display: flex; align-items: center; }
     .card li::before { content: '•'; color: var(--accent-gold); margin-right: 8px; font-size: 1.2rem; line-height: 0; }
 
-    /* --- Timeline --- */
-    .timeline { position: relative; max-width: 800px; margin-top: 48px; padding-left: 20px; }
-    .timeline::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
-      background: linear-gradient(to bottom, var(--primary-dark) 4px, transparent 4px);
-      background-size: 1px 20px;
+    /* --- TIMELINE (REDESIGNED) --- */
+    .timeline { 
+      position: relative; 
+      max-width: 900px; 
+      margin: 48px auto 0; 
+      padding-left: 30px; 
     }
     
+    /* The vertical line */
+    .timeline::before {
+      content: ''; 
+      position: absolute; 
+      left: 0; top: 0; bottom: 0; 
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary-dark) 2px, transparent 2px);
+      background-size: 1px 12px;
+      /* Dotted effect */
+      background-image: linear-gradient(var(--border-color) 50%, transparent 50%);
+      background-size: 1px 10px;
+      background-repeat: repeat-y;
+    }
+
+    /* Timeline Item Container */
     .timeline-item {
-      position: relative; padding-left: 32px; margin-bottom: 40px;
-      opacity: 0; transform: translateY(20px); transition: 0.5s ease;
+      position: relative; 
+      margin-bottom: 32px; 
+      padding-left: 32px; /* Space for the line */
+      opacity: 0; 
+      transform: translateY(20px); 
+      transition: 0.5s ease;
     }
     .timeline-item.visible { opacity: 1; transform: translateY(0); }
 
+    /* The Dot on the line */
     .timeline-item::after {
-      content: ''; position: absolute; left: -5px; top: 6px;
-      width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 2px solid var(--accent-gold);
+      content: ''; 
+      position: absolute; 
+      left: -6px; /* Centered on line */
+      top: 24px; /* Aligned with top of card padding */
+      width: 14px; 
+      height: 14px; 
+      border-radius: 50%; 
+      background: #fff; 
+      border: 3px solid var(--text-muted);
+      z-index: 2; 
+      transition: 0.3s ease;
     }
-    
-    .timeline-item.current-role::after { background: var(--accent-gold); box-shadow: 0 0 0 4px rgba(202, 138, 4, 0.2); }
-    .timeline-item.current-role h3 { color: var(--accent-gold); }
 
-    /* --- VOLUNTEER EXPERIENCE ADJUSTMENTS --- */
-    .timeline-item.volunteer {
-        margin-top: 50px;
-        padding-top: 40px;
-        border-top: 1px dashed var(--border-color);
+    /* The Content Card */
+    .timeline-content {
+      background: #fff;
+      padding: 24px 28px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 6px rgba(15, 23, 42, 0.02);
+      transition: all 0.3s var(--ease-out-expo);
+    }
+
+    /* Card Hover Effects */
+    .timeline-item:hover .timeline-content {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.06);
+      border-color: rgba(202, 138, 4, 0.3);
+    }
+    .timeline-item:hover::after {
+      border-color: var(--accent-gold);
+      transform: scale(1.2);
+    }
+
+    /* Current Role Styling */
+    .timeline-item.current-role .timeline-content {
+      border-left: 4px solid var(--accent-gold); /* Brand ID Accent */
+    }
+    .timeline-item.current-role h3 { color: var(--primary-dark); font-weight: 700; }
+    .timeline-item.current-role::after {
+      background: var(--accent-gold);
+      border-color: var(--accent-gold);
+    }
+
+    /* Date Badge */
+    .timeline-date { 
+      display: inline-block;
+      background: rgba(202, 138, 4, 0.08); /* Gold tint background */
+      color: var(--accent-gold); 
+      padding: 4px 12px; 
+      border-radius: 4px; 
+      font-size: 0.75rem; 
+      font-weight: 700; 
+      text-transform: uppercase; 
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Typography inside Card */
+    .timeline-content h3 {
+      font-size: 1.15rem;
+      margin: 0 0 4px 0;
+      color: var(--primary-dark);
     }
     
-    .timeline-item.volunteer::after {
-        border-color: var(--text-muted);
-        background: #f8fafc;
+    .timeline-content p {
+      margin: 0 0 16px 0;
+      color: var(--accent-gold); /* Brand Accent for Company/Location */
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* List Styling inside Card */
+    .timeline-content ul {
+      margin: 0; 
+      padding: 0; 
+      list-style: none; 
+    }
+    
+    .timeline-content li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px; 
+      color: var(--text-muted); 
+      font-size: 0.9rem; 
+      line-height: 1.6;
+    }
+    
+    /* Custom Bullet */
+    .timeline-content li::before {
+      content: ''; 
+      position: absolute; 
+      left: 0; top: 9px; 
+      width: 6px; height: 6px; 
+      background-color: var(--accent-gold); 
+      border-radius: 50%; 
+      opacity: 0.6;
+    }
+
+    /* --- VOLUNTEER SEPARATOR STYLING --- */
+    .timeline-item.volunteer {
+      margin-top: 50px;
+      padding-top: 40px;
+      border-top: 1px dashed var(--border-color);
+    }
+    
+    /* Override Card styling for volunteer */
+    .timeline-item.volunteer .timeline-content {
+        background: #fafafa; /* Slightly gray background */
+        border: 1px dashed var(--text-muted); /* Dashed border */
         box-shadow: none;
     }
-
-    .timeline-item.volunteer h3 {
+    
+    .timeline-item.volunteer .timeline-content h3 {
         color: var(--text-muted);
-        font-weight: 500;
+        font-weight: 600;
     }
     
-    .timeline-item.volunteer .timeline-date {
+    .timeline-item.volunteer .timeline-content p {
         color: var(--text-muted);
         opacity: 0.8;
     }
+    
+    .timeline-item.volunteer .timeline-content li::before {
+        background-color: var(--text-muted); /* Gray bullet */
+    }
 
-    .timeline-date { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 4px; }
-    .timeline-content ul { list-style: disc; padding-left: 20px; color: var(--text-muted); margin-top: 12px; }
-    .timeline-content li { margin-bottom: 6px; }
+    /* --- RTL LOGIC FOR NEW TIMELINE --- */
+    [dir="rtl"] .timeline { 
+      padding-left: 0; 
+      padding-right: 30px; 
+    }
+    
+    [dir="rtl"] .timeline::before { 
+      left: auto; 
+      right: 0; 
+    }
+    
+    [dir="rtl"] .timeline-item { 
+      padding-left: 0; 
+      padding-right: 32px; 
+    }
+    
+    [dir="rtl"] .timeline-item::after { 
+      left: auto; 
+      right: -6px; 
+    }
+    
+    [dir="rtl"] .timeline-content li { 
+      padding-left: 0; 
+      padding-right: 20px; 
+    }
+    
+    [dir="rtl"] .timeline-content li::before { 
+      left: auto; 
+      right: 0; 
+    }
+    
+    /* Flip the accent bar for RTL */
+    [dir="rtl"] .timeline-item.current-role .timeline-content {
+      border-left: 1px solid var(--border-color);
+      border-right: 4px solid var(--accent-gold);
+    }
 
     /* --- Technical Proficiency (REDESIGNED) --- */
     .tools-section {
@@ -901,16 +1052,21 @@
       [dir="rtl"] .hero-btns,
       [dir="rtl"] .cta-message,
       [dir="rtl"] .strengths-grid { text-align: center; }
+      
+      /* Mobile Timeline Adjustments */
       [dir="rtl"] .timeline { padding-right: 10px; }
       [dir="rtl"] .timeline::before { right: 10px; }
-      [dir="rtl"] .timeline-item::after { right: 5px; }
+      [dir="rtl"] .timeline-item { padding-right: 24px; }
+      [dir="rtl"] .timeline-item::after { right: 3px; }
+      
+      [dir="ltr"] .timeline { padding-left: 10px; }
+      [dir="ltr"] .timeline::before { left: 10px; }
+      [dir="ltr"] .timeline-item { padding-left: 24px; }
+      [dir="ltr"] .timeline-item::after { left: 3px; }
 
       .footer-grid { grid-template-columns: 1fr; text-align: center; }
       .social-icon-row { justify-content: center; }
       .internal-grid { grid-template-columns: 1fr; }
-      .timeline { padding-left: 10px; }
-      .timeline::before { left: 10px; }
-      .timeline-item::after { left: 5px; }
       .card-thumbnail { height: 180px; }
       .profile-img-wrapper { height: 200px; }
       
@@ -927,6 +1083,7 @@
       #hero-canvas { display: none; }
       .visual-card-main, .visual-card-accent, .visual-circle { animation: none; opacity: 1; transform: none !important;}
       .tool-card:hover { transform: none; }
+      .timeline-item:hover .timeline-content { transform: none; }
     }
   </style>
 </head>
@@ -1252,53 +1409,88 @@
         </div>
         <div class="timeline">
           
-          <!-- Role 1 -->
+          <!-- Role 1: Freelance (Current) -->
           <div class="timeline-item current-role">
-            <span class="timeline-date" id="roleDate1">Nov 2021 – Present</span>
             <div class="timeline-content">
+              <span class="timeline-date" id="roleDate1">Nov 2021 – Present</span>
               <h3 id="roleTitle1">Freelance Graphic & Motion Designer</h3>
-              <p id="roleSubtitle1">Visual Storytelling & Brand Execution</p>
+              <p id="roleSubtitle1">Sudan</p>
               <ul>
-                <li id="roleDesc1_1">Delivered branding, packaging, and motion graphics for international clients.</li>
-                <li id="roleDesc1_2">Led projects end-to-end, from concept to final execution.</li>
+                <li id="roleDesc1_1"><strong>Strategic Communication Support:</strong> Provide end-to-end visual and communication solutions for local and international clients, translating complex concepts into high-impact presentation materials, reports, and digital assets.</li>
+                <li id="roleDesc1_2"><strong>Project Management & Client Relations:</strong> Lead the full project lifecycle—from initial briefing to final delivery—managing timelines, clarifying strategic requirements, and ensuring deliverables align with client objectives.</li>
+                <li id="roleDesc1_3"><strong>Quality Assurance & Brand Consistency:</strong> Oversee the independent management of documentation and revisions, ensuring rigorous quality control and consistency across all visual and editorial outputs.</li>
               </ul>
             </div>
           </div>
 
-          <!-- Role 2 -->
+          <!-- Role 2: Al Madina Food Industries (Previous) -->
           <div class="timeline-item">
-            <span class="timeline-date" id="roleDate2">Oct 2019 – Oct 2021</span>
             <div class="timeline-content">
-              <h3 id="roleTitle2">Senior Visual Designer</h3>
-              <p id="roleSubtitle2">Al Madina Food Industries LLC (Oman)</p>
+              <span class="timeline-date" id="roleDate2">Oct 2019 – Oct 2021</span>
+              <h3 id="roleTitle2">Senior Visual Designer - Branding & Packaging</h3>
+              <p id="roleSubtitle2">Al Madina Food Industries LLC | Saham, Sultanate of Oman</p>
               <ul>
-                <li id="roleDesc2_1">Led branding and packaging design across FMCG product lines.</li>
-                <li id="roleDesc2_2">Produced product-focused motion graphics for marketing.</li>
+                <li id="roleDesc2_1"><strong>Operational Alignment & Logistics:</strong> Facilitated cross-departmental workflows by coordinating with operations, warehouse, and supply chain managers across the GCC region to support inventory control and reporting.</li>
+                <li id="roleDesc2_2"><strong>Administrative & Financial Liaison:</strong> Managed official correspondence with government entities, banks, and suppliers, while overseeing invoice recording, financial tracking, and data entry to ensure operational compliance.</li>
+                <li id="roleDesc2_3"><strong>Inventory Management:</strong> Conducted monthly stock counts and collaborated with warehouse management to reconcile data, supporting accurate reporting and resource allocation.</li>
+                <li id="roleDesc2_4"><strong>Strategic Branding:</strong> Delivered comprehensive branding, packaging, and visual solutions aligned with FMCG marketing requirements and company objectives.</li>
               </ul>
             </div>
           </div>
 
-          <!-- Role 3 -->
+          <!-- Role 3: YNY Solutions (Previous) -->
           <div class="timeline-item">
-            <span class="timeline-date" id="roleDate3">Oct 2018 – May 2019</span>
             <div class="timeline-content">
-              <h3 id="roleTitle3">Senior Graphic & Motion Designer</h3>
-              <p id="roleSubtitle3">YNY Solutions</p>
+              <span class="timeline-date" id="roleDate3">Oct 2018 – May 2019</span>
+              <h3 id="roleTitle3">Graphic Designer</h3>
+              <p id="roleSubtitle3">YNY SOLUTIONS | Khartoum, Sudan</p>
               <ul>
-                <li id="roleDesc3_1">Executed multiple branding and motion design projects under tight deadlines.</li>
+                <li id="roleDesc3_1"><strong>Visual Communication Strategy:</strong> Executed the design of communication materials, presentation decks, and visual assets, ensuring brand consistency and alignment with client messaging.</li>
+                <li id="roleDesc3_2"><strong>Collaborative Execution:</strong> Coordinated closely with internal teams under tight timelines to deliver high-quality outputs that met specific project goals and stakeholder requirements.</li>
               </ul>
             </div>
           </div>
 
-          <!-- Role 4: VOLUNTEER -->
+          <!-- Role 4: Leopard Multi Activities (Previous) -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <span class="timeline-date" id="roleDate4">Nov 2015 – Sept 2018</span>
+              <h3 id="roleTitle4">Creative Designer & Digital Marketing Specialist</h3>
+              <p id="roleSubtitle4">LEOPARD MULTI ACTIVITIES | Khartoum, Sudan</p>
+              <ul>
+                <li id="roleDesc4_1"><strong>Digital Marketing & Campaign Management:</strong> Assisted in planning and executing digital marketing strategies across multiple platforms, supporting business growth and brand visibility.</li>
+                <li id="roleDesc4_2"><strong>Operational Support:</strong> Streamlined business operations by coordinating with management, sales, and marketing teams to ensure alignment between administrative processes and commercial goals.</li>
+                <li id="roleDesc4_3"><strong>Documentation & Presentation:</strong> Edited, formatted, and prepared professional documents using Microsoft Office Suite, producing high-quality PDFs and layout designs for internal and external use.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 5: Alaietidal Organization (Contract/Project) -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <span class="timeline-date" id="roleDate5">Aug 2022 – June 2023</span>
+              <h3 id="roleTitle5">Communications & Promotional Support</h3>
+              <p id="roleSubtitle5">Alaietidal Organization | Khartoum, Sudan</p>
+              <ul>
+                <li id="roleDesc5_1"><strong>Brand Strategy & Systems:</strong> Developed standardized templates and visual layouts aligned with organizational branding guidelines, ensuring consistency across all reporting and promotional materials.</li>
+                <li id="roleDesc5_2"><strong>Humanitarian Coordination:</strong> Collaborated with NGOs and community teams in high-pressure environments to support humanitarian response activities during conflict-related displacement.</li>
+                <li id="roleDesc5_3"><strong>Reporting & Documentation:</strong> Drafted, formatted, and prepared high-level reports and written materials, ensuring clarity, professional presentation, and alignment with donor requirements.</li>
+                <li id="roleDesc5_4"><strong>Cross-Functional Collaboration:</strong> Coordinated with internal teams to harmonize visual and written content with project objectives, maintaining accurate and up-to-date public communication across web platforms and outreach campaigns.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 6: NGOs (Volunteer) -->
           <div class="timeline-item volunteer">
-            <span class="timeline-date" id="roleDate4">Jun 2023 – Present</span>
             <div class="timeline-content">
-              <h3 id="roleTitle4">Volunteer Worker – Humanitarian Response</h3>
-              <p id="roleSubtitle4">Crisis Communication & Field Coordination</p>
+              <span class="timeline-date" id="roleDate6">Present | Sudan</span>
+              <h3 id="roleTitle6">Volunteer Worker</h3>
+              <p id="roleSubtitle6">NGOs & Civil Society Organizations</p>
               <ul>
-                <li id="roleDesc4_1">Orchestrated crisis communication strategies and field coordination in high-pressure environments.</li>
-                <li id="roleDesc4_2">Demonstrated leadership and rapid adaptability during public health emergency responses.</li>
+                <li id="roleDesc6_1"><strong>Data Visualization & Information Management:</strong> Designed comprehensive infographics, visual reports, and analytical summaries for humanitarian and institutional clients, translating complex datasets into clear, actionable insights for diverse stakeholders.</li>
+                <li id="roleDesc6_2"><strong>Emergency Field Operations:</strong> Conducted on-ground needs assessments and registration of displaced families in shelter centers (Port Sudan & Gezira), ensuring data integrity for the fair and efficient distribution of food and essential aid.</li>
+                <li id="roleDesc6_3"><strong>Crisis Response & Coordination:</strong> Supported emergency health operations in quarantine and isolation centers during disease outbreaks (Qadarif & Kassala), managing case organization, supply chains, and public awareness campaigns.</li>
+                <li id="roleDesc6_4"><strong>Operational Resilience:</strong> Delivered high-quality communication outputs under tight deadlines in fast-changing conflict zones, demonstrating adaptability and strong organizational skills during wartime displacement and public health emergencies.</li>
               </ul>
             </div>
           </div>
@@ -1493,28 +1685,56 @@
         
         // Experience
         experienceTitle: "Professional Journey",
+        
+        // Freelance
         roleDate1: "Nov 2021 – Present",
         roleTitle1: "Freelance Graphic & Motion Designer",
-        roleSubtitle1: "Visual Storytelling & Brand Execution",
-        roleDesc1_1: "Delivered branding, packaging, and motion graphics for international clients.",
-        roleDesc1_2: "Led projects end-to-end, from concept to final execution.",
+        roleSubtitle1: "Sudan",
+        roleDesc1_1: "<strong>Strategic Communication Support:</strong> Provide end-to-end visual and communication solutions for local and international clients, translating complex concepts into high-impact presentation materials, reports, and digital assets.",
+        roleDesc1_2: "<strong>Project Management & Client Relations:</strong> Lead the full project lifecycle—from initial briefing to final delivery—managing timelines, clarifying strategic requirements, and ensuring deliverables align with client objectives.",
+        roleDesc1_3: "<strong>Quality Assurance & Brand Consistency:</strong> Oversee the independent management of documentation and revisions, ensuring rigorous quality control and consistency across all visual and editorial outputs.",
         
+        // Al Madina
         roleDate2: "Oct 2019 – Oct 2021",
-        roleTitle2: "Senior Visual Designer",
-        roleSubtitle2: "Al Madina Food Industries LLC (Oman)",
-        roleDesc2_1: "Led branding and packaging design across FMCG product lines.",
-        roleDesc2_2: "Produced product-focused motion graphics for marketing.",
+        roleTitle2: "Senior Visual Designer - Branding & Packaging",
+        roleSubtitle2: "Al Madina Food Industries LLC | Saham, Sultanate of Oman",
+        roleDesc2_1: "<strong>Operational Alignment & Logistics:</strong> Facilitated cross-departmental workflows by coordinating with operations, warehouse, and supply chain managers across the GCC region to support inventory control and reporting.",
+        roleDesc2_2: "<strong>Administrative & Financial Liaison:</strong> Managed official correspondence with government entities, banks, and suppliers, while overseeing invoice recording, financial tracking, and data entry to ensure operational compliance.",
+        roleDesc2_3: "<strong>Inventory Management:</strong> Conducted monthly stock counts and collaborated with warehouse management to reconcile data, supporting accurate reporting and resource allocation.",
+        roleDesc2_4: "<strong>Strategic Branding:</strong> Delivered comprehensive branding, packaging, and visual solutions aligned with FMCG marketing requirements and company objectives.",
         
+        // YNY
         roleDate3: "Oct 2018 – May 2019",
-        roleTitle3: "Senior Graphic & Motion Designer",
-        roleSubtitle3: "YNY Solutions",
-        roleDesc3_1: "Executed multiple branding and motion design projects under tight deadlines.",
+        roleTitle3: "Graphic Designer",
+        roleSubtitle3: "YNY SOLUTIONS | Khartoum, Sudan",
+        roleDesc3_1: "<strong>Visual Communication Strategy:</strong> Executed the design of communication materials, presentation decks, and visual assets, ensuring brand consistency and alignment with client messaging.",
+        roleDesc3_2: "<strong>Collaborative Execution:</strong> Coordinated closely with internal teams under tight timelines to deliver high-quality outputs that met specific project goals and stakeholder requirements.",
         
-        roleDate4: "Jun 2023 – Present",
-        roleTitle4: "Volunteer Worker – Humanitarian Response",
-        roleSubtitle4: "Crisis Communication & Field Coordination",
-        roleDesc4_1: "Orchestrated crisis communication strategies and field coordination in high-pressure environments.",
-        roleDesc4_2: "Demonstrated leadership and rapid adaptability during public health emergency responses.",
+        // Leopard
+        roleDate4: "Nov 2015 – Sept 2018",
+        roleTitle4: "Creative Designer & Digital Marketing Specialist",
+        roleSubtitle4: "LEOPARD MULTI ACTIVITIES | Khartoum, Sudan",
+        roleDesc4_1: "<strong>Digital Marketing & Campaign Management:</strong> Assisted in planning and executing digital marketing strategies across multiple platforms, supporting business growth and brand visibility.",
+        roleDesc4_2: "<strong>Operational Support:</strong> Streamlined business operations by coordinating with management, sales, and marketing teams to ensure alignment between administrative processes and commercial goals.",
+        roleDesc4_3: "<strong>Documentation & Presentation:</strong> Edited, formatted, and prepared professional documents using Microsoft Office Suite, producing high-quality PDFs and layout designs for internal and external use.",
+        
+        // Alaietidal
+        roleDate5: "Aug 2022 – June 2023",
+        roleTitle5: "Communications & Promotional Support",
+        roleSubtitle5: "Alaietidal Organization | Khartoum, Sudan",
+        roleDesc5_1: "<strong>Brand Strategy & Systems:</strong> Developed standardized templates and visual layouts aligned with organizational branding guidelines, ensuring consistency across all reporting and promotional materials.",
+        roleDesc5_2: "<strong>Humanitarian Coordination:</strong> Collaborated with NGOs and community teams in high-pressure environments to support humanitarian response activities during conflict-related displacement.",
+        roleDesc5_3: "<strong>Reporting & Documentation:</strong> Drafted, formatted, and prepared high-level reports and written materials, ensuring clarity, professional presentation, and alignment with donor requirements.",
+        roleDesc5_4: "<strong>Cross-Functional Collaboration:</strong> Coordinated with internal teams to harmonize visual and written content with project objectives, maintaining accurate and up-to-date public communication across web platforms and outreach campaigns.",
+        
+        // NGOs
+        roleDate6: "Present | Sudan",
+        roleTitle6: "Volunteer Worker",
+        roleSubtitle6: "NGOs & Civil Society Organizations",
+        roleDesc6_1: "<strong>Data Visualization & Information Management:</strong> Designed comprehensive infographics, visual reports, and analytical summaries for humanitarian and institutional clients, translating complex datasets into clear, actionable insights for diverse stakeholders.",
+        roleDesc6_2: "<strong>Emergency Field Operations:</strong> Conducted on-ground needs assessments and registration of displaced families in shelter centers (Port Sudan & Gezira), ensuring data integrity for the fair and efficient distribution of food and essential aid.",
+        roleDesc6_3: "<strong>Crisis Response & Coordination:</strong> Supported emergency health operations in quarantine and isolation centers during disease outbreaks (Qadarif & Kassala), managing case organization, supply chains, and public awareness campaigns.",
+        roleDesc6_4: "<strong>Operational Resilience:</strong> Delivered high-quality communication outputs under tight deadlines in fast-changing conflict zones, demonstrating adaptability and strong organizational skills during wartime displacement and public health emergencies.",
         
         // Education
         educationTitle: "Education",
@@ -1685,28 +1905,56 @@
         
         // Experience
         experienceTitle: "الرحلة المهنية",
+        
+        // Freelance
         roleDate1: "نوفمبر 2021 – الحاضر",
         roleTitle1: "مصمم جرافيك ورسوم متحركة مستقل",
-        roleSubtitle1: "رواية القصص البصرية وتنفيذ العلامات التجارية",
-        roleDesc1_1: "تقديم حلول للهوية البصرية، التغليف، والرسوم المتحركة لعملاء دوليين.",
-        roleDesc1_2: "إدارة المشاريع من البداية إلى النهاية، من المفهوم إلى التنفيذ النهائي.",
+        roleSubtitle1: "السودان",
+        roleDesc1_1: "<strong>دعم الاتصال الاستراتيجي:</strong> توفير حلول بصرية واتصالية شاملة للعملاء المحليين والدوليين، ترجمة المفاهيم المعقدة إلى مواد عروض تقديمية وتقارير وأصول رقمية عالية التأثير.",
+        roleDesc1_2: "<strong>إدارة المشاريع وعلاقات العملاء:</strong> قيادة دورة حياة المشروع بالكامل—from التوجيه الأولي حتى التسليم النهائي—إدارة الجداول الزمنية، توضيح المتطلبات الاستراتيجية، وضمان توافق المخرجات مع أهداف العميل.",
+        roleDesc1_3: "<strong>ضمان الجودة واتساق العلامة التجارية:</strong> الإشراف على الإدارة المستقلة للتوثيق والمراجعات، مما يضمن مراقبة جودة صارمة واتساق عبر جميع المخرجات البصرية والتحريرية.",
         
+        // Al Madina
         roleDate2: "أكتوبر 2019 – أكتوبر 2021",
-        roleTitle2: "مصمم مرئي أول",
-        roleSubtitle2: "الشركة المدينة للصناعات الغذائية (عمان)",
-        roleDesc2_1: "قيادة تصميم الهوية البصرية والتغليف عبر خطوط منتجات السلع الاستهلاكية.",
-        roleDesc2_2: "إنتاج رسوم متحركة تركز على المنتجات للتسويق.",
+        roleTitle2: "مصمم مرئي أول - العلامة التجارية والتغليف",
+        roleSubtitle2: "الشركة المدينة للصناعات الغذائية | صحاء، سلطنة عمان",
+        roleDesc2_1: "<strong>المحاذاة التشغيلية واللوجستيات:</strong> تسهيل سير العمل بين الإدارات من خلال التنسيق مع مديري العمليات والمستودعات وسلاسل التوريد عبر منطقة الخليج لدعم مراقبة المخزون وإعداد التقارير.",
+        roleDesc2_2: "<strong>الارتباط الإداري والمالي:</strong> إدارة المراسلات الرسمية مع الكيانات الحكومية والبنوك والموردين، بالإضافة إلى الإشراف على تسجيل الفواتير وتتبع البيانات المالية وإدخالها لضمان الامتثال التشغيلي.",
+        roleDesc2_3: "<strong>إدارة المخزون:</strong> إجراء جرد شهري للمخزون والتعاون مع إدارة المستودعات لمطابقة البيانات، ودعم التقارير الدقيقة وتخصيص الموارد.",
+        roleDesc2_4: "<strong>العلامة التجارية الاستراتيجية:</strong> تقديم حلول شاملة للعلامة التجارية والتغليف والمرئيات متوافقة مع متطلبات التسويق للسلع الاستهلاكية السريعة وأهداف الشركة.",
         
+        // YNY
         roleDate3: "أكتوبر 2018 – مايو 2019",
-        roleTitle3: "مصمم جرافيك ورسوم متحركة أول",
-        roleSubtitle3: "حلول YNY",
-        roleDesc3_1: "تنفيذ مشاريع متعددة للهوية البصرية والرسوم المتحركة تحت ضغط الوقت.",
+        roleTitle3: "مصمم جرافيك",
+        roleSubtitle3: "حلول YNY | الخرطوم، السودان",
+        roleDesc3_1: "<strong>استراتيجية الاتصال البصري:</strong> تنفيذ تصميم مواد الاتصال، وعروض التقديم، والأصول المرئية، وضمان اتساق العلامة التجارية وتوافقها مع رسائل العميل.",
+        roleDesc3_2: "<strong>التنفيذ التعاوني:</strong> التنسيق عن كثب مع الفرق الداخلية تحت ضغط الوقت لتسليم مخرجات عالية الجودة تلبي أهداف المشروع المحددة ومتطلبات أصحاب المصلحة.",
         
-        roleDate4: "يونيو 2023 – الحاضر",
-        roleTitle4: "متطوع – الاستجابة الإنسانية",
-        roleSubtitle4: "التواصل في الأزمات وتنسيق الميدان",
-        roleDesc4_1: "تنسيق استراتيجيات التواصل في الأزمات والتنسيق الميداني في بيئات عالية الضغط.",
-        roleDesc4_2: "إظهار القيادة والقدرة على التكيف السريع خلال الاستجابات لحالات الطوارئ الصحية العامة.",
+        // Leopard
+        roleDate4: "نوفمبر 2015 – سبتمبر 2018",
+        roleTitle4: "مصمم مبدع وأخصائي تسويق رقمي",
+        roleSubtitle4: "شركة ليوبارد للأنشطة المتعددة | الخرطوم، السودان",
+        roleDesc4_1: "<strong>التسويق الرقمي وإدارة الحملات:</strong> المساعدة في تخطيط وتنفيذ استراتيجيات التسويق الرقمي عبر منصات متعددة، دعم نمو الأعمال وظهور العلامة التجارية.",
+        roleDesc4_2: "<strong>الدعم التشغيلي:</strong> تبسيط عمليات الأعمال من خلال التنسيق مع الإدارة والمبيعات وفريق التسويق لضمان التوافق بين العمليات الإدارية والأهداف التجارية.",
+        roleDesc4_3: "<strong>التوثيق والعروض التقديمية:</strong> تحرير وتنسيق وإعداد مستندات احترافية باستخدام Microsoft Office Suite، وإنتاج ملفات PDF وتصميمات تخطيطية عالية الجودة للاستخدام الداخلي والخارجي.",
+        
+        // Alaietidal
+        roleDate5: "أغسطس 2022 – يونيو 2023",
+        roleTitle5: "دعم الاتصالات والترويج",
+        roleSubtitle5: "منظمة العيتidal | الخرطوم، السودان",
+        roleDesc5_1: "<strong>استراتيجية العلامة التجارية والأنظمة:</strong> تطوير قوالب وتصميمات مرئية قياسية متوافقة مع إرشادات العلامة التجارية للمنظمة، مما يضمن الاتساق عبر جميع تقارير المواد الترويجية.",
+        roleDesc5_2: "<strong>التنسيق الإنساني:</strong> التعاون مع المنظمات غير الحكومية والفرق المجتمعية في بيئات عالية الضغط لدعم أنشطة الاستجابة الإنسانية خلال النزوح المرتبط بالنزاع.",
+        roleDesc5_3: "<strong>إعداد التقارير والتوثيق:</strong> صياغة وتنسيق وإعداد تقارير ومواد مكتوبة رفيعة المستوى، مما يضمن الوضوح، والعرض الاحترافي، والتوافق مع متطلبات المانحين.",
+        roleDesc5_4: "<strong>التعاون متعدد الوظائف:</strong> التنسيق مع الفرق الداخلية لتنسيق المحتوى البصري والمكتوب مع أهداف المشروع، والحفاظ على اتصال عام دقيق ومحدث عبر المنصات الإلكترونية وحملات التوعية.",
+        
+        // NGOs
+        roleDate6: "الحاضر | السودان",
+        roleTitle6: "عامل متطوع",
+        roleSubtitle6: "المنظمات غير الحكومية ومنظمات المجتمع المدني",
+        roleDesc6_1: "<strong>تصور البيانات وإدارة المعلومات:</strong> تصميم رسوم بيانية شاملة وتقارير بصرية وملخصات تحليلية للعملاء الإنسانيين والمؤسسيين، ترجمة مجموعات البيانات المعقدة إلى رؤى واضحة وقابلة للتنفيذ لأصحاب المصلحة المختلفين.",
+        roleDesc6_2: "<strong>عمليات الميدان الطارئة:</strong> إجراء تقييمات للاحتياجات الميدانية وتسجيل العائلات النازحة في مراكز الإيواء (بورتسودان والجزيرة)، مما يضمن سلامة البيانات للتوزيع العادل والكفء للغذاء والمساعدات الأساسية.",
+        roleDesc6_3: "<strong>الاستجابة للأزمات والتنسيق:</strong> دعم العمليات الصحية الطارئة في مراكز الحجر والعزل أثناء فاشيات الأمراض (قضارف وكلاكل)، إدارة تنظيم الحالات وسلاسل التوريد وحملات التوعية العامة.",
+        roleDesc6_4: "<strong>المرونة التشغيلية:</strong> تسليم مخرجات اتصالية عالية الجودة تحت مواعيد نهائية ضيقة في مناطق نزاع سريعة التغير، مما يظهر التكيف ومهارات تنظيمية قوية خلال النزوح في الحرب وحالات الطوارئ الصحية العامة.",
         
         // Education
         educationTitle: "التعليم",
