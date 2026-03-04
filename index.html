@@ -951,12 +951,11 @@
       border-right: 4px solid var(--accent-gold);
     }
 
-    /* --- Contact Section --- */
+    /* --- REDESIGNED CONTACT SECTION --- */
     .contact-section {
       background: var(--primary-dark); 
       color: #fff; 
       padding: 100px 0; 
-      text-align: center;
       position: relative; 
       overflow: hidden;
     }
@@ -971,119 +970,157 @@
       pointer-events: none;
     }
 
-    .contact-grid {
+    .contact-wrapper {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr; 
+      grid-template-columns: 1.5fr 1fr 1fr;
       gap: 40px;
       align-items: center;
       max-width: 1100px;
       margin: 0 auto;
-      text-align: left; 
+      position: relative;
+      z-index: 2;
     }
     
-    [dir="rtl"] .contact-grid {
+    /* Text Column */
+    .contact-intro {
+      text-align: start;
+    }
+    
+    [dir="rtl"] .contact-intro {
       text-align: right;
     }
 
-    .contact-text-wrapper {
-      align-self: center;
-      margin-bottom: 20px;
-    }
-    
-    .contact-title span {
-      color: var(--accent-gold); 
+    .contact-intro h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
     }
 
-    .contact-actions-wrapper {
+    .contact-intro .highlight {
+      color: var(--accent-gold);
+    }
+
+    .contact-intro p {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+    }
+
+    /* Actions Grid */
+    .contact-actions-grid {
       display: flex;
       flex-direction: column;
       gap: 16px;
+      width: 100%;
     }
 
-    .contact-btn {
+    .contact-card {
       display: flex;
       align-items: center;
-      justify-content: flex-start; 
-      gap: 16px;
-      width: 100%;
-      padding: 20px 24px;
-      background: rgba(255, 255, 255, 0.03);
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
       color: #fff;
       text-decoration: none;
-      transition: all 0.3s var(--ease-out-expo);
-    }
-    
-    .contact-btn:hover {
-      background: var(--accent-gold); 
-      border-color: var(--accent-gold);
-      color: var(--primary-dark);
-      transform: translateX(5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-    
-    .contact-btn i {
-      font-size: 1.5rem;
-      color: var(--accent-gold);
-      transition: color 0.3s ease;
-    }
-    
-    .contact-btn:hover i {
-      color: var(--primary-dark);
+      transition: all 0.3s ease;
     }
 
-    .btn-label {
+    .contact-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent-gold);
+      transform: translateY(-3px);
+    }
+
+    /* Main CTA (WhatsApp) - Gold Button Style */
+    .contact-card.cta-main {
+      background: var(--accent-gold);
+      color: var(--primary-dark);
+      border-color: var(--accent-gold);
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(202, 138, 4, 0.3);
+    }
+
+    .contact-card.cta-main:hover {
+      background: #eab308; /* Lighter gold */
+      color: var(--primary-darker);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(202, 138, 4, 0.5);
+    }
+
+    /* Secondary Cards */
+    .contact-card i {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      color: var(--accent-gold);
+    }
+
+    .contact-card.cta-main i {
+      color: var(--primary-dark);
+      font-size: 1.5rem;
+      margin-bottom: 0;
+      margin-right: 10px;
+    }
+
+    [dir="rtl"] .contact-card.cta-main i {
+      margin-right: 0;
+      margin-left: 10px;
+    }
+
+    .contact-card span {
+      display: block;
+      font-size: 0.85rem;
+      opacity: 0.8;
+      font-weight: 400;
+    }
+
+    .contact-card strong {
+      display: block;
       font-size: 1rem;
       font-weight: 600;
     }
-    
-    .btn-sublabel {
-      font-size: 0.85rem;
-      opacity: 0.7;
-    }
 
-    .qr-card-wrapper {
+    /* QR Column */
+    .qr-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100%;
+      text-align: center;
     }
 
     .qr-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 2px solid var(--accent-gold); 
+      background: rgba(255, 255, 255, 0.1);
       padding: 12px;
       border-radius: 16px;
-      box-shadow: 0 0 20px rgba(202, 0, 0, 0.1); 
+      border: 1px solid rgba(255, 255, 255, 0.2);
       transition: transform 0.3s ease;
-      text-decoration: none;
-      color: #fff;
     }
 
     .qr-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 0 30px rgba(202, 138, 4, 0.3);
+      transform: scale(1.05);
+      border-color: var(--accent-gold);
     }
 
     .qr-card img {
-      width: 140px; height: 140px;
+      width: 140px;
+      height: 140px;
       border-radius: 8px;
       display: block;
     }
 
     .qr-label {
-      display: block;
-      margin-top: 8px;
+      margin-top: 12px;
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--accent-gold);
-      font-weight: 600;
     }
 
-    /* --- REDESIGNED FOOTER --- */
+    /* --- Footer Redesign --- */
     footer { 
       background: #020617; 
       color: #cbd5e1; 
@@ -1093,7 +1130,6 @@
       overflow: hidden;
     }
 
-    /* Decorative Glow */
     footer::before {
       content: '';
       position: absolute;
@@ -1395,26 +1431,37 @@
       .tool-card i {
         font-size: 2rem;
       }
-      
-      .contact-grid {
-        grid-template-columns: 1fr; 
+
+      /* Contact Section Mobile Responsive */
+      .contact-wrapper {
+        grid-template-columns: 1fr; /* Stack vertically */
         text-align: center;
-        gap: 32px;
+        gap: 48px;
       }
       
-      .contact-text-wrapper {
-        margin-bottom: 32px;
-        margin-top: 20px;
+      .contact-intro {
+        text-align: center;
+        order: 1; /* Text first on mobile */
+        margin-bottom: 10px;
       }
-      
-      .contact-actions-wrapper {
-        width: 100%;
+
+      .contact-actions-grid {
+        order: 2; /* Actions second */
         max-width: 400px;
         margin: 0 auto;
       }
+
+      .qr-container {
+        order: 3; /* QR last */
+      }
       
-      .qr-card-wrapper {
-        display: none; 
+      .contact-card.cta-main i {
+        margin-bottom: 5px;
+        margin-right: 0;
+      }
+      
+      [dir="rtl"] .contact-card.cta-main i {
+        margin-left: 0;
       }
 
       .internal-grid { grid-template-columns: 1fr; }
@@ -1456,7 +1503,7 @@
       .tool-card:hover { transform: none; }
       .timeline-item:hover .timeline-content { transform: none; }
       .edu-card:hover { transform: none; }
-      .contact-btn:hover { transform: none !important; }
+      .contact-card:hover { transform: none !important; }
       .qr-card:hover { transform: none !important; }
     }
   </style>
@@ -1919,45 +1966,53 @@
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- REDESIGNED CONTACT SECTION -->
     <section id="contact" class="contact-section fade-in-up">
-      <div class="contact-grid">
-        <!-- 1. Text Content -->
-        <div class="contact-text-wrapper">
-          <h2 id="contactTitle">Ready to <span class="contact-highlight">elevate</span> your brand?</h2>
+      <div class="contact-wrapper">
+        
+        <!-- Column 1: Text -->
+        <div class="contact-intro">
+          <h2 id="contactTitle">Ready to <span class="highlight">elevate</span> your brand?</h2>
           <p id="contactSubtitle">Available for freelance projects and remote collaborations.</p>
         </div>
 
-        <!-- 2. Action Buttons (Email & WA) -->
-        <div class="contact-actions-wrapper">
-          <a href="mailto:muhalabsalah@gmail.com" class="contact-btn" onclick="copyEmail(event)">
-            <i class="fa-regular fa-envelope"></i>
-            <div>
-              <span class="btn-label" id="contactEmailLabel">Email Me</span>
-              <span class="btn-sublabel">muhalabsalah@gmail.com</span>
-            </div>
-          </a>
-          <a href="https://wa.me/249962672192" target="_blank" class="contact-btn">
+        <!-- Column 2: Actions Grid -->
+        <div class="contact-actions-grid">
+          <!-- Primary CTA: WhatsApp -->
+          <a href="https://wa.me/249962672192" target="_blank" class="contact-card cta-main">
             <i class="fa-brands fa-whatsapp"></i>
-            <div>
-              <span class="btn-label" id="contactWhatsappLabel">WhatsApp</span>
-              <span class="btn-sublabel">+249 962672192</span>
-            </div>
+            <span id="contactWhatsappLabel">WhatsApp</span>
+            <strong>+249 96 267 2192</strong>
+          </a>
+          
+          <!-- Secondary: Phone Call -->
+          <a href="tel:+249119005441" class="contact-card">
+            <i class="fa-solid fa-phone"></i>
+            <span id="contactPhoneLabel">Phone</span>
+            <strong>+249 11 900 5441</strong>
+          </a>
+          
+          <!-- Secondary: Email -->
+          <a href="mailto:muhalabsalah@gmail.com" class="contact-card" onclick="copyEmail(event)">
+            <i class="fa-regular fa-envelope"></i>
+            <span id="contactEmailLabel">Email</span>
+            <strong>muhalabsalah@gmail.com</strong>
           </a>
         </div>
 
-        <!-- 3. QR Card -->
-        <div class="qr-card-wrapper">
+        <!-- Column 3: QR Code -->
+        <div class="qr-container">
           <a href="javascript:void(0)" class="qr-card">
             <img id="imgQr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=muhalabsalah@gmail.com&color=000000&bgcolor=ffffff" alt="Scan to Connect" loading="lazy" width="150" height="150">
             <span class="qr-label" id="qrText">Scan to Connect</span>
           </a>
         </div>
+
       </div>
     </section>
   </main>
 
-  <!-- Footer Section (Redesigned) -->
+  <!-- Footer Section -->
   <footer id="main-footer">
     <div class="footer-container">
       
@@ -2185,8 +2240,9 @@
         contactTitle: "Ready to elevate",
         contactSubtitle: "Available for freelance projects and remote collaborations.",
         qrText: "Scan to Connect",
-        contactEmailLabel: "Email Me",
         contactWhatsappLabel: "WhatsApp",
+        contactPhoneLabel: "Phone",
+        contactEmailLabel: "Email",
         
         // Footer
         footerDesc: "Visual Storyteller & Motion Designer dedicated to crafting compelling brand narratives and digital experiences.",
@@ -2402,8 +2458,9 @@
         contactTitle: "مستعد لرفع",
         contactSubtitle: "متاح لمشاريع العمل الحر والتعاون عن بعد.",
         qrText: "امسح للتواصل",
-        contactEmailLabel: "راسلني",
         contactWhatsappLabel: "واتساب",
+        contactPhoneLabel: "الهاتف",
+        contactEmailLabel: "البريد الإلكتروني",
         
         // Footer
         footerDesc: "راوي قصص بصري ومصمم رسوم متحركة مكرس لصنع سرديات علامات تجارية مؤثرة وتجارب رقمية.",
