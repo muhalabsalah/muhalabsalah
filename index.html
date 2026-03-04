@@ -1149,27 +1149,53 @@
       padding: 0 24px;
     }
 
+    /* Streamlined Footer Layout */
     .footer-grid { 
       display: grid; 
-      grid-template-columns: repeat(2, 1fr); 
-      gap: 48px; 
+      grid-template-columns: 1.5fr 1fr;
+      gap: 60px; 
       margin-bottom: 60px;
       text-align: start; 
+      align-items: center;
     }
-
+    
+    /* Brand Column */
     .footer-brand-col {
-      grid-column: 1 / -1; 
+      grid-column: 1 / -1; /* Full width on mobile */
       margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    /* Contact Column */
+    .footer-contact-col {
+      grid-column: 1 / -1; /* Full width on mobile */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
-    @media (min-width: 992px) {
+    @media (min-width: 768px) {
+      /* Tablet & Desktop: 2 Columns (Brand Left, Contact Right) */
       .footer-grid {
-        grid-template-columns: 1.5fr 1fr 1fr;
-        align-items: start;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
       }
+      
       .footer-brand-col {
-        grid-column: span 1; 
+        grid-column: span 1;
+        align-items: start;
+        text-align: start;
         margin-bottom: 0;
+      }
+      
+      .footer-contact-col {
+        grid-column: span 1;
+        align-items: end;
+        text-align: end;
       }
     }
 
@@ -1193,7 +1219,7 @@
       font-size: 0.95rem;
       line-height: 1.6;
       color: #94a3b8;
-      max-width: 300px;
+      max-width: 400px;
       margin-bottom: 24px;
     }
 
@@ -1205,124 +1231,65 @@
       letter-spacing: 0.5px;
     }
 
-    .footer-link-list { list-style: none; padding: 0; margin: 0; }
-    .footer-link-list li { margin-bottom: 12px; }
-    
-    .footer-link-list a { 
+    /* Email Link Styling */
+    .footer-email {
       display: inline-block;
-      color: #94a3b8; 
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .footer-link-list a:hover { 
-      color: var(--accent-gold); 
-      transform: translateX(5px); 
-    }
-
-    [dir="rtl"] .footer-link-list a:hover {
-      transform: translateX(-5px);
-    }
-
-    .social-icon-footer {
-      display: flex;
-      align-items: center;
-      gap: 10px;
       color: #cbd5e1;
       text-decoration: none;
-      transition: color 0.3s ease, transform 0.2s ease;
-      font-size: 0.95rem;
-      margin-bottom: 16px;
-    }
-
-    .social-icon-footer:hover {
-      color: var(--accent-gold);
-      transform: translateY(-2px);
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 2px;
+      transition: all 0.3s ease;
     }
     
+    .footer-email:hover {
+      color: var(--accent-gold);
+      border-bottom-color: var(--accent-gold);
+    }
+
+    /* Social Icons (Mobile Only) */
     .footer-socials-mobile {
       display: flex;
       gap: 16px;
       margin-top: 24px;
     }
     
-    .footer-socials-mobile .social-icon-footer span {
-      display: none; 
-    }
-    
     .footer-socials-mobile .social-icon-footer {
       width: 40px; height: 40px;
       border-radius: 50%;
       background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
       justify-content: center;
       font-size: 1.1rem;
       margin-bottom: 0;
-    }
-
-    .footer-socials-desktop { display: none; }
-    .footer-socials-mobile { display: flex; }
-
-    @media (min-width: 768px) {
-      .footer-socials-desktop { display: block; }
-      .footer-socials-mobile { display: none; }
-    }
-
-    .footer-email {
-      display: block;
-      margin-top: 24px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding-bottom: 4px;
-      transition: border-color 0.3s ease;
+      color: #cbd5e1;
     }
     
-    .footer-email:hover {
+    .footer-socials-mobile .social-icon-footer:hover {
+      background: var(--accent-gold);
+      color: var(--primary-dark);
       border-color: var(--accent-gold);
-      color: var(--accent-gold);
     }
+
+    /* Hide Socials on Desktop (since Connect section was removed) */
+    .footer-socials-desktop { display: none; }
 
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,0.05);
       padding-top: 24px;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       font-size: 0.85rem;
       color: #64748b;
     }
-
-    .footer-legal a {
-      color: #64748b;
-      margin-left: 20px;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
     
-    [dir="rtl"] .footer-legal a {
-      margin-left: 0;
-      margin-right: 20px;
-    }
-
-    .footer-legal a:hover {
-      color: var(--accent-gold);
-    }
-
     @media (max-width: 600px) {
       .footer-bottom {
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
         text-align: center;
-      }
-      
-      .footer-legal a {
-        margin: 0 10px;
-      }
-      
-      [dir="rtl"] .footer-legal a {
-        margin: 0 10px;
       }
     }
 
@@ -2027,7 +1994,7 @@
             Visual Storyteller & Motion Designer dedicated to crafting compelling brand narratives and digital experiences.
           </p>
           
-          <!-- Mobile Socials (Visible on small screens) -->
+          <!-- Mobile Socials (Visible on small screens only) -->
           <div class="footer-socials-mobile">
             <a href="https://www.linkedin.com/in/muhalabsalah/" class="social-icon-footer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="https://www.youtube.com/@muhalabsalah4362" class="social-icon-footer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
@@ -2035,38 +2002,10 @@
           </div>
         </div>
 
-        <!-- Column 2: Quick Navigation -->
-        <div class="footer-nav-col">
-          <h4 class="footer-heading" id="footerLinksTitle">Quick Links</h4>
-          <ul class="footer-link-list">
-            <li><a href="#experience" id="footerLink1">Experience</a></li>
-            <li><a href="#skills" id="footerLink2">My Skills</a></li>
-            <li><a href="#education" id="footerLink3">Education</a></li>
-            <li><a href="#about" id="footerLinkAbout">Philosophy</a></li>
-            <li><a href="#contact" id="footerLink4">Get in Touch</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 3: Contact & Connect -->
+        <!-- Column 2: Contact Only -->
         <div class="footer-contact-col">
-          <h4 class="footer-heading" id="footerConnectTitle">Connect</h4>
-          
-          <!-- Desktop Socials -->
-          <div class="footer-socials-desktop">
-            <a href="https://www.linkedin.com/in/muhalabsalah/" class="social-icon-footer" aria-label="LinkedIn">
-              <i class="fa-brands fa-linkedin-in"></i> <span>LinkedIn</span>
-            </a>
-            <a href="https://www.youtube.com/@muhalabsalah4362" class="social-icon-footer" aria-label="YouTube">
-              <i class="fa-brands fa-youtube"></i> <span>YouTube</span>
-            </a>
-            <a href="https://wa.me/249962672192" class="social-icon-footer" aria-label="WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span>
-            </a>
-          </div>
-
-          <div class="footer-contact-info">
-            <a href="mailto:muhalabsalah@gmail.com" class="footer-email">muhalabsalah@gmail.com</a>
-          </div>
+          <h4 class="footer-heading" id="footerContactTitle">Contact</h4>
+          <a href="mailto:muhalabsalah@gmail.com" class="footer-email">muhalabsalah@gmail.com</a>
         </div>
 
       </div> 
@@ -2075,9 +2014,6 @@
       <div class="footer-bottom">
         <div class="copyright">
           &copy; <span id="year"></span> Muhalab Basheir. <span id="footerRights">All rights reserved.</span>
-        </div>
-        <div class="footer-legal">
-           <a href="#">Privacy Policy</a>
         </div>
       </div>
 
@@ -2246,13 +2182,7 @@
         
         // Footer
         footerDesc: "Visual Storyteller & Motion Designer dedicated to crafting compelling brand narratives and digital experiences.",
-        footerLinksTitle: "Quick Links",
-        footerLink1: "Experience",
-        footerLink2: "My Skills",
-        footerLink3: "Education",
-        footerLinkAbout: "Philosophy",
-        footerLink4: "Get in Touch",
-        footerConnectTitle: "Connect",
+        footerContactTitle: "Contact",
         footerRights: "All rights reserved.",
         
         // Internal Views
@@ -2464,13 +2394,7 @@
         
         // Footer
         footerDesc: "راوي قصص بصري ومصمم رسوم متحركة مكرس لصنع سرديات علامات تجارية مؤثرة وتجارب رقمية.",
-        footerLinksTitle: "روابط سريعة",
-        footerLink1: "الخبرة",
-        footerLink2: "مهاراتي",
-        footerLink3: "التعليم",
-        footerLinkAbout: "الفلسفة",
-        footerLink4: "تواصل معي",
-        footerConnectTitle: "تواصل",
+        footerContactTitle: "تواصل",
         footerRights: "جميع الحقوق محفوظة.",
         
         // Internal Views
@@ -2507,7 +2431,7 @@
         backMotion: "رجوع",
         motionField1: "قصير",
         motionName1: "الرسوم المتحركة لوسائل التواصل",
-        motionDesc1: "رسوم متحركة جذابة مصممة خصيصًا لمنصات التواصل الاجتماعي والاحتفاظ بالانتباه.",
+        motionDesc1: "رسوم متحركة جذابة مصممة خصيصًا لمنصات التواصل الاجتماعي والاحتفاظ بالانتباهة.",
         viewProjects4: "عرض المشاريع",
         
         motionField2: "ما بعد الإنتاج",
