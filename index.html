@@ -46,8 +46,8 @@
   <!-- PRECRITICAL RESOURCES -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
   <!-- SEO & ANALYTICS -->
@@ -154,7 +154,7 @@
     /* Typography */
     h1, h2, h3, h4 { color: var(--primary-dark); line-height: 1.2; letter-spacing: -0.02em; }
     
-    h1 { font-size: clamp(2.2rem, 5vw, 4.5rem); font-weight: 700; }
+    h1 { font-size: clamp(2.5rem, 5vw, 4.8rem); font-weight: 800; }
     
     h2 { 
       font-size: clamp(1.4rem, 2.5vw, 2rem); 
@@ -392,35 +392,210 @@
     }
     .executive-panel-backdrop.active { opacity: 1; pointer-events: auto; }
 
-    /* --- Hero Section --- */
+    /* --- Hero Section (Redesigned) --- */
     .hero {
-      min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      padding-top: calc(var(--nav-height) + 20px); position: relative; overflow: hidden;
-      background: radial-gradient(circle at 50% 20%, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%);
+      min-height: 100vh; 
+      display: flex; 
+      align-items: center; 
+      padding-top: var(--nav-height); 
+      position: relative; 
+      overflow: hidden;
+      /* Background blend */
+      background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
     }
     
-    #hero-canvas { position: absolute; inset: 0; z-index: 0; opacity: 0.4; pointer-events: none; }
+    #hero-canvas { position: absolute; inset: 0; z-index: 0; opacity: 0.6; pointer-events: none; }
     
-    .hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; }
-    
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr; /* Asymmetrical grid */
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    /* Text Side */
+    .hero-content-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* Logical start for RTL */
+      justify-content: center;
+      text-align: start; /* Logical start */
+    }
+
     .badge-gcc {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent-gold-light); border: 1px solid var(--accent-gold);
-      color: #854d0e; padding: 8px 16px; border-radius: 50px;
-      font-size: 0.75rem; font-weight: 600; margin-bottom: 32px;
+      background: rgba(202, 138, 4, 0.1); border: 1px solid rgba(202, 138, 4, 0.3);
+      color: #854d0e; padding: 8px 20px; border-radius: 50px;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.5px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(202, 138, 4, 0.05);
+      backdrop-filter: blur(5px);
+    }
+    
+    .badge-gcc i {
+      font-size: 0.6rem;
+      color: var(--accent-gold);
+      animation: pulse 2s infinite;
     }
 
-    .hero-btns { display: flex; gap: 24px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
+    .hero-title {
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
 
-    /* --- Animations --- */
+    .hero-highlight {
+      color: var(--accent-gold);
+      position: relative;
+      display: inline-block;
+    }
+    
+    /* Subtle underline for highlight */
+    .hero-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: rgba(202, 138, 4, 0.15);
+      z-index: -1;
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: growLine 1s ease-out forwards 0.8s;
+    }
+    
+    [dir="rtl"] .hero-highlight::after {
+        transform-origin: right;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* Visual Side (Abstract Composition) */
+    .hero-visual-wrapper {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1000px;
+    }
+
+    /* Abstract Card 1 - Main Image/Stat Card */
+    .visual-card-main {
+      position: absolute;
+      width: 280px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      border-radius: 24px;
+      padding: 24px;
+      z-index: 2;
+      animation: float 6s ease-in-out infinite;
+      transform: rotate(-5deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Abstract Card 2 - Accent Shape */
+    .visual-card-accent {
+      position: absolute;
+      width: 220px;
+      height: 160px;
+      background: linear-gradient(135deg, var(--accent-gold) 0%, #f59e0b 100%);
+      border-radius: 20px;
+      z-index: 1;
+      bottom: 40px;
+      right: 20px; /* RTL will flip via CSS logic or specific override */
+      opacity: 0.9;
+      animation: float 7s ease-in-out infinite reverse;
+      box-shadow: 0 20px 40px rgba(202, 138, 4, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    /* Abstract Shape 3 - Geometric */
+    .visual-circle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 80px;
+      height: 80px;
+      border: 4px solid var(--primary-dark);
+      border-radius: 50%;
+      z-index: 0;
+      opacity: 0.1;
+      animation: spin 20s linear infinite;
+    }
+
+    /* Content inside Visual Cards */
+    .vc-number {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .vc-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .vc-icon {
+      font-size: 3rem;
+      color: white;
+      opacity: 0.9;
+    }
+
+    /* Animation Keyframes */
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-20px) rotate(-3deg); }
+      100% { transform: translateY(0) rotate(-5deg); }
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    @keyframes growLine {
+      to { transform: scaleX(1); }
+    }
+    
     @keyframes fadeUp { from { opacity: 0; transform: translate3d(0, 30px, 0); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
     
     .hero-anim { opacity: 0; animation: fadeUp 0.8s var(--ease-out-expo) forwards; }
     .delay-100 { animation-delay: 0.1s; } .delay-200 { animation-delay: 0.2s; }
     .delay-300 { animation-delay: 0.3s; } .delay-400 { animation-delay: 0.4s; }
-
-    .fade-in-up { opacity: 0; transform: translate3d(0, 30px, 0); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-in-up.visible { opacity: 1; transform: translate3d(0, 0, 0); }
 
     /* --- Strengths Strip --- */
     .strengths-strip { background: rgba(15, 23, 42, 0.02); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 32px 0; }
@@ -593,13 +768,39 @@
       .exec-toggle { display: none !important; }
     }
 
+    @media (max-width: 992px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 60px;
+      }
+      
+      .hero-content-wrapper {
+        align-items: center;
+        order: 2; /* Move text below visual on tablet/mobile for visual impact */
+      }
+
+      .hero-visual-wrapper {
+        order: 1;
+        height: 350px;
+      }
+      
+      .visual-card-main {
+        width: 240px;
+      }
+      
+      .hero-btns {
+        justify-content: center;
+      }
+    }
+
     @media (max-width: 768px) {
       .nav-content { padding: 0 24px; }
       
       /* MOBILE LOGO FIX: Reduce height */
       .logo img { height: 45px; }
 
-      .hero-title { font-size: 2rem; }
+      .hero-title { font-size: 2.2rem; }
       .hero-content p { margin-bottom: 24px; }
       .hero-btns { flex-direction: column; width: 100%; gap: 16px; }
       .hero-btns .btn { width: 100%; text-align: center; }
@@ -625,6 +826,11 @@
       .timeline-item::after { left: 5px; }
       .card-thumbnail { height: 180px; }
       .profile-img-wrapper { height: 200px; }
+      
+      /* RTL Fixes for Grid on Mobile */
+      [dir="rtl"] .hero-content-wrapper {
+        align-items: center; /* Ensure centering */
+      }
     }
 
     /* Accessibility: Reduced Motion */
@@ -632,6 +838,7 @@
       *, ::before, ::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
       .card:hover, .profile-card:hover, .action-btn:hover, .qr-card:hover { transform: none !important; }
       #hero-canvas { display: none; }
+      .visual-card-main, .visual-card-accent, .visual-circle { animation: none; opacity: 1; transform: none !important;}
     }
   </style>
 </head>
@@ -800,15 +1007,35 @@
   </div>
 
   <main>
-    <!-- Hero Section -->
+    <!-- Hero Section (REDESIGNED) -->
     <section class="hero">
-      <div class="container hero-content">
-        <div class="badge-gcc hero-anim delay-100"><i class="fa-solid fa-circle"></i> <span id="badgeText">Available for Remote & GCC Roles</span></div>
-        <h1 class="hero-title hero-anim delay-200" id="heroTitle">Visual Storyteller &<br>Motion Designer</h1>
-        <p class="hero-anim delay-300" style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 32px;" id="heroSubtitle">Senior Graphic & Motion Designer | Executive Presentation Design</p>
-        <div class="hero-btns hero-anim delay-400">
-          <a href="#contact" class="btn btn-primary" id="heroBtn1" data-magnetic="true">Start a Project</a>
-          <a href="#experience" class="btn btn-outline" style="background: transparent; border: none; box-shadow: none; padding-left: 0;" id="heroBtn2">View Experience <i class="fa-solid fa-arrow-right"></i></a>
+      <div class="container hero-layout">
+        <!-- Left/Start Side: Text -->
+        <div class="hero-content-wrapper">
+          <div class="badge-gcc hero-anim delay-100"><i class="fa-solid fa-circle"></i> <span id="badgeText">Available for Remote & GCC Roles</span></div>
+          <h1 class="hero-title hero-anim delay-200">
+            <span id="heroTitleLine1">Visual Storyteller</span><br>
+            <span class="hero-highlight" id="heroTitleLine2">& Motion Designer</span>
+          </h1>
+          <p class="hero-subtitle hero-anim delay-300" id="heroSubtitle">Senior Graphic & Motion Designer with 9+ years of experience. Specializing in Branding, FMCG Packaging, and Executive Presentations.</p>
+          <div class="hero-btns hero-anim delay-400">
+            <a href="#contact" class="btn btn-primary" id="heroBtn1" data-magnetic="true">Start a Project</a>
+            <a href="#experience" class="btn btn-outline" id="heroBtn2">View Experience <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Right/End Side: Visual Composition -->
+        <div class="hero-visual-wrapper">
+          <div class="visual-circle"></div>
+          
+          <div class="visual-card-main">
+            <span class="vc-number">9+</span>
+            <span class="vc-label" id="visualLabel1">Years Experience</span>
+          </div>
+          
+          <div class="visual-card-accent">
+            <i class="fa-solid fa-layer-group vc-icon"></i>
+          </div>
         </div>
       </div>
     </section>
@@ -1103,10 +1330,12 @@
         
         // Hero
         badgeText: "Available for Remote & GCC Roles",
-        heroTitle: "Visual Storyteller &<br>Motion Designer",
-        heroSubtitle: "Senior Graphic & Motion Designer | Executive Presentation Design",
+        heroTitleLine1: "Visual Storyteller",
+        heroTitleLine2: "& Motion Designer",
+        heroSubtitle: "Senior Graphic & Motion Designer with 9+ years of experience. Specializing in Branding, FMCG Packaging, and Executive Presentations.",
         heroBtn1: "Start a Project",
         heroBtn2: "View Experience <i class='fa-solid fa-arrow-right'></i>",
+        visualLabel1: "Years Experience",
         
         // Strengths
         strength1: "FMCG Packaging",
@@ -1293,10 +1522,12 @@
         
         // Hero
         badgeText: "متاح للعمل عن بعد ومناصب في دول الخليج",
-        heroTitle: "راوي قصص بصري<br>ومصمم رسوم متحركة",
-        heroSubtitle: "مصمم جرافيك ورسوم متحركة أول | تصميم عروض تنفيذية",
+        heroTitleLine1: "راوي قصص بصري",
+        heroTitleLine2: "ومصمم رسوم متحركة",
+        heroSubtitle: "مصمم جرافيك ورسوم متحركة أول بخبرة تزيد عن 9 سنوات. متخصص في الهوية البصرية، تغليف السلع الاستهلاكية، والعروض التنفيذية.",
         heroBtn1: "ابدأ مشروع",
         heroBtn2: "عرض الخبرة <i class='fa-solid fa-arrow-left'></i>",
+        visualLabel1: "سنوات خبرة",
         
         // Strengths
         strength1: "تصميم تغليف السلع الاستهلاكية",
