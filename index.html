@@ -978,142 +978,137 @@
       background: var(--primary-dark); 
       color: #fff; 
       padding: 100px 0; 
-      position: relative;
+      text-align: center;
+      position: relative; 
       overflow: hidden;
     }
+    
+    /* Subtle background texture for contact */
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: var(--noise-url);
+      opacity: 0.05;
+      z-index: 0;
+      pointer-events: none;
+    }
 
-    /* Floating Card Container */
-    .contact-card {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 48px;
-      max-width: 900px;
-      margin: 0 auto;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3), 0 20px 40px rgba(202, 138, 4, 0.15); /* Stronger shadow with Gold tint */
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr; /* Text | Actions | QR */
       gap: 40px;
-      position: relative;
-      z-index: 2;
-      transition: transform 0.3s var(--ease-out-expo);
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: left; /* Default LTR */
+    }
+    
+    /* RTL Grid Alignment */
+    [dir="rtl"] .contact-grid {
+      text-align: right;
     }
 
-    .contact-card:hover {
-      transform: translateY(-5px);
+    /* 1. Text Section */
+    .contact-text-wrapper {
+      align-self: center;
+      margin-bottom: 20px;
+    }
+    
+    .contact-title span {
+      color: var(--accent-gold); /* Brand ID Highlight */
     }
 
-    /* Left Side: Text */
-    .contact-info {
-      flex: 1;
-      padding-right: 20px;
+    /* 2. Actions (Email/WA) */
+    .contact-actions-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
-    /* Right Side: QR & Actions */
-    .contact-visuals {
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start; /* Logical start for icon placement */
+      gap: 16px;
+      width: 100%;
+      padding: 20px 24px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s var(--ease-out-expo);
+    }
+    
+    .contact-btn:hover {
+      background: var(--accent-gold); /* Brand ID Hover BG */
+      border-color: var(--accent-gold);
+      color: var(--primary-dark);
+      transform: translateX(5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    /* Icon styling */
+    .contact-btn i {
+      font-size: 1.5rem;
+      color: var(--accent-gold);
+      transition: color 0.3s ease;
+    }
+    
+    .contact-btn:hover i {
+      color: var(--primary-dark);
+    }
+
+    .btn-label {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    
+    .btn-sublabel {
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+
+    /* 3. QR Card */
+    .qr-card-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 32px;
-      min-width: 280px;
-    }
-
-    .contact-title {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--primary-dark);
-      margin-bottom: 12px;
-    }
-
-    .contact-subtitle {
-      font-size: 1rem;
-      color: var(--text-muted);
-      margin-bottom: 0;
-      line-height: 1.5;
-    }
-
-    /* QR Box */
-    .qr-container {
-      position: relative;
+      justify-content: center;
+      height: 100%;
     }
 
     .qr-card {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid var(--accent-gold); /* Strong Brand ID Border */
       padding: 12px;
       border-radius: 16px;
-      border: 2px solid var(--accent-gold); /* Brand ID Border */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: 0.3s ease;
+      box-shadow: 0 0 20px rgba(202, 0, 0, 0.1); /* Subtle Gold Glow */
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      color: #fff;
     }
 
     .qr-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 0 10px rgba(202, 138, 4, 0.3); /* Gold Glow */
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 0 30px rgba(202, 138, 4, 0.3);
     }
 
     .qr-card img {
-      width: 160px;
-      height: 160px;
+      width: 140px; height: 140px;
       border-radius: 8px;
       display: block;
     }
 
-    .contact-label {
-      margin-top: 16px;
+    .qr-label {
+      display: block;
+      margin-top: 8px;
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent-gold); /* Brand ID Text */
-      font-weight: 700;
-    }
-
-    /* Action Buttons */
-    .contact-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      width: 100%;
-    }
-
-    .btn-contact {
-      width: 100%;
-      justify-content: center;
-      padding: 16px 24px;
-      border-radius: 12px;
-      font-size: 1rem;
-      transition: all 0.3s var(--ease-out-expo);
-      text-align: center;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    /* Primary CTA - Brand ID */
-    .btn-primary-contact {
-      background: var(--accent-gold);
-      color: #fff;
-      border: 1px solid var(--accent-gold);
-      font-weight: 600;
-    }
-
-    .btn-primary-contact:hover {
-      background: #d97706;
-      border-color: #d97706;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(202, 138, 4, 0.3);
-    }
-
-    /* Secondary Actions */
-    .btn-secondary-contact {
-      background: transparent;
-      border: 1px solid var(--border-color); /* Light border */
-      color: var(--primary-dark);
-    }
-
-    .btn-secondary-contact:hover {
-      border-color: var(--accent-gold); /* Gold Border Hover */
       color: var(--accent-gold);
-      background: rgba(202, 138, 4, 0.05);
+      font-weight: 600;
     }
 
     /* --- Footer --- */
@@ -1237,37 +1232,34 @@
       .tool-card i {
         font-size: 2rem;
       }
-
-      /* Mobile Contact Adjustments */
-      .contact-card {
-        flex-direction: column;
-        padding: 32px 24px;
+      
+      /* Contact Mobile Responsive */
+      .contact-grid {
+        grid-template-columns: 1fr; /* Stack vertically */
         text-align: center;
+        gap: 32px;
       }
-      .contact-info {
-        padding-right: 0;
+      
+      .contact-text-wrapper {
         margin-bottom: 32px;
-        padding-bottom: 32px;
-        border-bottom: 1px solid var(--border-color);
+        margin-top: 20px;
       }
-      .contact-visuals {
+      
+      .contact-actions-wrapper {
         width: 100%;
-        flex-direction: column;
-        min-width: 100%;
-        align-items: center;
+        max-width: 400px;
+        margin: 0 auto;
       }
-      .contact-buttons {
-        width: 100%;
-      }
-      .qr-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      
+      .qr-card-wrapper {
+        display: none; /* Hide QR on very small screens if needed, or keep below */
       }
 
-      [dir="rtl"] .hero-btns,
-      [dir="rtl"] .cta-message,
-      [dir="rtl"] .strengths-grid { text-align: center; }
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+      .social-icon-row { justify-content: center; }
+      .internal-grid { grid-template-columns: 1fr; }
+      .card-thumbnail { height: 180px; }
+      .profile-img-wrapper { height: 200px; }
       
       /* Mobile Timeline Adjustments */
       [dir="rtl"] .timeline { padding-right: 10px; }
@@ -1276,15 +1268,9 @@
       [dir="rtl"] .timeline-item::after { right: 3px; }
       
       [dir="ltr"] .timeline { padding-left: 10px; }
-      [dir="ltr] .timeline::before { left: 10px; }
+      [dir="ltr"] .timeline::before { left: 10px; }
       [dir="ltr"] .timeline-item { padding-left: 24px; }
-      [dir="ltr] .timeline-item::after { left: 3px; }
-
-      .footer-grid { grid-template-columns: 1fr; text-align: center; }
-      .social-icon-row { justify-content: center; }
-      .internal-grid { grid-template-columns: 1fr; }
-      .card-thumbnail { height: 180px; }
-      .profile-img-wrapper { height: 200px; }
+      [dir="ltr"] .timeline-item::after { left: 3px; }
       
       /* Mobile Education Adjustments */
       .edu-grid {
@@ -1304,12 +1290,14 @@
     /* Accessibility: Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
       *, ::before, ::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
-      .card:hover, .profile-card:hover, .action-btn:hover, .qr-card:hover, .contact-card:hover { transform: none !important; }
+      .card:hover, .profile-card:hover, .action-btn:hover, .qr-card:hover { transform: none !important; }
       #hero-canvas { display: none; }
       .visual-card-main, .visual-card-accent, .visual-circle { animation: none; opacity: 1; transform: none !important;}
       .tool-card:hover { transform: none; }
       .timeline-item:hover .timeline-content { transform: none; }
       .edu-card:hover { transform: none; }
+      .contact-btn:hover { transform: none !important; }
+      .qr-card:hover { transform: none !important; }
     }
   </style>
 </head>
@@ -1784,43 +1772,40 @@
       </div>
     </section>
 
-    <!-- Contact (REDESIGNED) -->
+    <!-- Contact -->
     <section id="contact" class="contact-section fade-in-up">
-      <div class="container">
-        
-        <div class="contact-card">
-          <!-- Left: Text Content -->
-          <div class="contact-info">
-            <h2 id="contactTitle">Ready to elevate<br>your brand?</h2>
-            <p id="contactSubtitle">Available for freelance projects and remote collaborations.</p>
-          </div>
-
-          <!-- Right: QR & Actions -->
-          <div class="contact-visuals">
-            
-            <!-- QR Code Area -->
-            <div class="qr-container">
-              <div class="qr-card">
-                <img id="imgQr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=muhalabsalah@gmail.com&color=000000&bgcolor=ffffff" alt="Scan to Connect" loading="lazy" width="150" height="150">
-              </div>
-              <span class="contact-label" id="qrText">Scan to Connect</span>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="contact-buttons">
-              <a href="mailto:muhalabsalah@gmail.com" class="btn btn-primary btn-contact" onclick="copyEmail(event)">
-                <i class="fa-regular fa-envelope"></i>
-                <span id="contactEmailLabel">Email Me</span>
-              </a>
-              <a href="https://wa.me/249962672192" target="_blank" class="btn btn-secondary-contact">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span id="contactWhatsappLabel">WhatsApp</span>
-              </a>
-            </div>
-
-          </div>
+      <div class="contact-grid">
+        <!-- 1. Text Content -->
+        <div class="contact-text-wrapper">
+          <h2 id="contactTitle">Ready to <span class="contact-highlight">elevate</span> your brand?</h2>
+          <p id="contactSubtitle">Available for freelance projects and remote collaborations.</p>
         </div>
 
+        <!-- 2. Action Buttons (Email & WA) -->
+        <div class="contact-actions-wrapper">
+          <a href="mailto:muhalabsalah@gmail.com" class="contact-btn" onclick="copyEmail(event)">
+            <i class="fa-regular fa-envelope"></i>
+            <div>
+              <span class="btn-label" id="contactEmailLabel">Email Me</span>
+              <span class="btn-sublabel">muhalabsalah@gmail.com</span>
+            </div>
+          </a>
+          <a href="https://wa.me/249962672192" target="_blank" class="contact-btn">
+            <i class="fa-brands fa-whatsapp"></i>
+            <div>
+              <span class="btn-label" id="contactWhatsappLabel">WhatsApp</span>
+              <span class="btn-sublabel">+249 962672192</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- 3. QR Card -->
+        <div class="qr-card-wrapper">
+          <a href="javascript:void(0)" class="qr-card">
+            <img id="imgQr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=muhalabsalah@gmail.com&color=000000&bgcolor=ffffff" alt="Scan to Connect" loading="lazy" width="150" height="150">
+            <span class="qr-label" id="qrText">Scan to Connect</span>
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -2013,7 +1998,7 @@
         aboutBtn: "View Full Portfolio",
         
         // Contact
-        contactTitle: "Ready to elevate<br>your brand?",
+        contactTitle: "Ready to elevate",
         contactSubtitle: "Available for freelance projects and remote collaborations.",
         qrText: "Scan to Connect",
         contactEmailLabel: "Email Me",
@@ -2116,7 +2101,7 @@
         // Hero
         badgeText: "متاح للعمل عن بعد ومناصب في دول الخليج",
         heroTitleLine1: "راوي قصص بصري",
-        heroTitleLine2: "ومصممم رسوم متحركة",
+        heroTitleLine2: "ومصمم رسوم متحركة",
         heroSubtitle: "مصمم جرافيك ورسوم متحركة أول بخبرة تزيد عن 9 سنوات. متخصص في الهوية البصرية، تغليف السلع الاستهلاكية، والعروض التنفيذية.",
         heroBtn1: "ابدأ مشروع",
         heroBtn2: "عرض الخبرة <i class='fa-solid fa-arrow-left'></i>",
@@ -2170,8 +2155,8 @@
         roleDate1: "نوفمبر 2021 – الحاضر",
         roleTitle1: "مصمم جرافيك ورسوم متحركة مستقل",
         roleSubtitle1: "السودان",
-        roleDesc1_1: "<strong>دعمليات الاتصال الاستراتيجي:</strong> استراتيجيات للشركات المحلية والدولية، ترجمة المفاهيم المعقدة إلى مواد عروض تقديمية وتقارير وأصول رقمية عالية التأثير.",
-        roleDesc1_2: "<strong>إدارة المشاريع وعلاقات العملاء:</strong> قيادة دورة حياة المشروع بالكامل—from التوجيه الأولي حتى التسليم النهائي—إدارة الجداول الزمنية، توضي المتطلبات الاستراتيجية، وضمان توافق المخرجات مع أهداف العميل.",
+        roleDesc1_1: "<strong>دعمليات الاتصال الاستراتيجي:</strong> توفير حلول بصرية واتصالية شاملة للعملاء المحليين والدوليين، ترجمة المفاهيم المعقدة إلى مواد عروض تقديمية وتقارير وأصول رقمية عالية التأثير.",
+        roleDesc1_2: "<strong>إدارة المشاريع وعلاقات العملاء:</strong> قيادة دورة حياة المشروع بالكامل—from التوجيه الأولي حتى التسليم النهائي—إدارة الجداول الزمنية، توضيح المتطلبات الاستراتيجية، وضمان توافق المخرجات مع أهداف العميل.",
         roleDesc1_3: "<strong>ضمان الجودة واتساق العلامة التجارية:</strong> الإشراف على الإدارة المستقلة للتوثيق والمراجعات، مما يضمن مراقبة جودة صارمة واتساق عبر جميع المخرجات البصرية والتحريرية.",
         
         // Al Madina
@@ -2200,10 +2185,10 @@
         
         // Alaietidal
         roleDate5: "أغسطس 2022 – يونيو 2023",
-        roleTitle5: "دعمليات الاتصالات والترويج",
+        roleTitle5: "دعم الاتصالات والترويج",
         roleSubtitle5: "منظمة العيتidal | الخرطوم، السودان",
         roleDesc5_1: "<strong>استراتيجية العلامة التجارية والأنظمة:</strong> تطوير قوالب وتصميمات مرئية قياسية متوافقة مع إرشادات العلامة التجارية للمنظمة، مما يضمن الاتساق عبر جميع تقارير المواد الترويجية.",
-        roleDesc5_2: "<strong>التنسيق الإنساني:</strong> التعاون مع المنظمات غير الحكومية والفرق المجتمعية في بيئات عالية الضغط لدعم أنشطة الاستجابة الإنسانية خلال النزوح المرتبط بالنزاع.",
+        roleDesc5_2: "<strong>التنسيق الإنساني:</strong> التعاون مع المنظمات غير الحكومية والفرق المجتمعية في بيئات عالية الضغط لدعمود أنشطة الاستجابة الإنسانية خلال النزوح المرتبط بالنزاع.",
         roleDesc5_3: "<strong>إعداد التقارير والتوثيق:</strong> صياغة وتنسيق وإعداد تقارير ومواد مكتوبة رفيعة المستوى، مما يضمن الوضوح، والعرض الاحترافي، والتوافق مع متطلبات المانحين.",
         roleDesc5_4: "<strong>التعاون متعدد الوظائف:</strong> التنسيق مع الفرق الداخلية لتنسيق المحتوى البصري والمكتوب مع أهداف المشروع، والحفاظ على اتصال عام دقيق ومحدث عبر المنصات الإلكترونية وحملات التوعية.",
         
@@ -2211,9 +2196,9 @@
         roleDate6: "الحاضر | السودان",
         roleTitle6: "عامل متطوع",
         roleSubtitle6: "المنظمات غير الحكومية ومنظمات المجتمع المدني",
-        roleDesc6_1: "<strong>تصور البيانات وإدارة المعلومات:</strong> تصميم رسوم بيانية شاملة وتقارير بصرية وملخصات تحليلية للعملاء الإنسانيين والمؤسسيين، ترجمة مجموعات البيانات المعقدة إلى رؤى واضحة وقابلة للتنفيذ لأصحاب المصلحة المختلفين.",
+        roleDesc6_1: "<strong>تصور البيانات وإدارة المعلومات:</strong> تصميم رسوم بيانية شاملة وتقارير بصرية وتحليلية للعملاء الإنسانيين والمؤسسيين، ترجمة مجموعات البيانات المعقدة إلى رؤى واضحة وقابلة للتنفيذ لأصحاب المصلحة المختلفين.",
         roleDesc6_2: "<strong>عمليات الميدان الطارئة:</strong> إجراء تقييمات للاحتياجات الميدانية وتسجيل العائلات النازحة في مراكز الإيواء (بورتسودان والجزيرة)، مما يضمن سلامة البيانات للتوزيع العادل والكفء للغذاء والمساعدات الأساسية.",
-        roleDesc6_3: "<strong>الاستجابة للأزمات والتنسيق:</strong> دعمليات الصحافة الصحية الطارئة في مراكز الحجر والعزل أثناء فاشيات الأمراض (قضارف وكلاكل)، إدارة تنظيم الحالات وسلاسل التوريد وحملات التوعية العامة.",
+        roleDesc6_3: "<strong>الاستجابة للأزمات والتنسيق:</strong> دعمود العمليات الصحية الطارئة في مراكز الحجر والعزل أثناء فاشيات الأمراض (قضارف وكلاكل)، إدارة تنظيم الحالات وسلاسل التوريد وحملامات التوعية العامة.",
         roleDesc6_4: "<strong>المرونة التشغيلية:</strong> تسليم مخرجات اتصالية عالية الجودة تحت مواعيد نهائية ضيقة في مناطق نزاع سريعة التغير، مما يظهر التكيف ومهارات تنظيمية قوية خلال النزوح في الحرب وحالات الطوارئ الصحية العامة.",
         
         // Education
@@ -2229,15 +2214,15 @@
         // About
         aboutTitle: "الفلسفة والنهج",
         aboutDesc1: "أتخصص في الهوية البصرية، تصميم تغليف السلع الاستهلاكية، المرئيات التسويقية، والرسوم المتحركة. يجمع نهجي بين الإبداع والاستراتيجية، مما يضمن أن كل تصميم يخدم غرضًا واضحًا.",
-        aboutDesc2: "ساهمت في المبادرات الإنسانية خلال الأزمات، مما عززت قدرتي على التكيف والتعاطف وعقلية حل المشكلات.",
+        aboutDesc2: "ساهمت في المبادرات الإنسانية خلال الأزمات، مما عزز قدرتي على التكيف والتعاطف وعقلية حل المشكلات.",
         stat1: "سنوات خبرة",
         stat2: "أسواق الخليج",
         aboutBtn: "عرض الحافظة الكاملة",
         
         // Contact
-        contactTitle: "مستعد لرفع<br>علامتك التجارية؟",
+        contactTitle: "مستعد لرفع",
         contactSubtitle: "متاح لمشاريع العمل الحر والتعاون عن بعد.",
-        qrText: "امسح للتواصل",
+        qrText: "امسحح للتواصل",
         contactEmailLabel: "راسلني",
         contactWhatsappLabel: "واتساب",
         
@@ -2285,7 +2270,7 @@
         backMotion: "رجوع",
         motionField1: "قصير",
         motionName1: "الرسوم المتحركة لوسائل التواصل",
-        motionDesc1: "رسوم متحركة جذابة مصمصة خصيصًا لمنصات التواصل الاجتماعي والاحتفاظ بالانتباه.",
+        motionDesc1: "رسوم متحركة جذابة مصممة خصيصًا لمنصات التواصل الاجتماعي والاحتفاظ بالانتباهة.",
         viewProjects4: "عرض المشاريع",
         
         motionField2: "ما بعد الإنتاج",
@@ -2330,7 +2315,7 @@
       if (savedLang && (savedLang === 'en' || savedLang === 'ar')) {
         currentLang = savedLang;
       } else if (browserLangCode === 'ar') {
-        currentLang = 'ar';
+        currentLang = "ar";
       } else {
         currentLang = 'en';
       }
