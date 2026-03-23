@@ -119,7 +119,7 @@
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        t=l.createElement(r);t.async=1;src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "t71o27k63s");
   </script>
@@ -255,10 +255,6 @@
     [dir="rtl"] .social-icon-row,
     [dir="rtl"] .footer-links a {
       text-align: right;
-    }
-    
-    [dir="rtl"] .cta-message {
-      text-align: left !important;
     }
     
     [dir="rtl"] .exec-nav-link:hover {
@@ -455,24 +451,7 @@
       justify-content: center;
       text-align: start;
     }
-
-    .badge-gcc {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(202, 138, 4, 0.1); border: 1px solid rgba(202, 138, 4, 0.3);
-      color: #854d0e; padding: 8px 20px; border-radius: 50px;
-      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.5px;
-      margin-bottom: 24px;
-      text-transform: uppercase;
-      box-shadow: 0 4px 12px rgba(202, 138, 4, 0.05);
-      backdrop-filter: blur(5px);
-    }
     
-    .badge-gcc i {
-      font-size: 0.6rem;
-      color: var(--accent-gold);
-      animation: pulse 2s infinite;
-    }
-
     .hero-title {
       font-weight: 800;
       color: var(--primary-dark);
@@ -497,7 +476,7 @@
       z-index: -1;
       transform: scaleX(0);
       transform-origin: left;
-      animation: growLine 1s ease-out forwards 0.8s;
+      animation: growLine 1s ease-out forwards 0.5s; /* Faster since badge is gone */
     }
     
     [dir="rtl"] .hero-highlight::after {
@@ -595,12 +574,6 @@
     }
 
     /* Animation Keyframes */
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.2); opacity: 0.7; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
     @keyframes float {
       0% { transform: translateY(0) rotate(-5deg); }
       50% { transform: translateY(-20px) rotate(-3deg); }
@@ -985,173 +958,108 @@
       border-right: 4px solid var(--accent-gold);
     }
 
-    /* --- REDESIGNED CONTACT SECTION --- */
-    .contact-section {
-      background: var(--primary-dark); 
-      color: #fff; 
-      padding: 100px 0; 
-      position: relative; 
-      overflow: hidden;
-    }
-    
-    .contact-section::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: var(--noise-url);
-      opacity: 0.05;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .contact-wrapper {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-      max-width: 1100px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-    
-    /* Text Column */
+    /* --- NEW: Contact Section Styles --- */
     .contact-intro {
-      text-align: start;
-    }
-    
-    [dir="rtl"] .contact-intro {
-      text-align: right;
-    }
-
-    .contact-intro h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-
-    .contact-intro .highlight {
-      color: var(--accent-gold);
-    }
-
-    .contact-intro p {
-      color: #cbd5e1;
       font-size: 1.1rem;
+      line-height: 1.7;
     }
 
-    /* Actions Grid */
-    .contact-actions-grid {
+    /* Base styles for clickable cards */
+    .contact-card-link {
+      text-decoration: none;
+      color: inherit;
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      width: 100%;
-    }
-
-    .contact-card {
-      display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
+      transition: all 0.3s var(--ease-out-expo);
+      cursor: pointer;
+      padding: 40px 32px; /* Match card padding */
+    }
+
+    .contact-card-link:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+      border-color: var(--accent-gold);
+    }
+
+    /* WhatsApp Card Highlighting (Primary CTA) */
+    .contact-card-whatsapp {
+      border: 1px solid var(--accent-gold);
+      background: linear-gradient(180deg, #ffffff 0%, rgba(202, 138, 4, 0.03) 100%);
+    }
+    
+    .contact-card-whatsapp:hover {
+      background: var(--accent-gold);
+    }
+    
+    .contact-card-whatsapp:hover h3, 
+    .contact-card-whatsapp:hover p, 
+    .contact-card-whatsapp:hover .contact-icon-wrapper i {
       color: #fff;
-      text-decoration: none;
+    }
+    
+    .contact-card-whatsapp:hover .contact-icon-wrapper {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Icon Styling */
+    .contact-icon-wrapper {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      transition: background 0.3s ease;
+    }
+
+    .contact-icon-wrapper i {
+      font-size: 1.8rem;
+      color: var(--primary-dark);
+      transition: color 0.3s ease;
+    }
+
+    .contact-card-link:hover .contact-icon-wrapper {
+      background: var(--accent-gold);
+    }
+
+    .contact-card-link:hover .contact-icon-wrapper i {
+      color: #fff;
+    }
+
+    /* Text Styling inside Cards */
+    .contact-card-link h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      color: var(--primary-dark);
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    .contact-card-link p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin: 0;
+      font-weight: 500;
+    }
+
+    /* External Link Icon (Arrow) */
+    .contact-arrow {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: var(--accent-gold);
+      opacity: 0;
+      transform: translateY(10px);
       transition: all 0.3s ease;
     }
 
-    .contact-card:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--accent-gold);
-      transform: translateY(-3px);
-    }
-
-    /* Main CTA (WhatsApp) - Gold Button Style */
-    .contact-card.cta-main {
-      background: var(--accent-gold);
-      color: var(--primary-dark);
-      border-color: var(--accent-gold);
-      font-weight: 700;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 15px rgba(202, 138, 4, 0.3);
-    }
-
-    .contact-card.cta-main:hover {
-      background: #eab308; /* Lighter gold */
-      color: var(--primary-darker);
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 8px 25px rgba(202, 138, 4, 0.5);
-    }
-
-    /* Secondary Cards */
-    .contact-card i {
-      font-size: 1.4rem;
-      margin-bottom: 8px;
-      color: var(--accent-gold);
-    }
-
-    .contact-card.cta-main i {
-      color: var(--primary-dark);
-      font-size: 1.5rem;
-      margin-bottom: 0;
-      margin-right: 10px;
-    }
-
-    [dir="rtl"] .contact-card.cta-main i {
-      margin-right: 0;
-      margin-left: 10px;
-    }
-
-    .contact-card span {
-      display: block;
-      font-size: 0.85rem;
-      opacity: 0.8;
-      font-weight: 400;
-    }
-
-    .contact-card strong {
-      display: block;
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    /* QR Column */
-    .qr-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .qr-card {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: transform 0.3s ease;
-    }
-
-    .qr-card:hover {
-      transform: scale(1.05);
-      border-color: var(--accent-gold);
-    }
-
-    .qr-card img {
-      width: 140px;
-      height: 140px;
-      border-radius: 8px;
-      display: block;
-    }
-
-    .qr-label {
-      margin-top: 12px;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--accent-gold);
+    .contact-card-link:hover .contact-arrow {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* --- Footer Redesign --- */
@@ -1372,14 +1280,6 @@
     
     .fab-action-btn:hover { background: var(--accent-gold); color: #fff; }
 
-    #toast {
-      visibility: hidden; min-width: 280px; background: var(--primary-dark); color: #fff;
-      text-align: center; border-radius: 8px; padding: 16px; position: fixed; z-index: 1001;
-      left: 50%; bottom: 30px; transform: translateX(-50%) translateY(20px);
-      transition: 0.3s ease; border-left: 4px solid var(--accent-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-    #toast.show { visibility: visible; transform: translateX(-50%) translateY(0); }
-
     /* --- Media Queries --- */
     @media (min-width: 769px) {
       .nav-links { display: flex !important; }
@@ -1433,38 +1333,6 @@
         font-size: 2rem;
       }
 
-      /* Contact Section Mobile Responsive */
-      .contact-wrapper {
-        grid-template-columns: 1fr; /* Stack vertically */
-        text-align: center;
-        gap: 48px;
-      }
-      
-      .contact-intro {
-        text-align: center;
-        order: 1; /* Text first on mobile */
-        margin-bottom: 10px;
-      }
-
-      .contact-actions-grid {
-        order: 2; /* Actions second */
-        max-width: 400px;
-        margin: 0 auto;
-      }
-
-      .qr-container {
-        order: 3; /* QR last */
-      }
-      
-      .contact-card.cta-main i {
-        margin-bottom: 5px;
-        margin-right: 0;
-      }
-      
-      [dir="rtl"] .contact-card.cta-main i {
-        margin-left: 0;
-      }
-
       .internal-grid { grid-template-columns: 1fr; }
       .card-thumbnail { height: 180px; }
       .profile-img-wrapper { height: 200px; }
@@ -1498,14 +1366,13 @@
     /* Accessibility: Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
       *, ::before, ::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
-      .card:hover, .profile-card:hover, .action-btn:hover, .qr-card:hover { transform: none !important; }
+      .card:hover, .profile-card:hover, .action-btn:hover { transform: none !important; }
       #hero-canvas { display: none; }
       .visual-card-main, .visual-card-accent, .visual-circle { animation: none; opacity: 1; transform: none !important;}
       .tool-card:hover { transform: none; }
       .timeline-item:hover .timeline-content { transform: none; }
       .edu-card:hover { transform: none; }
-      .contact-card:hover { transform: none !important; }
-      .qr-card:hover { transform: none !important; }
+      .contact-card-link:hover { transform: none; }
       body::before { position: relative; } /* Disable fixed bg for reduced motion */
     }
   </style>
@@ -1680,13 +1547,14 @@
       <div class="container hero-layout">
         <!-- Left/Start Side: Text -->
         <div class="hero-content-wrapper">
-          <div class="badge-gcc hero-anim delay-100"><i class="fa-solid fa-circle"></i> <span id="badgeText">Available for Remote & GCC Roles</span></div>
-          <h1 class="hero-title hero-anim delay-200">
+          <!-- Badge Removed -->
+          <h1 class="hero-title hero-anim delay-100">
             <span id="heroTitleLine1">Visual Storyteller</span><br>
             <span class="hero-highlight" id="heroTitleLine2">& Motion Designer</span>
           </h1>
-          <p class="hero-subtitle hero-anim delay-300" id="heroSubtitle">Senior Graphic & Motion Designer with 9+ years of experience. Specializing in Branding, FMCG Packaging, and Executive Presentations.</p>
-          <div class="hero-btns hero-anim delay-400">
+          <p class="hero-subtitle hero-anim delay-200" id="heroSubtitle">Senior Graphic & Motion Designer with 9+ years of experience. Specializing in Branding, FMCG Packaging, and Executive Presentations.</p>
+          <div class="hero-btns hero-anim delay-300">
+            <!-- Updated to link to new Contact Section -->
             <a href="#contact" class="btn btn-primary" id="heroBtn1" data-magnetic="true">Start a Project</a>
             <a href="#experience" class="btn btn-outline" id="heroBtn2">View Experience <i class="fa-solid fa-arrow-right"></i></a>
           </div>
@@ -1968,50 +1836,54 @@
       </div>
     </section>
 
-    <!-- REDESIGNED CONTACT SECTION -->
-    <section id="contact" class="contact-section fade-in-up">
-      <div class="contact-wrapper">
-        
-        <!-- Column 1: Text -->
-        <div class="contact-intro">
-          <h2 id="contactTitle">Ready to <span class="highlight">elevate</span> your brand?</h2>
-          <p id="contactSubtitle">Available for freelance projects and remote collaborations.</p>
+    <!-- NEW Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="fade-in-up" style="text-align: center; margin-bottom: 48px;">
+          <h2 id="contactTitle">Let's Work Together</h2>
+          <p class="contact-intro" id="contactDesc" style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+            Ready to elevate your brand? Reach out via WhatsApp, Phone, or Email for collaborations and inquiries.
+          </p>
         </div>
 
-        <!-- Column 2: Actions Grid -->
-        <div class="contact-actions-grid">
-          <!-- Primary CTA: WhatsApp -->
-          <a href="https://wa.me/249962672192" target="_blank" class="contact-card cta-main">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span id="contactWhatsappLabel">WhatsApp</span>
-            <strong>+249 96 267 2192</strong>
-          </a>
+        <!-- Contact Cards Grid -->
+        <div class="grid-3">
           
-          <!-- Secondary: Phone Call -->
-          <a href="tel:+249119005441" class="contact-card">
-            <i class="fa-solid fa-phone"></i>
-            <span id="contactPhoneLabel">Phone</span>
-            <strong>+249 11 900 5441</strong>
+          <!-- WhatsApp (Primary CTA) -->
+          <a href="https://wa.me/249962672192" target="_blank" rel="noopener noreferrer" class="card contact-card-link contact-card-whatsapp" aria-label="Chat on WhatsApp">
+            <div class="contact-icon-wrapper">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <h3 id="contactWhatsappLabel">WhatsApp</h3>
+            <p class="contact-action-text" id="contactWhatsappAction">Chat on WhatsApp</p>
+            <div class="contact-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
           </a>
-          
-          <!-- Secondary: Email -->
-          <a href="mailto:muhalabsalah@gmail.com" class="contact-card" onclick="copyEmail(event)">
-            <i class="fa-regular fa-envelope"></i>
-            <span id="contactEmailLabel">Email</span>
-            <strong>muhalabsalah@gmail.com</strong>
-          </a>
-        </div>
 
-        <!-- Column 3: QR Code -->
-        <div class="qr-container">
-          <a href="javascript:void(0)" class="qr-card">
-            <img id="imgQr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=muhalabsalah@gmail.com&color=000000&bgcolor=ffffff" alt="Scan to Connect" loading="lazy" width="150" height="150">
-            <span class="qr-label" id="qrText">Scan to Connect</span>
+          <!-- Phone -->
+          <a href="tel:+249119005441" class="card contact-card-link" aria-label="Call Phone Number">
+            <div class="contact-icon-wrapper">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <h3 id="contactPhoneLabel">Phone</h3>
+            <p class="contact-number" dir="ltr">+249 11 900 5441</p>
+            <div class="contact-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
           </a>
-        </div>
 
+          <!-- Email -->
+          <a href="mailto:muhalabsalah@gmail.com" class="card contact-card-link" aria-label="Send Email">
+            <div class="contact-icon-wrapper">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <h3 id="contactEmailLabel">Email</h3>
+            <p class="contact-email-address">muhalabsalah@gmail.com</p>
+            <div class="contact-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+        </div>
       </div>
     </section>
+
   </main>
 
   <!-- Footer Section -->
@@ -2039,7 +1911,7 @@
 
         <!-- Column 2: Contact Only -->
         <div class="footer-contact-col">
-          <h4 class="footer-heading" id="footerContactTitle">Contact</h4>
+          <h4 class="footer-heading" id="footerContactLabel">Contact</h4>
           <a href="mailto:muhalabsalah@gmail.com" class="footer-email">muhalabsalah@gmail.com</a>
         </div>
 
@@ -2063,9 +1935,6 @@
     <a href="https://behance.net/MuhalabSalah" target="_blank" class="fab-action-btn behance" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
   </div>
 
-  <!-- Toast -->
-  <div id="toast"></div>
-
   <script>
     // --- LANGUAGE SYSTEM ---
     const translations = {
@@ -2079,7 +1948,7 @@
         navExpLink: "Experience",
         navEduLink: "Education",
         navAboutLink: "About",
-        navContactLink: "Contact",
+        navContactLink: "Contact", // Added
         menuLabel: "MENU",
         ariaExecToggle: "Open Menu",
         ariaCloseMenu: "Close Menu",
@@ -2089,11 +1958,10 @@
         navExperience: "Experience",
         navEducation: "Education",
         navAbout: "Philosophy",
-        navContact: "Contact",
+        navContact: "Contact", // Added
         navLanguage: "Switch to Arabic",
         
         // Hero
-        badgeText: "Available for Remote & GCC Roles",
         heroTitleLine1: "Visual Storyteller",
         heroTitleLine2: "& Motion Designer",
         heroSubtitle: "Senior Graphic & Motion Designer with 9+ years of experience. Specializing in Branding, FMCG Packaging, and Executive Presentations.",
@@ -2207,17 +2075,9 @@
         stat2: "GCC Markets",
         aboutBtn: "View Full Portfolio",
         
-        // Contact
-        contactTitle: "Ready to elevate",
-        contactSubtitle: "Available for freelance projects and remote collaborations.",
-        qrText: "Scan to Connect",
-        contactWhatsappLabel: "WhatsApp",
-        contactPhoneLabel: "Phone",
-        contactEmailLabel: "Email",
-        
         // Footer
         footerDesc: "Visual Storyteller & Motion Designer dedicated to crafting compelling brand narratives and digital experiences.",
-        footerContactTitle: "Contact",
+        footerContactLabel: "Contact",
         footerRights: "All rights reserved.",
         
         // Internal Views
@@ -2262,6 +2122,14 @@
         motionDesc2: "Video editing and motion graphics combining narrative pacing with dynamic visuals.",
         viewProjects5: "View Projects",
         
+        // Contact Section
+        contactTitle: "Let's Work Together",
+        contactDesc: "Ready to elevate your brand? Reach out via WhatsApp, Phone, or Email for collaborations and inquiries.",
+        contactWhatsappLabel: "WhatsApp",
+        contactWhatsappAction: "Chat on WhatsApp",
+        contactPhoneLabel: "Phone",
+        contactEmailLabel: "Email",
+        
         // Alt Text
         altLogo: "Muhalab Logo",
         altProfile1: "Mashhor Foodstuff Project",
@@ -2275,11 +2143,7 @@
         altCard2: "Motion Graphics Showcase",
         altCard3: "Digital Marketing Work",
         altCard4: "Digital Profiles Showcase",
-        altQr: "QR Code to Connect",
-        altFab: "Contact Menu Toggle",
-        
-        // Toast
-        toastText: "Email copied to clipboard!"
+        altFab: "Contact Menu Toggle"
       },
       ar: {
         // Meta
@@ -2291,7 +2155,7 @@
         navExpLink: "الخبرة",
         navEduLink: "التعليم",
         navAboutLink: "عني",
-        navContactLink: "تواصل معي",
+        navContactLink: "تواصل معي", // Added
         menuLabel: "القائمة",
         ariaExecToggle: "فتح القائمة",
         ariaCloseMenu: "إغلاق القائمة",
@@ -2301,11 +2165,10 @@
         navExperience: "الخبرة",
         navEducation: "التعليم",
         navAbout: "الفلسفة",
-        navContact: "تواصل معي",
+        navContact: "تواصل معي", // Added
         navLanguage: "التبديل إلى الإنجليزية",
         
         // Hero
-        badgeText: "متاح للعمل عن بعد ومناصب في دول الخليج",
         heroTitleLine1: "راوي قصص بصري",
         heroTitleLine2: "ومصمم رسوم متحركة",
         heroSubtitle: "مصمم جرافيك ورسوم متحركة أول بخبرة تزيد عن 9 سنوات. متخصص في الهوية البصرية، تغليف السلع الاستهلاكية، والعروض التنفيذية.",
@@ -2419,17 +2282,9 @@
         stat2: "أسواق الخليج",
         aboutBtn: "عرض الحافظة الكاملة",
         
-        // Contact
-        contactTitle: "مستعد لرفع",
-        contactSubtitle: "متاح لمشاريع العمل الحر والتعاون عن بعد.",
-        qrText: "امسح للتواصل",
-        contactWhatsappLabel: "واتساب",
-        contactPhoneLabel: "الهاتف",
-        contactEmailLabel: "البريد الإلكتروني",
-        
         // Footer
         footerDesc: "راوي قصص بصري ومصمم رسوم متحركة مكرس لصنع سرديات علامات تجارية مؤثرة وتجارب رقمية.",
-        footerContactTitle: "تواصل",
+        footerContactLabel: "تواصل",
         footerRights: "جميع الحقوق محفوظة.",
         
         // Internal Views
@@ -2474,6 +2329,14 @@
         motionDesc2: "مونتاج الفيديو والرسوم المتحركة التي تجمع بين إيقاع السرد والمرئيات الديناميكية.",
         viewProjects5: "عرض المشاريع",
         
+        // Contact Section
+        contactTitle: "دعنا نعمل معاً",
+        contactDesc: "هل أنت مستعد للارتقاء بعلامتك التجارية؟ تواصل معنا عبر واتساب، الهاتف، أو البريد الإلكتروني للاستفسارات والتعاون.",
+        contactWhatsappLabel: "واتساب",
+        contactWhatsappAction: "دردشة عبر واتساب",
+        contactPhoneLabel: "رقم الهاتف",
+        contactEmailLabel: "البريد الإلكتروني",
+        
         // Alt Text
         altLogo: "شعار مهلب",
         altProfile1: "مشروع شركة مشهور",
@@ -2487,11 +2350,7 @@
         altCard2: "معرض الرسوم المتحركة",
         altCard3: "أعمال التسويق الرقمي",
         altCard4: "معرض الملفات الرقمية",
-        altQr: "رمز استجابة سريعة للتواصل",
-        altFab: "زر قائمة الاتصال",
-        
-        // Toast
-        toastText: "تم نسخ البريد الإلكتروني!"
+        altFab: "زر قائمة الاتصال"
       }
     };
 
@@ -2683,16 +2542,6 @@
 
     function toggleFab() {
       document.getElementById('fabWrapper').classList.toggle('active');
-    }
-
-    function copyEmail(e) {
-      e.preventDefault();
-      navigator.clipboard.writeText("muhalabsalah@gmail.com").then(() => {
-        const toast = document.getElementById("toast");
-        toast.textContent = translations[currentLang].toastText;
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 3000);
-      });
     }
 
     // --- 4. Accessibility & Keyboard Nav ---
