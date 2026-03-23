@@ -18,30 +18,42 @@
   <meta name="msapplication-navbutton-color" content="#0f172a">
   <meta name="apple-mobile-web-app-status-bar-style" content="#0f172a">
   
-  <!-- Web App Manifest -->
-  <link rel="manifest" href="data:application/manifest+json,{
-    \"name\": \"Muhalab Basheir | Senior Graphic & Motion Designer\",
-    \"short_name\": \"Muhalab Basheir\",
-    \"description\": \"Senior Graphic & Motion Designer with 9+ years experience\",
-    \"icons\": [
-      {
-        \"src\": \"https://i.ibb.co/svtsbH9n/icon-muhalab.png\",
-        \"sizes\": \"192x192\",
-        \"type\": \"image/png\",
-        \"purpose\": \"any maskable\"
-      },
-      {
-        \"src\": \"https://i.ibb.co/svtsbH9n/icon-muhalab.png\",
-        \"sizes\": \"512x512\",
-        \"type\": \"image/png\",
-        \"purpose\": \"any maskable\"
-      }
-    ],
-    \"theme_color\": \"#0f172a\",
-    \"background_color\": \"#ffffff\",
-    \"display\": \"standalone\",
-    \"orientation\": \"portrait\"
-  }">
+  <!-- Web App Manifest (Blob Injection - Fix 6) -->
+  <script>
+    (function() {
+      const manifestData = {
+        "name": "Muhalab Basheir | Senior Graphic & Motion Designer",
+        "short_name": "Muhalab Basheir",
+        "description": "Senior Graphic & Motion Designer with 9+ years experience",
+        "icons": [
+          {
+            "src": "https://i.ibb.co/svtsbH9n/icon-muhalab.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+          },
+          {
+            "src": "https://i.ibb.co/svtsbH9n/icon-muhalab.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+          }
+        ],
+        "theme_color": "#0f172a",
+        "background_color": "#ffffff",
+        "display": "standalone",
+        "orientation": "portrait",
+        "start_url": "."
+      };
+      const stringManifest = JSON.stringify(manifestData);
+      const blob = new Blob([stringManifest], {type: 'application/json'});
+      const manifestURL = URL.createObjectURL(blob);
+      const link = document.createElement('link');
+      link.rel = 'manifest';
+      link.href = manifestURL;
+      document.head.appendChild(link);
+    })();
+  </script>
   
   <!-- PRECRITICAL RESOURCES -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,8 +115,14 @@
     gtag('config', 'G-4DCQ93RDL9');
   </script>
 
-  <!-- Clarity -->
-  <script type="text/javascript"> (function(c,l,a,r,i,t,y){ c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)}; t=l.createElement(r);t.async=1;src="https://www.clarity.ms/tag/"+i; y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y); })(window, document, "clarity", "script", "t71o27k63s"); </script>
+  <!-- Clarity (Fixed - Fix 1) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "t71o27k63s");
+  </script>
 
   <style>
     :root {
@@ -137,13 +155,22 @@
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #fdfdfd;
-      background-image: var(--noise-url), linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-      background-attachment: fixed;
+      /* Background image moved to pseudo-element to fix mobile performance */
       color: var(--text-main);
       line-height: 1.6;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Fixed Background Pseudo-element (Fix 2) */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: -1;
+      background-image: var(--noise-url), linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      pointer-events: none;
     }
 
     /* Arabic Typography */
@@ -279,7 +306,12 @@
     }
     .btn-secondary-executive:hover { background: #fff; color: var(--primary-dark); border-color: var(--primary-dark); }
 
-    section { padding: 100px 0; position: relative; }
+    /* Fixed Anchor Offset (Fix 5) */
+    section { 
+      padding: 100px 0; 
+      position: relative; 
+      scroll-margin-top: 80px; 
+    }
 
     /* --- Navigation --- */
     nav {
@@ -395,6 +427,7 @@
     /* --- Hero Section --- */
     .hero {
       min-height: 100vh; 
+      min-height: 100dvh; /* Mobile Viewport Fix (Fix 4) */
       display: flex; 
       align-items: center; 
       padding-top: var(--nav-height); 
@@ -603,14 +636,15 @@
       border: 1px solid var(--border-color); box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
       transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo);
       height: 100%; display: flex; flex-direction: column; align-items: center; text-align: center;
-      overflow: hidden;
+      overflow: hidden; /* Keeps border radius clean */
     }
     .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08); }
 
     .card-thumbnail {
-      width: calc(100% + 64px); height: 220px; margin: -40px -32px 24px -32px;
+      width: calc(100% + 64px); height: 220px; margin: -40px 0 24px 0; /* Fixed Margins (Fix 3) */
       border-radius: 24px 24px 0 0; overflow: hidden; position: relative;
       background: #f1f5f9;
+      transform: translateX(-32px); /* Visual Bleed Fix (Fix 3) */
     }
     
     .card-thumbnail img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
@@ -1472,6 +1506,7 @@
       .edu-card:hover { transform: none; }
       .contact-card:hover { transform: none !important; }
       .qr-card:hover { transform: none !important; }
+      body::before { position: relative; } /* Disable fixed bg for reduced motion */
     }
   </style>
 </head>
