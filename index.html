@@ -520,11 +520,11 @@
       </a>
 
       <div class="nav-links">
-        <a href="#skills" id="navSkillsLink">Skills</a>
+        <a href="#core-skills" id="navSkillsLink">Skills</a>
+        <a href="#about" id="navAboutLink">About</a>
         <a href="#experience" id="navExpLink">Experience</a>
         <a href="#education" id="navEduLink">Education</a>
         <a href="#projects" id="navProjectsLink">Projects</a>
-        <a href="#about" id="navAboutLink">About</a>
         <a href="#contact" id="navContactLink">Contact</a>
         <button class="lang-toggle" id="langToggle" aria-label="Switch language">
           <span class="lang-text">EN</span>
@@ -547,11 +547,11 @@
       <button class="panel-close" id="closeMenuBtn" onclick="toggleExecutiveMenu()" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <ul class="exec-nav-list">
-      <li><a href="#skills" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navSkills">Core Skills</span> <i class="fa-solid fa-arrow-right"></i></a></li>
+      <li><a href="#core-skills" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navSkills">Core Skills</span> <i class="fa-solid fa-arrow-right"></i></a></li>
+      <li><a href="#about" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navAbout">Philosophy</span> <i class="fa-solid fa-arrow-right"></i></a></li>
       <li><a href="#experience" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navExperience">Experience</span> <i class="fa-solid fa-arrow-right"></i></a></li>
       <li><a href="#education" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navEducation">Education</span> <i class="fa-solid fa-arrow-right"></i></a></li>
       <li><a href="#projects" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navProjects">Selected Projects</span> <i class="fa-solid fa-arrow-right"></i></a></li>
-      <li><a href="#about" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navAbout">Philosophy</span> <i class="fa-solid fa-arrow-right"></i></a></li>
       <li><a href="#contact" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navContact">Contact</span> <i class="fa-solid fa-arrow-right"></i></a></li>
       <li><a href="#" class="exec-nav-link" onclick="toggleLanguage(); toggleExecutiveMenu();">
         <span id="navLanguage">Switch to Arabic</span>
@@ -750,7 +750,8 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills">
+
+    <section id="core-skills">
       <div class="container">
         <div class="fade-in-up" style="text-align: center; margin-bottom: 48px;">
           <h2 id="skillsTitle">Core Skills</h2>
@@ -818,27 +819,22 @@
       </div>
     </section>
 
-    <!-- Technical Proficiency -->
-    <section id="tools" class="tools-section fade-in-up">
+    <section id="about">
       <div class="container">
-        <div style="text-align: center;">
-          <h2 id="toolsTitle">Technical Proficiency</h2>
-        </div>
-        <div class="tools-grid">
-          <div class="tool-card"><i class="fa-solid fa-image"></i><span id="tool1">Adobe Photoshop</span></div>
-          <div class="tool-card"><i class="fa-solid fa-pen-nib"></i><span id="tool2">Adobe Illustrator</span></div>
-          <div class="tool-card"><i class="fa-solid fa-newspaper"></i><span id="tool3">Adobe InDesign</span></div>
-          <div class="tool-card"><i class="fa-solid fa-clapperboard"></i><span id="tool4">Adobe After Effects</span></div>
-          <div class="tool-card"><i class="fa-solid fa-video"></i><span id="tool5">Adobe Premiere Pro</span></div>
-          <div class="tool-card"><i class="fa-solid fa-palette"></i><span id="tool6">Canva</span></div>
-          <div class="tool-card"><i class="fa-solid fa-file-word"></i><span id="tool7">Microsoft Office Suite</span></div>
-          <div class="tool-card"><i class="fa-brands fa-wordpress"></i><span id="tool8">WordPress</span></div>
-          <div class="tool-card"><i class="fa-solid fa-wand-magic-sparkles"></i><span id="tool9">AI-Assisted Workflows</span></div>
+        <div class="fade-in-up" style="max-width: 800px; margin: 0 auto; text-align: center;">
+          <h2 id="aboutTitle">Philosophy & Approach</h2>
+          <p id="aboutDesc1">I specialize in translating complex ideas into engaging visual solutions that strengthen brand identity, support organizational storytelling, and enhance audience engagement — from publications and reports to digital campaigns and branding systems.</p>
+          <p id="aboutDesc2">I've contributed to humanitarian, commercial, and institutional initiatives, strengthening my adaptability, cross-functional collaboration, and problem-solving mindset.</p>
+          <div style="display: flex; gap: 40px; justify-content: center; margin: 32px 0;">
+            <div><h4 style="color: var(--accent-gold); font-size: 2rem; margin: 0;">9+</h4><span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);" id="stat1">Years Exp</span></div>
+            <div><h4 style="color: var(--accent-gold); font-size: 2rem; margin: 0;">2+</h4><span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);" id="stat2">GCC Markets</span></div>
+          </div>
+          <!-- UPDATED LINK: View Full Portfolio -->
+          <a href="https://www.behance.net/MuhalabSalah" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="aboutBtn">View Full Portfolio</a>
         </div>
       </div>
     </section>
 
-    <!-- Experience -->
     <section id="experience">
       <div class="container">
         <div class="fade-in-up" style="text-align: center; margin-bottom: 48px;">
@@ -932,7 +928,6 @@
       </div>
     </section>
 
-    <!-- Education Section -->
     <section id="education" class="education-section">
       <div class="container">
         <div class="fade-in-up" style="text-align: center; margin-bottom: 48px;">
@@ -985,7 +980,6 @@
       </div>
     </section>
 
-    <!-- Selected Projects -->
     <section id="projects" class="projects-section">
       <div class="container">
         <div class="fade-in-up" style="text-align: center; margin-bottom: 48px;">
@@ -1037,24 +1031,25 @@
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about">
+    <section id="tools" class="tools-section fade-in-up">
       <div class="container">
-        <div class="fade-in-up" style="max-width: 800px; margin: 0 auto; text-align: center;">
-          <h2 id="aboutTitle">Philosophy & Approach</h2>
-          <p id="aboutDesc1">I specialize in translating complex ideas into engaging visual solutions that strengthen brand identity, support organizational storytelling, and enhance audience engagement — from publications and reports to digital campaigns and branding systems.</p>
-          <p id="aboutDesc2">I've contributed to humanitarian, commercial, and institutional initiatives, strengthening my adaptability, cross-functional collaboration, and problem-solving mindset.</p>
-          <div style="display: flex; gap: 40px; justify-content: center; margin: 32px 0;">
-            <div><h4 style="color: var(--accent-gold); font-size: 2rem; margin: 0;">9+</h4><span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);" id="stat1">Years Exp</span></div>
-            <div><h4 style="color: var(--accent-gold); font-size: 2rem; margin: 0;">2+</h4><span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);" id="stat2">GCC Markets</span></div>
-          </div>
-          <!-- UPDATED LINK: View Full Portfolio -->
-          <a href="https://www.behance.net/MuhalabSalah" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="aboutBtn">View Full Portfolio</a>
+        <div style="text-align: center;">
+          <h2 id="toolsTitle">Technical Proficiency</h2>
+        </div>
+        <div class="tools-grid">
+          <div class="tool-card"><i class="fa-solid fa-image"></i><span id="tool1">Adobe Photoshop</span></div>
+          <div class="tool-card"><i class="fa-solid fa-pen-nib"></i><span id="tool2">Adobe Illustrator</span></div>
+          <div class="tool-card"><i class="fa-solid fa-newspaper"></i><span id="tool3">Adobe InDesign</span></div>
+          <div class="tool-card"><i class="fa-solid fa-clapperboard"></i><span id="tool4">Adobe After Effects</span></div>
+          <div class="tool-card"><i class="fa-solid fa-video"></i><span id="tool5">Adobe Premiere Pro</span></div>
+          <div class="tool-card"><i class="fa-solid fa-palette"></i><span id="tool6">Canva</span></div>
+          <div class="tool-card"><i class="fa-solid fa-file-word"></i><span id="tool7">Microsoft Office Suite</span></div>
+          <div class="tool-card"><i class="fa-brands fa-wordpress"></i><span id="tool8">WordPress</span></div>
+          <div class="tool-card"><i class="fa-solid fa-wand-magic-sparkles"></i><span id="tool9">AI-Assisted Workflows</span></div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
       <div class="container">
         <div class="fade-in-up" style="text-align: center; margin-bottom: 48px;">
@@ -1095,6 +1090,7 @@
       </div>
     </section>
 
+
   </main>
 
   <!-- Professional Footer Section -->
@@ -1126,11 +1122,11 @@
         <div class="footer-col links">
           <h4 id="footerQuickLinks">Quick Links</h4>
           <ul class="footer-links-list">
-            <li><a href="#skills" id="footerLinkSkills">Skills</a></li>
+            <li><a href="#core-skills" id="footerLinkSkills">Skills</a></li>
+            <li><a href="#about" id="footerLinkAbout">About</a></li>
             <li><a href="#experience" id="footerLinkExperience">Experience</a></li>
             <li><a href="#education" id="footerLinkEducation">Education</a></li>
             <li><a href="#projects" id="footerLinkProjects">Projects</a></li>
-            <li><a href="#about" id="footerLinkAbout">About</a></li>
             <li><a href="#contact" id="footerLinkContact">Contact</a></li>
           </ul>
         </div>
@@ -1177,7 +1173,7 @@
         metaDesc: "Visual Communications Designer with 9+ years of experience in information design, editorial design, and brand communication across commercial, humanitarian, and institutional sectors.",
         
         // Navigation & Header
-        navSkillsLink: "Skills",
+        navSkillsLink: "Core Skills",
         navExpLink: "Experience",
         navEduLink: "Education",
         navProjectsLink: "Projects",
@@ -1347,7 +1343,7 @@
         // Footer
         footerBio: "Visual Communications Designer dedicated to crafting clear, engaging brand and information design solutions.",
         footerQuickLinks: "Quick Links",
-        footerLinkSkills: "Skills",
+        footerLinkSkills: "Core Skills",
         footerLinkExperience: "Experience",
         footerLinkEducation: "Education",
         footerLinkProjects: "Projects",
@@ -1427,7 +1423,7 @@
         metaDesc: "مصمم اتصال بصري بخبرة تزيد عن 9 سنوات في تصميم المعلومات، والتصميم التحريري، والاتصال المؤسسي للعلامة التجارية عبر القطاعات التجارية والإنسانية والمؤسسية.",
         
         // Navigation & Header
-        navSkillsLink: "المهارات",
+        navSkillsLink: "المهارات الأساسية",
         navExpLink: "الخبرة",
         navEduLink: "التعليم",
         navProjectsLink: "المشاريع",
@@ -1597,7 +1593,7 @@
         // Footer
         footerBio: "مصمم اتصال بصري مكرس لتقديم حلول واضحة وجذابة في تصميم المعلومات والهوية التجارية.",
         footerQuickLinks: "روابط سريعة",
-        footerLinkSkills: "المهارات",
+        footerLinkSkills: "المهارات الأساسية",
         footerLinkExperience: "الخبرة",
         footerLinkEducation: "التعليم",
         footerLinkProjects: "المشاريع",
@@ -1723,7 +1719,7 @@
       
       const langToggle = document.getElementById('langToggle');
       const langText = langToggle.querySelector('.lang-text');
-      langText.textContent = lang === 'en' ? 'EN' : 'AR';
+      langText.textContent = lang === 'en' ? 'AR' : 'EN';
       langToggle.setAttribute('aria-label', lang === 'en' ? 'Switch to Arabic' : 'التبديل إلى الإنجليزية');
       
       localStorage.setItem('preferredLang', lang);
@@ -1814,6 +1810,24 @@
     }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 
     document.querySelectorAll('.fade-in-up, .timeline-item').forEach(el => observer.observe(el));
+
+    // --- 2b. Active Nav Highlighting (Scrollspy) ---
+    const navSections = ['core-skills', 'about', 'experience', 'education', 'projects', 'contact']
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    }, { threshold: 0, rootMargin: "-45% 0px -50% 0px" });
+
+    navSections.forEach(section => navObserver.observe(section));
 
     // --- 3. UI Interaction ---
     
