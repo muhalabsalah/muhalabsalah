@@ -25,9 +25,9 @@
   <script>
     (function() {
       const manifestData = {
-        "name": "Muhalab Basheir | Senior Graphic & Motion Designer",
+        "name": "Muhalab Basheir | Visual Communications Designer",
         "short_name": "Muhalab Basheir",
-        "description": "Senior Graphic & Motion Designer with 9+ years experience",
+        "description": "Visual Communications Designer with 9+ years experience in Information, Editorial & Brand Communication Design",
         "icons": [
           {
             "src": "https://i.ibb.co/ZvCZdM5/icon-muhalabb.png",
@@ -66,16 +66,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
   <!-- SEO & ANALYTICS -->
-  <title id="metaTitle">Muhalab Basheir | Senior Graphic & Motion Designer | Branding & FMCG Packaging</title>
-  <meta id="metaDesc" name="description" content="Senior Graphic & Motion Designer with 9+ years of experience in branding, FMCG packaging, motion graphics, and executive presentations. Open to freelance, remote, and full-time opportunities." />
-  <meta name="keywords" content="Muhalab Basheir, Senior Graphic Designer, Motion Designer, Branding Designer, FMCG Packaging, Executive Presentation, GCC Designer">
+  <title id="metaTitle">Muhalab Basheir | Visual Communications Designer | Information & Editorial Design</title>
+  <meta id="metaDesc" name="description" content="Visual Communications Designer with 9+ years of experience in information design, editorial design, and brand communication across commercial, humanitarian, and institutional sectors. Open to freelance, remote, and full-time opportunities." />
+  <meta name="keywords" content="Muhalab Basheir, Visual Communications Designer, Information Design, Editorial Design, Brand Communication, Publication Design, NGO Communications Designer, GCC Designer">
   <meta name="author" content="Muhalab Basheir">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" id="ogTitle" content="Muhalab Basheir | Senior Graphic & Motion Designer">
-  <meta property="og:description" id="ogDesc" content="Branding, FMCG packaging, motion graphics & executive presentations. 9+ years experience.">
+  <meta property="og:title" id="ogTitle" content="Muhalab Basheir | Visual Communications Designer">
+  <meta property="og:description" id="ogDesc" content="Information Design, Editorial Design & Brand Communication. 9+ years experience across commercial, humanitarian, and institutional sectors.">
   <meta property="og:image" content="https://i.ibb.co/ZvCZdM5/icon-muhalabb.png">
   <meta property="og:image:alt" id="ogImgAlt" content="icon muhalabb">
   <meta property="og:url" content="https://muhalabsalah.github.io/muhalabsalah/">
@@ -85,8 +85,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Muhalab Basheir | Senior Graphic & Motion Designer">
-  <meta name="twitter:description" content="Branding, FMCG packaging, motion graphics & executive presentations. 9+ years experience.">
+  <meta name="twitter:title" content="Muhalab Basheir | Visual Communications Designer">
+  <meta name="twitter:description" content="Information Design, Editorial Design & Brand Communication. 9+ years experience across commercial, humanitarian, and institutional sectors.">
   <meta name="twitter:image" content="https://i.ibb.co/ZvCZdM5/icon-muhalabb.png">
   <meta name="twitter:image:alt" content="icon muhalabb">
 
@@ -101,7 +101,7 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Muhalab Basheir",
-    "jobTitle": "Senior Graphic & Motion Designer",
+    "jobTitle": "Visual Communications Designer",
     "url": "https://muhalabsalah.github.io/muhalabsalah/",
     "image": "https://i.ibb.co/ZvCZdM5/icon-muhalabb.png",
     "sameAs": ["https://www.linkedin.com/in/muhalabsalah/", "https://www.youtube.com/@muhalabsalah4362"],
@@ -365,12 +365,6 @@
     .timeline-content ul { margin: 0; padding: 0; list-style: none; }
     .timeline-content li { position: relative; padding-left: 20px; margin-bottom: 8px; color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
     .timeline-content li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; background-color: var(--accent-gold); border-radius: 50%; opacity: 0.6; }
-    .timeline-item.volunteer { margin-top: 50px; padding-top: 40px; border-top: 1px dashed var(--border-color); }
-    .timeline-item.volunteer .timeline-content { background: #fafafa; border: 1px dashed var(--text-muted); box-shadow: none; }
-    .timeline-item.volunteer .timeline-content h3 { color: var(--text-muted); font-weight: 600; }
-    .timeline-item.volunteer .timeline-content p { color: var(--text-muted); opacity: 0.8; }
-    .timeline-item.volunteer .timeline-content li::before { background-color: var(--text-muted); }
-
     /* RTL TIMELINE */
     [dir="rtl"] .timeline { padding-left: 0; padding-right: 30px; }
     [dir="rtl"] .timeline::before { left: auto; right: 0; }
@@ -402,6 +396,16 @@
     .edu-year { display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 8px; letter-spacing: 0.5px; }
     /* RTL Education */
     [dir="rtl"] .edu-card { border-left: 1px solid var(--border-color); border-right: 4px solid var(--accent-gold); }
+
+    /* --- Selected Projects Section --- */
+    .projects-section { background-color: #fff; }
+    .project-card { background: #fff; border-radius: 20px; padding: 36px 32px; border: 1px solid var(--border-color); box-shadow: 0 4px 20px rgba(30, 30, 30, 0.04); transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo); height: 100%; }
+    .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(30, 30, 30, 0.08); }
+    .project-icon { width: 56px; height: 56px; border-radius: 14px; background: rgba(202, 138, 4, 0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .project-icon i { font-size: 1.5rem; color: var(--accent-gold); }
+    .project-card h3 { font-size: 1.15rem; margin-bottom: 10px; color: var(--primary-dark); }
+    .project-card p { color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6; }
+    [dir="rtl"] .project-card { text-align: right; }
 
     /* --- NEW: Contact Section Styles --- */
     .contact-intro { font-size: 1.1rem; line-height: 1.7; }
@@ -519,6 +523,7 @@
         <a href="#skills" id="navSkillsLink">Skills</a>
         <a href="#experience" id="navExpLink">Experience</a>
         <a href="#education" id="navEduLink">Education</a>
+        <a href="#projects" id="navProjectsLink">Projects</a>
         <a href="#about" id="navAboutLink">About</a>
         <a href="#contact" id="navContactLink">Contact</a>
         <button class="lang-toggle" id="langToggle" aria-label="Switch language">
@@ -545,6 +550,7 @@
       <li><a href="#skills" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navSkills">Core Skills</span> <i class="fa-solid fa-arrow-right"></i></a></li>
       <li><a href="#experience" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navExperience">Experience</span> <i class="fa-solid fa-arrow-right"></i></a></li>
       <li><a href="#education" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navEducation">Education</span> <i class="fa-solid fa-arrow-right"></i></a></li>
+      <li><a href="#projects" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navProjects">Selected Projects</span> <i class="fa-solid fa-arrow-right"></i></a></li>
       <li><a href="#about" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navAbout">Philosophy</span> <i class="fa-solid fa-arrow-right"></i></a></li>
       <li><a href="#contact" class="exec-nav-link" onclick="toggleExecutiveMenu()"><span id="navContact">Contact</span> <i class="fa-solid fa-arrow-right"></i></a></li>
       <li><a href="#" class="exec-nav-link" onclick="toggleLanguage(); toggleExecutiveMenu();">
@@ -703,10 +709,10 @@
       <div class="container hero-layout">
         <div class="hero-content-wrapper">
           <h1 class="hero-title hero-anim delay-100">
-            <span id="heroTitleLine1">Visual Storyteller</span><br>
-            <span class="hero-highlight" id="heroTitleLine2">& Motion Designer</span>
+            <span id="heroTitleLine1">Visual Communications</span><br>
+            <span class="hero-highlight" id="heroTitleLine2">Designer</span>
           </h1>
-          <p class="hero-subtitle hero-anim delay-200" id="heroSubtitle">Senior Graphic & Motion Designer with 9+ years of experience. Specializing in Branding, FMCG Packaging, and Executive Presentations.</p>
+          <p class="hero-subtitle hero-anim delay-200" id="heroSubtitle">Visual Communications Designer with 9+ years of experience. Specializing in Information Design, Editorial Design, and Brand Communication.</p>
           <div class="hero-btns hero-anim delay-300">
             
             <!-- UPDATED CTA BUTTON -->
@@ -735,10 +741,10 @@
     <section class="strengths-strip fade-in-up">
       <div class="container">
         <div class="strengths-grid">
-          <div class="strength-item"><i class="fa-solid fa-box-open"></i> <span id="strength1">FMCG Packaging</span></div>
-          <div class="strength-item"><i class="fa-solid fa-film"></i> <span id="strength2">Motion Graphics</span></div>
-          <div class="strength-item"><i class="fa-solid fa-chart-pie"></i> <span id="strength3">Executive Presentations</span></div>
-          <div class="strength-item"><i class="fa-solid fa-globe"></i> <span id="strength4">GCC & Africa Markets</span></div>
+          <div class="strength-item"><i class="fa-solid fa-diagram-project"></i> <span id="strength1">Information Design</span></div>
+          <div class="strength-item"><i class="fa-solid fa-newspaper"></i> <span id="strength2">Editorial Design</span></div>
+          <div class="strength-item"><i class="fa-solid fa-bullhorn"></i> <span id="strength3">Brand Communication</span></div>
+          <div class="strength-item"><i class="fa-solid fa-globe"></i> <span id="strength4">NGO & Institutional Sectors</span></div>
         </div>
       </div>
     </section>
@@ -755,12 +761,12 @@
             <div class="card-thumbnail">
               <img id="imgCard1" src="https://i.ibb.co/svRY7Y0j/Branding-Design.png" alt="Branding work showcase" loading="lazy" width="600" height="330">
             </div>
-            <h3 id="cardTitle1">Branding & Design</h3>
+            <h3 id="cardTitle1">Editorial & Publication Design</h3>
             <ul>
-              <li id="cardSkill1">Graphic Design</li>
-              <li id="cardSkill2">Brand Identity</li>
-              <li id="cardSkill3">Logo Design</li>
-              <li id="cardSkill4">FMCG Packaging</li>
+              <li id="cardSkill1">Publication Design</li>
+              <li id="cardSkill2">Annual Reports</li>
+              <li id="cardSkill3">Typography & Layout</li>
+              <li id="cardSkill4">Brand Identity Systems</li>
             </ul>
             <button class="btn btn-outline" onclick="openBranding()" style="margin-top: auto;" id="cardBtn1">View Projects</button>
           </div>
@@ -770,11 +776,11 @@
             <div class="card-thumbnail">
               <img id="imgCard2" src="https://i.ibb.co/1GXrrB53/Motion-Video.webp" alt="Motion graphics showcase" loading="lazy" width="600" height="330">
             </div>
-            <h3 id="cardTitle2">Motion & Video</h3>
+            <h3 id="cardTitle2">Information Design & Storytelling</h3>
             <ul>
-              <li id="cardSkill5">Motion Graphics</li>
-              <li id="cardSkill6">Video Editing</li>
-              <li id="cardSkill7">Social Media Content</li>
+              <li id="cardSkill5">Infographics & Data Visualization</li>
+              <li id="cardSkill6">Motion Graphics & Video Editing</li>
+              <li id="cardSkill7">Visual Storytelling</li>
             </ul>
             <button class="btn btn-outline" onclick="openMotion()" style="margin-top: auto;" id="cardBtn2">View Projects</button>
           </div>
@@ -784,11 +790,11 @@
             <div class="card-thumbnail">
               <img id="imgCard3" src="https://i.ibb.co/FbdbWdRj/Digital-Marketing.webp" alt="Digital marketing work" loading="lazy" width="600" height="330">
             </div>
-            <h3 id="cardTitle3">Digital & Marketing</h3>
+            <h3 id="cardTitle3">Digital & Brand Communication</h3>
             <ul>
               <li id="cardSkill8">Social Media Design</li>
-              <li id="cardSkill9">Digital Campaigns</li>
-              <li id="cardSkill10">E-commerce Assets</li>
+              <li id="cardSkill9">Digital Campaign Design</li>
+              <li id="cardSkill10">Presentation Design</li>
             </ul>
             
             <!-- UPDATED BEHANCE BUTTON -->
@@ -826,6 +832,8 @@
           <div class="tool-card"><i class="fa-solid fa-video"></i><span id="tool5">Adobe Premiere Pro</span></div>
           <div class="tool-card"><i class="fa-solid fa-palette"></i><span id="tool6">Canva</span></div>
           <div class="tool-card"><i class="fa-solid fa-file-word"></i><span id="tool7">Microsoft Office Suite</span></div>
+          <div class="tool-card"><i class="fa-brands fa-wordpress"></i><span id="tool8">WordPress</span></div>
+          <div class="tool-card"><i class="fa-solid fa-wand-magic-sparkles"></i><span id="tool9">AI-Assisted Workflows</span></div>
         </div>
       </div>
     </section>
@@ -838,11 +846,11 @@
         </div>
         <div class="timeline">
           
-          <!-- NEW ROLE 7: UNV -->
-          <div class="timeline-item current-role">
+          <!-- ROLE 7: UNV -->
+          <div class="timeline-item">
             <div class="timeline-content">
-              <span class="timeline-date" id="roleDate7">Mar 2026 – Present</span>
-              <h3 id="roleTitle7">Support Communication and Social Media Team</h3>
+              <span class="timeline-date" id="roleDate7">Mar 2026 – May 2026</span>
+              <h3 id="roleTitle7">Graphic Design – United Nations Volunteers Programme</h3>
               <p id="roleSubtitle7">United Nations Volunteers (UNV) | Hosted by Al-Sham Humanitarian Foundation</p>
               <ul>
                 <li id="roleDesc7_1"><strong>Visual Design:</strong> Designed high-quality visual and communication materials in both Arabic and English, ensuring cultural relevance and linguistic accuracy for diverse audiences.</li>
@@ -853,15 +861,16 @@
           </div>
 
           <!-- Role 1 -->
-          <div class="timeline-item">
+          <div class="timeline-item current-role">
             <div class="timeline-content">
               <span class="timeline-date" id="roleDate1">Nov 2021 – Present</span>
-              <h3 id="roleTitle1">Freelance Graphic & Motion Designer</h3>
-              <p id="roleSubtitle1">Sudan</p>
+              <h3 id="roleTitle1">Freelance Visual Communications Designer</h3>
+              <p id="roleSubtitle1">Self-employed | Sudan</p>
               <ul>
-                <li id="roleDesc1_1"><strong>Strategic Communication Support:</strong> Provide end-to-end visual and communication solutions for local and international clients, translating complex concepts into high-impact presentation materials, reports, and digital assets.</li>
-                <li id="roleDesc1_2"><strong>Project Management & Client Relations:</strong> Lead full project lifecycle—from initial briefing to final delivery—managing timelines, clarifying strategic requirements, and ensuring deliverables align with client objectives.</li>
-                <li id="roleDesc1_3"><strong>Quality Assurance & Brand Consistency:</strong> Oversee the independent management of documentation and revisions, ensuring rigorous quality control and consistency across all visual and editorial outputs.</li>
+                <li id="roleDesc1_1"><strong>Cross-Sector Design Solutions:</strong> Design visual communication solutions for NGOs, international organizations, businesses, and private clients across print and digital platforms.</li>
+                <li id="roleDesc1_2"><strong>Publications & Campaigns:</strong> Produce publications, annual reports, presentations, editorial layouts, digital campaigns, social media assets, infographics, and branded communication materials.</li>
+                <li id="roleDesc1_3"><strong>Brand Identity & Consistency:</strong> Develop visual identities, communication templates, and reusable design assets that strengthen brand consistency across projects.</li>
+                <li id="roleDesc1_4"><strong>Project Management:</strong> Manage multiple design projects simultaneously from concept development through production while maintaining quality, consistency, and timely delivery.</li>
               </ul>
             </div>
           </div>
@@ -915,20 +924,6 @@
                 <li id="roleDesc5_2"><strong>Humanitarian Coordination:</strong> Collaborated with NGOs and community teams in high-pressure environments to support humanitarian response activities during conflict-related displacement.</li>
                 <li id="roleDesc5_3"><strong>Reporting & Documentation:</strong> Drafted, formatted, and prepared high-level reports and written materials, ensuring clarity, professional presentation, and alignment with donor requirements.</li>
                 <li id="roleDesc5_4"><strong>Cross-Functional Collaboration:</strong> Coordinated with internal teams to harmonize visual and written content with project objectives, maintaining accurate and up-to-date public communication across web platforms and outreach campaigns.</li>
-              </ul>
-            </div>
-          </div>
-          <!-- Role 6 -->
-          <div class="timeline-item volunteer">
-            <div class="timeline-content">
-              <span class="timeline-date" id="roleDate6">Present | Sudan</span>
-              <h3 id="roleTitle6">Volunteer Worker</h3>
-              <p id="roleSubtitle6">NGOs & Civil Society Organizations</p>
-              <ul>
-                <li id="roleDesc6_1"><strong>Data Visualization & Information Management:</strong> Designed comprehensive infographics, visual reports, and analytical summaries for humanitarian and institutional clients, translating complex datasets into clear, actionable insights for diverse stakeholders.</li>
-                <li id="roleDesc6_2"><strong>Emergency Field Operations:</strong> Conducted on-ground needs assessments and registration of displaced families in shelter centers (Port Sudan & Gezira), ensuring data integrity for fair and efficient distribution of food and essential aid.</li>
-                <li id="roleDesc6_3"><strong>Crisis Response & Coordination:</strong> Supported emergency health operations in quarantine and isolation centers during disease outbreaks (Qadarif & Kassala), managing case organization, supply chains, and public awareness campaigns.</li>
-                <li id="roleDesc6_4"><strong>Operational Resilience:</strong> Delivered high-quality communication outputs under tight deadlines in fast-changing conflict zones, demonstrating adaptability and strong organizational skills during wartime displacement and public health emergencies.</li>
               </ul>
             </div>
           </div>
@@ -989,13 +984,49 @@
       </div>
     </section>
 
+    <!-- Selected Projects -->
+    <section id="projects" class="projects-section">
+      <div class="container">
+        <div class="fade-in-up" style="text-align: center; margin-bottom: 48px;">
+          <h2 id="projectsTitle">Selected Projects</h2>
+        </div>
+        <div class="grid-3">
+
+          <div class="project-card fade-in-up">
+            <div class="project-icon"><i class="fa-solid fa-swatchbook"></i></div>
+            <h3 id="projectTitle1">Branding & Visual Identity</h3>
+            <p id="projectDesc1">Designed comprehensive branding systems, packaging, marketing collateral, and visual identity solutions for commercial organizations across Sudan and Oman.</p>
+          </div>
+
+          <div class="project-card fade-in-up">
+            <div class="project-icon"><i class="fa-solid fa-newspaper"></i></div>
+            <h3 id="projectTitle2">Editorial & Publication Design</h3>
+            <p id="projectDesc2">Developed annual reports, organizational publications, presentations, information products, and editorial layouts that communicate complex information through clear visual hierarchy and structured design.</p>
+          </div>
+
+          <div class="project-card fade-in-up">
+            <div class="project-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h3 id="projectTitle3">Information Design & Visual Storytelling</h3>
+            <p id="projectDesc3">Produced infographics, presentations, and data-driven communication products that transform research and technical information into engaging visual narratives.</p>
+          </div>
+
+          <div class="project-card fade-in-up">
+            <div class="project-icon"><i class="fa-solid fa-earth-africa"></i></div>
+            <h3 id="projectTitle4">Talk about Sudan</h3>
+            <p id="projectDesc4">Founded an independent visual storytelling initiative focused on communicating humanitarian issues through editorial design, information visualization, and evidence-based digital storytelling.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- About -->
     <section id="about">
       <div class="container">
         <div class="fade-in-up" style="max-width: 800px; margin: 0 auto; text-align: center;">
           <h2 id="aboutTitle">Philosophy & Approach</h2>
-          <p id="aboutDesc1">I specialize in branding, FMCG packaging, marketing visuals, and motion graphics. My approach blends creativity with strategy, ensuring each design serves a clear purpose.</p>
-          <p id="aboutDesc2">I've contributed to humanitarian initiatives during crises, strengthening my adaptability, empathy, and problem-solving mindset.</p>
+          <p id="aboutDesc1">I specialize in translating complex ideas into engaging visual solutions that strengthen brand identity, support organizational storytelling, and enhance audience engagement — from publications and reports to digital campaigns and branding systems.</p>
+          <p id="aboutDesc2">I've contributed to humanitarian, commercial, and institutional initiatives, strengthening my adaptability, cross-functional collaboration, and problem-solving mindset.</p>
           <div style="display: flex; gap: 40px; justify-content: center; margin: 32px 0;">
             <div><h4 style="color: var(--accent-gold); font-size: 2rem; margin: 0;">9+</h4><span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);" id="stat1">Years Exp</span></div>
             <div><h4 style="color: var(--accent-gold); font-size: 2rem; margin: 0;">2+</h4><span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);" id="stat2">GCC Markets</span></div>
@@ -1059,7 +1090,7 @@
              <img src="https://i.ibb.co/ZvCZdM5/icon-muhalabb.png" alt="icon muhalabb" class="footer-brand-img">
           </a>
           <p class="footer-bio" id="footerBio">
-            Visual Storyteller & Motion Designer dedicated to crafting compelling brand narratives and digital experiences.
+            Visual Communications Designer dedicated to crafting clear, engaging brand and information design solutions.
           </p>
           <div class="footer-socials">
             <a href="https://www.linkedin.com/in/muhalabsalah/" target="_blank" class="footer-social-link" aria-label="LinkedIn" id="footerLinkedIn">
@@ -1081,6 +1112,7 @@
             <li><a href="#skills" id="footerLinkSkills">Skills</a></li>
             <li><a href="#experience" id="footerLinkExperience">Experience</a></li>
             <li><a href="#education" id="footerLinkEducation">Education</a></li>
+            <li><a href="#projects" id="footerLinkProjects">Projects</a></li>
             <li><a href="#about" id="footerLinkAbout">About</a></li>
             <li><a href="#contact" id="footerLinkContact">Contact</a></li>
           </ul>
@@ -1124,13 +1156,14 @@
     const translations = {
       en: {
         // Meta
-        metaTitle: "Muhalab Basheir | Senior Graphic & Motion Designer | Branding & FMCG Packaging",
-        metaDesc: "Senior Graphic & Motion Designer with 9+ years of experience in branding, FMCG packaging, motion graphics, and executive presentations. Open to freelance, remote, and full-time opportunities.",
+        metaTitle: "Muhalab Basheir | Visual Communications Designer | Information & Editorial Design",
+        metaDesc: "Visual Communications Designer with 9+ years of experience in information design, editorial design, and brand communication across commercial, humanitarian, and institutional sectors.",
         
         // Navigation & Header
         navSkillsLink: "Skills",
         navExpLink: "Experience",
         navEduLink: "Education",
+        navProjectsLink: "Projects",
         navAboutLink: "About",
         navContactLink: "Contact",
         menuLabel: "MENU",
@@ -1141,44 +1174,45 @@
         navSkills: "Core Skills",
         navExperience: "Experience",
         navEducation: "Education",
+        navProjects: "Selected Projects",
         navAbout: "Philosophy",
         navContact: "Contact",
         navLanguage: "Switch to Arabic",
         
         // Hero
-        heroTitleLine1: "Visual Storyteller",
-        heroTitleLine2: "& Motion Designer",
-        heroSubtitle: "Senior Graphic & Motion Designer with 9+ years of experience. Specializing in Branding, FMCG Packaging, and Executive Presentations.",
+        heroTitleLine1: "Visual Communications",
+        heroTitleLine2: "Designer",
+        heroSubtitle: "Visual Communications Designer with 9+ years of experience. Specializing in Information Design, Editorial Design, and Brand Communication.",
         // UPDATED CTA TRANSLATION
         heroBtn1: "Visit My Portfolio <i class='fa-brands fa-behance'></i>",
         heroBtn2: "View Experience <i class='fa-solid fa-arrow-right'></i>",
         visualLabel1: "Years Experience",
         
         // Strengths
-        strength1: "FMCG Packaging",
-        strength2: "Motion Graphics",
-        strength3: "Executive Presentations",
-        strength4: "GCC & Africa Markets",
+        strength1: "Information Design",
+        strength2: "Editorial Design",
+        strength3: "Brand Communication",
+        strength4: "NGO & Institutional Sectors",
         
         // Skills
         skillsTitle: "Core Skills",
-        cardTitle1: "Branding & Design",
-        cardSkill1: "Graphic Design",
-        cardSkill2: "Brand Identity",
-        cardSkill3: "Logo Design",
-        cardSkill4: "FMCG Packaging",
+        cardTitle1: "Editorial & Publication Design",
+        cardSkill1: "Publication Design",
+        cardSkill2: "Annual Reports",
+        cardSkill3: "Typography & Layout",
+        cardSkill4: "Brand Identity Systems",
         cardBtn1: "View Projects",
         
-        cardTitle2: "Motion & Video",
-        cardSkill5: "Motion Graphics",
-        cardSkill6: "Video Editing",
-        cardSkill7: "Social Media Content",
+        cardTitle2: "Information Design & Storytelling",
+        cardSkill5: "Infographics & Data Visualization",
+        cardSkill6: "Motion Graphics & Video Editing",
+        cardSkill7: "Visual Storytelling",
         cardBtn2: "View Projects",
         
-        cardTitle3: "Digital & Marketing",
+        cardTitle3: "Digital & Brand Communication",
         cardSkill8: "Social Media Design",
-        cardSkill9: "Digital Campaigns",
-        cardSkill10: "E-commerce Assets",
+        cardSkill9: "Digital Campaign Design",
+        cardSkill10: "Presentation Design",
         // UPDATED BUTTON TEXT FOR JS INJECTION
         cardBtn3: '<span>View on Behance</span> <i class="fa-brands fa-behance" style="font-size: 0.8rem;"></i>',
         
@@ -1195,13 +1229,15 @@
         tool5: "Adobe Premiere Pro",
         tool6: "Canva",
         tool7: "Microsoft Office Suite",
+        tool8: "WordPress",
+        tool9: "AI-Assisted Workflows",
         
         // Experience
         experienceTitle: "Professional Journey",
         
-        // Role 7 (NEW)
-        roleDate7: "Mar 2026 – Present",
-        roleTitle7: "Support Communication and Social Media Team",
+        // Role 7
+        roleDate7: "Mar 2026 – May 2026",
+        roleTitle7: "Graphic Design – United Nations Volunteers Programme",
         roleSubtitle7: "United Nations Volunteers (UNV) | Hosted by Al-Sham Humanitarian Foundation",
         roleDesc7_1: "<strong>Visual Design:</strong> Designed high-quality visual and communication materials in both Arabic and English, ensuring cultural relevance and linguistic accuracy for diverse audiences.",
         roleDesc7_2: "<strong>Brand Consistency:</strong> Enforced strict consistency in layout, branding, and visual identity across all organizational materials to maintain a unified professional image.",
@@ -1209,11 +1245,12 @@
 
         // Role 1
         roleDate1: "Nov 2021 – Present",
-        roleTitle1: "Freelance Graphic & Motion Designer",
-        roleSubtitle1: "Sudan",
-        roleDesc1_1: "<strong>Strategic Communication Support:</strong> Provide end-to-end visual and communication solutions for local and international clients, translating complex concepts into high-impact presentation materials, reports, and digital assets.",
-        roleDesc1_2: "<strong>Project Management & Client Relations:</strong> Lead full project lifecycle—from initial briefing to final delivery—managing timelines, clarifying strategic requirements, and ensuring deliverables align with client objectives.",
-        roleDesc1_3: "<strong>Quality Assurance & Brand Consistency:</strong> Oversee the independent management of documentation and revisions, ensuring rigorous quality control and consistency across all visual and editorial outputs.",
+        roleTitle1: "Freelance Visual Communications Designer",
+        roleSubtitle1: "Self-employed | Sudan",
+        roleDesc1_1: "<strong>Cross-Sector Design Solutions:</strong> Design visual communication solutions for NGOs, international organizations, businesses, and private clients across print and digital platforms.",
+        roleDesc1_2: "<strong>Publications & Campaigns:</strong> Produce publications, annual reports, presentations, editorial layouts, digital campaigns, social media assets, infographics, and branded communication materials.",
+        roleDesc1_3: "<strong>Brand Identity & Consistency:</strong> Develop visual identities, communication templates, and reusable design assets that strengthen brand consistency across projects.",
+        roleDesc1_4: "<strong>Project Management:</strong> Manage multiple design projects simultaneously from concept development through production while maintaining quality, consistency, and timely delivery.",
         
         roleDate2: "Oct 2019 – Oct 2021",
         roleTitle2: "Senior Visual Designer - Branding & Packaging",
@@ -1244,14 +1281,6 @@
         roleDesc5_3: "<strong>Reporting & Documentation:</strong> Drafted, formatted, and prepared high-level reports and written materials, ensuring clarity, professional presentation, and alignment with donor requirements.",
         roleDesc5_4: "<strong>Cross-Functional Collaboration:</strong> Coordinated with internal teams to harmonize visual and written content with project objectives, maintaining accurate and up-to-date public communication across web platforms and outreach campaigns.",
         
-        roleDate6: "Present | Sudan",
-        roleTitle6: "Volunteer Worker",
-        roleSubtitle6: "NGOs & Civil Society Organizations",
-        roleDesc6_1: "<strong>Data Visualization & Information Management:</strong> Designed comprehensive infographics, visual reports, and analytical summaries for humanitarian and institutional clients, translating complex datasets into clear, actionable insights for diverse stakeholders.",
-        roleDesc6_2: "<strong>Emergency Field Operations:</strong> Conducted on-ground needs assessments and registration of displaced families in shelter centers (Port Sudan & Gezira), ensuring data integrity for fair and efficient distribution of food and essential aid.",
-        roleDesc6_3: "<strong>Crisis Response & Coordination:</strong> Supported emergency health operations in quarantine and isolation centers during disease outbreaks (Qadarif & Kassala), managing case organization, supply chains, and public awareness campaigns.",
-        roleDesc6_4: "<strong>Operational Resilience:</strong> Delivered high-quality communication outputs under tight deadlines in fast-changing conflict zones, demonstrating adaptability and strong organizational skills during wartime displacement and public health emergencies.",
-        
         // Education
         educationTitle: "Education",
         
@@ -1275,20 +1304,32 @@
         eduTitle2: "Foundation of Digital Marketing & E-commerce",
         eduSubtitle2: "Coursera",
         
+        // Selected Projects
+        projectsTitle: "Selected Projects",
+        projectTitle1: "Branding & Visual Identity",
+        projectDesc1: "Designed comprehensive branding systems, packaging, marketing collateral, and visual identity solutions for commercial organizations across Sudan and Oman.",
+        projectTitle2: "Editorial & Publication Design",
+        projectDesc2: "Developed annual reports, organizational publications, presentations, information products, and editorial layouts that communicate complex information through clear visual hierarchy and structured design.",
+        projectTitle3: "Information Design & Visual Storytelling",
+        projectDesc3: "Produced infographics, presentations, and data-driven communication products that transform research and technical information into engaging visual narratives.",
+        projectTitle4: "Talk about Sudan",
+        projectDesc4: "Founded an independent visual storytelling initiative focused on communicating humanitarian issues through editorial design, information visualization, and evidence-based digital storytelling.",
+        
         // About
         aboutTitle: "Philosophy & Approach",
-        aboutDesc1: "I specialize in branding, FMCG packaging, marketing visuals, and motion graphics. My approach blends creativity with strategy, ensuring each design serves a clear purpose.",
-        aboutDesc2: "I've contributed to humanitarian initiatives during crises, strengthening my adaptability, empathy, and problem-solving mindset.",
+        aboutDesc1: "I specialize in translating complex ideas into engaging visual solutions that strengthen brand identity, support organizational storytelling, and enhance audience engagement — from publications and reports to digital campaigns and branding systems.",
+        aboutDesc2: "I've contributed to humanitarian, commercial, and institutional initiatives, strengthening my adaptability, cross-functional collaboration, and problem-solving mindset.",
         stat1: "Years Exp",
         stat2: "GCC Markets",
         aboutBtn: "View Full Portfolio",
         
         // Footer
-        footerBio: "Visual Storyteller & Motion Designer dedicated to crafting compelling brand narratives and digital experiences.",
+        footerBio: "Visual Communications Designer dedicated to crafting clear, engaging brand and information design solutions.",
         footerQuickLinks: "Quick Links",
         footerLinkSkills: "Skills",
         footerLinkExperience: "Experience",
         footerLinkEducation: "Education",
+        footerLinkProjects: "Projects",
         footerLinkAbout: "About",
         footerLinkContact: "Contact",
         footerContactHeader: "Contact Info",
@@ -1361,13 +1402,14 @@
       },
       ar: {
         // Meta
-        metaTitle: "مهلب بشير | مصمم جرافيك ورسوم متحركة أول | العلامة التجارية وتغليف السلع الاستهلاكية",
-        metaDesc: "مصمم جرافيك ورسوم متحركة أول بخبرة تزيد عن 9 سنوات في الهوية البصرية، تغليف السلع الاستهلاكية، والرسوم المتحركة. متاح للمشاريع المستقلة والعمل عن بعد.",
+        metaTitle: "مهلب بشير | مصمم اتصال بصري | تصميم المعلومات والتصميم التحريري",
+        metaDesc: "مصمم اتصال بصري بخبرة تزيد عن 9 سنوات في تصميم المعلومات، والتصميم التحريري، والاتصال المؤسسي للعلامة التجارية عبر القطاعات التجارية والإنسانية والمؤسسية.",
         
         // Navigation & Header
         navSkillsLink: "المهارات",
         navExpLink: "الخبرة",
         navEduLink: "التعليم",
+        navProjectsLink: "المشاريع",
         navAboutLink: "عني",
         navContactLink: "تواصل معي",
         menuLabel: "القائمة",
@@ -1378,44 +1420,45 @@
         navSkills: "المهارات الأساسية",
         navExperience: "الخبرة",
         navEducation: "التعليم",
+        navProjects: "مشاريع مختارة",
         navAbout: "الفلسفة",
         navContact: "تواصل معي",
         navLanguage: "التبديل إلى الإنجليزية",
         
         // Hero
-        heroTitleLine1: "راوي قصص بصري",
-        heroTitleLine2: "ومصمم رسوم متحركة",
-        heroSubtitle: "مصمم جرافيك ورسوم متحركة أول بخبرة تزيد عن 9 سنوات. متخصص في الهوية البصرية، تغليف السلع الاستهلاكية، والعروض التنفيذية.",
+        heroTitleLine1: "مصمم",
+        heroTitleLine2: "اتصال بصري",
+        heroSubtitle: "مصمم اتصال بصري بخبرة تزيد عن 9 سنوات. متخصص في تصميم المعلومات، والتصميم التحريري، والاتصال المؤسسي للعلامة التجارية.",
         // UPDATED CTA TRANSLATION
         heroBtn1: "زيارة ملف أعمالي <i class='fa-brands fa-behance'></i>",
         heroBtn2: "عرض الخبرة <i class='fa-solid fa-arrow-left'></i>",
         visualLabel1: "سنوات خبرة",
         
         // Strengths
-        strength1: "تصميم تغليف السلع الاستهلاكية",
-        strength2: "الرسوم المتحركة",
-        strength3: "العروض التقديمية التنفيذية",
-        strength4: "أسواق الخليج وأفريقيا",
+        strength1: "تصميم المعلومات",
+        strength2: "التصميم التحريري",
+        strength3: "الاتصال المؤسسي للعلامة التجارية",
+        strength4: "القطاعات غير الحكومية والمؤسسية",
         
         // Skills
         skillsTitle: "المهارات الأساسية",
-        cardTitle1: "الهوية البصرية والتصميم",
-        cardSkill1: "التصميم الجرافيكي",
-        cardSkill2: "الهوية البصرية",
-        cardSkill3: "تصميم الشعارات",
-        cardSkill4: "تصميم تغليف السلع الاستهلاكية",
+        cardTitle1: "التصميم التحريري ونشر المطبوعات",
+        cardSkill1: "تصميم المطبوعات",
+        cardSkill2: "التقارير السنوية",
+        cardSkill3: "الطباعة والتنسيق (Typography)",
+        cardSkill4: "أنظمة الهوية التجارية",
         cardBtn1: "عرض المشاريع",
         
-        cardTitle2: "الرسوم المتحركة والفيديو",
-        cardSkill5: "الرسوم المتحركة",
-        cardSkill6: "مونتاج الفيديو",
-        cardSkill7: "محتوى وسائل التواصل الاجتماعي",
+        cardTitle2: "تصميم المعلومات والسرد البصري",
+        cardSkill5: "إنفوجرافيك وتصور البيانات",
+        cardSkill6: "الرسوم المتحركة ومونتاج الفيديو",
+        cardSkill7: "السرد البصري",
         cardBtn2: "عرض المشاريع",
         
-        cardTitle3: "التسويق الرقمي",
+        cardTitle3: "الاتصال الرقمي وهوية العلامة",
         cardSkill8: "تصميم وسائل التواصل الاجتماعي",
-        cardSkill9: "الحملات الرقمية",
-        cardSkill10: "أصول التجارة الإلكترونية",
+        cardSkill9: "تصميم الحملات الرقمية",
+        cardSkill10: "تصميم العروض التقديمية",
         // UPDATED BUTTON TEXT FOR JS INJECTION
         cardBtn3: '<span>عرض على بيهانس</span> <i class="fa-brands fa-behance" style="font-size: 0.8rem;"></i>',
         
@@ -1432,13 +1475,15 @@
         tool5: "أدوبي بريمير برو",
         tool6: "كانفا (Canva)",
         tool7: "مايكروسوفت أوفيس",
+        tool8: "ووردبريس",
+        tool9: "أدوات الذكاء الاصطناعي المساعدة",
         
         // Experience
         experienceTitle: "الرحلة المهنية",
 
-        // Role 7 (NEW)
-        roleDate7: "مارس 2026 – الحاضر",
-        roleTitle7: "دعم فريق الاتصال ووسائل التواصل الاجتماعي",
+        // Role 7
+        roleDate7: "مارس 2026 – مايو 2026",
+        roleTitle7: "التصميم الجرافيكي – برنامج متطوعي الأمم المتحدة",
         roleSubtitle7: "متطوعو الأمم المتحدة (UNV) | المستضيف: مؤسسة الشم الإنسانية",
         roleDesc7_1: "<strong>التصميم البصري:</strong> تصميم مواد بصرية واتصالية عالية الجودة باللغتين العربية والإنجليزية، مع ضمان الملاءمة الثقافية والدقة اللغوية لجمهور متنوع.",
         roleDesc7_2: "<strong>اتساق العلامة التجارية:</strong> فرض اتساق صارم في التخطيط، والعلامة التجارية، والهوية البصرية عبر جميع المواد التنظيمية للحفاظ على صورة مهنية موحدة.",
@@ -1446,11 +1491,12 @@
 
         // Role 1
         roleDate1: "نوفمبر 2021 – الحاضر",
-        roleTitle1: "مصمم جرافيك ورسوم متحركة مستقل",
-        roleSubtitle1: "السودان",
-        roleDesc1_1: "<strong>دعم الاتصال الاستراتيجي:</strong> توفير حلول بصرية واتصالية شاملة للعملاء المحليين والدوليين، ترجمة المفاهيم المعقدة إلى مواد عروض تقديمية وتقارير وأصول رقمية عالية التأثير.",
-        roleDesc1_2: "<strong>إدارة المشاريع وعلاقات العملاء:</strong> قيادة دورة حياة المشروع بالكامل—from التوجيه الأولي حتى التسليم النهائي—إدارة الجداول الزمنية، توضيح المتطلبات الاستراتيجية، وضمان توافق المخرجات مع أهداف العميل.",
-        roleDesc1_3: "<strong>ضمان الجودة واتساق العلامة التجارية:</strong> الإشراف على الإدارة المستقلة للتوثيق والمراجعات، مما يضمن مراقبة جودة صارمة واتساق عبر جميع المخرجات البصرية والتحريرية.",
+        roleTitle1: "مصمم اتصال بصري مستقل",
+        roleSubtitle1: "عمل حر | السودان",
+        roleDesc1_1: "<strong>حلول تصميم متعددة القطاعات:</strong> تصميم حلول اتصال بصري للمنظمات غير الحكومية، والمنظمات الدولية، والشركات، والعملاء الخاصين عبر المنصات المطبوعة والرقمية.",
+        roleDesc1_2: "<strong>المطبوعات والحملات:</strong> إنتاج المطبوعات، والتقارير السنوية، والعروض التقديمية، والتخطيطات التحريرية، والحملات الرقمية، وأصول وسائل التواصل الاجتماعي، والرسوم البيانية، والمواد الاتصالية ذات العلامة التجارية.",
+        roleDesc1_3: "<strong>الهوية التجارية والاتساق:</strong> تطوير الهويات البصرية، وقوالب الاتصال، وأصول التصميم القابلة لإعادة الاستخدام التي تعزز اتساق العلامة التجارية عبر المشاريع.",
+        roleDesc1_4: "<strong>إدارة المشاريع:</strong> إدارة مشاريع تصميم متعددة في وقت واحد من تطوير المفهوم وحتى الإنتاج، مع الحفاظ على الجودة والاتساق والتسليم في الوقت المناسب.",
         
         roleDate2: "أكتوبر 2019 – أكتوبر 2021",
         roleTitle2: "مصمم مرئي أول - العلامة التجارية والتغليف",
@@ -1481,14 +1527,6 @@
         roleDesc5_3: "<strong>إعداد التقارير والتوثيق:</strong> صياغة وتنسيق وإعداد تقارير ومواد مكتوبة رفيعة المستوى، مما يضمن الوضوح، والعرض الاحترافي، والتوافق مع متطلبات المانحين.",
         roleDesc5_4: "<strong>التعاون متعدد الوظائف:</strong> التنسيق مع الفرق الداخلية لتنسيق المحتوى البصري والمكتوب مع أهداف المشروع، والحفاظ على اتصال عام دقيق ومحدث عبر المنصات الإلكترونية وحملات التوعية.",
         
-        roleDate6: "الحاضر | السودان",
-        roleTitle6: "عامل متطوع",
-        roleSubtitle6: "المنظمات غير الحكومية ومنظمات المجتمع المدني",
-        roleDesc6_1: "<strong>تصور البيانات وإدارة المعلومات:</strong> تصميم رسوم بيانية شاملة وتقارير بصرية وتحليلية للعملاء الإنسانيين والمؤسسيين، ترجمة مجموعات البيانات المعقدة إلى رؤى واضحة وقابلة للتنفيذ لأصحاب المصلحة المختلفين.",
-        roleDesc6_2: "<strong>عمليات الميدان الطارئة:</strong> إجراء تقييمات للاحتياجات الميدانية وتسجيل العائلات النازحة في مراكز الإيواء (بورتسودان والجزيرة)، مما يضمن سلامة البيانات للتوزيع العادل والكفء للغذاء والمساعدات الأساسية.",
-        roleDesc6_3: "<strong>الاستجابة للأزمات والتنسيق:</strong> دعم العمليات الصحية الطارئة في مراكز الحجر والعزل أثناء فاشيات الأمراض (قضارف وكلاكل)، إدارة تنظيم الحالات وسلاسل التوريد وحملات التوعية العامة.",
-        roleDesc6_4: "<strong>المرونة التشغيلية:</strong> تسليم مخرجات اتصالية عالية الجودة تحت مواعيد نهائية ضيقة في مناطق نزاع سريعة التغير، مما يظهر التكيف ومهارات تنظيمية قوية خلال النزوح في الحرب وحالات الطوارئ الصحية العامة.",
-        
         // Education
         educationTitle: "التعليم",
         
@@ -1512,20 +1550,32 @@
         eduTitle2: "أساسيات التسويق الرقمي والتجارة الإلكترونية",
         eduSubtitle2: "كورسيرا",
         
+        // Selected Projects
+        projectsTitle: "مشاريع مختارة",
+        projectTitle1: "الهوية البصرية والعلامة التجارية",
+        projectDesc1: "تصميم أنظمة هوية تجارية شاملة، وتغليف، ومواد تسويقية، وحلول هوية بصرية لمؤسسات تجارية في السودان وعُمان.",
+        projectTitle2: "التصميم التحريري ونشر المطبوعات",
+        projectDesc2: "تطوير تقارير سنوية، ومطبوعات مؤسسية، وعروض تقديمية، ومنتجات معلوماتية، وتخطيطات تحريرية توصل المعلومات المعقدة من خلال تسلسل هرمي بصري واضح وتصميم منظم.",
+        projectTitle3: "تصميم المعلومات والسرد البصري",
+        projectDesc3: "إنتاج رسوم بيانية، وعروض تقديمية، ومنتجات اتصالية قائمة على البيانات تحوّل الأبحاث والمعلومات التقنية إلى سرديات بصرية جذابة.",
+        projectTitle4: "تحدث عن السودان (Talk about Sudan)",
+        projectDesc4: "تأسيس مبادرة مستقلة للسرد البصري تركز على إيصال القضايا الإنسانية من خلال التصميم التحريري، وتصور المعلومات، والسرد الرقمي القائم على الأدلة.",
+        
         // About
         aboutTitle: "الفلسفة والنهج",
-        aboutDesc1: "أتخصص في الهوية البصرية، تصميم تغليف السلع الاستهلاكية، المرئيات التسويقية، والرسوم المتحركة. يجمع نهجي بين الإبداع والاستراتيجية، مما يضمن أن كل تصميم يخدم غرضًا واضحًا.",
-        aboutDesc2: "ساهمت في المبادرات الإنسانية خلال الأزمات، مما عزز قدرتي على التكيف والتعاطف وعقلية حل المشكلات.",
+        aboutDesc1: "أتخصص في ترجمة الأفكار المعقدة إلى حلول بصرية جذابة تعزز الهوية التجارية، وتدعم السرد المؤسسي، وتحسّن تفاعل الجمهور — من المطبوعات والتقارير إلى الحملات الرقمية وأنظمة العلامة التجارية.",
+        aboutDesc2: "ساهمت في مبادرات إنسانية وتجارية ومؤسسية، مما عزز قدرتي على التكيف، والتعاون بين الفرق، وعقلية حل المشكلات.",
         stat1: "سنوات خبرة",
         stat2: "أسواق الخليج",
         aboutBtn: "عرض الحافظة الكاملة",
         
         // Footer
-        footerBio: "راوي قصص بصري ومصمم رسوم متحركة مكرس لصنع سرديات علامات تجارية مؤثرة وتجارب رقمية.",
+        footerBio: "مصمم اتصال بصري مكرس لتقديم حلول واضحة وجذابة في تصميم المعلومات والهوية التجارية.",
         footerQuickLinks: "روابط سريعة",
         footerLinkSkills: "المهارات",
         footerLinkExperience: "الخبرة",
         footerLinkEducation: "التعليم",
+        footerLinkProjects: "المشاريع",
         footerLinkAbout: "عني",
         footerLinkContact: "تواصل معي",
         footerContactHeader: "معلومات الاتصال",
