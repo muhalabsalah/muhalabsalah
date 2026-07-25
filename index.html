@@ -365,6 +365,21 @@
     .timeline-content ul { margin: 0; padding: 0; list-style: none; }
     .timeline-content li { position: relative; padding-left: 20px; margin-bottom: 8px; color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
     .timeline-content li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; background-color: var(--accent-gold); border-radius: 50%; opacity: 0.6; }
+
+    /* --- TIMELINE ACCORDION (expand/collapse) --- */
+    .timeline-header { all: unset; box-sizing: border-box; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; width: 100%; cursor: pointer; font-family: inherit; }
+    .timeline-header-text { flex: 1; min-width: 0; }
+    .timeline-role-title { display: block; font-size: 1.15rem; margin: 0 0 4px 0; color: var(--primary-dark); font-weight: 600; }
+    .timeline-item.current-role .timeline-role-title { font-weight: 700; }
+    .timeline-role-subtitle { display: block; margin: 0; color: var(--accent-gold); font-size: 0.95rem; font-weight: 500; line-height: 1.4; }
+    .timeline-toggle-icon { flex-shrink: 0; width: 28px; height: 28px; margin-top: 2px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(202, 138, 4, 0.08); color: var(--accent-gold); font-size: 0.7rem; transition: transform 0.3s var(--ease-out-expo), background 0.3s ease; }
+    .timeline-header:hover .timeline-toggle-icon { background: rgba(202, 138, 4, 0.16); }
+    .timeline-header:focus-visible { outline: 2px solid var(--accent-gold); outline-offset: 4px; border-radius: 8px; }
+    .timeline-item.expanded .timeline-toggle-icon { transform: rotate(180deg); }
+    .timeline-details { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s var(--ease-out-expo); }
+    .timeline-details-inner { overflow: hidden; min-height: 0; }
+    .timeline-details-inner ul { padding-top: 16px; }
+    .timeline-item.expanded .timeline-details { grid-template-rows: 1fr; }
     /* RTL TIMELINE */
     [dir="rtl"] .timeline { padding-left: 0; padding-right: 30px; }
     [dir="rtl"] .timeline::before { left: auto; right: 0; }
@@ -451,6 +466,23 @@
     /* --- Internal Views (Modals) --- */
     .internal-view { position: fixed; inset: 0; background: #fdfdfd; z-index: 9000; overflow-y: auto; opacity: 0; visibility: hidden; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s; padding-top: 100px; padding-bottom: 40px; }
     .internal-view.active { opacity: 1; visibility: visible; transform: translateY(0); }
+
+    /* --- STORY MODE (reusable chapter-reveal for selected projects) --- */
+    .story-view .container { max-width: 760px; }
+    .story-project { display: none; }
+    .story-project.active { display: block; }
+    .story-intro { text-align: center; margin-bottom: 56px; }
+    .story-eyebrow { display: inline-block; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--accent-gold); background: rgba(202, 138, 4, 0.08); padding: 4px 14px; border-radius: 4px; font-weight: 700; margin-bottom: 16px; }
+    .story-project-title { font-size: 2rem; margin: 0 0 12px; color: var(--primary-dark); }
+    .story-project-tagline { color: var(--text-muted); font-size: 1.05rem; margin: 0; }
+    .story-chapter { opacity: 0; transform: translateY(40px); transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo); padding: 48px 0; border-bottom: 1px solid var(--border-color); }
+    .story-chapter:last-child { border-bottom: none; padding-bottom: 8px; }
+    .story-chapter.in-view { opacity: 1; transform: translateY(0); }
+    .story-chapter-number { display: inline-block; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--accent-gold); background: rgba(202, 138, 4, 0.08); padding: 4px 12px; border-radius: 4px; font-weight: 700; margin-bottom: 16px; }
+    .story-chapter h3 { font-size: 1.6rem; margin: 0 0 16px; color: var(--primary-dark); }
+    .story-chapter p { color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; margin: 0 0 16px; }
+    .story-chapter p:last-child { margin-bottom: 0; }
+    [dir="rtl"] .story-chapter, [dir="rtl"] .story-intro { text-align: right; }
     .internal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 32px; margin-top: 40px; }
     .profile-card { background: #fff; border: 1px solid var(--border-color); border-radius: 16px; overflow: hidden; transition: 0.3s ease; display: flex; flex-direction: column; height: 100%; }
     .profile-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
@@ -486,6 +518,7 @@
       .hero-btns { flex-direction: column; width: 100%; gap: 16px; } .hero-btns .btn { width: 100%; text-align: center; }
       .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       .tool-card { padding: 16px 8px; } .tool-card i { font-size: 2rem; }
+      .story-project-title { font-size: 1.5rem; } .story-chapter h3 { font-size: 1.3rem; } .story-chapter p { font-size: 1rem; } .story-chapter { padding: 36px 0; }
       .internal-grid { grid-template-columns: 1fr; } .card-thumbnail { height: 180px; } .profile-img-wrapper { height: 200px; }
       [dir="rtl"] .timeline { padding-right: 10px; } [dir="rtl"] .timeline::before { right: 10px; } [dir="rtl"] .timeline-item { padding-right: 24px; } [dir="rtl"] .timeline-item::after { right: 3px; }
       [dir="ltr"] .timeline { padding-left: 10px; } [dir="ltr"] .timeline::before { left: 10px; } [dir="ltr"] .timeline-item { padding-left: 24px; } [dir="ltr"] .timeline-item::after { left: 3px; }
@@ -703,6 +736,58 @@
     </div>
   </div>
 
+  <!-- STORY MODE: reusable chapter-reveal overlay. To add another project, duplicate one
+       .story-project block with a new data-story key, and point a trigger button's
+       data-story-open at that same key. No JS changes required. -->
+  <div id="story-view" class="internal-view story-view" aria-hidden="true">
+    <div class="container">
+      <div style="display: flex; justify-content: flex-end; margin-bottom: 8px;">
+        <button class="btn btn-secondary-executive" onclick="closeStory()"><i class="fa-solid fa-arrow-left"></i> <span id="backStory">Back</span></button>
+      </div>
+
+      <!-- Story: Talk About Sudan -->
+      <article class="story-project" data-story="talkAboutSudan">
+        <div class="story-intro">
+          <span class="story-eyebrow" id="story4Eyebrow">Story Mode</span>
+          <h2 class="story-project-title" id="story4Title">Talk About Sudan</h2>
+          <p class="story-project-tagline" id="story4Tagline">An evidence-based humanitarian editorial series, told in six chapters.</p>
+        </div>
+        <div class="story-chapters">
+          <section class="story-chapter">
+            <span class="story-chapter-number" id="story4Ch1Label">01 · Introduction</span>
+            <h3 id="story4Ch1Title">Introduction</h3>
+            <p id="story4Ch1Body">Talk About Sudan is an independent visual storytelling initiative that translates Sudan's humanitarian and economic crisis into evidence-based editorial reports — combining information design, data visualization, and rigorous source verification.</p>
+          </section>
+          <section class="story-chapter">
+            <span class="story-chapter-number" id="story4Ch2Label">02 · Problem</span>
+            <h3 id="story4Ch2Title">Problem</h3>
+            <p id="story4Ch2Body">Sudan's protracted conflict has driven acute food insecurity, mass displacement, and a collapsing economy — but the story is scattered across dense technical reports that rarely reach a wider public. The challenge was to make verified humanitarian data legible, memorable, and shareable without sacrificing accuracy.</p>
+          </section>
+          <section class="story-chapter">
+            <span class="story-chapter-number" id="story4Ch3Label">03 · Research</span>
+            <h3 id="story4Ch3Title">Research</h3>
+            <p id="story4Ch3Body">Every figure traces back to primary sources only — IPC, WFP, FAO, UNICEF, OCHA, the World Bank, and the IMF. This phase follows the Research stage of the proprietary RISE Framework™, cross-checking each statistic before it enters a layout.</p>
+          </section>
+          <section class="story-chapter">
+            <span class="story-chapter-number" id="story4Ch4Label">04 · Design</span>
+            <h3 id="story4Ch4Title">Design</h3>
+            <p id="story4Ch4Body">A dedicated editorial system built around Poppins and Source Sans Pro for readability, Bebas Neue for hero statistics, and a restrained gold accent for guiding the eye. Chart.js visualizations and SVG choropleth maps translate IPC classification data into clear, comparable visuals.</p>
+          </section>
+          <section class="story-chapter">
+            <span class="story-chapter-number" id="story4Ch5Label">05 · Results</span>
+            <h3 id="story4Ch5Title">Results</h3>
+            <p id="story4Ch5Body">The series now spans multiple reports — including "Priced Out" and "No Place Left" — published on Behance and distributed through LinkedIn and Reddit, reaching design, humanitarian, and general audiences with the same underlying data.</p>
+          </section>
+          <section class="story-chapter">
+            <span class="story-chapter-number" id="story4Ch6Label">06 · Final Reflection</span>
+            <h3 id="story4Ch6Title">Final Reflection</h3>
+            <p id="story4Ch6Body">Talk About Sudan is a long-term commitment: design as a tool for evidence, not decoration. Each report is a small act of translation between data and empathy.</p>
+          </section>
+        </div>
+      </article>
+    </div>
+  </div>
+
   <main>
     <!-- Hero Section -->
     <header class="hero">
@@ -845,83 +930,138 @@
           <!-- Role 1 -->
           <div class="timeline-item current-role">
             <div class="timeline-content">
-              <span class="timeline-date" id="roleDate1">Nov 2021 – Present</span>
-              <h3 id="roleTitle1">Freelance Visual Communications Designer</h3>
-              <p id="roleSubtitle1">Self-employed | Sudan</p>
-              <ul>
-                <li id="roleDesc1_1"><strong>Cross-Sector Design Solutions:</strong> Design visual communication solutions for NGOs, international organizations, businesses, and private clients across print and digital platforms.</li>
-                <li id="roleDesc1_2"><strong>Publications & Campaigns:</strong> Produce publications, annual reports, presentations, editorial layouts, digital campaigns, social media assets, infographics, and branded communication materials.</li>
-                <li id="roleDesc1_3"><strong>Brand Identity & Consistency:</strong> Develop visual identities, communication templates, and reusable design assets that strengthen brand consistency across projects.</li>
-                <li id="roleDesc1_4"><strong>Project Management:</strong> Manage multiple design projects simultaneously from concept development through production while maintaining quality, consistency, and timely delivery.</li>
-              </ul>
+              <button type="button" class="timeline-header" id="roleHeader1" aria-expanded="false" aria-controls="rolePanel1">
+                <span class="timeline-header-text">
+                  <span class="timeline-date" id="roleDate1">Nov 2021 – Present</span>
+                  <span class="timeline-role-title" role="heading" aria-level="3" id="roleTitle1">Freelance Visual Communications Designer</span>
+                  <span class="timeline-role-subtitle" id="roleSubtitle1">Self-employed | Sudan</span>
+                </span>
+                <span class="timeline-toggle-icon" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="timeline-details" id="rolePanel1">
+                <div class="timeline-details-inner">
+                  <ul>
+                    <li id="roleDesc1_1"><strong>Cross-Sector Design Solutions:</strong> Design visual communication solutions for NGOs, international organizations, businesses, and private clients across print and digital platforms.</li>
+                    <li id="roleDesc1_2"><strong>Publications & Campaigns:</strong> Produce publications, annual reports, presentations, editorial layouts, digital campaigns, social media assets, infographics, and branded communication materials.</li>
+                    <li id="roleDesc1_3"><strong>Brand Identity & Consistency:</strong> Develop visual identities, communication templates, and reusable design assets that strengthen brand consistency across projects.</li>
+                    <li id="roleDesc1_4"><strong>Project Management:</strong> Manage multiple design projects simultaneously from concept development through production while maintaining quality, consistency, and timely delivery.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
 
           <!-- ROLE 7: UNV -->
           <div class="timeline-item">
             <div class="timeline-content">
-              <span class="timeline-date" id="roleDate7">Mar 2026 – May 2026</span>
-              <h3 id="roleTitle7">Graphic Design – United Nations Volunteers Programme</h3>
-              <p id="roleSubtitle7">United Nations Volunteers (UNV) | Hosted by Al-Sham Humanitarian Foundation</p>
-              <ul>
-                <li id="roleDesc7_1"><strong>Visual Design:</strong> Designed high-quality visual and communication materials in both Arabic and English, ensuring cultural relevance and linguistic accuracy for diverse audiences.</li>
-                <li id="roleDesc7_2"><strong>Brand Consistency:</strong> Enforced strict consistency in layout, branding, and visual identity across all organizational materials to maintain a unified professional image.</li>
-                <li id="roleDesc7_3"><strong>File Management:</strong> Prepared comprehensive, editable design files to facilitate efficient future updates and seamless team collaboration.</li>
-              </ul>
+              <button type="button" class="timeline-header" id="roleHeader7" aria-expanded="false" aria-controls="rolePanel7">
+                <span class="timeline-header-text">
+                  <span class="timeline-date" id="roleDate7">Mar 2026 – May 2026</span>
+                  <span class="timeline-role-title" role="heading" aria-level="3" id="roleTitle7">Graphic Design – United Nations Volunteers Programme</span>
+                  <span class="timeline-role-subtitle" id="roleSubtitle7">United Nations Volunteers (UNV) | Hosted by Al-Sham Humanitarian Foundation</span>
+                </span>
+                <span class="timeline-toggle-icon" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="timeline-details" id="rolePanel7">
+                <div class="timeline-details-inner">
+                  <ul>
+                    <li id="roleDesc7_1"><strong>Visual Design:</strong> Designed high-quality visual and communication materials in both Arabic and English, ensuring cultural relevance and linguistic accuracy for diverse audiences.</li>
+                    <li id="roleDesc7_2"><strong>Brand Consistency:</strong> Enforced strict consistency in layout, branding, and visual identity across all organizational materials to maintain a unified professional image.</li>
+                    <li id="roleDesc7_3"><strong>File Management:</strong> Prepared comprehensive, editable design files to facilitate efficient future updates and seamless team collaboration.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Role 5 -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <button type="button" class="timeline-header" id="roleHeader5" aria-expanded="false" aria-controls="rolePanel5">
+                <span class="timeline-header-text">
+                  <span class="timeline-date" id="roleDate5">Aug 2022 – June 2023</span>
+                  <span class="timeline-role-title" role="heading" aria-level="3" id="roleTitle5">Communications & Promotional Support</span>
+                  <span class="timeline-role-subtitle" id="roleSubtitle5">Alaietidal Organization | Khartoum, Sudan</span>
+                </span>
+                <span class="timeline-toggle-icon" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="timeline-details" id="rolePanel5">
+                <div class="timeline-details-inner">
+                  <ul>
+                    <li id="roleDesc5_1"><strong>Brand Strategy & Systems:</strong> Developed standardized templates and visual layouts aligned with organizational branding guidelines, ensuring consistency across all reporting and promotional materials.</li>
+                    <li id="roleDesc5_2"><strong>Humanitarian Coordination:</strong> Collaborated with NGOs and community teams in high-pressure environments to support humanitarian response activities during conflict-related displacement.</li>
+                    <li id="roleDesc5_3"><strong>Reporting & Documentation:</strong> Drafted, formatted, and prepared high-level reports and written materials, ensuring clarity, professional presentation, and alignment with donor requirements.</li>
+                    <li id="roleDesc5_4"><strong>Cross-Functional Collaboration:</strong> Coordinated with internal teams to harmonize visual and written content with project objectives, maintaining accurate and up-to-date public communication across web platforms and outreach campaigns.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
 
           <!-- Role 2 -->
           <div class="timeline-item">
             <div class="timeline-content">
-              <span class="timeline-date" id="roleDate2">Oct 2019 – Oct 2021</span>
-              <h3 id="roleTitle2">Senior Visual Designer - Branding & Packaging</h3>
-              <p id="roleSubtitle2">Al Madina Food Industries LLC | Saham, Sultanate of Oman</p>
-              <ul>
-                <li id="roleDesc2_1"><strong>Operational Alignment & Logistics:</strong> Facilitated cross-departmental workflows by coordinating with operations, warehouse, and supply chain managers across GCC region to support inventory control and reporting.</li>
-                <li id="roleDesc2_2"><strong>Administrative & Financial Liaison:</strong> Managed official correspondence with government entities, banks, and suppliers, while overseeing invoice recording, financial tracking, and data entry to ensure operational compliance.</li>
-                <li id="roleDesc2_3"><strong>Inventory Management:</strong> Conducted monthly stock counts and collaborated with warehouse management to reconcile data, supporting accurate reporting and resource allocation.</li>
-                <li id="roleDesc2_4"><strong>Strategic Branding:</strong> Delivered comprehensive branding, packaging, and visual solutions aligned with FMCG marketing requirements and company objectives.</li>
-              </ul>
+              <button type="button" class="timeline-header" id="roleHeader2" aria-expanded="false" aria-controls="rolePanel2">
+                <span class="timeline-header-text">
+                  <span class="timeline-date" id="roleDate2">Oct 2019 – Oct 2021</span>
+                  <span class="timeline-role-title" role="heading" aria-level="3" id="roleTitle2">Senior Visual Designer - Branding & Packaging</span>
+                  <span class="timeline-role-subtitle" id="roleSubtitle2">Al Madina Food Industries LLC | Saham, Sultanate of Oman</span>
+                </span>
+                <span class="timeline-toggle-icon" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="timeline-details" id="rolePanel2">
+                <div class="timeline-details-inner">
+                  <ul>
+                    <li id="roleDesc2_1"><strong>Operational Alignment & Logistics:</strong> Facilitated cross-departmental workflows by coordinating with operations, warehouse, and supply chain managers across GCC region to support inventory control and reporting.</li>
+                    <li id="roleDesc2_2"><strong>Administrative & Financial Liaison:</strong> Managed official correspondence with government entities, banks, and suppliers, while overseeing invoice recording, financial tracking, and data entry to ensure operational compliance.</li>
+                    <li id="roleDesc2_3"><strong>Inventory Management:</strong> Conducted monthly stock counts and collaborated with warehouse management to reconcile data, supporting accurate reporting and resource allocation.</li>
+                    <li id="roleDesc2_4"><strong>Strategic Branding:</strong> Delivered comprehensive branding, packaging, and visual solutions aligned with FMCG marketing requirements and company objectives.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
           <!-- Role 3 -->
           <div class="timeline-item">
             <div class="timeline-content">
-              <span class="timeline-date" id="roleDate3">Oct 2018 – May 2019</span>
-              <h3 id="roleTitle3">Graphic Designer</h3>
-              <p id="roleSubtitle3">YNY SOLUTIONS | Khartoum, Sudan</p>
-              <ul>
-                <li id="roleDesc3_1"><strong>Visual Communication Strategy:</strong> Executed design of communication materials, presentation decks, and visual assets, ensuring brand consistency and alignment with client messaging.</li>
-                <li id="roleDesc3_2"><strong>Collaborative Execution:</strong> Coordinated closely with internal teams under tight timelines to deliver high-quality outputs that met specific project goals and stakeholder requirements.</li>
-              </ul>
+              <button type="button" class="timeline-header" id="roleHeader3" aria-expanded="false" aria-controls="rolePanel3">
+                <span class="timeline-header-text">
+                  <span class="timeline-date" id="roleDate3">Oct 2018 – May 2019</span>
+                  <span class="timeline-role-title" role="heading" aria-level="3" id="roleTitle3">Graphic Designer</span>
+                  <span class="timeline-role-subtitle" id="roleSubtitle3">YNY SOLUTIONS | Khartoum, Sudan</span>
+                </span>
+                <span class="timeline-toggle-icon" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="timeline-details" id="rolePanel3">
+                <div class="timeline-details-inner">
+                  <ul>
+                    <li id="roleDesc3_1"><strong>Visual Communication Strategy:</strong> Executed design of communication materials, presentation decks, and visual assets, ensuring brand consistency and alignment with client messaging.</li>
+                    <li id="roleDesc3_2"><strong>Collaborative Execution:</strong> Coordinated closely with internal teams under tight timelines to deliver high-quality outputs that met specific project goals and stakeholder requirements.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
           <!-- Role 4 -->
           <div class="timeline-item">
             <div class="timeline-content">
-              <span class="timeline-date" id="roleDate4">Nov 2015 – Sept 2018</span>
-              <h3 id="roleTitle4">Creative Designer & Digital Marketing Specialist</h3>
-              <p id="roleSubtitle4">LEOPARD MULTI ACTIVITIES | Khartoum, Sudan</p>
-              <ul>
-                <li id="roleDesc4_1"><strong>Digital Marketing & Campaign Management:</strong> Assisted in planning and executing digital marketing strategies across multiple platforms, supporting business growth and brand visibility.</li>
-                <li id="roleDesc4_2"><strong>Operational Support:</strong> Streamlined business operations by coordinating with management, sales, and marketing teams to ensure alignment between administrative processes and commercial goals.</li>
-                <li id="roleDesc4_3"><strong>Documentation & Presentation:</strong> Edited, formatted, and prepared professional documents using Microsoft Office Suite, producing high-quality PDFs and layout designs for internal and external use.</li>
-              </ul>
-            </div>
-          </div>
-          <!-- Role 5 -->
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <span class="timeline-date" id="roleDate5">Aug 2022 – June 2023</span>
-              <h3 id="roleTitle5">Communications & Promotional Support</h3>
-              <p id="roleSubtitle5">Alaietidal Organization | Khartoum, Sudan</p>
-              <ul>
-                <li id="roleDesc5_1"><strong>Brand Strategy & Systems:</strong> Developed standardized templates and visual layouts aligned with organizational branding guidelines, ensuring consistency across all reporting and promotional materials.</li>
-                <li id="roleDesc5_2"><strong>Humanitarian Coordination:</strong> Collaborated with NGOs and community teams in high-pressure environments to support humanitarian response activities during conflict-related displacement.</li>
-                <li id="roleDesc5_3"><strong>Reporting & Documentation:</strong> Drafted, formatted, and prepared high-level reports and written materials, ensuring clarity, professional presentation, and alignment with donor requirements.</li>
-                <li id="roleDesc5_4"><strong>Cross-Functional Collaboration:</strong> Coordinated with internal teams to harmonize visual and written content with project objectives, maintaining accurate and up-to-date public communication across web platforms and outreach campaigns.</li>
-              </ul>
+              <button type="button" class="timeline-header" id="roleHeader4" aria-expanded="false" aria-controls="rolePanel4">
+                <span class="timeline-header-text">
+                  <span class="timeline-date" id="roleDate4">Nov 2015 – Sept 2018</span>
+                  <span class="timeline-role-title" role="heading" aria-level="3" id="roleTitle4">Creative Designer & Digital Marketing Specialist</span>
+                  <span class="timeline-role-subtitle" id="roleSubtitle4">LEOPARD MULTI ACTIVITIES | Khartoum, Sudan</span>
+                </span>
+                <span class="timeline-toggle-icon" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="timeline-details" id="rolePanel4">
+                <div class="timeline-details-inner">
+                  <ul>
+                    <li id="roleDesc4_1"><strong>Digital Marketing & Campaign Management:</strong> Assisted in planning and executing digital marketing strategies across multiple platforms, supporting business growth and brand visibility.</li>
+                    <li id="roleDesc4_2"><strong>Operational Support:</strong> Streamlined business operations by coordinating with management, sales, and marketing teams to ensure alignment between administrative processes and commercial goals.</li>
+                    <li id="roleDesc4_3"><strong>Documentation & Presentation:</strong> Edited, formatted, and prepared professional documents using Microsoft Office Suite, producing high-quality PDFs and layout designs for internal and external use.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -995,6 +1135,10 @@
               <span>View Project</span>
               <i class="fa-brands fa-behance" style="font-size: 0.8rem;"></i>
             </a>
+            <button type="button" class="btn btn-primary" style="margin-top: 12px; width: 100%;" data-story-open="talkAboutSudan" id="storyBtn4">
+              <span id="storyBtn4Label">Story Mode</span>
+              <i class="fa-solid fa-book-open" style="font-size: 0.8rem;"></i>
+            </button>
           </div>
 
           <div class="project-card fade-in-up">
@@ -1331,6 +1475,31 @@
         projectTitle4: "Talk about Sudan",
         projectDesc4: "Founded an independent visual storytelling initiative focused on communicating humanitarian issues through editorial design, information visualization, and evidence-based digital storytelling.",
         projectBtn4: '<span>View Project</span> <i class="fa-brands fa-behance" style="font-size: 0.8rem;"></i>',
+        storyBtn4Label: "Story Mode",
+
+        // Story Mode: Talk About Sudan
+        backStory: "Back",
+        story4Eyebrow: "Story Mode",
+        story4Title: "Talk About Sudan",
+        story4Tagline: "An evidence-based humanitarian editorial series, told in six chapters.",
+        story4Ch1Label: "01 · Introduction",
+        story4Ch1Title: "Introduction",
+        story4Ch1Body: "Talk About Sudan is an independent visual storytelling initiative that translates Sudan's humanitarian and economic crisis into evidence-based editorial reports — combining information design, data visualization, and rigorous source verification.",
+        story4Ch2Label: "02 · Problem",
+        story4Ch2Title: "Problem",
+        story4Ch2Body: "Sudan's protracted conflict has driven acute food insecurity, mass displacement, and a collapsing economy — but the story is scattered across dense technical reports that rarely reach a wider public. The challenge was to make verified humanitarian data legible, memorable, and shareable without sacrificing accuracy.",
+        story4Ch3Label: "03 · Research",
+        story4Ch3Title: "Research",
+        story4Ch3Body: "Every figure traces back to primary sources only — IPC, WFP, FAO, UNICEF, OCHA, the World Bank, and the IMF. This phase follows the Research stage of the proprietary RISE Framework™, cross-checking each statistic before it enters a layout.",
+        story4Ch4Label: "04 · Design",
+        story4Ch4Title: "Design",
+        story4Ch4Body: "A dedicated editorial system built around Poppins and Source Sans Pro for readability, Bebas Neue for hero statistics, and a restrained gold accent for guiding the eye. Chart.js visualizations and SVG choropleth maps translate IPC classification data into clear, comparable visuals.",
+        story4Ch5Label: "05 · Results",
+        story4Ch5Title: "Results",
+        story4Ch5Body: 'The series now spans multiple reports — including "Priced Out" and "No Place Left" — published on Behance and distributed through LinkedIn and Reddit, reaching design, humanitarian, and general audiences with the same underlying data.',
+        story4Ch6Label: "06 · Final Reflection",
+        story4Ch6Title: "Final Reflection",
+        story4Ch6Body: "Talk About Sudan is a long-term commitment: design as a tool for evidence, not decoration. Each report is a small act of translation between data and empathy.",
         
         // About
         aboutTitle: "Philosophy & Approach",
@@ -1581,6 +1750,31 @@
         projectTitle4: "تحدث عن السودان (Talk about Sudan)",
         projectDesc4: "تأسيس مبادرة مستقلة للسرد البصري تركز على إيصال القضايا الإنسانية من خلال التصميم التحريري، وتصور المعلومات، والسرد الرقمي القائم على الأدلة.",
         projectBtn4: '<span>عرض المشروع</span> <i class="fa-brands fa-behance" style="font-size: 0.8rem;"></i>',
+        storyBtn4Label: "وضع القصة",
+
+        // Story Mode: Talk About Sudan
+        backStory: "رجوع",
+        story4Eyebrow: "وضع القصة",
+        story4Title: "تحدث عن السودان",
+        story4Tagline: "سلسلة تحريرية إنسانية قائمة على الأدلة، مروية عبر ستة فصول.",
+        story4Ch1Label: "01 · مقدمة",
+        story4Ch1Title: "مقدمة",
+        story4Ch1Body: "منصة \"تحدث عن السودان\" هي مبادرة مستقلة للسرد البصري تترجم الأزمة الإنسانية والاقتصادية في السودان إلى تقارير تحريرية موثقة، تجمع بين تصميم المعلومات وتصور البيانات والتحقق الدقيق من المصادر.",
+        story4Ch2Label: "02 · المشكلة",
+        story4Ch2Title: "المشكلة",
+        story4Ch2Body: "أدى النزاع الممتد في السودان إلى انعدام حاد في الأمن الغذائي، ونزوح جماعي، وانهيار اقتصادي، لكن هذه القصة غالباً ما تبقى حبيسة تقارير تقنية كثيفة لا تصل إلى جمهور أوسع. كان التحدي هو تحويل البيانات الإنسانية الموثقة إلى محتوى واضح ولافت وقابل للمشاركة دون التفريط في الدقة.",
+        story4Ch3Label: "03 · البحث",
+        story4Ch3Title: "البحث",
+        story4Ch3Body: "كل رقم يُنسب إلى مصادره الأولية فقط: التصنيف المرحلي المتكامل (IPC)، برنامج الأغذية العالمي، منظمة الأغذية والزراعة، اليونيسف، مكتب تنسيق الشؤون الإنسانية، البنك الدولي، وصندوق النقد الدولي. تتبع هذه المرحلة خطوة البحث ضمن منهجية RISE Framework™ الخاصة، مع مراجعة كل إحصائية قبل إدراجها في التصميم.",
+        story4Ch4Label: "04 · التصميم",
+        story4Ch4Title: "التصميم",
+        story4Ch4Body: "نظام تحريري مخصص مبني على خطي Poppins وSource Sans Pro لسهولة القراءة، وBebas Neue للإحصائيات الرئيسية، مع لون ذهبي هادئ لتوجيه العين. تحوّل الرسوم البيانية بواسطة Chart.js وخرائط SVG الكوروبليث بيانات تصنيف IPC إلى مرئيات واضحة وقابلة للمقارنة.",
+        story4Ch5Label: "05 · النتائج",
+        story4Ch5Title: "النتائج",
+        story4Ch5Body: "امتدت السلسلة لتشمل عدة تقارير من بينها \"Priced Out\" و\"No Place Left\"، نُشرت على Behance ووُزّعت عبر LinkedIn وReddit، لتصل إلى جمهور التصميم والعمل الإنساني والجمهور العام على حد سواء بنفس البيانات الموثقة.",
+        story4Ch6Label: "06 · التأمل الختامي",
+        story4Ch6Title: "التأمل الختامي",
+        story4Ch6Body: "منصة \"تحدث عن السودان\" التزام طويل الأمد: التصميم كأداة للدليل لا للزخرفة. كل تقرير هو خطوة صغيرة في الترجمة بين البيانات والتعاطف الإنساني.",
         
         // About
         aboutTitle: "الفلسفة والنهج",
@@ -1829,6 +2023,34 @@
 
     navSections.forEach(section => navObserver.observe(section));
 
+    // --- 2c. Experience Timeline Accordion (expand/collapse, one open at a time) ---
+    (function initTimelineAccordion() {
+      const timelineItems = document.querySelectorAll('#experience .timeline-item');
+
+      function closeItem(item) {
+        const hdr = item.querySelector('.timeline-header');
+        item.classList.remove('expanded');
+        if (hdr) hdr.setAttribute('aria-expanded', 'false');
+      }
+
+      function openItem(item) {
+        const hdr = item.querySelector('.timeline-header');
+        item.classList.add('expanded');
+        if (hdr) hdr.setAttribute('aria-expanded', 'true');
+      }
+
+      timelineItems.forEach((item) => {
+        const header = item.querySelector('.timeline-header');
+        if (!header) return;
+
+        header.addEventListener('click', () => {
+          const isOpen = item.classList.contains('expanded');
+          timelineItems.forEach((other) => { if (other !== item) closeItem(other); });
+          isOpen ? closeItem(item) : openItem(item);
+        });
+      });
+    })();
+
     // --- 3. UI Interaction ---
     
     function toggleExecutiveMenu() {
@@ -1849,7 +2071,8 @@
     const views = {
       'profiles-view': { open: openProfiles, close: closeProfiles },
       'branding-view': { open: openBranding, close: closeBranding },
-      'motion-view': { open: openMotion, close: closeMotion }
+      'motion-view': { open: openMotion, close: closeMotion },
+      'story-view': { open: openStory, close: closeStory }
     };
 
     function openView(id) {
@@ -1872,6 +2095,35 @@
     function closeBranding() { closeView('branding-view'); }
     function openMotion() { openView('motion-view'); }
     function closeMotion() { closeView('motion-view'); }
+
+    // --- Story Mode (reusable chapter-reveal for selected projects) ---
+    // Shows the matching .story-project block inside the shared #story-view overlay,
+    // then hands its .story-chapter sections to the shared IntersectionObserver below.
+    const storyObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          storyObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+
+    function openStory(key) {
+      const storyView = document.getElementById('story-view');
+      document.querySelectorAll('#story-view .story-project').forEach((project) => {
+        project.classList.toggle('active', project.dataset.story === key);
+      });
+      openView('story-view');
+      storyView.scrollTop = 0;
+      document.querySelectorAll(`#story-view .story-project[data-story="${key}"] .story-chapter`)
+        .forEach((chapter) => storyObserver.observe(chapter));
+    }
+    function closeStory() { closeView('story-view'); }
+
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('[data-story-open]');
+      if (trigger) openStory(trigger.dataset.storyOpen);
+    });
 
     function toggleFab() {
       document.getElementById('fabWrapper').classList.toggle('active');
