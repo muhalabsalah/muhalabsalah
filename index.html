@@ -29,10 +29,10 @@
   <meta name="description" content="Muhalab Basheir — Visual Communications Designer based in Khartoum, Sudan. Specializing in Information Design, Editorial Design, and Brand Communication.">
   <meta name="author" content="Muhalab Basheir">
   <meta name="keywords" content="Muhalab Basheir, Visual Communications Designer, Information Design, Editorial Design, Brand Communication, Graphic Design, Khartoum">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-  <!-- Canonical URL — replace with the deployed origin before publishing -->
-  <link rel="canonical" href="https://muhalabsalah.example.com/">
+  <!-- Canonical URL (deployed origin) -->
+  <link rel="canonical" href="https://muhalabsalah.github.io/muhalabsalah/">
 
   <!-- Open Graph (LinkedIn, Facebook, messaging previews) -->
   <meta property="og:type" content="profile">
@@ -40,10 +40,9 @@
   <meta property="og:title" content="Muhalab Basheir — Visual Communications Designer">
   <meta property="og:description" content="Visual Communications Designer specializing in Information Design, Editorial Design, and Brand Communication.">
   <meta property="og:locale" content="en_US">
-  <meta property="og:url" content="https://muhalabsalah.example.com/">
-  <!-- Social share image — provide a hosted 1200×630 preview at this path before publishing -->
-  <meta property="og:image" content="https://muhalabsalah.example.com/social-preview.png">
-  <meta property="og:image:alt" content="Muhalab Basheir — Visual Communications Designer">
+  <meta property="og:url" content="https://muhalabsalah.github.io/muhalabsalah/">
+  <meta property="og:image" content="https://i.ibb.co/R4CnSSMt/BRANDING.png">
+  <meta property="og:image:alt" content="Muhalab Basheir — Visual Communications Designer portfolio">
   <meta property="profile:first_name" content="Muhalab">
   <meta property="profile:last_name" content="Basheir">
 
@@ -51,8 +50,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Muhalab Basheir — Visual Communications Designer">
   <meta name="twitter:description" content="Visual Communications Designer specializing in Information Design, Editorial Design, and Brand Communication.">
-  <meta name="twitter:image" content="https://muhalabsalah.example.com/social-preview.png">
-  <meta name="twitter:image:alt" content="Muhalab Basheir — Visual Communications Designer">
+  <meta name="twitter:image" content="https://i.ibb.co/R4CnSSMt/BRANDING.png">
+  <meta name="twitter:image:alt" content="Muhalab Basheir — Visual Communications Designer portfolio">
 
   <!-- Favicon — inline SVG monogram (no external asset; single-file rule) -->
   <link rel="icon" type="image/webp" href="https://i.ibb.co/BKTmgGhF/icon12-01.webp">
@@ -62,21 +61,116 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Muhalab Basheir",
-    "jobTitle": "Visual Communications Designer",
-    "email": "mailto:muhalabsalah@gmail.com",
-    "telephone": "+249119005441",
-    "url": "https://muhalabsalah.example.com/",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Khartoum",
-      "addressCountry": "Sudan"
-    },
-    "knowsAbout": ["Information Design", "Editorial Design", "Brand Communication"],
-    "sameAs": [
-      "https://www.linkedin.com/in/muhalabsalah/",
-      "https://www.behance.net/MuhalabSalah"
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": "https://muhalabsalah.github.io/muhalabsalah/#profilepage",
+        "url": "https://muhalabsalah.github.io/muhalabsalah/",
+        "name": "Muhalab Basheir — Visual Communications Designer",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://muhalabsalah.github.io/muhalabsalah/#website" },
+        "about": { "@id": "https://muhalabsalah.github.io/muhalabsalah/#person" },
+        "mainEntity": { "@id": "https://muhalabsalah.github.io/muhalabsalah/#person" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://muhalabsalah.github.io/muhalabsalah/#website",
+        "url": "https://muhalabsalah.github.io/muhalabsalah/",
+        "name": "Muhalab Basheir",
+        "description": "Interactive CV and portfolio of Muhalab Basheir, Visual Communications Designer.",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://muhalabsalah.github.io/muhalabsalah/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://muhalabsalah.github.io/muhalabsalah/#person",
+        "name": "Muhalab Basheir",
+        "givenName": "Muhalab",
+        "familyName": "Basheir",
+        "jobTitle": "Visual Communications Designer",
+        "description": "Visual Communications Designer with over nine years of professional experience creating impactful visual communication products across commercial, humanitarian, and institutional sectors.",
+        "image": "https://i.ibb.co/BKTmgGhF/icon12-01.webp",
+        "url": "https://muhalabsalah.github.io/muhalabsalah/",
+        "email": "mailto:muhalabsalah@gmail.com",
+        "telephone": "+249119005441",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Khartoum",
+          "addressCountry": "Sudan"
+        },
+        "knowsLanguage": [
+          { "@type": "Language", "name": "Arabic" },
+          { "@type": "Language", "name": "English" }
+        ],
+        "knowsAbout": [
+          "Information Design", "Editorial Design", "Brand Communication", "Visual Communication",
+          "Publication Design", "Infographics & Data Visualization", "Brand Identity Systems",
+          "Digital Campaign Design", "Motion Graphics & Video Editing", "Typography & Layout Design"
+        ],
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Visual Communications Designer",
+          "occupationalCategory": "27-1024.00",
+          "skills": "Information Design, Editorial Design, Brand Communication, Visual Storytelling, Motion Graphics, Publication Design"
+        },
+        "worksFor": [
+          { "@type": "Organization", "name": "Self-employed" },
+          { "@type": "Organization", "name": "Al-Sham Humanitarian Foundation" },
+          { "@type": "Organization", "name": "Alaietidal Organization" },
+          { "@type": "Organization", "name": "Al Madina Food Industries LLC" },
+          { "@type": "Organization", "name": "YNY Solutions" },
+          { "@type": "Organization", "name": "Leopard Multi Activities" }
+        ],
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Mashreq University",
+          "address": { "@type": "PostalAddress", "addressCountry": "Sudan" }
+        },
+        "hasCredential": [
+          { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "name": "Advanced Program in NGO Management" },
+          { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "name": "Certified Digital Marketing Professional (CDMP)" },
+          { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "name": "Foundations of Digital Marketing & E-commerce" }
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/muhalabsalah/",
+          "https://www.behance.net/MuhalabSalah"
+        ]
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "Branding & Visual Identity",
+        "creator": { "@id": "https://muhalabsalah.github.io/muhalabsalah/#person" },
+        "about": "Brand Communication",
+        "url": "https://www.behance.net/gallery/119607411/Brands-ID"
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "Editorial & Publication Design",
+        "creator": { "@id": "https://muhalabsalah.github.io/muhalabsalah/#person" },
+        "about": "Editorial Design",
+        "url": "https://www.behance.net/moodboard/226170673/Editorial-Publication-Design"
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "Information Design & Visual Storytelling",
+        "creator": { "@id": "https://muhalabsalah.github.io/muhalabsalah/#person" },
+        "about": "Information Design",
+        "url": "https://www.behance.net/moodboard/170306923/Information-Design-Visual-Storytelling"
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "Talk about Sudan",
+        "creator": { "@id": "https://muhalabsalah.github.io/muhalabsalah/#person" },
+        "about": "Visual Storytelling",
+        "url": "https://www.behance.net/MuhalabSalah"
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "Digital Communication Campaigns",
+        "creator": { "@id": "https://muhalabsalah.github.io/muhalabsalah/#person" },
+        "about": "Digital Communication",
+        "url": "https://www.behance.net/gallery/247543225/Digital-Campaigns-Social-Media-Communication"
+      }
     ]
   }
   </script>
@@ -1475,7 +1569,7 @@
          exported PDF to give a standard, parseable résumé header. Same facts as
          the live page, arranged in résumé order. -->
     <div class="print-only print-resume-head">
-      <h1 class="print-resume-name">Muhalab Basheir</h1>
+      <p class="print-resume-name">Muhalab Basheir</p>
       <p class="print-resume-role">Visual Communications Designer</p>
       <p class="print-resume-contact">Khartoum, Sudan &nbsp;·&nbsp; muhalabsalah@gmail.com &nbsp;·&nbsp; +249 119 005 441 &nbsp;·&nbsp; linkedin.com/in/muhalabsalah &nbsp;·&nbsp; behance.net/MuhalabSalah</p>
     </div>
@@ -2031,12 +2125,12 @@
           <p class="section__lead">Selected work across branding, editorial, information design, visual storytelling, and digital communication.</p>
         </header>
 
-        <ul class="projects-grid stagger">
-          <li class="project-card" data-reveal data-project data-category="brand-communication">
-            <span class="project-card__visual" aria-hidden="true"><img class="project-card__visual-img" src="https://i.ibb.co/R4CnSSMt/BRANDING.png" alt="" loading="lazy" decoding="async"></span>
+        <div class="projects-grid stagger">
+          <article class="project-card" data-reveal data-project data-category="brand-communication" aria-labelledby="case-title-1">
+            <span class="project-card__visual"><img class="project-card__visual-img" src="https://i.ibb.co/R4CnSSMt/BRANDING.png" alt="Branding & Visual Identity — project cover" loading="lazy" decoding="async"></span>
             <div class="project-card__body">
               <span class="project-card__badge">Brand Communication</span>
-              <h3 class="project-card__title">Branding &amp; Visual Identity</h3>
+              <h3 class="project-card__title" id="case-title-1">Branding &amp; Visual Identity</h3>
               <p class="project-card__desc">Designed comprehensive branding systems, packaging, marketing collateral, and visual identity solutions for commercial organizations across Sudan and Oman.</p>
               <a class="project-card__cta" href="https://www.behance.net/gallery/119607411/Brands-ID" target="_blank" rel="noopener noreferrer" data-case-open>
                 <span>View case study</span>
@@ -2044,13 +2138,13 @@
                 <span class="sr-only">(without JavaScript, opens Behance in a new tab)</span>
               </a>
             </div>
-          </li>
+          </article>
 
-          <li class="project-card" data-reveal data-project data-category="editorial-design">
-            <span class="project-card__visual" aria-hidden="true"><img class="project-card__visual-img" src="https://i.ibb.co/4ZMt7t0Q/EDITORIAL.png" alt="" loading="lazy" decoding="async"></span>
+          <article class="project-card" data-reveal data-project data-category="editorial-design" aria-labelledby="case-title-2">
+            <span class="project-card__visual"><img class="project-card__visual-img" src="https://i.ibb.co/4ZMt7t0Q/EDITORIAL.png" alt="Editorial & Publication Design — project cover" loading="lazy" decoding="async"></span>
             <div class="project-card__body">
               <span class="project-card__badge">Editorial Design</span>
-              <h3 class="project-card__title">Editorial &amp; Publication Design</h3>
+              <h3 class="project-card__title" id="case-title-2">Editorial &amp; Publication Design</h3>
               <p class="project-card__desc">Developed annual reports, organizational publications, presentations, information products, and editorial layouts that communicate complex information through clear visual hierarchy and structured design.</p>
               <a class="project-card__cta" href="https://www.behance.net/moodboard/226170673/Editorial-Publication-Design" target="_blank" rel="noopener noreferrer" data-case-open>
                 <span>View case study</span>
@@ -2058,13 +2152,13 @@
                 <span class="sr-only">(without JavaScript, opens Behance in a new tab)</span>
               </a>
             </div>
-          </li>
+          </article>
 
-          <li class="project-card" data-reveal data-project data-category="information-design">
-            <span class="project-card__visual" aria-hidden="true"><img class="project-card__visual-img" src="https://i.ibb.co/sd3JFdZc/INFORMATION.png" alt="" loading="lazy" decoding="async"></span>
+          <article class="project-card" data-reveal data-project data-category="information-design" aria-labelledby="case-title-3">
+            <span class="project-card__visual"><img class="project-card__visual-img" src="https://i.ibb.co/sd3JFdZc/INFORMATION.png" alt="Information Design & Visual Storytelling — project cover" loading="lazy" decoding="async"></span>
             <div class="project-card__body">
               <span class="project-card__badge">Information Design</span>
-              <h3 class="project-card__title">Information Design &amp; Visual Storytelling</h3>
+              <h3 class="project-card__title" id="case-title-3">Information Design &amp; Visual Storytelling</h3>
               <p class="project-card__desc">Produced infographics, presentations, and data-driven communication products that transform research and technical information into engaging visual narratives.</p>
               <a class="project-card__cta" href="https://www.behance.net/moodboard/170306923/Information-Design-Visual-Storytelling" target="_blank" rel="noopener noreferrer" data-case-open>
                 <span>View case study</span>
@@ -2072,13 +2166,13 @@
                 <span class="sr-only">(without JavaScript, opens Behance in a new tab)</span>
               </a>
             </div>
-          </li>
+          </article>
 
-          <li class="project-card" data-reveal data-project data-category="visual-storytelling">
-            <span class="project-card__visual" aria-hidden="true"><img class="project-card__visual-img" src="https://i.ibb.co/fY4JT0vc/TAS-01.png" alt="" loading="lazy" decoding="async"></span>
+          <article class="project-card" data-reveal data-project data-category="visual-storytelling" aria-labelledby="case-title-4">
+            <span class="project-card__visual"><img class="project-card__visual-img" src="https://i.ibb.co/fY4JT0vc/TAS-01.png" alt="Talk about Sudan — project cover" loading="lazy" decoding="async"></span>
             <div class="project-card__body">
               <span class="project-card__badge">Visual Storytelling</span>
-              <h3 class="project-card__title">Talk about Sudan</h3>
+              <h3 class="project-card__title" id="case-title-4">Talk about Sudan</h3>
               <p class="project-card__desc">Founded an independent visual storytelling initiative focused on communicating humanitarian issues through editorial design, information visualization, and evidence-based digital storytelling.</p>
               <a class="project-card__cta" href="https://www.behance.net/MuhalabSalah" target="_blank" rel="noopener noreferrer" data-case-open>
                 <span>View case study</span>
@@ -2086,13 +2180,13 @@
                 <span class="sr-only">(without JavaScript, opens Behance in a new tab)</span>
               </a>
             </div>
-          </li>
+          </article>
 
-          <li class="project-card" data-reveal data-project data-category="digital-communication">
-            <span class="project-card__visual" aria-hidden="true"><img class="project-card__visual-img" src="https://i.ibb.co/B55DH2p3/DIGITAL.png" alt="" loading="lazy" decoding="async"></span>
+          <article class="project-card" data-reveal data-project data-category="digital-communication" aria-labelledby="case-title-5">
+            <span class="project-card__visual"><img class="project-card__visual-img" src="https://i.ibb.co/B55DH2p3/DIGITAL.png" alt="Digital Communication Campaigns — project cover" loading="lazy" decoding="async"></span>
             <div class="project-card__body">
               <span class="project-card__badge">Digital Communication</span>
-              <h3 class="project-card__title">Digital Communication Campaigns</h3>
+              <h3 class="project-card__title" id="case-title-5">Digital Communication Campaigns</h3>
               <p class="project-card__desc">Developed integrated digital campaign systems that unify branding, visual storytelling, and motion design to deliver consistent, engaging marketing communication across every digital platform.</p>
               <a class="project-card__cta" href="https://www.behance.net/gallery/247543225/Digital-Campaigns-Social-Media-Communication" target="_blank" rel="noopener noreferrer" data-case-open>
                 <span>View case study</span>
@@ -2100,8 +2194,8 @@
                 <span class="sr-only">(without JavaScript, opens Behance in a new tab)</span>
               </a>
             </div>
-          </li>
-        </ul>
+          </article>
+        </div>
 
         <!-- Portfolio CTA (uses the portfolio link from the CV) -->
         <div class="portfolio-cta" data-reveal>
